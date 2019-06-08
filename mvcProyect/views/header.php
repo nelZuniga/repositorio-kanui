@@ -23,7 +23,7 @@
 <nav class="navbar navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="#">
-    <img src="imagenes/pg.jpg" alt="logo" style="width:40px;">
+    <img src="views/imagenes/pg.jpg" alt="logo" style="width:40px;">
   </a>
   
   <!-- Links -->
