@@ -3,7 +3,7 @@
  <?php require 'views/header.php';?>
 <div class="container" align="center">
   <h2>BIENVENIDO A KANUI</h2>
-  <p>Sistema integrado de gestión de mascotas de compañía y </p>
+  <p>Sistema Itegrado de Gestión de Mascotas de Compañía y </p>
   <!-- Button to Open the Modal -->
   <button type="button" class="btn2 btn btn-success" data-toggle="modal" data-target="#ModalLogin">
     Iniciar Sesión
