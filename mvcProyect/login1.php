@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<!--NEL PRUEBA-->
 <div class="container" align="center">
   <h2>BIENVENIDO A KANUI</h2>
   <p>Sistema integrado de gestión de mascotas de compañía y </p>
