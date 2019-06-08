@@ -43,7 +43,7 @@
   </ul>
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="login.php">Inicio de Sesión</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Inicio de Sesión</a>
     </li>
   </ul>
 </nav>
