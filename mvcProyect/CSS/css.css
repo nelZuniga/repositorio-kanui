@@ -1,6 +1,23 @@
-body {
-    padding-top: 90px;
-}
-.btn2{
-  width: 150px;
-}
+.btn-verde{ 
+	width: 150px; 
+    color: #ffffff; 
+    background-color: #059485; 
+  } 
+ 
+.btn-gris{ 
+  	width: 150px; 
+    color: #ffffff; 
+    background-color: #808080; 
+  } 
+ 
+.btn-verde-largo{ 
+  	width: 3000px; 
+    color: #ffffff; 
+    background-color: #a7c4c0; 
+  } 
+ 
+.btn-gris-largo{ 
+  	width: 300px; 
+    color: #ffffff; 
+    background-color: #808080; 
+  }  
