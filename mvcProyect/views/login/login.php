@@ -5,10 +5,10 @@
   <h2>BIENVENIDO A KANUI</h2>
   <p>Sistema integrado de gestión de mascotas de compañía</p>
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn2 btn btn-success" data-toggle="modal" data-target="#ModalLogin">
+  <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalLogin">
     Iniciar Sesión
   </button>
-  <button type="button" class="btn2 btn btn-secondary" data-toggle="modal" data-target="#ModalRegistro">
+  <button type="button" class="btn btn-gris" data-toggle="modal" data-target="#ModalRegistro">
     Registrarse
   </button>
 
@@ -33,10 +33,10 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-sm-6 col-sm-offset-3">
-									<input type="submit" name="BotonLogin" id="BotonLogin" tabindex="3" class="form-control btn2 btn-success" value="Iniciar sesión">
+									<input type="submit" name="BotonLogin" id="BotonLogin" tabindex="3" class="form-control btn btn-verde" value="Iniciar sesión">
 								</div>
 								<div class="col-sm-6 col-sm-offset-3">
-									<button type="button" class="btn btn2 btn-secondary" tabindex="4" data-dismiss="modal">Cancelar</button>
+									<button type="button" class="btn btn-gris" tabindex="4" data-dismiss="modal">Cancelar</button>
 								</div>								
 							</div>
 						</div>
@@ -47,7 +47,7 @@
         
         <!-- Pie del Formulario -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalRecupera">Recuperar Contraseña</button>
+          <button type="button" class="btn btn-gris-largo" data-toggle="modal" data-target="#ModalRecupera">Recuperar Contraseña</button>
         </div>
         
       </div>
@@ -111,7 +111,7 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-6 col-sm-offset-3">
-                    <button type="button" class="btn2 btn btn-success" data-toggle="modal" data-target="#ModalRegistroCorrecto">Crear Cuenta</button>                    
+                    <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalRegistroCorrecto">Crear Cuenta</button>                    
                     <!-- <input type="submit" name="register-submit" id="register-submit" tabindex="11" class="form-control btn2 btn-success" value="Crear cuenta"> -->
                   </div>
                 </div>
@@ -121,7 +121,7 @@
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn2 btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-gris" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
