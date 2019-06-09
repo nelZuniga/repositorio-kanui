@@ -23,7 +23,7 @@
 	        <!-- Formulario de inicio de sesión -->
     	    <div class="modal-body">
   				<div class="col-lg-12">
-					<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+					<form id="login-form" action="http://localhost/repositorio-kanui/mvcProyect" method="post" role="form" style="display: block;">
 						<div class="form-group">
 							<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
 						</div>
@@ -33,7 +33,7 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-sm-6 col-sm-offset-3">
-									<input type="submit" name="BotonLogin" id="BotonLogin" tabindex="3" class="form-control btn btn-verde" value="Iniciar sesión">
+									<input type="submit" name="BotonLogin" id="BotonLogin" tabindex="3" class="btn btn-verde" value="Iniciar sesión">
 								</div>
 								<div class="col-sm-6 col-sm-offset-3">
 									<button type="button" class="btn btn-gris" tabindex="4" data-dismiss="modal">Cancelar</button>
@@ -111,7 +111,7 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-6 col-sm-offset-3">
-                    <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalRegistroCorrecto">Crear Cuenta</button>                    
+                    <button type="submit" class="btn btn-verde" data-toggle="modal" data-target="#ModalRegistroCorrecto">Crear Cuenta</button>                    
                     <!-- <input type="submit" name="register-submit" id="register-submit" tabindex="11" class="form-control btn2 btn-success" value="Crear cuenta"> -->
                   </div>
                 </div>
@@ -140,17 +140,17 @@
         <!-- Formulario de recuperar contraseña mediante correo electrónico -->
         <div class="modal-body">
           <div class="col-lg-12">
-            <form id="login-form" action="http://localhost" method="post" role="form" style="display: block;">
+            <form id="login-form" action="http://localhost/repositorio-kanui/mvcProyect" method="post" role="form" style="display: block;">
               <div class="form-group">
                 <input type="email" name="correo" id="correo" tabindex="1" class="form-control" placeholder="Ingrese su dirección de correo" value="">
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-6 col-sm-offset-3">
-                    <input type="submit" name="BotonRecuperar" id="BotonRecuperar" tabindex="1" class="form-control btn2 btn-success" value="Confirmar">
+                    <input type="submit" name="BotonRecuperar" id="BotonRecuperar" tabindex="1" class="btn btn-verde" value="Confirmar">
                   </div>
                   <div class="col-sm-6 col-sm-offset-3">
-                    <button type="button" class="btn btn2 btn-secondary" tabindex="4" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-gris" tabindex="4" data-dismiss="modal">Cancelar</button>
                   </div>                
                 </div>
               </div>
