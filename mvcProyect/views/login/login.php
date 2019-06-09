@@ -77,7 +77,7 @@
                 <input type="text" name="apellido_materno" id="apellido_materno" tabindex="3" class="form-control" placeholder="Apellido Materno" value="">
               </div>              
               <div class="form-group">
-                <select class="form-control" id="tipo_documento" tabindex="4" >
+                <select class="form-control texto-select" id="tipo_documento" tabindex="4" >
                   <option>Seleccione tipo de documento</option>
                   <option>Pasaporte</option>
                   <option>DNI</option>
@@ -91,7 +91,7 @@
                 <input type="text" name="direccion" id="direccion" tabindex="6" class="form-control" placeholder="Ingrese Dirección Particular"<value="">
               </div>
               <div class="form-group">
-                <select class="form-control" id="comuna" tabindex="7" >
+                <select class="form-control texto-select" id="comuna" tabindex="7" >
                   <option>Seleccione Comuna</option>
                   <option>Rancagua</option>
                   <option>Codegua</option>
@@ -173,8 +173,7 @@
         <div class="modal-body">
           <div class="col-lg-12">
             <div class="alert alert-info alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Registro Satisfactorio!</strong> Presione <a href="http://localhost/GitHub/repositorio-kanui/mvcProyect/login1.php" class="alert-link">aquí</a> para continuar.
+              <strong>Registro Satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
             </div>
           </div>
         </div>

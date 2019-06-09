@@ -22,30 +22,35 @@
     background-color: #808080; 
   }  
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #909;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #909;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #909;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #909;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #909;
-}
-
-::placeholder { /* Most modern browsers support this now. */
-   color:    #909;
-}
+.form-control::-webkit-input-placeholder { color: #059485; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #059485; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #059485; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #059485; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #059485; }  /* Microsoft Edge */
+.form-control {color: #059485;}
 
 input::placeholder {
-  color: #059485;
-  font-size: 1.2em;
+  font-size: 0.8em;
   font-style: italic;
+}
+
+.texto-select {
+  color: #059485;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+select, select:focus {
+    color:#059485;
+}
+
+select.placeholder {
+    color:#059485;
+}
+
+option:not(:checked) { 
+    color:#059485
+}
+option:checked { 
+    color:#059485
 }
