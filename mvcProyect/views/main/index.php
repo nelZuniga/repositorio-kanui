@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php require 'views/header.php';?>
+    
   <style>
   /* Make the image fully responsive */
   .carousel-inner img {

@@ -38,6 +38,9 @@
   <li class="nav-item">
       <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Inicio de Sesión</a>
     </li>
+  <li class="nav-item">
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>register">Registrarse</a>
+    </li>    
   </ul>    
   </div>  
 </nav>
