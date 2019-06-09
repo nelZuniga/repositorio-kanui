@@ -17,9 +17,7 @@
     width: 100%;
     height: 100%;
   }
-  .bg-caliso{
-    background-color: #059485;
-  }
+
   </style>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>

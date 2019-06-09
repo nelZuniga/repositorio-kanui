@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-    <link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/main.css">
+  <title>- KANUI -</title>
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/main.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -15,38 +12,36 @@
   <link rel="stylesheet" href="CSS/css.css"> 
 </head>
 <body>
-    
-
-
-<!-- Inicio de Header -->
-
-<nav class="navbar navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
-  <!-- Brand/logo -->
-  <a class="navbar-brand" href="#">
-    <img src="views/imagenes/pg.jpg" alt="logo" style="width:40px;">
+<nav class="navbar fixed-top navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
+    <a class="navbar-brand" href="<?php echo constant('URL') ?>main">
+    <img src="views/imagenes/pg.jpg" alt="Kanui" style="width:40px;">
   </a>
-  
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="<?php echo constant('URL') ?>main" target="_self">Registro de Usuario</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Registro Mascotas</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Registro Sanitario</a>
-    </li>
-   <li class="nav-item">
-      <a class="nav-link" href="#">Mantenedores</a>
-    </li>
-  </ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo constant('URL') ?>main" target="_self">Registro Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Registro Mascotas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Registro Sanitario</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Mantenedores</a>
+      </li>
+    </ul>
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">
       <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Inicio de Sesión</a>
     </li>
-  </ul>
+  </ul>    
+  </div>  
 </nav>
+<br>
 
 </body>
 </html>

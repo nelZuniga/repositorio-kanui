@@ -1,7 +1,8 @@
 
 <!--NEL PRUEBA-->
- <?php require 'views/header.php';?>
-<div class="container" align="center">
+<?php require 'views/header.php';?>
+<br><br>
+<div align="center">
   <h2>BIENVENIDO A KANUI</h2>
   <p>Sistema integrado de gestión de mascotas de compañía</p>
   <!-- Button to Open the Modal -->
@@ -181,6 +182,7 @@
     </div>
   </div>
   <!-- ModalRecupera -->  
-
+<br><br><br><br><br>
+<?php require 'views/footer.php'?>
 </body>
-</html>
+</html>    
