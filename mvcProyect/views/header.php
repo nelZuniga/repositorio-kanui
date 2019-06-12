@@ -22,7 +22,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>main" target="_self">Registro Usuarios</a>
+        <a class="nav-link" href="<?php echo constant('URL') ?>registroUsuario" target="_self">Registro Usuarios</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro Mascotas</a>
