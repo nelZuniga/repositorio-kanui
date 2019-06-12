@@ -25,7 +25,7 @@
         <a class="nav-link" href="<?php echo constant('URL') ?>main" target="_self">Registro Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Registro Mascotas</a>
+        <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro Mascotas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Registro Sanitario</a>
