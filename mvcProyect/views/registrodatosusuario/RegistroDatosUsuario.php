@@ -28,15 +28,8 @@
 <body>
     
 <?php require 'views/header.php';?>
-
-
-
- <body>
+<body>
     
-
-
-  
-
 <div class="container">
 <div class="row" style="margin-top:5%">
 <div class="col-md-12">
@@ -124,15 +117,12 @@
     
         <table>
   <tr>
-    <th><div class="form-group"> <!-- boton cancelar -->
-        <button type="submit" class="btn btn-primary">Cancelar</button>
+    <th><div class="col-md-12" align="center"><button class="btn btn-verde">Cancelar</button></div>
     </div> 
     </th>
     <th></th>
     <th>
-      <div class="form-group"> <!-- boton aceptar -->
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-    </div>  
+    <div class="col-md-12" align="center"><button class="btn btn-verde">Aceptar</button></div> 
     </th>
   </tr>
         </table>
