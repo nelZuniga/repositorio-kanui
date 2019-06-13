@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <div class="col-md-8">
                                 
-                                <a href="http://localhost:8080/repositorio-kanui/mvcProyect" class="btn btn-primary btn-lg" ></a>
+                                <button type="submit" class="btn btn-primary btn-lg">Aceptar</button>
                                 <button type="submit" class="btn btn-danger btn-lg">Cancelar</button>
 
 <script>
