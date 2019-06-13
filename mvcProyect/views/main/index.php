@@ -32,22 +32,22 @@
     <div class="carousel-item active">
       <img src="../mvcProyect/views/imagenes/comida.jpg" alt="Alimento" width="1100" height="500">
       <div class="carousel-caption">
-        <h2>Pedigee</h2>
-        <p>Quiérelo como el a ti </p>
+        <h1 class="text-info">Pedigree</h1>
+        <h5 class="text-info">Quiérelo como el a ti </h5>
       </div>   
     </div>
     <div class="carousel-item">
       <img src="../mvcProyect/views/imagenes/enfermo.jpg" alt="Chicago" width="1100" height="500">
       <div class="carousel-caption">
-        <h2>Veterinaria Patitas</h2>
-        <p>La atención veterinaria que buscabas</p>
+        <h1 class="text-info">Veterinaria Patitas</h1>
+        <h5 class="text-info">La atención veterinaria que buscabas</h5>
       </div>   
     </div>
     <div class="carousel-item">
       <img src="../mvcProyect/views/imagenes/gato.jpg" alt="New York" width="1100" height="500">
       <div class="carousel-caption">
-        <h2>Aregatos</h2>
-        <p>Animate a probarla</p>
+        <h1 class="text-info">Aregatos</h1>
+        <h5 class="text-info">Animate a probarla</h5>
       </div>   
     </div>
   </div>

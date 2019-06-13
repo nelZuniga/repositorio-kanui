@@ -64,25 +64,44 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8">
-                                
-                                <button type="submit" class="btn btn-primary btn-lg">Aceptar</button>
-                                <button type="submit" class="btn btn-danger btn-lg">Cancelar</button>
-
-<script>
-function myFunction() {
-  alert("Registro Sanitario exitoso!");
-}
-</script>
-
-
-                            </div>
+                        <div class="col-md-8">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalCorrecto">Aceptar</button>
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
+                        </div>
                         </div>
                     </table>
                     </fieldset>
                 </form>
             </div>
         </div>
+<div class="modal fade" id="ModalCorrecto">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="col-lg-12">
+            <div class="alert alert-primary alert-dismissible">
+              <strong>Registro  Saniario Satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="ModalCancelar">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="col-lg-12">
+            <div class="alert alert-primary alert-dismissible">
+              <strong>Esta seguro de salir?</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para Salir.
+              <br></br>
+              <strong></strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect/sanitario" class="alert-link">aquí</a> para Volver.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
     </div>
 </div>
   <!-- ModalRecupera -->  
