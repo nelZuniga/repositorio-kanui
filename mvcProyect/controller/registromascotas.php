@@ -8,9 +8,9 @@ class RegistroMascotas extends Controller{
         //echo 'controller main';
     }
 
-    function saludo(){
-
-        //echo "ahora si saludo";
+    function registrar(){
+        echo "Registra mascotas";
+        $this->model->selec();
     }
 
     //OJO AQUI como crear insercion de datos

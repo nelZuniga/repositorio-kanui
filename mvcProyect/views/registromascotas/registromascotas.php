@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" method="post" action="<?php echo constant('URL')?>registromascotas/registrar">
                     <fieldset>
                         <div class="list-group">
                         <table class="table table-bordered" id="myTable">
@@ -89,7 +89,7 @@
 
                         <div class="form-group">
                         <div class="col-md-8">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalCorrecto">Ingresar Mascota</button>
+                        <button type="submit" class="btn btn-primary btn-lg" >Ingresar Mascota</button>
                         <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
                         </div>
                         </div>
