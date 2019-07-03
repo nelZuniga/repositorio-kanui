@@ -27,7 +27,7 @@
 </div>
     <div class="row">
         <div class="col-md-6">
-<form>
+<form method="POST" action="<?php echo constant('URL')?>registroUsuario/nuevoUsuario">
 
     <div class="form-group"> <!-- nombres -->
         <label for="nombres_id" class="control-label">Nombres</label>

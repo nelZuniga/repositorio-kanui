@@ -8,9 +8,9 @@ class registroUsuario extends Controller{
         //echo 'controller main';
     }
 
-    function saludo(){
-
-        //echo "ahora si saludo";
+    function nuevoUsuario(){
+        echo "usuario creado exitosamente";
+        $this->model->insert();
     }
 
     //OJO AQUI como crear insercion de datos
