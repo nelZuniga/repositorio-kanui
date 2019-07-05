@@ -27,7 +27,8 @@ class RegistroUsuarioModel extends Model{
                 $item->descripcion = $row['descripcion'];
                 $item->simbolo = $row['simbolo'];
                 array_push($items, $item);*/
-                echo json_encode($row);
+                $respuesta = array( "id_reg" => $row['id_reg'], "descripcion" => $row['descripcion']);
+                echo json_encode($respuesta);
             }
             
             return $items;

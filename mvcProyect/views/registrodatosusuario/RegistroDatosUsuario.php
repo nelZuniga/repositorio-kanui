@@ -22,17 +22,15 @@
                 $.ajax({
                     url:url,
                     success: function(data){
-                        
                         $("#respuesta").append(data);
-                        
                         //data = JSON.parse(data);
                         data = "["+data+"]";
                         objeto = JSON.stringify(data);
                         dataObject = JSON.parse(objeto);
                         console.log(dataObject)
-                        for (i in dataObject){
-                            console.log(dataObject[i].id_reg);
-                            console.log(i);
+                        for (region in dataObject){
+                            console.log(dataObject[region]);
+                            console.log(region);
                         }
                         $("#region_id").empty();
                         $("#region_id").append("<option value=''>Seleccione Una Region</option>");
