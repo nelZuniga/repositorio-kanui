@@ -4,8 +4,12 @@ class RegistroMascotas extends Controller{
     function __construct()
     {
         parent::__construct();
-        $this->view->render('registromascotas/registromascotas');
+        
         //echo 'controller main';
+    }
+    
+    function render(){
+        $this->view->render('registromascotas/registromascotas');
     }
 
     function registrar(){

@@ -13,6 +13,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+
+    <script>
+        $(document).ready(function(){
+
+            function getRegiones(){
+                var url = "<?php echo constant('URL')?>registroUsuario/getRegion";
+                $.ajax({
+                    url:url,
+                    success: function(data){
+                        
+                        $("#respuesta").append(data);
+                        
+                        //data = JSON.parse(data);
+                        data = "["+data+"]";
+                        objeto = JSON.stringify(data);
+                        dataObject = JSON.parse(objeto);
+                        console.log(dataObject)
+                        for (i in dataObject){
+                            console.log(dataObject[i].id_reg);
+                            console.log(i);
+                        }
+                        $("#region_id").empty();
+                        $("#region_id").append("<option value=''>Seleccione Una Region</option>");
+                        
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });
+            }
+            getRegiones();
+
+
+        });//fin document ready
+    </script>
 </head>
 <body>
     
@@ -67,28 +102,13 @@
     </div>                                    
                             
     <div class="form-group"> <!-- combo region -->
-        <label for="region_id" class="control-label">Region</label>
-        <select class="form-control" id="region_id">
-            <option value="AP">Arica y Parinacota</option>
-            <option value="TA">Tarapacá</option>
-            <option value="AN">Antofagasta</option>
-            <option value="AT">Atacama</option>
-            <option value="CO">Coquimbo</option>
-            <option value="VA">Valparaiso</option>
-            <option value="RM">Metropolitana de Santiago</option>
-            <option value="BO">Libertador General Bernardo O\'Higgins</option>
-            <option value="MA">Maule</option>
-            <option value="BI">Biobío</option>
-            <option value="AR">La Araucanía</option>
-            <option value="RI">Los Ríos</option>
-            <option value="LA">Los Lagos</option>
-            <option value="AI">Aisén del General Carlos Ibáñez del Campo</option>
-            <option value="MA">Magallanes y de la Antártica Chilena</option>
+        <label for="region_id" class="control-label" id="region" name="region">Region</label>
+        <select class="form-control" id="region_id" name="region_id">
         </select>                    
     </div>
     
     <div class="form-group"> <!-- combo comuna -->
-        <label for="comuna_id" class="control-label">Comuna</label>
+        <label for="comuna_id" class="control-label" id="Comuna" name="comuna">Comuna</label>
         <select class="form-control" id="comuna_id">
             <option value="RA">Rancagua</option>
             <option value="CG">Codegua</option>
@@ -127,7 +147,7 @@
 
 </div>
 
-
+<div id="respuesta"></div>
 <div class="container">
     <div class="row">
         <div class="col-md-6">

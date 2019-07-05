@@ -7,6 +7,6 @@ define('HOST','zerodev.cl');
 define('DB','cze45021_kanui');
 define('USER','cze45021');
 define('PASSWORD','ULZ@tCO3tTc(MwI');
-define('CHARSET','utf-8');
-
+define('CHARSET','utf8mb4');
+define('PORT','2082');
 ?>

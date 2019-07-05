@@ -4,14 +4,35 @@ class registroUsuario extends Controller{
     function __construct()
     {
         parent::__construct();
-        $this->view->render('registrodatosusuario/RegistroDatosUsuario');
+        
         //echo 'controller main';
+    }
+
+    public function render(){
+        $this->view->render('registrodatosusuario/RegistroDatosUsuario');
     }
 
     function nuevoUsuario(){
         echo "usuario creado exitosamente";
+        $nombre;
+        $apellidoP;
+        $apellidoM;
+        $rut;
+        $telefono;
+        $direccion;
+        $ciudad;
+        $region;
+        $comuna;
         $this->model->insert();
+        $this->render();
     }
+
+    function getRegion(){
+        $respuesta = $this->model->getregion();
+        return $respuesta;
+    }
+
+    
 
     //OJO AQUI como crear insercion de datos
 

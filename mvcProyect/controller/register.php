@@ -4,8 +4,11 @@ class Register extends Controller{
     function __construct()
     {
         parent::__construct();
-        $this->view->render('register/register');
         //echo 'controller main';
+    }
+    
+    function render(){
+        $this->view->render('register/register');
     }
 
     function saludo(){

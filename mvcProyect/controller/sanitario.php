@@ -4,8 +4,12 @@ class Sanitario extends Controller{
     function __construct()
     {
         parent::__construct();
-        $this->view->render('sanitario/sanitario');
+        
         //echo 'controller main';
+    }
+
+    function render(){
+        $this->view->render('sanitario/sanitario');
     }
 
     function saludo(){
