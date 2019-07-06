@@ -22,19 +22,10 @@
                 $.ajax({
                     url:url,
                     success: function(data){
-                        $("#respuesta").append(data);
-                        //data = JSON.parse(data);
-                        data = "["+data+"]";
-                        objeto = JSON.stringify(data);
-                        dataObject = JSON.parse(objeto);
-                        console.log(dataObject)
-                        for (region in dataObject){
-                            console.log(dataObject[region]);
-                            console.log(region);
-                        }
+                        console.log(data);
                         $("#region_id").empty();
                         $("#region_id").append("<option value=''>Seleccione Una Region</option>");
-                        
+                        $("#region_id").append(data);
                     },
                     error: function(){
                         alert("error");
@@ -43,8 +34,26 @@
             }
             getRegiones();
 
-
+            function getComuna(){
+                console.log("asdadsd");
+                var url = "<?php echo constant('URL')?>registroUsuario/getComuna";
+                var reg = $("#region_id").val();
+                /*$.ajax({
+                    url:url,
+                    data: reg,
+                    success: function(data){
+                        console.log(data);
+                        $("#region_id").empty();
+                        $("#region_id").append("<option value=''>Seleccione Una Region</option>");
+                        $("#region_id").append(data);
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });*/
+            }
         });//fin document ready
+
     </script>
 </head>
 <body>
@@ -101,22 +110,14 @@
                             
     <div class="form-group"> <!-- combo region -->
         <label for="region_id" class="control-label" id="region" name="region">Region</label>
-        <select class="form-control" id="region_id" name="region_id">
+
+        <select class="form-control" id="region_id" name="region_id" onchange="getComuna()">
         </select>                    
     </div>
     
     <div class="form-group"> <!-- combo comuna -->
         <label for="comuna_id" class="control-label" id="Comuna" name="comuna">Comuna</label>
-        <select class="form-control" id="comuna_id">
-            <option value="RA">Rancagua</option>
-            <option value="CG">Codegua</option>
-            <option value="CI">Coinco</option>
-            <option value="GR">Graneros</option>
-            <option value="SA">Santiago</option>
-            <option value="PR">Providencia</option>
-            <option value="LF">La Florida</option>
-            <option value="MH">Machali</option>
-            <option value="MU">Maule</option>
+        <select class="form-control" id="comuna_id" name="comuna_id">
         </select>                    
     </div>
 

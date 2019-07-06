@@ -32,6 +32,12 @@ class registroUsuario extends Controller{
         return $respuesta;
     }
 
+    function getComuna(){
+        $reg = $_POST[''];
+        $respuesta = $this->model->getcomuna();
+        return $respuesta;
+    }
+
     
 
     //OJO AQUI como crear insercion de datos
