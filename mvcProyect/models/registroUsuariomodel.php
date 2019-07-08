@@ -32,7 +32,8 @@ class RegistroUsuarioModel extends Model{
     }
 
     public function getcomuna($idreg){
-        $sql = 'SELECT * from region where id_reg_region = '.$idreg;
+        $sql = 'SELECT * from comuna where id_reg_region = '.$idreg;
+        //echo $sql;
         $conn = $this->db->connect();
         try{
             $resp = '';

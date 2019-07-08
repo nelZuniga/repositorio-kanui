@@ -16,13 +16,12 @@
 
     <script>
         $(document).ready(function(){
-
             function getRegiones(){
                 var url = "<?php echo constant('URL')?>registroUsuario/getRegion";
                 $.ajax({
                     url:url,
                     success: function(data){
-                        console.log(data);
+                        //console.log(data);
                         $("#region_id").empty();
                         $("#region_id").append("<option value=''>Seleccione Una Region</option>");
                         $("#region_id").append(data);
@@ -33,27 +32,31 @@
                 });
             }
             getRegiones();
+        });//fin document ready
 
-            function getComuna(){
+
+        function getComuna(){
                 console.log("asdadsd");
                 var url = "<?php echo constant('URL')?>registroUsuario/getComuna";
                 var reg = $("#region_id").val();
-                /*$.ajax({
+                var parametrosajax = {
+                    region : reg
+                }
+                $.ajax({
                     url:url,
-                    data: reg,
+                    data: parametrosajax,
+                    type: 'post',
                     success: function(data){
-                        console.log(data);
-                        $("#region_id").empty();
-                        $("#region_id").append("<option value=''>Seleccione Una Region</option>");
-                        $("#region_id").append(data);
+                        //$("#comuna_id").append(data);
+                        $("#comuna_id").empty();
+                        $("#comuna_id").append("<option value=''>Seleccione Una Comuna</option>");
+                        $("#comuna_id").append(data);
                     },
                     error: function(){
                         alert("error");
                     }
-                });*/
+                });
             }
-        });//fin document ready
-
     </script>
 </head>
 <body>
@@ -111,7 +114,7 @@
     <div class="form-group"> <!-- combo region -->
         <label for="region_id" class="control-label" id="region" name="region">Region</label>
 
-        <select class="form-control" id="region_id" name="region_id" onchange="getComuna()">
+        <select class="form-control" id="region_id" name="region_id" onchange='getComuna()'>
         </select>                    
     </div>
     

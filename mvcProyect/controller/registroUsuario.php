@@ -33,8 +33,9 @@ class registroUsuario extends Controller{
     }
 
     function getComuna(){
-        $reg = $_POST[''];
-        $respuesta = $this->model->getcomuna();
+        $reg = $_POST['region'];
+        //echo $reg;
+        $respuesta = $this->model->getcomuna($reg);
         return $respuesta;
     }
 
