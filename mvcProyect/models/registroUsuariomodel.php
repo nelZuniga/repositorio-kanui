@@ -8,9 +8,21 @@ class RegistroUsuarioModel extends Model{
     }
 
 
-    public function insert(){
+    public function insert($data){
         //insertar data
-        echo "insertodata";
+        $conn = $this->db->connect();
+        $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel)
+                    values(?,?,?,?,?,?,?)");
+                    $ss = 'ssssiis';
+                    $estado = 1;
+        $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono']);
+
+        $retorno = false;
+        if($query->execute()){
+            $retorno = true;
+        };
+        return $retorno;
+        
         
     }
     public function getregion(){

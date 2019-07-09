@@ -36,7 +36,7 @@
 
 
         function getComuna(){
-                console.log("asdadsd");
+                //console.log("asdadsd");
                 var url = "<?php echo constant('URL')?>registroUsuario/getComuna";
                 var reg = $("#region_id").val();
                 var parametrosajax = {
@@ -121,6 +121,7 @@
     <div class="form-group"> <!-- combo comuna -->
         <label for="comuna_id" class="control-label" id="Comuna" name="comuna">Comuna</label>
         <select class="form-control" id="comuna_id" name="comuna_id">
+        <option value=''>Seleccione Una Comuna</option>
         </select>                    
     </div>
 

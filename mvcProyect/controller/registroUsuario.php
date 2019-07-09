@@ -4,27 +4,35 @@ class registroUsuario extends Controller{
     function __construct()
     {
         parent::__construct();
-        
         //echo 'controller main';
     }
-
+    
     public function render(){
         $this->view->render('registrodatosusuario/RegistroDatosUsuario');
     }
 
     function nuevoUsuario(){
-        echo "usuario creado exitosamente";
-        $nombre;
-        $apellidoP;
-        $apellidoM;
-        $rut;
-        $telefono;
-        $direccion;
-        $ciudad;
-        $region;
-        $comuna;
-        $this->model->insert();
+        //echo "usuario creado exitosamente";
+        $nombre = $_POST['Dnombres'];
+        $apellidoP = $_POST['DapellidoP'];
+        $apellidoM = $_POST['DapellidoM'];
+        $rut = $_POST['Drut'] ;
+        $telefono = $_POST['Dtelefono'];
+        $direccion = $_POST['Ddireccion'];
+        $ciudad = $_POST['Vciudad'];
+        $region = $_POST['region_id'];
+        $comuna = $_POST['comuna_id'];
+        $usuario = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna];
+        
+        
+        $retorno = $this->model->insert($usuario);
+        //echo $retorno;
+        if($retorno){
+            echo '<script>alert("Usuario Creado con Éxito");</script>';
+            $this->render();
+        }
         $this->render();
+        
     }
 
     function getRegion(){
