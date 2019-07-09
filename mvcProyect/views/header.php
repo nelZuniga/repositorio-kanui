@@ -37,10 +37,10 @@
     </ul>
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Inicio de Sesión</a>
+      <a class="nav-link" style="text-align: right" href="#">Perfil</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>register">Registrarse</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>main">Cerrar Sesión</a>
     </li>    
   </ul>    
   </div>  

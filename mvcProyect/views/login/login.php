@@ -31,6 +31,7 @@
                 'Bienvenido',
                 'success'
               )
+              window.location.href = "<?php echo constant('URL')?>Home";
               }else{
                 Swal.fire(
                 'Inicio de sesion',
