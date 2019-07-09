@@ -11,9 +11,15 @@ class Login extends Controller{
         $this->view->render('login/login');
     }
 
-    function saludo(){
-
-        //echo "ahora si saludo";
+    function Login(){
+        $usr = $_POST['usr'];
+        $pss = $_POST['pss'];
+        $seg = ['usuario'=> $usr, 'pass'=>$pss];
+        $respuesta = $this->model->verf($seg);
+        if(is_null($respuesta)){
+            $respuesta = 0;
+        }
+        echo $respuesta;
     }
 
     //OJO AQUI como crear insercion de datos

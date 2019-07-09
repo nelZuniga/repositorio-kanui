@@ -1,10 +1,51 @@
 
 <!--NEL PRUEBA-->
 <?php require 'views/header1.php';?>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    $("#BotonLogin").click(function(){
+      log();
+    });
 
+  });
+
+  function log(){
+    var url = "<?php echo constant('URL')?>login/Login";
+      var parametrosajax = {
+        usr: $("#username").val(),
+        pss: $("#password").val()
+      };
+      
+      $.ajax({
+              url:url,
+              data: parametrosajax,
+              type: 'post',
+              success: function(data){
+              if(data!= 0){
+                Swal.fire(
+                'Inicio de sesion',
+                'Bienvenido',
+                'success'
+              )
+              }else{
+                Swal.fire(
+                'Inicio de sesion',
+                'Usuario y/o Contraseña incorrecta',
+                'error'
+              )
+              }
+                    },
+              error: function(){
+                  alert("error");
+                    }
+                });
+
+  }
+  </script>
 <br><br>
 <div align="center">
   <h2>BIENVENIDO A KANUI</h2>
@@ -38,7 +79,7 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-sm-6 col-sm-offset-3">
-									<input type="submit" name="BotonLogin" id="BotonLogin" tabindex="3" class="btn btn-verde" value="Iniciar sesión">
+									<input type="button" name="BotonLogin" id="BotonLogin" tabindex="3" class="btn btn-verde" value="Iniciar sesión">
 								</div>
 								<div class="col-sm-6 col-sm-offset-3">
 									<button type="button" class="btn btn-gris" tabindex="4" data-dismiss="modal">Cancelar</button>
@@ -48,7 +89,7 @@
 					</form>
 				  </div>
         	</div>
-    	
+    	<div id="respuesta"></div>
         
         <!-- Pie del Formulario -->
         <div class="modal-footer">
