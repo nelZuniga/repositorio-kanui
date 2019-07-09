@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <?php require 'views/header.php';?>
+    <?php require 'views/header1.php';?>
     
   <style>
   /* Make the image fully responsive */
