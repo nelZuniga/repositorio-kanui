@@ -12,9 +12,10 @@ class Main extends Controller{
         $this->view->render('main/index');
     }
 
-    function saludo(){
-
-        //echo "ahora si saludo";
+    function cerrar_session(){
+        session_start();
+        session_destroy();
+        
     }
 
     //OJO AQUI como crear insercion de datos
