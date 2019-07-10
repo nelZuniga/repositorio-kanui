@@ -26,12 +26,16 @@
               type: 'post',
               success: function(data){
               if(data!= 0){
-                Swal.fire(
-                'Inicio de sesion',
-                'Bienvenido',
-                'success'
-              )
-              window.location.href = "<?php echo constant('URL')?>Home";
+                Swal.fire({
+                  title: "inicio de sesión",
+                  text:'Bienvenido',
+                  type: 'success'
+                }).then((result) => {
+                  if (result.value) {
+                    window.location.href = "<?php echo constant('URL')?>Home";
+                  }
+                })
+              
               }else{
                 Swal.fire(
                 'Inicio de sesion',
