@@ -11,6 +11,10 @@ class Login extends Controller{
         $this->view->render('login/login');
     }
 
+    function iniciarsession($int){
+        $this->model->startsesion($int);
+    }
+
     function Login(){
         $usr = $_POST['usr'];
         $pss = $_POST['pss'];
@@ -18,21 +22,14 @@ class Login extends Controller{
         $respuesta = $this->model->verf($seg);
         if(is_null($respuesta)){
             $respuesta = 0;
+        }else{
+            $this->iniciarsession($respuesta);
         }
         echo $respuesta;
     }
 
-    //OJO AQUI como crear insercion de datos
+    
 
-    function getdata(){
-        //nombre tentativo
-
-        /* en un formulario se agrega e la url de la action (url+/nombre de la funcion)
-        en este caso seria "url/getdata"  en get data obtenemos todos los datos de $_POST
-        y los ordenamos en un array, luego para invocar la funcion del modelo es 
-        
-        $this->model-> (Nombre de la funcion del modelo) y se entregan los datos por el parametro*/
-    }
 }
 
 

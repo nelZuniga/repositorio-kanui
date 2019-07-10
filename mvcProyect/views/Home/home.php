@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +59,7 @@
     <span class="carousel-control-next-icon"></span>
   </a>
 </div>
+<?php var_dump($_SESSION)?>
 </body>
 </html>
 

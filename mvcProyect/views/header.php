@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav class="navbar fixed-top navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
-    <a class="navbar-brand" href="<?php echo constant('URL') ?>main">
+    <a class="navbar-brand" href="<?php echo constant('URL') ?>home">
     <img src="views/imagenes/pg.jpg" alt="Kanui" style="width:40px;">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
