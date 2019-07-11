@@ -20,13 +20,13 @@ class RegistroMascotas extends Controller{
         $Raza = $_POST['Raza'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
-        $masc = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna];
+        $masc = ['id_mascot'=>$chipM, 'id_propietario'=> $nombreM, 'fecha_nac' =>$fechaNacM, 'raza'=>$Raza, 'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
         
         
-        $retorno = $this->model->insert($usuario);
+        $retorno = $this->model->insert($masc);
         //echo $retorno;
         if($retorno){
-            echo '<script>alert("Usuario Creado con Éxito");</script>';
+            echo '<script>alert("Mascota Registrada");</script>';
             $this->render();
         }
         $this->render();
