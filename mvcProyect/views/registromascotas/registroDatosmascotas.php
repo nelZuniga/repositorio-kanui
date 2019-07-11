@@ -96,6 +96,7 @@
                             </select>
                         </div>
                         </div>
+                        <div class="form-group">
                         <div class="col-md-8">
                           <h5 class="page-header" style="text-align: left;">Sexo</h5>
                           <div class="row">
