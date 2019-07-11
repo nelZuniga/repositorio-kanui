@@ -63,9 +63,6 @@ if(!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apelli
       <li class="nav-item">
         <a class="nav-link" href="<?php echo constant('URL') ?>Sanitario">Registro Sanitario</a>
       </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Mantenedores</a>
-      </li>
     </ul>
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">

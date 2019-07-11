@@ -183,11 +183,12 @@
 
         <div class="container">
             <div class="row" style="margin-top:5%">
-                <div class="col-md-12">
+                <div class="col-md-12" align="center">
                     <h3 class="center">Registro Datos Usuarios</h3>
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario">
 
@@ -306,6 +307,7 @@
 
 
         </div> <!-- del contenedor -->
+
 
     </body>
 

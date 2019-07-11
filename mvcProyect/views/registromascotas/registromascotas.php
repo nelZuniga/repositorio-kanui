@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post" action="<?php echo constant('URL')?>registromascotas/registrar">
+                <form class="form-horizontal" method="post" action="<?php echo constant('URL')?>registromascotas/registraMascota">
                     <fieldset>
                         <div class="list-group">
                         <table class="table table-bordered" id="myTable">
@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control">
+                                <input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fechaNac" name="fechaNac" type="date" placeholder="Fecha Nacimiento" class="form-control">
+                                <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
                             </div>
                         </div>
                          <div class="form-group">
@@ -53,9 +53,9 @@
                           <div class="row">
                             <div class="col-md-8">
 
-                              <select class="form-control">
-                                <option value="+47">Perro</option>
-                                <option value="+46">Gato</option>
+                              <select class="form-control" name="mascota">
+                                <option value="47">Perro</option>
+                                <option value="46">Gato</option>
                               </select>
                             </div>
                           </div>
@@ -65,9 +65,9 @@
                           <h5 class="page-header" style="text-align: left;">Sexo</h5>
                           <div class="row">
                             <div class="col-md-8">
-                              <select class="form-control">
-                                <option value="+47">Hembra</option>
-                                <option value="+46">Macho</option>
+                              <select class="form-control" name="sexoM">
+                                <option value="47">Hembra</option>
+                                <option value="46">Macho</option>
                               </select>
                             </div>
                           </div>

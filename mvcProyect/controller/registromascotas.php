@@ -11,6 +11,27 @@ class RegistroMascotas extends Controller{
     function render(){
         $this->view->render('registromascotas/registromascotas');
     }
+    function registraMascota(){
+        //echo "usuario creado exitosamente";
+        $chipM = $_POST['chipId'];
+        $rutDueno = $_POST['rutDueno'];
+        $nombreM = $_POST['nombreM'];
+        $fechaNacM = $_POST['fechaNacM'] ;
+        $Raza = $_POST['Raza'];
+        $mascota = $_POST['mascota'];
+        $sexoM = $_POST['sexoM'];
+        $masc = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna];
+        
+        
+        $retorno = $this->model->insert($usuario);
+        //echo $retorno;
+        if($retorno){
+            echo '<script>alert("Usuario Creado con Éxito");</script>';
+            $this->render();
+        }
+        $this->render();
+        
+    }
 
     function registrar(){
         echo "Registra mascotas";
