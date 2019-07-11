@@ -18,7 +18,7 @@ class RegistroUsuarioModel extends Model{
         $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono']);
         $retorno = false;
         if($query->execute()){
-            $id_usr = $mysqli->insert_id;
+            $id_usr = $conn->insert_id;
             $seg = ['usr'=>$data['correo'],'pss'=>$data['contraseña'],'id_usr'=>$id_usr];
             if($this->seguridad($seg)){
                 $retorno = true;
@@ -32,12 +32,10 @@ class RegistroUsuarioModel extends Model{
         $query = $conn->prepare("insert into sys_log(id_usr,sys_usr,sys_pwd)
                     values(?,?,?)");
                     $ss = 'iss';
-        $query->bind_param($ss,$data['id_usr'], $data['correo'], $data['contraseña']);
+        $query->bind_param($ss,$data['id_usr'], $data['usr'], $data['pss']);
         $retorno = false;
         if($query->execute()){
-            if($this->seguridad($seg)){
                 $retorno = true;
-            };
         };
         return $retorno;
 
