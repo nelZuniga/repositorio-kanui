@@ -9,7 +9,7 @@ class RegistroMascotas extends Controller{
     }
     
     function render(){
-        $this->view->render('registromascotas/registromascotas');
+        $this->view->render('registromascotas/registroDatosmascotas');
     }
     function registraMascota(){
         //echo "usuario creado exitosamente";
@@ -20,10 +20,10 @@ class RegistroMascotas extends Controller{
         $Raza = $_POST['Raza'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
-        $masc = ['id_mascot'=>$chipM, 'id_propietario'=> $nombreM, 'fecha_nac' =>$fechaNacM, 'raza'=>$Raza, 'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
+        $mascota = ['id_mascot'=>$chipM, 'id_propietario'=>$nombreM,'fecha_nac' =>$fechaNacM, 'raza'=>$Raza, 'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
         
         
-        $retorno = $this->model->insert($masc);
+        $retorno = $this->model->insert($mascota);
         //echo $retorno;
         if($retorno){
             echo '<script>alert("Mascota Registrada");</script>';
@@ -33,10 +33,10 @@ class RegistroMascotas extends Controller{
         
     }
 
-    function registrar(){
-        echo "Registra mascotas";
-        $this->model->selec();
-    }
+   // function registrar(){
+     //   echo "Registra mascotas";
+       // $this->model->selec();
+    //}
 
     //OJO AQUI como crear insercion de datos
 

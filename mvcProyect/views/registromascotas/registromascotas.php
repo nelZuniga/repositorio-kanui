@@ -128,6 +128,16 @@
 </div>
     </div>
 </div>
+ <div id="respuesta"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+
+
+                </div>
+            </div>
+        </div>
   <!-- ModalRecupera -->  
 <br><br><br><br><br>
   <?php require 'views/footer.php'?>
