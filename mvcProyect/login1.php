@@ -71,7 +71,7 @@
       
         <!-- Cabecera de formulario -->
         <div class="modal-header">
-          <h4 class="modal-title">Complete el formulario de registro</h4>
+          <h4 class="modal-title">Complete el formulario de registro </h4>
         </div>
         <!-- Formulario de registro de usuario -->
         <div class="modal-body">
