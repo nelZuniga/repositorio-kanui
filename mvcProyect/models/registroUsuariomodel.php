@@ -16,15 +16,33 @@ class RegistroUsuarioModel extends Model{
                     $ss = 'ssssiis';
                     $estado = 1;
         $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono']);
-
         $retorno = false;
         if($query->execute()){
-            $retorno = true;
+            $id_usr = $mysqli->insert_id;
+            $seg = ['usr'=>$data['correo'],'pss'=>$data['contraseña'],'id_usr'=>$id_usr];
+            if($this->seguridad($seg)){
+                $retorno = true;
+            };
         };
         return $retorno;
-        
-        
     }
+
+    public function seguridad($data){
+        $conn = $this->db->connect();
+        $query = $conn->prepare("insert into sys_log(id_usr,sys_usr,sys_pwd)
+                    values(?,?,?)");
+                    $ss = 'iss';
+        $query->bind_param($ss,$data['id_usr'], $data['correo'], $data['contraseña']);
+        $retorno = false;
+        if($query->execute()){
+            if($this->seguridad($seg)){
+                $retorno = true;
+            };
+        };
+        return $retorno;
+
+    }
+
     public function getregion(){
         $sql = 'SELECT * from region order by orden';
         $conn = $this->db->connect();

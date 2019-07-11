@@ -22,7 +22,9 @@ class registroUsuario extends Controller{
         $ciudad = $_POST['Vciudad'];
         $region = $_POST['region_id'];
         $comuna = $_POST['comuna_id'];
-        $usuario = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna];
+        $contraseña = $_POST['pass'];
+        $correo = $_POST['correo'];
+        $usuario = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna,'correo' =>$correo,'contraseña'=>$contraseña];
         
         
         $retorno = $this->model->insert($usuario);
