@@ -32,8 +32,9 @@ class RegistroMascotas extends Controller{
         $this->render();
         
     }
-     function getRaza(){
-        $respuesta = $this->model->getraza();
+    function getRaza(){
+        $tipo = $_POST['tipo']; 
+        $respuesta = $this->model->getraza($tipo);
         return $respuesta;
     }
 

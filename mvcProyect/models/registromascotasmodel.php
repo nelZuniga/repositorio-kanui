@@ -24,21 +24,8 @@ class registromascotasModel extends Model{
         };
         return $retorno;
     }
-     public function seguridad($data){
-        $conn = $this->db->connect();
-        $query = $conn->prepare("insert into sys_log(id_usr,sys_usr,sys_pwd)
-                    values(?,?,?)");
-                    $ss = 'iss';
-        $query->bind_param($ss,$data['id_usr'], $data['usr'], $data['pss']);
-        $retorno = false;
-        if($query->execute()){
-                $retorno = true;
-        };
-        return $retorno;
-
-    }
-    public function getRaza(){
-        $sql = 'SELECT * from raza order by orden';
+    public function getRaza($tipo){
+        $sql = 'SELECT * from raza where tipoRaza = '.$tipo;
         $conn = $this->db->connect();
         try{
             $resp = '';
@@ -54,11 +41,6 @@ class registromascotasModel extends Model{
 
         }
     }
-
-
-
-   
-
 }
 
     ?>

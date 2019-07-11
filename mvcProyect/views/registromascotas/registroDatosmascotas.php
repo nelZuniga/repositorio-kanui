@@ -14,12 +14,21 @@
 <?php require 'views/header.php'?>
    <script>
         $(document).ready(function() {
-            function getRaza() {
+            
+        }); //fin document ready
+
+        function getRaza() {
                 var url = "<?php echo constant('URL') ?>registromascotas/getRaza";
+                var parametrosajax={
+                  tipo: $("#mascota").val()
+                }
+                console.log(parametrosajax);
                 $.ajax({
                     url: url,
+                    type:"post",
+                    data: parametrosajax,
                     success: function(data) {
-                       //console.log(data);
+                        //console.log(data);
                         $("#raza_id").empty();
                         $("#raza_id").append("<option value=''>Seleccione Una Raza</option>");
                         $("#raza_id").append(data);
@@ -28,10 +37,7 @@
                         alert("error");
                     }
                 });
-             
             }
-            getRaza();
-        }); //fin document ready
       </script>
     </head>
 
@@ -73,26 +79,24 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!-- combo comuna -->
-                            <label for="comuna_id" class="control-label" id="Comuna" name="comuna">Raza</label>
-                            <select class="form-control" id="raza_id" name="raza_id" >
+                            <div class="col-md-8"> 
+                        <h5 class="page-header" style="text-align: left;">Tipo de Mascota</h5>
+                        <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
+                                <option value="">Seleccione un tipo de mascota</option>
+                                <option value="1">Perro</option>
+                                <option value="2">Gato</option>
+                              </select>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8"> 
+                        <h5 class="page-header" style="text-align: left;">Tipo de Mascota</h5>
+                        <select class="form-control" id="raza_id" name="raza_id" >
                                 <option value=''>Seleccione Una Raza</option>
                             </select>
                         </div>
-                         <div class="col-md-8">
-                          <h5 class="page-header" style="text-align: left;">Tipo</h5>
-                          <div class="row">
-                            <div class="col-md-8">
-
-                              <select class="form-control" name="mascota">
-                                <option value="47">Perro</option>
-                                <option value="46">Gato</option>
-                              </select>
-                            </div>
-                          </div>
-                          <br />
                         </div>
-                         <div class="col-md-8">
+                        <div class="col-md-8">
                           <h5 class="page-header" style="text-align: left;">Sexo</h5>
                           <div class="row">
                             <div class="col-md-8">
@@ -104,11 +108,10 @@
                           </div>
                           <br />
                         </div>
-
                         <div class="form-group">
                             <div class="col-md-8"> 
-                        <h5 class="page-header" style="text-align: left;">Agregar Imagen</h5>
-                         <input name="file-input" id="file-input" type="file" class="form-control" />
+                        <h5 class="page-header" style="text-align: left;">Agregar imagen</h5>
+                        <input name="file-input" id="file-input" type="file" class="form-control" />
                         </div>
                         </div>
                         <div class="form-group">
