@@ -1,9 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="http://localhost/mvcproyect/public/css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <?php require 'views/header.php'?>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script>
+        $(document).ready(function() {
+            function getRaza() {
+                var url = "<?php echo constant('URL') ?>registromascotas/getRaza";
+                $.ajax({
+                    url: url,
+                    success: function(data) {
+                       //console.log(data);
+                        $("#raza_id").empty();
+                        $("#raza_id").append("<option value=''>Seleccione Una Raza</option>");
+                        $("#raza_id").append(data);
+                    },
+                    error: function() {
+                        alert("error");
+                    }
+                });
+             
+            }
+            getRaza();
+        }); //fin document ready
+      </script>
+    </head>
 
 <br><br>
 <div align="center">
@@ -42,11 +72,12 @@
                                 <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
                             </div>
                         </div>
-                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="Raza" name="Raza" type="text" placeholder="Ingrese Raza" class="form-control">
-                            </div>
+                        <div class="form-group">
+                            <!-- combo comuna -->
+                            <label for="comuna_id" class="control-label" id="Comuna" name="comuna">Raza</label>
+                            <select class="form-control" id="raza_id" name="raza_id" >
+                                <option value=''>Seleccione Una Raza</option>
+                            </select>
                         </div>
                          <div class="col-md-8">
                           <h5 class="page-header" style="text-align: left;">Tipo</h5>
@@ -89,7 +120,7 @@
 
                         <div class="form-group">
                         <div class="col-md-8">
-                        <button type="submit" class="btn btn-primary btn-lg" >Ingresar Mascota</button>
+                        <button type="submit" class="btn btn-primary btn-lg" name="aceptar" >Ingresar Mascota</button>
                         <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
                         </div>
                         </div>

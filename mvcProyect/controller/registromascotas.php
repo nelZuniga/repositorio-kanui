@@ -17,10 +17,10 @@ class RegistroMascotas extends Controller{
         $rutDueno = $_POST['rutDueno'];
         $nombreM = $_POST['nombreM'];
         $fechaNacM = $_POST['fechaNacM'] ;
-        $Raza = $_POST['Raza'];
+       // $Raza = $_POST['Raza'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
-        $mascota = ['id_mascot'=>$chipM, 'id_propietario'=>$nombreM,'fecha_nac' =>$fechaNacM, 'raza'=>$Raza, 'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
+        $mascota = ['n_chip'=>$chipM, 'id_propietario'=>$rutDueno, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
         
         
         $retorno = $this->model->insert($mascota);
@@ -31,6 +31,10 @@ class RegistroMascotas extends Controller{
         }
         $this->render();
         
+    }
+     function getRaza(){
+        $respuesta = $this->model->getraza();
+        return $respuesta;
     }
 
    // function registrar(){
