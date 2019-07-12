@@ -43,7 +43,7 @@
 
 <br><br>
 <div align="center">
-  <h2>Registro Mascotas</h2>
+  <img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
