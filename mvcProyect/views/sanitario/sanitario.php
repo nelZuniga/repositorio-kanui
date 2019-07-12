@@ -28,57 +28,31 @@
                         <div class="list-group">
                         <table class="table table-bordered" id="myTable">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                        <div class="col-md-8">
-                          <h5 class="page-header" style="text-align: left;">Seleccione Mascota
-                          </h5>
-                          <div class="row">
+                        <div class=form-group" >
+                          <div class="col-md-8">
                             <div class="col-md-8">
-
-                              <select class="form-control">
-                                <option value="+47">Millie</option>
-                                <option value="+46">Max</option>
+                              <label for="pBusqueda" class="control-label" id="region" name="region">Seleccione parámetro de busqueda</label>
+                              <select class="form-control" id="pBusqueda" name="pBusqueda" required>
+                                <option>Busqueda por ID Chip</option>
+                                <option>Busqueda por RUT-DNI</option>
+                                <option>Busqueda por Nombe Dueño</option>
                               </select>
                             </div>
                           </div>
-                          <br />
-                        </div>
-                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="producto" name="producto" type="text" placeholder="Producto" class="form-control">
-                            </div>
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                          <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                          <div class="col-md-8">
                             <div class="col-md-8">
-                                <input id="dosis" name="dosis" type="text" placeholder="Dosis/Tipo" class="form-control">
+                            <input id="producto" name="producto" type="text" placeholder="Ingrese texto de busqueda" class="form-control">
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fecha" name="fecha" type="date" placeholder="Fecha" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="observacion" name="observacion" placeholder="Ingrese Observaciones" rows="7"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-8"> 
-                        <h5 class="page-header" style="text-align: left;">Agregar Imagen</h5>
-                         <input name="file-input" id="file-input" type="file" class="form-control" />
-                        </div>
+                          </div>
                         </div>
 
                         <div class="form-group">
                         <div class="col-md-8">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalCorrecto">Aceptar</button>
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
+                        <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalBuscar">Aceptar</button>
+                        <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
                         </div>
                         </div>
                     </table>
@@ -86,13 +60,13 @@
                 </form>
             </div>
         </div>
-<div class="modal fade" id="ModalCorrecto">
+<div class="modal fade" id="ModalBuscar">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
           <div class="col-lg-12">
             <div class="alert alert-primary alert-dismissible">
-              <strong>Registro  Saniario Satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
+              <strong>Dato Encontrados!</strong> </br> Presione <a href="http://localhost/repositorio-kanui/mvcProyect/sanitario" class="alert-link">aquí</a> para continuar.
             </div>
           </div>
         </div>
