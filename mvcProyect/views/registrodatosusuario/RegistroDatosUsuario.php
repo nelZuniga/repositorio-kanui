@@ -184,7 +184,7 @@
         <div class="container">
             <div class="row" style="margin-top:5%">
                 <div class="col-md-12" align="center">
-                    <h3 class="center">Registro Datos Usuarios</h3>
+                    <h3><img src="views/imagenes/registro_usuario.png" alt="rdu" style="width:300px;"></h3>
                 </div>
             </div>
             <div class="row">
