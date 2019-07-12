@@ -124,8 +124,8 @@
 
                         <div class="form-group">
                         <div class="col-md-8">
-                        <button type="submit" class="btn btn-primary btn-lg" name="aceptar" >Ingresar Mascota</button>
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
+                        <button type="submit" class="btn btn-verde" name="aceptar" >Ingresar Mascota</button>
+                        <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
                         </div>
                         </div>
                     </table>
