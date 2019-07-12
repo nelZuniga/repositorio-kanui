@@ -31,7 +31,7 @@ class registromascotasModel extends Model{
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                $resp = "<option value='".$row['id_raza']."'> ".$row['descripcion']."</option>";
+                $resp = "<option value='".$row['id_raza']."'> ".utf8_encode($row['descripcion'])."</option>";
                 echo $resp;
             }
             return $resp;
