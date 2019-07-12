@@ -48,7 +48,7 @@ class RegistroUsuarioModel extends Model{
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                $resp = "<option value='".$row['id_reg']."'> ".$row['descripcion']."</option>";
+                $resp = "<option value='".$row['id_reg']."'> ".utf8_encode($row['descripcion'])."</option>";
                 echo $resp;
             }
             return $resp;
@@ -67,7 +67,7 @@ class RegistroUsuarioModel extends Model{
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                $resp = "<option value='".$row['id_com']."'> ".$row['descripcion']."</option>";
+                $resp = "<option value='".$row['id_com']."'> ".utf8_encode($row['descripcion'])."</option>";
                 echo $resp;
             }
             return $resp;
