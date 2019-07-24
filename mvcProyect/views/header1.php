@@ -13,9 +13,56 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="public/js/kanuilib.js"></script>
   <link rel="stylesheet" href="CSS/css.css"> 
+  <style>
+  .topbar{
+    background-color:#1b1b1b;
+    max-width: 100%;
+    color:#54FFEE;
+    font-size: 13px;
+    height: 30px
+    }
+    .topbar a{
+    color:#54FFEE;
+    }
+  .bar{
+    padding: 0px;
+    
+  }
+  .col-sm-1{
+      padding: 0;
+    }
+  @media(max-width: 1080px) and (min-width:579px){
+    .topbar{
+    background-color:#1b1b1b;
+    max-width: 100%;
+    color:#54FFEE;
+    font-size: 13px;
+    height: 50px
+    }
+    .col-sm-1{
+      padding: 0;
+    }
+  }
+  @media(max-width: 578px) {
+    .offset-sm-10{
+    }
+    .col-sm-1{
+      width: 20%;
+      max-width: 20%;
+      padding: 0;
+    }
+  }
+  </style>
 </head>
-<body>
-<nav class="navbar fixed-top navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
+<body style="margin-top:4em">
+<div class="fixed-top bar">
+  <div class="container  topbar">
+    <div class="row">
+      <div class="col-sm-1 offset-sm-10"><a href="<?php echo constant('URL') ?>register">Registrarse</a></div>
+      <div class="col-sm-1"><a href="<?php echo constant('URL') ?>login">Inicio de Sesión</a></div>
+    </div>
+  </div> 
+<nav class="navbar navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
     <a class="navbar-brand" href="<?php echo constant('URL') ?>main">
     <img src="views/imagenes/pg.jpg" alt="Kanui" style="width:40px;"> Kanui
   </a>
@@ -39,14 +86,21 @@
     </ul>--->
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Inicio de Sesión</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Kanui Mobile</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>register">Registrarse</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Sobre Nosotros</a>
+    </li>
+  <li class="nav-item">
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Nuestros Socios</a>
+    </li>
+  <li class="nav-item">
+      <span style="width:150px"></span>
     </li>    
   </ul>    
   </div>  
 </nav>
+</div>
 <br>
 
 </body>
