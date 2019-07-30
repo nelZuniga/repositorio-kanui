@@ -66,7 +66,7 @@ if(!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apelli
     </ul>
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="#">Perfil</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>Perfil">Perfil</a>
     </li>
   <li class="nav-item">
       <a class="nav-link" style="text-align: right" onclick="off_session()">Cerrar Sesión</a>
