@@ -226,6 +226,9 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
         top: 0;
         left: -300px;
         z-index: 999;
+        -webkit-box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
+-moz-box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
+box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
     }
 
     .sidebar-wrapper ul {
@@ -245,6 +248,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
         height: calc(100% - 30px);
         overflow-y: auto;
         position: relative;
+        -
     }
 
     .sidebar-content.desktop {
@@ -530,13 +534,13 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     /*-----------------------------chiller-theme-------------------------------------------------*/
 
     .chiller-theme .sidebar-wrapper {
-        background: #31353D;
+        background: #059485;
     }
 
     .chiller-theme .sidebar-wrapper .sidebar-header,
     .chiller-theme .sidebar-wrapper .sidebar-search,
     .chiller-theme .sidebar-wrapper .sidebar-menu {
-        border-top: 1px solid #3a3f48;
+        border-top: 1px solid #ee9d08;
     }
 
     .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
@@ -552,7 +556,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     .chiller-theme .sidebar-wrapper .sidebar-brand>a,
     .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
     .chiller-theme .sidebar-footer>a {
-        color: #818896;
+        color: #fff;
     }
 
     .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
@@ -560,7 +564,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
     .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
     .chiller-theme .sidebar-footer>a:hover i {
-        color: #b8bfce;
+        color: #fff;
     }
 
     .page-wrapper.chiller-theme.toggled #close-sidebar {
@@ -583,15 +587,15 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
     .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
     .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
-        background: #3a3f48;
+        background: #ee9d08;
     }
 
     .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
-        color: #6c7b88;
+        color: #fff;
     }
 
     .chiller-theme .sidebar-footer {
-        background: #3a3f48;
+        background: #ee9d08;
         box-shadow: 0px -1px 5px #282c33;
         border-top: 1px solid #464a52;
     }
@@ -636,6 +640,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     }
 
     #notificationTitle {
+        color:#059485;
         font-weight: bold;
         padding: 8px;
         font-size: 13px;
@@ -693,7 +698,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
                                 <div id="notificationTitle">Opciones</div>
                                 <div id="notificationsBody" class="notifications">
                                     <ul>
-                                        <li><a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>Perfil">Perfil</a></li>
+                                        <li><a class="nav-link" style="text-align: right" onclick="window.location ='<?php echo constant('URL') ?>Perfil'" href="<?php echo constant('URL') ?>Perfil">Perfil</a></li>
                                         <li><a class="nav-link" style="text-align: right" href="#" onclick="off_session()">Cerrar Sesión</a></li>
                                     </ul>
                                     

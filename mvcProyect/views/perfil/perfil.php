@@ -1,4 +1,4 @@
-<?php require 'views/header.php';?>
+<?php require 'views/sidemenu.php'?>
 <style>
     body{
         background:
