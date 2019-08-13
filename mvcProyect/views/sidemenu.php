@@ -675,7 +675,7 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <img src="public/img/logo.png" width="150" >
+                <img src="../public/img/logo.png" width="150" >
                 <!--<a href="#">KANUI</a>-->
                 <div id="close-sidebar">
                     <i class="fas fa-times"></i>

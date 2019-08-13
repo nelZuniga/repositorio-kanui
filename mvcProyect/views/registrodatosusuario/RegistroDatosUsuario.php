@@ -172,13 +172,14 @@
         <div class="container">
             <div class="row" style="margin-top:5%">
                 <div class="col-md-12" align="center">
-                    <h3><img src="views/imagenes/registro_usuario.png" alt="rdu" style="width:300px;"></h3>
+                    <h3><img src="../views/imagenes/registro_usuario.png" alt="rdu" style="width:300px;"></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario">
+                    <input type="hidden" name="tusr" value="2">
 
                         <div class="form-group">
                             <!-- nombres -->

@@ -24,7 +24,8 @@ class registroUsuario extends Controller{
         $comuna = $_POST['comuna_id'];
         $contraseña = $_POST['pass'];
         $correo = $_POST['correo'];
-        $usuario = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna,'correo' =>$correo,'contraseña'=>$contraseña];
+        $tipousr = $_POST['tusr'];
+        $usuario = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna,'correo' =>$correo,'contraseña'=>$contraseña,'tusr'=> $tipousr];
         
         
         $retorno = $this->model->insert($usuario);
@@ -32,8 +33,10 @@ class registroUsuario extends Controller{
         if($retorno){
             echo '<script>alert("Usuario Creado con Éxito");</script>';
             $this->render();
+        }else{
+            $this->render();
         }
-        $this->render();
+        
         
     }
 
