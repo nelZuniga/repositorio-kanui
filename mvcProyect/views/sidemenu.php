@@ -18,6 +18,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="public/js/kanuilib.js"></script>
     <script src="public/css/css.css"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     
     <script>
@@ -98,6 +99,13 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
 </head>
 
 <style>
+    main{
+        font-family: 'Roboto', sans-serif;
+    }
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+
     /*estilos para sidemenu*/
 
     @keyframes swing {
@@ -666,6 +674,10 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
     }
 
     /**/
+select{
+    border-radius: 7px;
+    color: black;
+}
 
 </style>
 

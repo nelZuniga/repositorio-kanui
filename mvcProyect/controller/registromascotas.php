@@ -38,6 +38,25 @@ class RegistroMascotas extends Controller{
         return $respuesta;
     }
 
+    function getDatosduenio(){
+        $funcion =$_POST['funcion'];
+        switch($funcion){
+            case 1;
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $usuario = ['nombre'=>$nombre, '$apellido'=>$apellido];
+            $respuesta = $this->model->getUserNom($usuario);
+            ;break;
+            case 2:
+            $documento = $_POST['documento'];
+            $usuario = ['documento'=>$documento];
+            $respuesta = $this->model->getuserDoc($usuario);
+            return $respuesta;
+            ;break;
+        }
+        
+    }
+
    // function registrar(){
      //   echo "Registra mascotas";
        // $this->model->selec();

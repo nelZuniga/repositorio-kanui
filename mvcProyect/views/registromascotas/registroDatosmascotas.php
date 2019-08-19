@@ -1,5 +1,18 @@
 
 <?php require 'views/sidemenu.php'?>
+<style>
+.tablaBusqueda{
+  border: solid 1px;
+}
+.tablaBusqueda tr td{
+  border: solid 1px;
+}
+.tablaBusqueda tr th{
+  border: solid 1px black;
+  color:white;
+  background-color: #059485;
+}
+</style>
    <script>
         $(document).ready(function() {
             
@@ -10,7 +23,6 @@
                 var parametrosajax={
                   tipo: $("#mascota").val()
                 }
-                console.log(parametrosajax);
                 $.ajax({
                     url: url,
                     type:"post",
@@ -26,12 +38,105 @@
                     }
                 });
             }
-      </script>
-    </head>
 
-<br><br>
-<div align="center">
-  <img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">
+            function busqueda(valor){
+              $("#busqueda").empty();
+              switch(valor){
+                case '1':
+                var input = "<input type='text' placeholder='Ingrese nombre' id='bnombre'> <input type='text' id='bapellido' placeholder='Ingrese apellido'>"
+                input +="<button type='button' onclick='buscar(1)'>Buscar</button>";
+                $("#busqueda").append(input);
+                ;break;
+                case '2':
+                var input = "<input type='text' id='bdocumento' placeholder='ingrese documento'>";
+                input +="<button type='button' onclick='buscar(2)'>Buscar</button>";
+                $("#busqueda").append(input);
+                ;break;
+              }
+            }
+
+            function buscar(valor){
+              switch(valor){
+                case 1:
+                var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
+                var parametrosajax = {
+                    nombre: $("#bnombre").val(),
+                    apellido: $("#bapellido").val(),
+                    funcion: valor
+                }
+                $.ajax({
+                    url: url,
+                    type:"post",
+                    data: parametrosajax,
+                    success: function(data) {
+                        //console.log(data);
+                    },
+                    error: function() {
+                        alert("error");
+                    }
+                });
+                ;break;
+
+                case 2:
+                var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
+                var parametrosajax = {
+                  documento: $("#bdocumento").val(),
+                  funcion: valor
+                }
+                $.ajax({
+                    url: url,
+                    type:"post",
+                    data: parametrosajax,
+                    success: function(data) {
+                        //console.log(data);
+                        var tabla = '<table width="100%" class="tablaBusqueda"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                        tabla += data;
+                        tabla += '</table>';
+                        $("#resBusqueda").append(tabla);
+                    },
+                    error: function() {
+                        alert("error");
+                    }
+                });
+                ;break;
+
+              }
+
+
+            }
+      </script>
+
+<br>
+<div>
+  <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
+  <h1>Registro de Mascotas</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6"><h5>Busqueda Usuario</h5></div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Buscar por:</div>
+      <div class="col-md-3" align="left">
+        <select name="busqueda" onchange="busqueda(this.value)">
+          <option value=""> Seleccione una opción</option>
+          <option value="1">Nombre y apellido peterno</option>
+          <option value="2">Documento</option>
+        </select>
+      </div>
+      <div class="col-md-7">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="busqueda">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="resBusqueda"></div>
+    </div>
+  </div>
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
