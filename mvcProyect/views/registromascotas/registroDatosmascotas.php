@@ -87,10 +87,20 @@
                     url: url,
                     type:"post",
                     data: parametrosajax,
-                    success: function(data) {
-                        //console.log(data);
-                        var tabla = '<table width="100%" class="tablaBusqueda"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
-                        tabla += data;
+                    success: function(response) {
+                      $("#resBusqueda").empty();
+                      response = JSON.parse(response);
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                        
+                      $.each(response.data.users,function(key, value){
+                        //console.log(value);
+                        tabla += "<tr>";
+                        var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
+                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += "<td>"+value[1]+"</td>";
+                        tabla += "<td>"+value[2]+"</td>";
+                        tabla += "<td>"+value[3]+"</td>";
+                      })
                         tabla += '</table>';
                         $("#resBusqueda").append(tabla);
                     },
@@ -103,6 +113,14 @@
               }
 
 
+            }
+            function enviar(id,nombre,apellidoP, apellidoM, documento){
+              console.log(id);
+              console.log(nombre);
+              console.log(apellidoP);
+              console.log(apellidoM);
+              console.log(documento);
+              $("#rutDueno").val(documento);
             }
       </script>
 
@@ -124,17 +142,20 @@
           <option value="2">Documento</option>
         </select>
       </div>
-      <div class="col-md-7">
-
+      <div class="col-md-7" id="busqueda">
+      
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="col-md-12" id="busqueda">
         
       </div>
-    </div>
+    </div>-->
     <div class="row">
-      <div class="col-md-12" id="resBusqueda"></div>
+      <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto">
+      <table width="100%" style="margin:5px" class="tablaBusqueda"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
+
+    </div>
     </div>
   </div>
     <div class="row">
