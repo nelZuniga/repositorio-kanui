@@ -58,7 +58,7 @@ if(!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apelli
         <a class="nav-link" href="<?php echo constant('URL') ?>registroUsuario" target="_self">Registro Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro Mascotas</a>
+        <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro Mascotass</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo constant('URL') ?>sanitario">Registro Sanitario</a>
