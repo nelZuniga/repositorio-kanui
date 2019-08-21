@@ -27,7 +27,7 @@
 .form-control::-moz-placeholder { color: #059485; }  /* Mozilla Firefox 19+ */
 .form-control:-ms-input-placeholder { color: #059485; }  /* Internet Explorer 10-11 */
 .form-control::-ms-input-placeholder { color: #059485; }  /* Microsoft Edge */
-.form-control {color: #059485;}
+.form-control {color: #059485; height: 35px;}
 
 input::placeholder {
   font-size: 0.8em;

@@ -1,14 +1,8 @@
 
 <?php require 'views/sidemenu.php'?>
 <style>
-.tablaBusqueda{
-  border: solid 1px;
-}
-.tablaBusqueda tr td{
-  border: solid 1px;
-}
+
 .tablaBusqueda tr th{
-  border: solid 1px black;
   color:white;
   background-color: #059485;
 }
@@ -78,6 +72,7 @@
                 ;break;
 
                 case 2:
+                console.log($("#bdocumento").val())
                 var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
                 var parametrosajax = {
                   documento: $("#bdocumento").val(),
@@ -90,7 +85,7 @@
                     success: function(response) {
                       $("#resBusqueda").empty();
                       response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
                         
                       $.each(response.data.users,function(key, value){
                         //console.log(value);
@@ -115,28 +110,27 @@
 
             }
             function enviar(id,nombre,apellidoP, apellidoM, documento){
-              console.log(id);
-              console.log(nombre);
-              console.log(apellidoP);
-              console.log(apellidoM);
-              console.log(documento);
               $("#rutDueno").val(documento);
+              $("#nomusu").val(nombre);
+              $("#apepat").val(apellidoP);
+              $("#apemat").val(apellidoM);
+              $("#registrar").slideDown();;
+
             }
       </script>
 
-<br>
-<div>
+<div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
   <h1>Registro de Mascotas</h1>
   <div class="container">
-    <div class="row">
+    <div class="row" >
       <div class="col-md-6"><h5>Busqueda Usuario</h5></div>
       <div class="col-md-3"></div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom:10px">
       <div class="col-md-2">Buscar por:</div>
       <div class="col-md-3" align="left">
-        <select name="busqueda" onchange="busqueda(this.value)">
+        <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
           <option value="1">Nombre y apellido peterno</option>
           <option value="2">Documento</option>
@@ -152,101 +146,86 @@
       </div>
     </div>-->
     <div class="row">
-      <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto">
-      <table width="100%" style="margin:5px" class="tablaBusqueda"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
+      <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto; border: 1px solid black; padding-left:0;">
+      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
 
     </div>
     </div>
   </div>
-    <div class="row">
+    <div id="registrar" class="row" style="display:none">
         <div class="col-md-12">
             <div class="well well-sm">
                 <form class="form-horizontal" method="post" action="<?php echo constant('URL')?>registromascotas/registraMascota">
-                    <fieldset>
-                        <div class="list-group">
-                        <table class="table table-bordered" id="myTable">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                       
-                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="chipId" name="chipId" type="text" placeholder="Chip identificador" class="form-control">
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-12"><h3>Datos del dueño<h3></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group"><label for="nomusu">Nombre</label><br>
+                      <input type="text" name="nomusu" id="nomusu" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group"><label for="apepat">Apellido Paterno</label><br>
+                    <input type="text" name="apepat" id="apepat" class="form-control"></div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6  form-group"><label for="apemat">Apellido Materno</label><br><input type="text" name="apemat" id="apemat" class="form-control"></div>
+                    <div class="col-md-6  form-group"><label for="rutDueno">Documento</label><br><input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control" pattern="\d{3,8}-[\d|kK]{1}">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control" pattern="\d{3,8}-[\d|kK]{1}">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group"><h3>Datos de la mascota<h3></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group"><label for="chipID">Chip Identificador</label><br><input id="chipId" name="chipId" type="text" placeholder="Chip identificador" class="form-control">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-8"> 
-                        <h5 class="page-header" style="text-align: left;">Tipo de Mascota</h5>
-                        <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
+                    <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
+                                <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
                                 <option value="">Seleccione un tipo de mascota</option>
                                 <option value="1">Perro</option>
                                 <option value="2">Gato</option>
-                              </select>
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-8"> 
-                        <h5 class="page-header" style="text-align: left;">Tipo de Mascota</h5>
-                        <select class="form-control" id="raza_id" name="raza_id" >
+                              </select></div>
+                    <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
+                    <select class="form-control" id="raza_id" name="raza_id" >
                                 <option value=''>Seleccione Una Raza</option>
                             </select>
-                        </div>
-                        </div>
-                        <div class="form-group">
-                        <div class="col-md-8">
-                          <h5 class="page-header" style="text-align: left;">Sexo</h5>
-                          <div class="row">
-                            <div class="col-md-8">
-                              <select class="form-control" name="sexoM">
+                          </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6  form-group"><label for="fechaNacM">Fecha de nacimiento</label><br><input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
+                            </div>
+                    <div class="col-md-6  form-group"><label for="file-input">Agregar Imagen</label><br><input name="file-input" id="file-input" type="file" class="form-control" /></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>
+                    <select class="form-control" name="sexoM">
                                 <option value="47">Hembra</option>
                                 <option value="46">Macho</option>
                               </select>
-                            </div>
-                          </div>
-                          <br />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>
+                    <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="7"></textarea>
+                            
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
+                        <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px" >Ingresar Mascota</button>
+                        <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalCancelar" style="height:62px;margin-left:20px" >Cancelar</button>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-8"> 
-                        <h5 class="page-header" style="text-align: left;">Agregar imagen</h5>
-                        <input name="file-input" id="file-input" type="file" class="form-control" />
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="7"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                        <div class="col-md-8">
-                        <button type="submit" class="btn btn-verde" name="aceptar" >Ingresar Mascota</button>
-                        <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalCancelar" >Cancelar</button>
-                        </div>
-                        </div>
-                    </table>
-                    </fieldset>
+                    </div>
+                </div>
+                      
+                        
                 </form>
             </div>
         </div>
+    </div>
 <div class="modal fade" id="ModalCorrecto">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -281,9 +260,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-
-
-
                 </div>
             </div>
         </div>

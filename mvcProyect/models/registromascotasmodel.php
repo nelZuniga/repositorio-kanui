@@ -48,7 +48,6 @@ class registromascotasModel extends Model{
         $sql = "select id_usr, nombres, apellido_paterno, apellido_materno, documento from usuario where documento like '%".$documento."%' and tipo_usr = 2";
         $conn = $this->db->connect();
         try{
-            
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){

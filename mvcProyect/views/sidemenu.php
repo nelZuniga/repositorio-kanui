@@ -688,7 +688,7 @@ select{
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <img src="<?php echo constant('URL') ?>public/img/logo.png" width="150" >
+                <img src="<?php echo constant('URL') ?>public/img/logo-2kanui.png" width="150" >
                 <!--<a href="#">KANUI</a>-->
                 <div id="close-sidebar">
                     <i class="fas fa-times"></i>
