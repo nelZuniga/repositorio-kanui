@@ -6,10 +6,20 @@
   color:white;
   background-color: #059485;
 }
+
+#muestra{
+  height: auto;
+  max-width: 150px;
+}
+#muestra:hover{
+  filter: contrast(250%);
+}
 </style>
    <script>
         $(document).ready(function() {
-            
+          $("#file-input").change(function() {
+          readURL(this);
+        });
         }); //fin document ready
 
         function getRaza() {
@@ -117,6 +127,21 @@
               $("#registrar").slideDown();;
 
             }
+
+            function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+              $('#muestra').attr('src', e.target.result);
+            }
+            reader.onloadend = function() {
+              $("#baseimg").val(reader.result)
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
       </script>
 
 <div style="padding: 0;padding-right: 21px;">
@@ -156,6 +181,7 @@
         <div class="col-md-12">
             <div class="well well-sm">
                 <form class="form-horizontal" method="post" action="<?php echo constant('URL')?>registromascotas/registraMascota">
+                <input type="hidden" id="baseimg" name="baseimg">
                 <div class="container">
                 <div class="row">
                     <div class="col-md-12"><h3>Datos del dueño<h3></div>
@@ -197,7 +223,7 @@
                   <div class="row">
                     <div class="col-md-6  form-group"><label for="fechaNacM">Fecha de nacimiento</label><br><input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
                             </div>
-                    <div class="col-md-6  form-group"><label for="file-input">Agregar Imagen</label><br><input name="file-input" id="file-input" type="file" class="form-control" /></div>
+                    <div class="col-md-6  form-group" align="center">Agregar Imagen<br><label for="file-input" title="Presione para Agregar imagen"><img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control"/></div>
                   </div>
                   <div class="row">
                     <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>

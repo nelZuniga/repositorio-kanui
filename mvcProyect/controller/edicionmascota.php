@@ -1,5 +1,5 @@
 <?php
-class RegistroMascotas extends Controller{
+class EdicionMascota extends Controller{
 
     function __construct()
     {
@@ -9,7 +9,7 @@ class RegistroMascotas extends Controller{
     }
     
     function render(){
-        $this->view->render('registromascotas/registroDatosmascotas');
+        $this->view->render('edicionmascota/edicionDatosmascotas');
     }
     function registraMascota(){
         //echo "usuario creado exitosamente";
@@ -20,18 +20,7 @@ class RegistroMascotas extends Controller{
        // $Raza = $_POST['Raza'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
-        if(isset($_POST['baseimg'])){
-            $img = $_POST['baseimg'];
-        }else{
-            $img = '';
-        }
-        if(isset($_POST['observacionM'])){
-            $obs = $_POST['observacionM'];
-        }else{
-            $obs = '';
-        }
-        
-        $mascota = ['n_chip'=>$chipM, 'id_propietario'=>$rutDueno, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'obs'=>$obs,'img'=>$img];
+        $mascota = ['n_chip'=>$chipM, 'id_propietario'=>$rutDueno, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
         
         
         $retorno = $this->model->insert($mascota);
@@ -43,9 +32,9 @@ class RegistroMascotas extends Controller{
         $this->render();
         
     }
-    function getRaza(){
-        $tipo = $_POST['tipo']; 
-        $respuesta = $this->model->getraza($tipo);
+    function getmascota(){
+        $tipo = $_POST['id']; 
+        $respuesta = $this->model->getMascota($tipo);
         return $respuesta;
     }
 

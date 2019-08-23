@@ -17,6 +17,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="public/js/kanuilib.js"></script>
+    <script src="public/js/jquery.Jcrop.js"></script>
     <script src="public/css/css.css"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -102,6 +103,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     main{
         font-family: 'Roboto', sans-serif;
     }
+    
     body{
         font-family: 'Roboto', sans-serif;
     }
@@ -797,7 +799,7 @@ select{
                                     <a href="<?php echo constant('URL') ?>registromascotas">Registrar de Mascota</a>
                                 </li>
                                 <li>
-                                    <a href="#">Editar Mascota</a>
+                                    <a href="<?php echo constant('URL') ?>edicionmascota">Editar Mascota</a>
                                 </li>
                                 <li>
                                     <a href="#">Configuracion mascotas</a>
