@@ -84,9 +84,7 @@
                     data: parametrosajax,
                     success: function(response) {
                       $("#resBusqueda").empty();
-                      console.log(response);
                       response = JSON.parse(response);
-                      console.log(response);
                       var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
                         
                       $.each(response.data.users,function(key, value){
@@ -128,21 +126,41 @@
                     }
                   });
             }
+            function multiple(valor, multiple)
+        {
+            resto = valor % multiple;
+            if(resto==0)
+                return true;
+            else
+                return false;
+        }
 
             function cargaMascotas(json){
+              var html = "";
               var respuesta = JSON.parse(json);
-              console.log(respuesta);
+              //console.log(respuesta);
+              var j = 0;
               $.each(respuesta.data.mascotas , function(key, value){
-                console.log(key);
-                console.log(value);
-              var html = "<div class='card' style='width: 18rem;'>";
-              html+= "<img src='"+value[5]+"' class='card-img-top' alt='...'>";
-              html += "<div class='card-body'>"; 
-              html += "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>";
-              html += "</div>"; 
-              html += "</div>";
-              $("#mascotas").append(html);
+                j++;
+                if(multiple(j,3) || j == 1){
+                  html += "<div class='row'>";
+                  
+                }
+                console.log(html)
+                html += "<div class='col-md-4'>";
+                html += "<div class='card' style='width: 18rem;'>";
+                html += "<img src='"+value[5]+"' class='card-img-top' alt='...'>";
+                html += "<div class='card-body'>"; 
+                html += "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>";
+                html += "</div>"; 
+                html += "</div>";
+                html += "</div>";
+                if(j == 3){
+                  html += "</div>";
+                  j =0;
+                }
               });
+              $("#mascotas").append(html);
             }
       </script>
 
