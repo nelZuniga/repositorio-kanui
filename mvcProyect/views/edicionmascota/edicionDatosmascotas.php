@@ -142,14 +142,19 @@
               var j = 0;
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
-                if(multiple(j,3) || j == 1){
+                if(j == 1){
                   html += "<div class='row'>";
-                  
                 }
+
                 console.log(html)
                 html += "<div class='col-md-4'>";
-                html += "<div class='card' style='width: 18rem;'>";
-                html += "<img src='"+value[5]+"' class='card-img-top' alt='...'>";
+                html += "<div class='card' style='max-width: 18rem;'>";
+                if(value[5] == ''){
+                  html += "<img src='https://kwsmdigital.com/wp-content/uploads/2018/06/profile-placeholder-dog-pilot-3.jpg' style='max-height: 260px; width: auto' class='card-img-top img-fluid' alt='...'>";
+                }else{
+                  html += "<img src='"+value[5]+"' class='card-img-top img-fluid'  style='max-height: 260px; width: auto' alt='...'>";
+                }
+                
                 html += "<div class='card-body'>"; 
                 html += "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>";
                 html += "</div>"; 
