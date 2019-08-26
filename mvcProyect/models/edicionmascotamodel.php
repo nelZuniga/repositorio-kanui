@@ -60,6 +60,28 @@ class edicionmascotaModel extends Model{
     }
 
 
+    public function getEditMascota($id){
+        $respuesta = array();
+        $id = $id;
+        $sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_mascot = '".$id."' and estado = 1";
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $respuesta = $row;
+                
+            }
+            //var_dump($respuesta);
+            return $respuesta;
+        }catch(PDOException $e){
+
+        }
+    
+    }
+
 }
+
+
 
     ?>

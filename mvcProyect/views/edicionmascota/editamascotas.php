@@ -1,4 +1,5 @@
 
+
 <?php require 'views/sidemenu.php'?>
 <style>
 
@@ -166,43 +167,9 @@
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
   <h1>Edicion de Mascotas</h1>
-  <div class="container">
-    <div class="row" >
-      <div class="col-md-6"><h5>Busqueda Dueño</h5></div>
-      <div class="col-md-3"></div>
-    </div>
-    <div class="row" style="margin-bottom:10px">
-      <div class="col-md-2">Buscar por:</div>
-      <div class="col-md-3" align="left">
-        <select name="busqueda form-control" onchange="busqueda(this.value)">
-          <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y apellido peterno</option>
-          <option value="2">Documento</option>
-        </select>
-      </div>
-      <div class="col-md-7" id="busqueda">
-      
-      </div>
-    </div>
-    <!--<div class="row">
-      <div class="col-md-12" id="busqueda">
-        
-      </div>
-    </div>-->
-    <div class="row">
-      <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto; border: 1px solid black; padding-left:0;">
-      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
-
-    </div>
-    </div>
-  </div>
- <div id="respuesta"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                </div>
-            </div>
-        </div>
+  <?php
+echo $this->mascota['id_mascot'];
+?>
 
   <div class="container-fluid mascotas" id="mascotas">
 

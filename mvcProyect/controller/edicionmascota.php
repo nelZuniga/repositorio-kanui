@@ -11,6 +11,14 @@ class EdicionMascota extends Controller{
     function render(){
         $this->view->render('edicionmascota/edicionDatosmascotas');
     }
+
+    function editarmascota($param = null){
+        $idmascot = $param[0];
+        $mascota = [];
+        $mascota = $this->model->getEditMascota($idmascot);
+        $this->view->mascota = $mascota;
+        $this->view->render('edicionmascota/editamascotas');
+    }
     function registraMascota(){
         //echo "usuario creado exitosamente";
         $chipM = $_POST['chipId'];
