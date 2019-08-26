@@ -138,13 +138,11 @@
             function cargaMascotas(json){
               var html = "";
               var respuesta = JSON.parse(json);
-              console.log(respuesta);
               var j = 0;
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
-                if(multiple(j,3) || j == 1){
+                if(j == 1){
                   html += "<div class='row'>";
-                  
                 }
                 html += "<div class='col-md-4'>";
                 html += "<a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'><div class='card' style='width: 18rem;'>";
