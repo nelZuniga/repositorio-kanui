@@ -19,25 +19,29 @@ class EdicionMascota extends Controller{
         $this->view->mascota = $mascota;
         $this->view->render('edicionmascota/editamascotas');
     }
-    function registraMascota(){
+    function editaMascota(){
         //echo "usuario creado exitosamente";
         $chipM = $_POST['chipId'];
-        $rutDueno = $_POST['rutDueno'];
+        $idmascot = $_POST['idmascot'];
         $nombreM = $_POST['nombreM'];
         $fechaNacM = $_POST['fechaNacM'] ;
-       // $Raza = $_POST['Raza'];
+        $raza = $_POST['raza_id'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
-        $mascota = ['n_chip'=>$chipM, 'id_propietario'=>$rutDueno, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM];
+        $observaciones = $_POST['observacionM'];
+        $img = $_POST['baseimg'];
+        $mascota = [ 'idmascot'=>$idmascot, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'raza'=>$raza, 'obs'=>$observaciones, 'img'=>$img];
         
         
-        $retorno = $this->model->insert($mascota);
+        $retorno = $this->model->edit($mascota);
         //echo $retorno;
         if($retorno){
             echo '<script>alert("Mascota Registrada");</script>';
             $this->render();
+        }else{
+            $this->render();
         }
-        $this->render();
+        
         
     }
     function getmascota(){

@@ -6,37 +6,7 @@ class edicionmascotaModel extends Model{
     {
         parent::__construct();
     }
-     /*public function insert($data){
-        //insertar data
-        $conn = $this->db->connect();
-        $query = $conn->prepare("insert into mascota(n_chip, id_propietario, nombre, fecha_nac, tipo_mascota, sexo, observaciones, imgMascota)
-                    values(?,?,?,?,?,?,?)");
-                    $ss = 'iissiis';
-                    $estado = 1;
-        $query->bind_param($ss, $data['n_chip'], $data['id_propietario'], $data['nombre'], $data['fecha_nac'], $data['tipo_mascota'], $data['sexo'],$data['obs'] ,$data['img']);
-        $retorno = false;
-        if($query->execute()){
-                $retorno = true;
-        };
-        return $retorno;
-    }
-    public function getRaza($tipo){
-        $sql = 'SELECT * from raza where tipoRaza = '.$tipo;
-        $conn = $this->db->connect();
-        try{
-            $resp = '';
-            $rs = mysqli_query($conn,$sql);
-            while($row = mysqli_fetch_array($rs)){
-                $resp = "<option value='".$row['id_raza']."'> ".utf8_encode($row['descripcion'])."</option>";
-                echo $resp;
-            }
-            return $resp;
-            
-
-        }catch(PDOException $e){
-
-        }
-    }*/
+    
 
     public function getMascota($usuario){
         $respuesta = array();
@@ -59,11 +29,26 @@ class edicionmascotaModel extends Model{
         }
     }
 
+    public function edit($data){
+        //insertar data
+        $conn = $this->db->connect();
+        $query = $conn->prepare("
+        UPDATE mascota SET nombre = ?, tipo_mascota = ?, sexo = ?, raza = ?, fecha_nac = ?, observaciones = ? , imgMascota = ? WHERE id_mascot = ?");
+                    $ss = 'siissssi';
+                    $query->bind_param($ss ,$data['nombre'], $data['tipo_mascota'], $data['sexo'],$data['raza'],$data['fecha_nac'],$data['obs'] ,$data['img'], $data['idmascot']);
+        $retorno = false;
+        
+        if($query->execute()){
+                $retorno = true;
+        };
+        return $retorno;
+    }
+
 
     public function getEditMascota($id){
         $respuesta = array();
         $id = $id;
-        $sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_mascot = '".$id."' and estado = 1";
+        $sql = "select * from mascota where id_mascot = '".$id."' and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';

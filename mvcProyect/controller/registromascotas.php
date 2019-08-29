@@ -39,8 +39,10 @@ class RegistroMascotas extends Controller{
         if($retorno){
             echo '<script>alert("Mascota Registrada");</script>';
             $this->render();
+        }else{
+            $this->render();
         }
-        $this->render();
+        
         
     }
     function getRaza(){

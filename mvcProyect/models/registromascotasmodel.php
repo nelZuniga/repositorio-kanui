@@ -9,11 +9,11 @@ class registromascotasModel extends Model{
      public function insert($data){
         //insertar data
         $conn = $this->db->connect();
-        $query = $conn->prepare("insert into mascota(n_chip, id_propietario, nombre, fecha_nac, tipo_mascota, sexo, observaciones, imgMascota)
+        $query = $conn->prepare("insert into mascota(n_chip, id_propietario, nombre, fecha_nac, tipo_mascota, sexo, observaciones, imgMascota, estado)
                     values(?,?,?,?,?,?,?)");
-                    $ss = 'iissiis';
+                    $ss = 'iissiisi';
                     $estado = 1;
-        $query->bind_param($ss, $data['n_chip'], $data['id_propietario'], $data['nombre'], $data['fecha_nac'], $data['tipo_mascota'], $data['sexo'],$data['obs'] ,$data['img']);
+        $query->bind_param($ss, $data['n_chip'], $data['id_propietario'], $data['nombre'], $data['fecha_nac'], $data['tipo_mascota'], $data['sexo'],$data['obs'] ,$data['img'], $estado);
         $retorno = false;
         if($query->execute()){
                 $retorno = true;
