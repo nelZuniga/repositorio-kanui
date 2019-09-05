@@ -22,7 +22,7 @@ public function login($data){
         }else{
             $data = ["Ingreso"=>false, "id_usr" => $rs];
         }
-
+        header('Content-Type: application/json');
         echo json_encode($data);
         
 }
@@ -46,6 +46,7 @@ public function getdata($data){
             "documento"=>$row['documento'], 
             "correo"=>$row['correo']];
         }
+        header('Content-Type: application/json');
         echo json_encode($rest);
         //$retorno = 'false';
         
@@ -66,7 +67,10 @@ public function getdata($data){
             if($rs!==0 && !is_null($rs)){
                 $rest =  $this->getdatadueño($data);
 
+            }else{
+                $rest = 0;
             }
+            header('Content-Type: application/json');
             echo json_encode($rest);
     }  
 
@@ -82,13 +86,35 @@ public function getdata($data){
         $query->execute();
         $rs = $query->get_result();
         $query->fetch();
+        $rest = [];
         while($row = mysqli_fetch_array($rs)){
-            $rest = ["nombre"=>$row['nombre'],
+            $rest = ["nombreMascota"=>$row['nombre'],
             "nombre"=> $row['nombres'],
             "apellido"=> $row['apellido'],
             "tel"=>$row['tel']];
         }
         return $rest;
+    }
+    public function getMascotas($data){
+        $respuesta = array();
+        $usuario = $data;
+        $sql = "select id_mascot,nombre,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+                echo $resp;*/
+                $respuesta['data']['mascotas'][] = $row;
+                
+            }
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
+            //return json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
     }
     
 }
