@@ -7,6 +7,7 @@ public function __construct()
 }
 
 public function cargatipomascota(){
+    $respuesta = array();//para obtener todos los datos defines un vector o un arreglo
     $conn = $this->db->connect();
     $query = $conn->prepare("select * from tipo_mascota");
     //$dtype = "ss";
@@ -15,14 +16,12 @@ public function cargatipomascota(){
     //$query->bind_result($rs);
     //$query->fetch();
     $rs = $query->get_result();
-    var_dump($rs);
-    $respuesta = '';
-    while($row = mysqli_fetch_array($rs)){
-        //echo $row[0]."<BR>";
-        //$respuesta = ["id"=>$row[0],"nombre"=>$row[1]];
-        echo json_encode($row);
+    //$respuesta = '';
+    while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se hace un array push, esto para concatenar
+        //los resultados
+        array_push($respuesta, $row);
     }
-    return $respuesta;
+    return $respuesta;//devuelves el arreglo
 }
 
 
