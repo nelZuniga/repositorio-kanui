@@ -32,7 +32,7 @@
                   type: 'success'
                 }).then((result) => {
                   if (result.value) {
-                    window.location.href = "<?php echo constant('URL')?>Home";
+                    window.location.href = "<?php echo constant('URL')?>home";
                   }
                 })
               
