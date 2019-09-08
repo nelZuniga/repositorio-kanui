@@ -13,7 +13,7 @@ class listatipomascota extends Controller{
     }
 
     function select(){
-        $respuesta = $this->model->select();
+        $respuesta = $this->model->cargatipomascota();
         var_dump($respuesta);
     }
 
