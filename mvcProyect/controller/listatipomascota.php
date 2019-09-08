@@ -3,9 +3,7 @@ class listatipomascota extends Controller{
 
     function __construct()
     {
-        parent::__construct();
-        
-        //echo 'controller main';
+       parent::__construct();
     }
     
     function render(){
