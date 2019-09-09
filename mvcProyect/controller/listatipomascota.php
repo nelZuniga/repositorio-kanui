@@ -18,13 +18,6 @@ class listatipomascota extends Controller{
         //var_dump($respuesta);
     }
 
-    function guardar(){
-        $texto = $_POST['texto'];
-        //echo $texto;
-        $envio = ["nombre"=>$texto];
-        $this->model->poner($envio);
-    }
-
 // registro mascotas insert
 // edita mascotas update
 // apimodel select    

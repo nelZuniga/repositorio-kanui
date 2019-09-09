@@ -1,32 +1,38 @@
 
 <?php require 'views/sidemenu.php'?>
-    
-<h1 class="page-header">LISTA TIPO MASCOTAS</h1>
-<?php var_dump($this->tipomascota); ?>
- 
-<table class="table  table-striped  table-hover" id="tabla">
-    <thead>
-        <tr>
-        <th style="width:120px; background-color: #5DACCD; color:#fff">Tipo Mascota</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--- Para acceder a la variable generada en el controlador lo accedes con $this->nombre_variable --->
-    <?php foreach($this->tipomascota as $r=> $valor): ?>
-    <!---aqui ibas como avion, como creamos la variable en la vista, y esta es un arreglo, recorremos el arreglo e imprimimos la vista --->
-        <tr>
-            <td><?php echo $valor['id_tmasc']; ?></td>
-            <td><?php echo $valor['descripcion']; ?></td>
-         </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table> 
-<!--- despues borras los var_dump para que se te muestre en limpio--->
- 
-</body>
+<style>
+.tablaBusqueda tr th{
+  color:white;
+  background-color: #059485;
+}    
+</style>
+<div style="padding: 0;padding-right: 21px;">
+    <h1>Tipos de Mascotas</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto; border: 1px solid black; padding-left:0;">
+                <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
+                    <tr>
+                        <th style="width:47px"></th>
+                        <th>Descripción tipo de mascota</th>
+                        <th>Acción</th>
+                    </tr>
+                    <?php foreach($this->tipomascota as $r=> $valor): ?>
+                        <!---aqui ibas como avion, como creamos la variable en la vista, y esta es un arreglo, recorremos el arreglo e imprimimos la vista --->
+                        <tr>
+                            <td><?php echo $valor['id_tmasc']; ?></td>
+                            <td><?php echo $valor['descripcion']; ?></td>
+                            <td><a href='<?php echo constant('URL') ?>ediciontipomascota/ediciontipomascota/<?php echo $valor['id_tmasc']; ?>'>EDITAR</div></a>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ </body>
 <script  src="assets/js/datatable.js">  
- 
-</script>
- 
- 
+ </script>
 </html>
