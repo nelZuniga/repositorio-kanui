@@ -19,10 +19,10 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>ediciontipomascota/ediciontipomascota">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="chipID">ID Tipo Mascota</label><br><input id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID Tipo Mascota" class="form-control" value="<?php echo $this->tipo_mascota['id_tmasc'] ?>">
+              <div class="col-md-6 form-group"><label for="chipID">ID Tipo Mascota</label><br><input id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID Tipo Mascota" class="form-control" value="<?php echo $this->tipomascota['id_tmasc'] ?>">
               </div>
               <div class="col-md-6 form-group"><label for="nombreM">Descipcion</label><br>
-                <?php echo $this->tipo_mascota['descripcion'] ?></div>
+                <?php echo $this->tipomascota['descripcion'] ?></div>
               </div>
             <div class="row">
               <div class="col-md-8 offset-md-2 form-group" style="text-align:center">

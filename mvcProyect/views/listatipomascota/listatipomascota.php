@@ -22,7 +22,7 @@
                         <tr>
                             <td><?php echo $valor['id_tmasc']; ?></td>
                             <td><?php echo $valor['descripcion']; ?></td>
-                            <td><a href='<?php echo constant('URL') ?>ediciontipomascota/ediciontipomascota/<?php echo $valor['id_tmasc']; ?>'>EDITAR</div></a>
+                            <td><a href='<?php echo constant('URL') ?>ediciontipomascota/ediciontipomascota?id_tmasc=<?php echo $valor['id_tmasc']; ?>'>EDITAR</div></a>
 
                             </td>
                         </tr>

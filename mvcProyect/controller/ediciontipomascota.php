@@ -9,17 +9,17 @@ class ediciontipoMascota extends Controller{
     }
     
     function render(){
+        $id_tmasc = $_GET['id_tmasc'];
         $tipos = [];//aqui creas un arreglo donde puedes guardar los datos
         $tipos = $this->model->cargatipomascota($id_tmasc);//los importas desde la funcion
         $this->view->tipomascota = $tipos;//creas una variable con la cual podras acceder en la vista
         $this->view->render('ediciontipomascota/ediciontipomascota');
     }
 
-    function ediciontipomascota($id_tmasc){
-        $id_tmasc = $id_tmasc;
-        $tipo_mascota = $this->model->cargatipomascota($id_tmasc);
-        $this->view->tipo_mascota = $tipo_mascota;
-        $this->view->render('ediciontipomascota/ediciontipomascota');
+    function ediciontipomascota(){
+        $tipo = $_GET['id_tmasc']; 
+        $respuesta = $this->model->cargatipomascota($tipo);
+        return $respuesta;
     }
 
 
