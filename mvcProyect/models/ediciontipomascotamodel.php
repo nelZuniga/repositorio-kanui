@@ -25,5 +25,26 @@ public function cargatipomascota($id_tmasc){
     }
     return $respuesta;//devuelves el arreglo
 }
+
+public function guardatipomascota($id_tmasc,$descripcion){
+    $id_tmasc = $_POST['id_tmasc']; 
+    $descripcion = $_POST['txt_desc']; 
+    $respuesta = array();//para obtener todos los datos defines un vector o un arreglo
+    $conn = $this->db->connect();
+    $query = $conn->prepare("update tipo_mascota set descripcion='$descripcion' where id_tmasc='$id_tmasc'");
+    //$dtype = "ss";
+    //$query->bind_param($dtype,$data['usr'], $data['pss']);
+    $query->execute();
+    //$query->bind_result($rs);
+    //$query->fetch();
+    $rs = $query->get_result();
+    //$respuesta = '';
+    /*while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se hace un array push, esto para concatenar
+        //los resultados
+        array_push($respuesta, $row);
+    }*/
+    return $respuesta;//devuelves el arreglo
+}
+
 }
 ?>

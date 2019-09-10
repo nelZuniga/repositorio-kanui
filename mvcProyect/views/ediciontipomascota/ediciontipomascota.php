@@ -19,19 +19,19 @@
   <div id="registrar" class="row">
     <div class="col-md-12">
       <div class="well well-sm">
-        <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>ediciontipomascota/ediciontipomascota">
+        <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>ediciontipomascota/guardatipomascota">
           <div class="container">
             <div class="row">
               <div class="col-md-6 form-group"><label for="ID_TIPO_MASCOTA">ID Tipo Mascota</label><br><input id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID Tipo Mascota" class="form-control" value="<?php echo $valor['id_tmasc'];?>">
               </div>
               <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input id="descripcion" name="descripcion" type="text" placeholder="Nombre Tipo Mascota" class="form-control" value="<?php echo $valor['descripcion'];?>">
+                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo Mascota" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
-                <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px">Guardar</button>
-                <a href='<?php echo constant('URL') ?>listatipomascota' class="btn btn-verde">Cancelar</div></a>
+               <button type="submit" class="btn btn-verde" data-toggle="modal" >Guardar</button>
+                <a href='<?php echo constant('URL') ?>listatipomascota' class="btn btn-verde">Cancelar</a>
               </div>
             </div>
           </div>

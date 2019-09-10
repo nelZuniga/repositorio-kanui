@@ -21,6 +21,14 @@ class ediciontipomascota extends Controller{
 
     }
 
+    function guardatipomascota(){
+        $id_tmasc = $_POST['id_tmasc'];
+        $descripcion = $_POST['txt_desc'];
+        $tipos = $this->model->guardatipomascota($id_tmasc,$descripcion);//los importas desde la funcion
+        $this->view->render('listatipomascota/listatipomascota');//cargas la vista
+
+    }    
+
 
     function select(){
         $respuesta = $this->model->cargatipomascota();
