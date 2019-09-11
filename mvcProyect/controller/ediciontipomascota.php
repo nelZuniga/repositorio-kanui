@@ -28,7 +28,8 @@ class ediciontipomascota extends Controller{
         //$this->view->render('listatipomascota/listatipomascota');//cargas la vista
         
         //PARCHE CURITA
-        echo "<script>window.locatio.href='<?php echoconstant('URL') ?>listatipomascota/listatipomascota ?>'</script>";
+        $url = "";
+        echo "<script>window.location.href='".constant('URL')."listatipomascota';</script>";
 
         //PARCHE CURITA
 
