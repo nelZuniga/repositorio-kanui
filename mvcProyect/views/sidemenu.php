@@ -862,6 +862,9 @@ select{
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listatipomascota">Tipos de Mascotas</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listatipodocumento">Tipos de Documentos</a>
+                                </li>                                
                             </ul>
                         </div>
                     </li>
