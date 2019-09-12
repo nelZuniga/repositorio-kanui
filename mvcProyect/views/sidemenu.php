@@ -848,6 +848,26 @@ select{
                             </ul>
                         </div>
                     </li>
+<!-------------
+    Inicio Menú de Mantenedores
+    12-Septiembre : Falta parametrizar por perfil de usuario
+---------->
+                    <li class="sidebar-dropdown">
+                        <a href="#">
+                            <i class="far fa-gem"></i>
+                            <span>Mantenedores</span>
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listatipomascota">Tipos de Mascotas</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+<!-------------
+    Fin Menú de Mantenedores
+---------->
                     <li class="header-menu">
                         <span>Extra</span>
                     </li>

@@ -1,5 +1,5 @@
 <?php
-class ediciontipomascota extends Controller{
+class agregatipomascota extends Controller{
 
     function __construct()
     {
@@ -9,21 +9,18 @@ class ediciontipomascota extends Controller{
     }
     
     function render(){
-        $this->view->render('ediciontipomascota/ediciontipomascota');
+        $this->view->render('agregatipomascota/agregatipomascota');
     }
 
-    function ediciontipomascota(){
-        $id_tmasc = $_GET['id_tmasc']; 
+    function agregatiposmascota(){
         $tipos = [];//aqui creas un arreglo donde puedes guardar los datos
-        $tipos = $this->model->cargatipomascota($id_tmasc);//los importas desde la funcion
-        $this->view->tipomascota = $tipos;//creas una variable con la cual podras acceder en la vista
-        $this->view->render('ediciontipomascota/ediciontipomascota');//cargas la vista
+        $tipos = $this->model->cargatipomascota();//los importas desde la funcion
+        $this->view->render('agregatipomascota/agregatipomascota');//cargas la vista
     }
 
     function guardatipomascota(){
-        $id_tmasc = $_POST['id_tmasc'];
         $descripcion = $_POST['txt_desc'];
-        $tipos = $this->model->guardatipomascota($id_tmasc,$descripcion);//los importas desde la funcion
+        $tipos = $this->model->guardatipomascota($descripcion);//los importas desde la funcion
         //$this->view->render('listatipomascota/listatipomascota');//cargas la vista
         
         //PARCHE CURITA
