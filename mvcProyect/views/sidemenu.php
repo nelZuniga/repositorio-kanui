@@ -856,6 +856,7 @@ select{
                         <a href="#">
                             <i class="far fa-gem"></i>
                             <span>Mantenedores</span>
+                            <span class="badge badge-pill badge-danger">></span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -864,7 +865,10 @@ select{
                                 </li>
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listatipodocumento">Tipos de Documentos</a>
-                                </li>                                
+                                </li>       
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listasexo">Sexos de Mascotas</a>
+                                </li>  
                             </ul>
                         </div>
                     </li>
