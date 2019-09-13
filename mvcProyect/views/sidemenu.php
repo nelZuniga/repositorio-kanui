@@ -868,7 +868,10 @@ select{
                                 </li>
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listatipousuario">Tipos de Usuarios</a>
-                                </li>                                 
+                                </li>    
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listaregion">Regiones del País</a>
+                                </li>                                                               
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listasexo">Sexos de Mascotas</a>
                                 </li>  
