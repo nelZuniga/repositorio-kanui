@@ -871,7 +871,11 @@ select{
                                 </li>    
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listaregion">Regiones del País</a>
-                                </li>                                                               
+                                </li>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listacomuna">Comunas del País</a>
+                                </li>
+
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listasexo">Sexos de Mascotas</a>
                                 </li>  
