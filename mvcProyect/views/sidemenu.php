@@ -875,10 +875,12 @@ select{
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listacomuna">Comunas del País</a>
                                 </li>
-
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listasexo">Sexos de Mascotas</a>
                                 </li>  
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listatipoanimal">Razas de Animales</a>
+                                </li>                                  
                             </ul>
                         </div>
                     </li>
