@@ -68,6 +68,32 @@ class api extends Controller{
         }
     }
 
+    function getmascotafull(){
+        $masc = $_GET['id_masc'];
+        $rest = $this->model->getmascotafull($masc);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
+    function updmascota(){
+        $id_masc = $_GET['id_masc'];
+        $nombre =$_GET['nombre'];
+        $sexo =$_GET['sexo'];
+        $observaciones = $_GET['observaciones'];
+        //no se va a actualizar img aun
+        //$img =$_GET['img'];
+        $masc = ["id_masc"=>$id_masc,"nombre"=>$nombre,"sexo"=>$sexo, "obs"=>$observaciones];
+        $rest = $this->model->updmascota($masc);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
 }
 
 

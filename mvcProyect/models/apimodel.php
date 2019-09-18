@@ -116,6 +116,42 @@ public function getdata($data){
 
         }
     }
+
+    public function getMascotafull($data){
+        $respuesta = array();
+        $mascota = $data;
+        $sql = "select id_mascot,nombre,n_chip,id_propietario, sexo,imgMascota, observaciones from mascota where id_mascot = '".$mascota."' and estado = 1";
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+                echo $resp;*/
+                $respuesta['data']['mascotas'][] = $row;
+                
+            }
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
+            //return json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function updmascota($data){
+        $conn = $this->db->connect();
+        $query = $conn->prepare("
+        UPDATE mascota SET nombre = ?, sexo = ?, observaciones = ? WHERE id_mascot = ?");
+                    $ss = 'sisi';
+                    $query->bind_param($ss ,$data['nombre'], $data['sexo'],$data['obs'] , $data['id_masc']);
+        $retorno = false;
+        
+        if($query->execute()){
+                $retorno = true;
+        };
+        return $retorno;
+    }
     
 }
 
