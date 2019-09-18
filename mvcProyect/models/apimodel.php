@@ -152,6 +152,26 @@ public function getdata($data){
         };
         return $retorno;
     }
+
+    public function getcarnet($data){
+
+    }
+
+    public function updusuario($data){
+        $conn = $this->db->connect();
+        $query = $conn->prepare("
+        UPDATE usuario SET nombres = ?, apellido_paterno = ?, apellido_materno = ?, documento = ?, 
+        tipo_documento = ? WHERE id_usr = ?");
+                    $ss = 'ssssii';
+                    $query->bind_param($ss ,$data['nombres'], $data['apellidop'],$data['apellidom'] , $data['doc'],$data['tdoc'],$data['id_usr']);
+        $retorno = false;
+        
+
+        if($query->execute()){
+                $retorno = true;
+        };
+        return $retorno;
+    }
     
 }
 

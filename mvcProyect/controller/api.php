@@ -94,6 +94,27 @@ class api extends Controller{
         }
     }
 
+    function getcarnet(){
+        $id_masc = $_GET['id_masc'];
+        $rest = $this->model->getcarnet($id_masc);
+    }
+
+    function updusuario(){
+        $id_usr = $_GET['id_usr'];
+        $nombres = $_GET['nombres'];
+        $apellidoP = $_GET['apellidop'];
+        $apellidoM = $_GET['apellidom'];
+        $tipodoc = $_GET['tdoc'];
+        $doc = $_GET['doc'];
+        $usuario = ["id_usr"=>$id_usr,"nombres"=>$nombres,"apellidop"=>$apellidoP,"apellidom"=>$apellidoM,"tdoc"=>$tipodoc,"doc"=>$doc];
+        $rest = $this->model->updusuario($usuario);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
 }
 
 
