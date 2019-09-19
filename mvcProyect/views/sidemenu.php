@@ -880,7 +880,10 @@ select{
                                 </li>  
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listatipoanimal">Razas de Animales</a>
-                                </li>                                  
+                                </li> 
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listatipovacuna">Vacunas</a>
+                                </li>                                 
                             </ul>
                         </div>
                     </li>
