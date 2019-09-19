@@ -100,8 +100,6 @@ public function getdata($data){
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-                echo $resp;*/
                 $respuesta['data']['mascotas'][] = $row;
                 
             }
@@ -121,14 +119,11 @@ public function getdata($data){
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-                echo $resp;*/
                 $respuesta['data']['mascotas'][] = $row;
                 
             }
             header('Content-Type: application/json');
             echo json_encode($respuesta);
-            //return json_encode($respuesta);
         }catch(PDOException $e){
 
         }
