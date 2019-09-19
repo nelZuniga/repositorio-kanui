@@ -16,7 +16,6 @@ public function login($data){
 
         $query->bind_result($rs);
         $query->fetch();
-        //$retorno = 'false';
         if($rs !== 0 && !is_null($rs)){
             $data = ["Ingreso"=>true, "id_usr" => $rs];
         }else{
@@ -48,17 +47,14 @@ public function getdata($data){
         }
         header('Content-Type: application/json');
         echo json_encode($rest);
-        //$retorno = 'false';
         
     }  
 
 
     public function getpet($data){
-        
         $conn = $this->db->connect();
             $query = $conn->prepare("SELECT n_chip 
             FROM `mascota` WHERE n_chip = ?");
-    
             $dtype = "i";
             $query->bind_param($dtype,$data['chip']);
             $query->execute();
@@ -111,7 +107,6 @@ public function getdata($data){
             }
             header('Content-Type: application/json');
             echo json_encode($respuesta);
-            //return json_encode($respuesta);
         }catch(PDOException $e){
 
         }
@@ -165,13 +160,131 @@ public function getdata($data){
                     $ss = 'ssssii';
                     $query->bind_param($ss ,$data['nombres'], $data['apellidop'],$data['apellidom'] , $data['doc'],$data['tdoc'],$data['id_usr']);
         $retorno = false;
-        
-
         if($query->execute()){
                 $retorno = true;
         };
         return $retorno;
     }
+
+    public function setScan($data){
+        $comp= ["id_usr"=>$data['id_usr'],"nchip"=>$data['nchip']];
+        $resp = $this->comparator($comp); 
+        $datamascota = ['nchip'=>$data['nchip']];
+        $id_mascota = $this->getmascotaid($datamascota);
+        $data = ["id_usr"=>$data['id_usr'],"lat"=>$data['lat'],"long"=>$data['long'],"nchip"=>$data['nchip'],"id_mascot"=>$id_mascota];
+        if($id_mascota !== 0){
+            if($resp){
+                //es el dueño ver como redirigir a carnet
+            }else{
+                //no es el dueño guardar localizacion y revisar datos a mostrar
+                $respuesta = $this->guardarScan($data);
+                if($respuesta){
+                    //obtener datos de contacto
+                    $datos = ["chip"=>$data['nchip']];
+                    $response = $this->getdatadueño($datos);
+                    header('Content-Type: application/json');
+                    echo json_encode($response);
+    
+                }
+            }
+
+        }else{
+            $response = ['existencia'=>'no'];
+            header('Content-Type: application/json');
+                    echo json_encode($response);
+        }
+        
+
+    }
+
+    public function comparator($data){
+        //para verificar el dueño de mascota y el "escaneante"
+        $sql = "SELECT id_propietario FROM `mascota` WHERE n_chip  = '".$data['nchip']."'";
+        $conn = $this->db->connect();
+        $respuesta = false;
+        try{
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                if($row[0] === $data['id_usr']){
+                    $respuesta = true;
+                    return $respuesta;
+                }
+            }
+            return $respuesta;
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function guardarScan($data){
+        $conn = $this->db->connect();
+        $query = $conn->prepare("
+        INSERT INTO scans (id_usr,id_mascot,n_chip,lat,longitud)  
+        VALUES ( ? , ? , ? , ? ,? )");
+        if($query == false){
+            return ["ok"=>'false'];
+        }
+                    $ss = 'iisss';
+                    $query->bind_param($ss,$data['id_usr'],$data['id_mascot'],$data['nchip'],$data['lat'],$data['long']);
+        $retorno = false;
+        if($query->execute()){
+                $retorno = true;
+        };
+        return $retorno;
+    }
+
+    public function getmascotaid($data){
+        $sql = "SELECT id_mascot FROM `mascota` WHERE n_chip  = '".$data['nchip']."'";
+        $conn = $this->db->connect();
+        $respuesta = 0;
+        try{
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                    $respuesta = $row[0];
+                    return $respuesta;
+            }
+            return $respuesta;
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function getScans($data){
+        $respuesta = array();
+        $usuario = $data['id_usr'];
+        $sql = "select id_scan, id_usr, id_mascot, n_chip, lat, longitud from scans where id_usr = '".$usuario."'";
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $respuesta['data']['mascotas'][] = $row;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function getScanmascota($data){
+        $respuesta = array();
+        $mascota = $data['id_mascot'];
+        $sql = "select id_scan, id_usr, id_mascot, n_chip, lat, longitud from scans where id_mascot = '".$mascota."'";
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $respuesta['data']['mascotas'][] = $row;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
+    }
+
     
 }
 

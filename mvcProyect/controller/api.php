@@ -115,6 +115,28 @@ class api extends Controller{
         }
     }
 
+    function scan(){
+        $id_usr = $_GET['id_usr'];
+        $lat = $_GET['lat'];
+        $long = $_GET['long'];
+        $nchip = $_GET['nchip'];
+        $scan = ["id_usr"=>$id_usr,"lat"=>$lat,"long"=>$long,"nchip"=>$nchip]; 
+        $rest = $this->model->setScan($scan);
+
+    }
+
+    function getScans(){
+        $id_usr = $_GET['id_usr'];
+        $scans = ["id_usr"=>$id_usr];
+        $rest = $this->model->getScans($scans);
+    }
+
+    function getScanmascota(){
+        $id_mascot = $_GET['id_mascot'];
+        $scans = ["id_mascot"=>$id_mascot];
+        $rest = $this->model->getScanmascota($scans);
+    }
+
 }
 
 
