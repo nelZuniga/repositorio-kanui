@@ -1,4 +1,6 @@
-<?php require 'views/sidemenu.php'?>
+<?php require 'views/sidemenu.php';
+$region = $_GET['id_reg_region'];
+?>
 
 <style>
 .tablaBusqueda tr th{
@@ -12,7 +14,7 @@
         <table>
             <tr>
                 <td>
-                    <a href='<?php echo constant('URL') ?>agregacomuna' class="btn btn-verde">AGREGAR</div></a>
+                    <a href='<?php echo constant('URL') ?>agregacomuna?id_reg_region=<?php echo $region; ?>' class="btn btn-verde">AGREGAR</div></a>
                 </td>
             </tr>
         </table>
@@ -33,7 +35,7 @@
                         <tr>
                             <td><?php echo $valor['id_com']; ?></td>
                             <td><?php echo $valor['descripcion']; ?></td>
-                            <td><a href='<?php echo constant('URL') ?>edicioncomunaregion/edicioncomunaregion?id_com=<?php echo $valor['id_com']; ?>' class="btn btn-verde">EDITAR</div></a>
+                            <td><a href='<?php echo constant('URL') ?>edicioncomunaregion/edicioncomunaregion?id_com=<?php echo $valor['id_com'];?>&id_reg_region=<?php echo $valor['id_reg_region'];?>' class="btn btn-verde">EDITAR</div></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>                    

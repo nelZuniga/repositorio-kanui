@@ -1,4 +1,5 @@
-<?php require 'views/sidemenu.php' ?>
+<?php require 'views/sidemenu.php';
+$region = $_GET['id_reg_region']; ?>
 <style>
   .tablaBusqueda tr th {
     color: white;
@@ -39,7 +40,7 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>edicioncomunaregion/guardacomunaregion">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 form-group"><label for="ID_TIPO_MASCOTA">ID Comuna</label><br><input id="id_com" readonly name="id_com" type="text" placeholder="ID Tipo Mascota" class="form-control" value="<?php echo $valor['id_com'];?>">
+              <div class="col-md-4 form-group"><label for="ID_COMUNA">ID Comuna</label><br><input id="id_com" readonly name="id_com" type="text" placeholder="ID Comuna" class="form-control" value="<?php echo $valor['id_com'];?>">
               </div>
               <div class="col-md-4 form-group"><label for="NOMBRE_DESCRIPCION">Nombre Comuna</label><br>
                 <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Comuna" class="form-control" value="<?php echo $valor['descripcion'];?>">
@@ -55,7 +56,7 @@
             <div class="row">
               <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
                <button type="submit" class="btn btn-verde" data-toggle="modal" >Guardar</button>
-                <a href='<?php echo constant('URL') ?>listacomunaregion' class="btn btn-verde">Cancelar</a>
+                <a href='<?php echo constant('URL') ?>listacomunaregion?id_reg_region=<?php echo $valor['id_reg_region'];?>' class="btn btn-verde">Cancelar</a>
               </div>
             </div>
           </div>
