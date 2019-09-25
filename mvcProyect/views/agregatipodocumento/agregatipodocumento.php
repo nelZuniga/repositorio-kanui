@@ -19,13 +19,13 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregatipodocumento/guardatipodocumento">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 form-group"><label for="ID_TIPO_MASCOTA">ID Tipo Documento</label><br><input id="id_tdoc" readonly name="id_tdoc type="text" placeholder="ID Tipo Mascota Automático" class="form-control">
+              <div class="col-md-4 form-group"><label for="ID_TIPO_MASCOTA">ID Tipo Documento</label><br><input id="id_tdoc" readonly name="id_tdoc type="text" placeholder="ID Tipo Documento Automático" class="form-control">
               </div>
               <div class="col-md-4 form-group"><label for="NOMBRE_DOCUMENTO">Tipo de Documento</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo de Documento" class="form-control">
+                <input required="" id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo de Documento" class="form-control">
               </div>
               <div class="col-md-4 form-group"><label for="ABREVIATURA">Abreviatura</label><br>
-                <input id="txt_abre" name="txt_abre" type="text" placeholder="Abreviatura Tipo de Documento" class="form-control">
+                <input required id="txt_abre" name="txt_abre" type="text" placeholder="Abreviatura Tipo de Documento" class="form-control">
               </div>              
             </div>
             <div class="row">
