@@ -24,10 +24,10 @@ $region = $_GET['id_reg_region'];
               <div class="col-md-3 form-group"><label for="ID_COMUNA">ID Comuna</label><br><input id="id_com" readonly name="id_com" type="text" placeholder="ID Comuna Automático" class="form-control">
               </div>
               <div class="col-md-3 form-group"><label for="NOMBRE_COMUNA">Descripcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Comuna" class="form-control">
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Comuna" class="form-control">
               </div>
               <div class="col-md-3 form-group"><label for="ID_REGION">Descripcion</label><br>
-                <input id="id_reg_Region" readonly name="id_reg_region" type="text" placeholder="ID de la región" class="form-control" value="<?php echo $region; ?>">
+                <input required id="id_reg_Region" readonly name="id_reg_region" type="text" placeholder="ID de la región" class="form-control" value="<?php echo $region; ?>">
               </div>             
             </div>
             <div class="row">

@@ -22,7 +22,7 @@
               <div class="col-md-6 form-group"><label for="ID_TIPO_USUARIO">ID Tipo Usuario</label><br><input id="id_tusr" readonly name="id_tusr" type="text" placeholder="ID Tipo Usuario Automático" class="form-control">
               </div>
               <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo Usuario" class="form-control">
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo Usuario" class="form-control">
               </div>
             </div>
             <div class="row">

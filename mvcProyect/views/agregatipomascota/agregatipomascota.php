@@ -22,7 +22,7 @@
               <div class="col-md-6 form-group"><label for="ID_TIPO_MASCOTA">ID Tipo Mascota</label><br><input id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID Tipo Mascota Automático" class="form-control">
               </div>
               <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo Mascota" class="form-control">
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo Mascota" class="form-control">
               </div>
             </div>
             <div class="row">

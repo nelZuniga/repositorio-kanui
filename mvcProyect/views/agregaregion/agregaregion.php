@@ -22,13 +22,13 @@
               <div class="col-md-3 form-group"><label for="ID_REGION">ID Región</label><br><input id="id_reg" readonly name="id_reg" type="text" placeholder="ID Región Automático" class="form-control">
               </div>
               <div class="col-md-3 form-group"><label for="NOMBRE_DESCRIPCION">Descripcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Región" class="form-control">
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Región" class="form-control">
               </div>
               <div class="col-md-3 form-group"><label for="SIMBOLOGÍA_REGIÓN">Simbología Región</label><br>
-                <input id="txt_simbolo" name="txt_simbolo" type="text" placeholder="Smibología Región" class="form-control">
+                <input required id="txt_simbolo" name="txt_simbolo" type="text" placeholder="Smibología Región" class="form-control">
               </div>
               <div class="col-md-3 form-group"><label for="ORDEN_REGION">Orden de la región</label><br>
-                <input id="txt_orden" name="txt_orden" type="text" placeholder="Orden de Región" class="form-control">
+                <input required id="txt_orden" name="txt_orden" type="text" placeholder="Orden de Región" class="form-control">
               </div>              
             </div>
             <div class="row">
