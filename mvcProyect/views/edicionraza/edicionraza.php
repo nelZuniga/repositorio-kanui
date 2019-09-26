@@ -1,4 +1,5 @@
-<?php require 'views/sidemenu.php' ?>
+<?php require 'views/sidemenu.php';
+$mascota = $_GET['id_tmasc']; ?> ?>
 <style>
   .tablaBusqueda tr th {
     color: white;
@@ -55,7 +56,7 @@
             <div class="row">
               <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
                <button type="submit" class="btn btn-verde" data-toggle="modal" >Guardar</button>
-                <a href='<?php echo constant('URL') ?>listacomunaregion' class="btn btn-verde">Cancelar</a>
+                <a href='<?php echo constant('URL') ?>listaraza?id_tmasc=<?php echo $mascota;?>' class="btn btn-verde">Cancelar</a>
               </div>
             </div>
           </div>

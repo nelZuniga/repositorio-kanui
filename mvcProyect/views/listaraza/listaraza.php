@@ -1,4 +1,5 @@
-<?php require 'views/sidemenu.php'?>
+<?php require 'views/sidemenu.php';
+$mascota = $_GET['id_tmasc'];?>
 
 <style>
 .tablaBusqueda tr th{
@@ -12,7 +13,7 @@
         <table>
             <tr>
                 <td>
-                    <a href='<?php echo constant('URL') ?>agregaraza' class="btn btn-verde">AGREGAR</div></a>
+                    <a href='<?php echo constant('URL') ?>agregaraza?id_tmasc=<?php echo $mascota; ?>'  class="btn btn-verde">AGREGAR</div></a>
                 </td>
             </tr>
         </table>
@@ -33,8 +34,9 @@
                         <tr>
                             <td><?php echo $valor['id_raza']; ?></td>
                             <td><?php echo $valor['descripcion']; ?></td>
-                            <td><a href='<?php echo constant('URL') ?>edicionraza/edicionraza?id_raza=<?php echo $valor['id_raza']; ?>' class="btn btn-verde">EDITAR</div></a>
+                            <td><a href='<?php echo constant('URL') ?>edicionraza/edicionraza?id_raza=<?php echo $valor['id_raza']; ?>&id_tmasc=<?php echo $mascota;?>' class="btn btn-verde">EDITAR</div></a>
                             </td>
+                             
                         </tr>
                     <?php endforeach; ?>                    
                 </table>
