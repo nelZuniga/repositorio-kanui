@@ -65,7 +65,8 @@
                     type:"post",
                     data: parametrosajax,
                     success: function(response) {
-                      $("#resBusqueda").empty();
+                      //console.log(response);
+                     $("#resBusqueda").empty();
                       response = JSON.parse(response);
                       var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
                         
@@ -155,12 +156,9 @@
               var html = "";
               var respuesta = JSON.parse(json);
               var j = 0;
+              html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
-                if(j == 1){
-                html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
-                }
-                html += "<div class='card-text'>"; 
                 html += "<tr>";
                 html += "<td>";
                 html += "<p class='card-text'><a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'>Atender</a></p>";
@@ -170,16 +168,9 @@
                 html += "<td>"+value[2]+"</td>";
                 html += "<td>"+value[3]+"</td>";
                 html += "<td>"+value[4]+"</td>";
-                html += "</tr>";
-                html += "<div class='card-body'>"; 
-                html += "</div>"; 
-                html += "</div>";
-                html += "</div>";
-                if(j == 3){
-                  html += "</div>";
-                  j =0;
-                }
+                html += "</tr>"; 
               });
+              html+="</table>">
               $("#mascotas").append(html);
             }
       </script>

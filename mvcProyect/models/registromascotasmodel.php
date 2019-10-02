@@ -72,8 +72,8 @@ class registromascotasModel extends Model{
                 /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
                 echo $resp;*/
                 $respuesta['data']['users'][] = $row;
-                echo json_encode($respuesta);
             }
+            echo json_encode($respuesta);
             return json_encode($respuesta);
         }catch(PDOException $e){
 
