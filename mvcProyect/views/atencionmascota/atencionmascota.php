@@ -158,13 +158,11 @@
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
                 if(j == 1){
-                  html += "<div class='row'>";
-                }
-                html += "<div class='col-md-12'>";
                 html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
-                html += "<div class='card-text' style='width: 18rem;'>";
+                }
+                html += "<div class='card-text'>"; 
+                html += "<tr>";
                 html += "<td>";
-                html += "<div class='card-body'>";
                 html += "<p class='card-text'><a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'>Atender</a></p>";
                 html += "</div></a>";
                 html += "</td>";
@@ -172,6 +170,7 @@
                 html += "<td>"+value[2]+"</td>";
                 html += "<td>"+value[3]+"</td>";
                 html += "<td>"+value[4]+"</td>";
+                html += "</tr>";
                 html += "<div class='card-body'>"; 
                 html += "</div>"; 
                 html += "</div>";
