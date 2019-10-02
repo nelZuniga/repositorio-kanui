@@ -162,10 +162,10 @@
                 }
                 html += "<div class='col-md-12'>";
                 html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
-                html += "<a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'><div class='card-text' style='width: 18rem;'>";
+                html += "<div class='card-text' style='width: 18rem;'>";
                 html += "<td>";
                 html += "<div class='card-body'>";
-                html += "<p class='card-text'>Atender</p>";
+                html += "<p class='card-text'><a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'>Atender</a></p>";
                 html += "</div></a>";
                 html += "</td>";
                 html += "<td>"+value[1]+"</td>";
@@ -173,7 +173,6 @@
                 html += "<td>"+value[3]+"</td>";
                 html += "<td>"+value[4]+"</td>";
                 html += "<div class='card-body'>"; 
-                html += "<p class='card-text'>Links.</p>";
                 html += "</div>"; 
                 html += "</div>";
                 html += "</div>";
