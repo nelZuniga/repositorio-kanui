@@ -753,7 +753,7 @@ select{
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>sanitario">Ingreso de Atención
+                                    <a href="<?php echo constant('URL') ?>atencionmascota">Ingreso de Atención
                                         <span class="badge badge-pill badge-success">VET</span>
                                     </a>
                                 </li>                                

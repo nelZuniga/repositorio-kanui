@@ -59,6 +59,26 @@ class registromascotasModel extends Model{
         }
     }
 
+    public function getuserNom($usuario){
+        $respuesta = array();
+        $nombre = $usuario['nombre'];
+        $apellido = $usuario['apellido'];
+        $sql = "select id_usr, nombres, apellido_paterno, apellido_materno, documento from usuario where nombres like '%".$nombre."%' or apellido_paterno like '%".$apellido."%'and tipo_usr = 2";
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
+                echo $resp;*/
+                $respuesta['data']['users'][] = $row;
+                echo json_encode($respuesta);
+            }
+            return json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
+    }
 
 }
 

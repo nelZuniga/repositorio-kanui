@@ -57,7 +57,7 @@ class RegistroMascotas extends Controller{
             case 1;
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
-            $usuario = ['nombre'=>$nombre, '$apellido'=>$apellido];
+            $usuario = ['nombre'=>$nombre, 'apellido'=>$apellido];
             $respuesta = $this->model->getUserNom($usuario);
             ;break;
             case 2:

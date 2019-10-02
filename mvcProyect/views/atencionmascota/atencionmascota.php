@@ -1,3 +1,4 @@
+
 <?php require 'views/sidemenu.php'?>
 <style>
 
@@ -51,6 +52,8 @@
             function buscar(valor){
               switch(valor){
                 case 1:
+                console.log($("#bnombre").val())
+                console.log($("#bapellido").val())
                 var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
                 var parametrosajax = {
                     nombre: $("#bnombre").val(),
@@ -61,8 +64,22 @@
                     url: url,
                     type:"post",
                     data: parametrosajax,
-                    success: function(data) {
-                        //console.log(data);
+                    success: function(response) {
+                      $("#resBusqueda").empty();
+                      response = JSON.parse(response);
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                        
+                      $.each(response.data.users,function(key, value){
+                        //console.log(value);
+                        tabla += "<tr>";
+                        var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
+                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += "<td>"+value[1]+"</td>";
+                        tabla += "<td>"+value[2]+"</td>";
+                        tabla += "<td>"+value[3]+"</td>";
+                      })
+                        tabla += '</table>';
+                        $("#resBusqueda").append(tabla);
                     },
                     error: function() {
                         alert("error");
@@ -109,7 +126,7 @@
 
             }
             function enviar(id,nombre,apellidoP, apellidoM, documento){
-              var url = "<?php echo constant('URL') ?>edicionmascota/getmascota";
+              var url = "<?php echo constant('URL') ?>atencionmascota/getmascota";
               var parametrosajax = {
                   id: documento
                 }
@@ -143,13 +160,22 @@
                 if(j == 1){
                   html += "<div class='row'>";
                 }
-                html += "<div class='col-md-4'>";
-                html += "<a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'><div class='card' style='width: 18rem;'>";
-                html += "<img src='"+value[5]+"' class='card-img-top' alt='...'>";
-                html += "<div class='card-body'>"; 
-                html += "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>";
-                html += "</div>"; 
+                html += "<div class='col-md-12'>";
+                html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
+                html += "<a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'><div class='card-text' style='width: 18rem;'>";
+                html += "<td>";
+                html += "<div class='card-body'>";
+                html += "<p class='card-text'>Atender</p>";
                 html += "</div></a>";
+                html += "</td>";
+                html += "<td>"+value[1]+"</td>";
+                html += "<td>"+value[2]+"</td>";
+                html += "<td>"+value[3]+"</td>";
+                html += "<td>"+value[4]+"</td>";
+                html += "<div class='card-body'>"; 
+                html += "<p class='card-text'>Links.</p>";
+                html += "</div>"; 
+                html += "</div>";
                 html += "</div>";
                 if(j == 3){
                   html += "</div>";
@@ -162,10 +188,10 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Mascotas</h1>
+  <h1>Ingreso de Atención sde Mascotas</h1>
   <div class="container">
     <div class="row" >
-      <div class="col-md-6"><h5>Busqueda Dueño</h5></div>
+      <div class="col-md-6"><h5>Busqueda por Dueño</h5></div>
       <div class="col-md-3"></div>
     </div>
     <div class="row" style="margin-bottom:10px">
@@ -173,7 +199,7 @@
       <div class="col-md-3" align="left">
         <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y apellido peterno</option>
+          <option value="1">Nombre y Apellido Paterno</option>
           <option value="2">Documento</option>
         </select>
       </div>
