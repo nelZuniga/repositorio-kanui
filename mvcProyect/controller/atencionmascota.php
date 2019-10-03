@@ -12,12 +12,12 @@ class atencionmascota extends Controller{
         $this->view->render('atencionmascota/atencionmascota');
     }
 
-    function editarmascota($param = null){
+    function atiendemascota($param = null){
         $idmascot = $param[0];
         $mascota = [];
         $mascota = $this->model->getEditMascota($idmascot);
         $this->view->mascota = $mascota;
-        $this->view->render('edicionmascota/editamascotas');
+        $this->view->render('atencionmascota/atiendemascota');
     }
     function editaMascota(){
         //echo "usuario creado exitosamente";

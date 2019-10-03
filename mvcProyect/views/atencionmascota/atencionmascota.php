@@ -161,7 +161,7 @@
                 j++;
                 html += "<tr>";
                 html += "<td>";
-                html += "<p class='card-text'><a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'>Atender</a></p>";
+                html += "<p class='card-text'><a href='<?php echo constant('URL') ?>atencionmascota/atiendemascota/"+value[0]+"'>Atender</a></p>";
                 html += "</div></a>";
                 html += "</td>";
                 html += "<td>"+value[1]+"</td>";
@@ -177,7 +177,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Ingreso de Atención sde Mascotas</h1>
+  <h1>Ingreso de Atención de Mascotas</h1>
   <div class="container">
     <div class="row" >
       <div class="col-md-6"><h5>Busqueda por Dueño</h5></div>

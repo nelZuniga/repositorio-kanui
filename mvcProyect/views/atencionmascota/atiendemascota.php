@@ -187,7 +187,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Mascotas</h1>
+  <h1>Registro de Atención de Mascotas</h1>
   
   <div id="registrar" class="row">
     <div class="col-md-12">
@@ -199,28 +199,27 @@
 
             <div class="row">
               <div class="col-md-6 form-group">
-                <h3 style="bottom: 0;position: absolute;">Datos de la mascota<h3>
+                <h3>Datos de la mascota<h3>
               </div>
               <div class="col-md-6 form-group" align="center">
-              <?php if ($this->mascota['imgMascota'] == '') { ?>
-                <div class="col-md-6  form-group" align="center">Agregar Imagen<br><label for="file-input" title="Presione para Agregar imagen"><img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
-              <?php } else { ?>
-                <div class="col-md-6  form-group" align="center">Agregar Imagen<br><label for="file-input" title="Presione para Agregar imagen"><img id="muestra" style="max-width:96px;" src="<?php echo $this->mascota['imgMascota'] ?>"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
-              <?php } ?>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 form-group"><label for="chipID">Chip Identificador</label><br><input id="chipId" readonly name="chipId" type="text" placeholder="Chip identificador" class="form-control" value="<?php echo $this->mascota['n_chip'] ?>">
               </div>
-              <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $this->mascota['nombre'] ?>"></div>
-            </div>
+              <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" readonly name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $this->mascota['nombre'] ?>"></div>
+              </div>
             <div class="row">
+              <script> console.log(tipos); </script>
+              <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" readonly name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $tipos ?>"></div>
+              </div>              
               <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
                 <select class="form-control" name="mascota" id="mascota" onchange="getRaza(0)">
                   <option value="x">Seleccione un tipo de mascota</option>
                   <option value="1">Perro</option>
                   <option value="2">Gato</option>
-                </select></div>
+                </select>
+              </div>
               <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
                 <select class="form-control" id="raza_id" name="raza_id">
                   <option value=''>Seleccione Una Raza</option>
