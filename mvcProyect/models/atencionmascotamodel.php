@@ -54,7 +54,17 @@ class atencionmascotaModel extends Model{
     public function getEditMascota($id){
         $respuesta = array();
         $id = $id;
-        $sql = "select * from mascota where id_mascot = '".$id."' and estado = 1";
+        //$sql = "select * from mascota where id_mascot = '".$id."' and estado = 1";
+
+        $sql = "select M.id_mascot, M.n_chip, M.nombre, TM.descripcion, R.descripcion, M.fecha_nac, 
+M.observaciones, U.documento, 
+U.apellido_paterno, U.apellido_materno, U.nombres
+from mascota M, usuario U, raza R, tipo_mascota TM
+where M.id_mascot = '".$id."'
+and M.estado = 1
+and M.id_propietario = U.documento
+and M.raza = R.id_raza
+and M.tipo_mascota = TM.id_tmasc";
         $conn = $this->db->connect();
         try{
             $resp = '';
