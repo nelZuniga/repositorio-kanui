@@ -11,7 +11,7 @@
 </script>
 
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Edicion de Comunas</h1>
+    <h1>Edicion de Vacunas</h1>
 
     <?php 
     foreach ($this->vacunas as $r => $valor) : ?>

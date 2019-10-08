@@ -5,9 +5,8 @@ class edicionvacunaModel extends Model{
     {
         parent::__construct();
     }
-   
 
-public function cargavacunas($id_tusr){
+public function cargavacuna($id_vac){
     $id_vac = $_GET['id_vac']; 
     $respuesta = array();//para obtener todos los datos defines un vector o un arreglo
     $conn = $this->db->connect();
@@ -26,7 +25,7 @@ public function cargavacunas($id_tusr){
     return $respuesta;//devuelves el arreglo
 }
 
-public function edicionvacuna($id_tusr,$descripcion){
+public function edicionvacuna($id_vac,$descripcion){
     $respuesta = array();
     $conn = $this->db->connect();
     $query = $conn->prepare("update vacunas set descripcion='$descripcion' where id_vac='$id_tusr'");

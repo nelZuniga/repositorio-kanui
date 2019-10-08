@@ -41,9 +41,8 @@ class atencionmascota extends Controller{
         }else{
             $this->render();
         }
-        
-        
     }
+
     function getmascota(){
         $tipo = $_POST['id']; 
         $respuesta = $this->model->getMascota($tipo);
@@ -69,6 +68,12 @@ class atencionmascota extends Controller{
         }
         
     }
+
+    function getVacunas(){
+        $respuesta = $this->model->getVacunas();
+        return $respuesta;
+    }
+
 }
 
 

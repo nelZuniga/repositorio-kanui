@@ -12,10 +12,10 @@ class edicionvacuna extends Controller{
         $this->view->render('edicionvacuna/index');
     }
 
-    function editavacuna(){
+    function edicionvacuna(){
         $id_vac = $_GET['id_vac']; 
         $vacunas = [];
-        $vacunas = $this->model->cargavacunas($id_vac);
+        $vacunas = $this->model->cargavacuna($id_vac);
         $this->view->vacunas = $vacunas;
         $this->view->render('edicionvacuna/index');
     }

@@ -32,7 +32,7 @@
                         <tr>
                             <td></td>
                             <td><?php echo $valor['descripcion']; ?></td>
-                            <td><a href='<?php echo constant('URL') ?>edicionvacuna/editavacuna?id_vac=<?php echo $valor['id_vac']; ?>' class="btn btn-verde">EDITAR</div></a>
+                            <td><a href='<?php echo constant('URL') ?>edicionvacuna/edicionvacuna?id_vac=<?php echo $valor['id_vac']; ?>' class="btn btn-verde">EDITAR</div></a>
                             </td>
                         </tr>
                     <?php endforeach; }?>                    
