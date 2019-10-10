@@ -887,6 +887,9 @@ select{
                                     <a href="<?php echo constant('URL') ?>listatipoanimal">Razas de Animales</a>
                                 </li> 
                                 <li>
+                                    <a href="<?php echo constant('URL') ?>listacontroles">Tipos de Controles</a>
+                                </li>                                 
+                                <li>
                                     <a href="<?php echo constant('URL') ?>listatipovacuna">Vacunas</a>
                                 </li>                                 
                             </ul>

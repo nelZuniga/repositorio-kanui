@@ -22,7 +22,23 @@
             }
         });
     }
+    function getControles() {
+        var url = "<?php echo constant('URL') ?>atencionmascota/getControles";
+        $.ajax({
+            url: url,
+            success: function(data) {
+                //console.log(data);
+                $("#id_control").empty();
+                $("#id_control").append("<option value=''>Seleccione Tipo de Control</option>");
+                $("#id_control").append(data);
+            },
+            error: function() {
+                alert("error");
+            }
+        });
+    }    
     getVacunas();
+    getControles();
   }); //fin document ready
 
 
@@ -73,19 +89,25 @@
 
             </div>            
             <div class="row">
-              <div class="col-md-6 form-group"><label for="nombreM">Peso Mascota</label><br><input id="peso" name="peso" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="">
+              <div class="col-md-4 form-group"><label for="nombreM">Peso Mascota</label><br><input id="peso" name="peso" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="">
               </div>              
-              <div class="col-md-6 form-group"><label for="id_vac">Vacuna</label><br>
+              <div class="col-md-4 form-group"><label for="id_vac">Vacuna</label><br>
                 <select class="form-control" id="id_vac" name="id_vac">
                   <option value=''>Seleccione Una Vacuna</option>
                 </select>
               </div>
+              <div class="col-md-4 form-group"><label for="nombreM">Dosis</label><br><input id="dosis" name="dosis" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="" value="1">
+              </div>  
                 <div class="col-md-6 form-group"><label for="nombreM">Próxima Atención</label><br>
                   <div>
                     <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
                   </div>
                 </div>  
-
+              <div class="col-md-4 form-group"><label for="id_vac">Tipo de Control</label><br>
+                <select class="form-control" id="id_control" name="id_control">
+                  <option value=''>Seleccione Tipo de Control</option>
+                </select>
+              </div>
               <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>
                 <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="5"><?php echo $this->mascota['observaciones'] ?></textarea>
               </div>

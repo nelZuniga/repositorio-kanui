@@ -25,6 +25,23 @@ class atencionmascotaModel extends Model{
         }
     }
 
+    public function getControles(){
+        $sql = 'SELECT * from controles';
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $resp = "<option value='".$row['id_control']."'> ".utf8_encode($row['descripcion'])."</option>";
+                echo $resp;
+            }
+            return $resp;
+            
+
+        }catch(PDOException $e){
+
+        }
+    }
 
     public function getMascota($usuario){
         $respuesta = array();

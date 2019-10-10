@@ -74,6 +74,11 @@ class atencionmascota extends Controller{
         return $respuesta;
     }
 
+    function getControles(){
+        $respuesta = $this->model->getControles();
+        return $respuesta;
+    }    
+
 }
 
 
