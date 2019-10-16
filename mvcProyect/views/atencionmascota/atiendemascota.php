@@ -52,8 +52,7 @@
   <div id="registrar" class="row">
     <div class="col-md-12">
       <div class="well well-sm">
-        <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>edicionmascota/editaMascota">
-          <input type="hidden" id="baseimg" name="baseimg" value="<?php echo  $this->mascota['imgMascota'] ?>">
+        <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>atiendemascota/atiendeMascota">
           <input type="hidden" id="idmascot" name="idmascot" value="<?php echo  $this->mascota['id_mascot'] ?>">
           <div class="container">
 
@@ -71,15 +70,15 @@
             </div>
             <div class="row">
               <script> console.log(tipos); </script>
-              <div class="col-md-4 form-group"><label for="nombreM">Tipo de mascota</label><br><input id="nombreM" readonly name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $this->mascota[3]  ?>"></div>
-              <div class="col-md-4 form-group"><label for="nombreM">Raza de mascota</label><br><input id="nombreM" readonly name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $this->mascota[4] ?>"></div>              
-              <div class="col-md-4 form-group"><label for="nombreM">Fecha de Nacimiento</label><br><input id="nombreM" readonly name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $this->mascota[5] ?>"></div>               
+              <div class="col-md-4 form-group"><label for="tipoM">Tipo de mascota</label><br><input id="tipoM" readonly name="tipoM" type="text" placeholder="Tipo de Mascota" class="form-control" value="<?php echo $this->mascota[3]  ?>"></div>
+              <div class="col-md-4 form-group"><label for="razaM">Raza de mascota</label><br><input id="razaM" readonly name="razaM" type="text" placeholder="Raza de Mascota" class="form-control" value="<?php echo $this->mascota[4] ?>"></div>              
+              <div class="col-md-4 form-group"><label for="fnacM">Fecha de Nacimiento</label><br><input id="fnacM" readonly name="fnacM" type="text" placeholder="Fecha de Nacimiento" class="form-control" value="<?php echo $this->mascota[5] ?>"></div>               
               </div>              
 
             <div class="row">
-              <div class="col-md-4  form-group"><label for="fechaNacM">Documento Dueño</label><br><input id="fechaNacM" readonly name="fechaNacM" type="text" placeholder="Fecha Nacimiento" class="form-control" value="<?php echo $this->mascota[7]  ?>">
+              <div class="col-md-4  form-group"><label for="doctoD">Documento Dueño</label><br><input id="doctoD" readonly name="doctoD" type="text" placeholder="Documento Dueño" class="form-control" value="<?php echo $this->mascota[7]  ?>">
               </div>
-              <div class="col-md-8  form-group"><label for="fechaNacM">Nombre Dueño</label><br><input id="fechaNacM" readonly name="fechaNacM" type="text" placeholder="Fecha Nacimiento" class="form-control" value="<?php echo $this->mascota[10]?> <?php echo $this->mascota[8]?> <?php echo $this->mascota[9]?>">
+              <div class="col-md-8  form-group"><label for="nombreD">Nombre Dueño</label><br><input id="nombreD" readonly name="nombreD" type="text" placeholder="Nombre Dueño" class="form-control" value="<?php echo $this->mascota[10]?> <?php echo $this->mascota[8]?> <?php echo $this->mascota[9]?>">
               </div>
               <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>
                 <textarea readonly class="form-control" id="observacionM" name="observacionM" placeholder="Sin Observaciones" rows="2"><?php echo $this->mascota[6] ?></textarea>
@@ -89,27 +88,27 @@
 
             </div>            
             <div class="row">
-              <div class="col-md-4 form-group"><label for="nombreM">Peso Mascota</label><br><input id="peso" name="peso" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="">
+              <div class="col-md-4 form-group"><label for="pesoM">Peso Mascota</label><br><input id="pesoM" name="pesoM" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="">
               </div>              
               <div class="col-md-4 form-group"><label for="id_vac">Vacuna</label><br>
                 <select class="form-control" id="id_vac" name="id_vac">
                   <option value=''>Seleccione Una Vacuna</option>
                 </select>
               </div>
-              <div class="col-md-4 form-group"><label for="nombreM">Dosis</label><br><input id="dosis" name="dosis" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="" value="1">
+              <div class="col-md-4 form-group"><label for="dosis">Dosis</label><br><input id="dosis" name="dosis" type="text" placeholder="Ingrese Dosis" class="form-control" required="">
               </div>  
-                <div class="col-md-6 form-group"><label for="nombreM">Próxima Atención</label><br>
+                <div class="col-md-6 form-group"><label for="FechaPA">Próxima Atención</label><br>
                   <div>
-                    <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
+                    <input id="FechaPA" name="FechaPA" type="date" placeholder="Fecha Próxima Atención" class="form-control">
                   </div>
                 </div>  
-              <div class="col-md-4 form-group"><label for="id_vac">Tipo de Control</label><br>
+              <div class="col-md-4 form-group"><label for="id_control">Tipo de Control</label><br>
                 <select class="form-control" id="id_control" name="id_control">
                   <option value=''>Seleccione Tipo de Control</option>
                 </select>
               </div>
-              <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>
-                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="5"><?php echo $this->mascota['observaciones'] ?></textarea>
+              <div class="col-md-12 form-group"><label for="observacionA">Observaciones</label><br>
+                <textarea class="form-control" id="observacionA" name="observacionA" placeholder="Ingrese Observaciones de Atención" rows="5"></textarea>
               </div>
 
             </div>
