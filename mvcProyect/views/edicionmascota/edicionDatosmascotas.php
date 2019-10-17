@@ -49,9 +49,11 @@
               }
             }
 
-            function buscar(valor){
+            function buscar(valor){ 
               switch(valor){
-                case 1:
+               case 1:
+                console.log($("#bnombre").val())
+                console.log($("#bapellido").val())
                 var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
                 var parametrosajax = {
                     nombre: $("#bnombre").val(),
@@ -62,8 +64,23 @@
                     url: url,
                     type:"post",
                     data: parametrosajax,
-                    success: function(data) {
-                        //console.log(data);
+                    success: function(response) {
+                      //console.log(response);
+                     $("#resBusqueda").empty();
+                      response = JSON.parse(response);
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                        
+                      $.each(response.data.users,function(key, value){
+                        //console.log(value);
+                        tabla += "<tr>";
+                        var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
+                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += "<td>"+value[1]+"</td>";
+                        tabla += "<td>"+value[2]+"</td>";
+                        tabla += "<td>"+value[3]+"</td>";
+                      })
+                        tabla += '</table>';
+                        $("#resBusqueda").append(tabla);
                     },
                     error: function() {
                         alert("error");
@@ -139,24 +156,21 @@
               var html = "";
               var respuesta = JSON.parse(json);
               var j = 0;
+              html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
-                if(j == 1){
-                  html += "<div class='row'>";
-                }
-                html += "<div class='col-md-4'>";
-                html += "<a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'><div class='card' style='width: 18rem;'>";
-                html += "<img src='"+value[5]+"' class='card-img-top' alt='...'>";
-                html += "<div class='card-body'>"; 
-                html += "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>";
-                html += "</div>"; 
+                html += "<tr>";
+                html += "<td>";
+                html += "<p class='card-text'><a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'>Editar</a></p>";
                 html += "</div></a>";
-                html += "</div>";
-                if(j == 3){
-                  html += "</div>";
-                  j =0;
-                }
+                html += "</td>";
+                html += "<td>"+value[1]+"</td>";
+                html += "<td>"+value[2]+"</td>";
+                html += "<td>"+value[3]+"</td>";
+                html += "<td>"+value[4]+"</td>";
+                html += "</tr>"; 
               });
+              html+="</table>">
               $("#mascotas").append(html);
             }
       </script>
@@ -174,7 +188,7 @@
       <div class="col-md-3" align="left">
         <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y apellido peterno</option>
+          <option value="1">Nombre y Apellido Paterno</option>
           <option value="2">Documento</option>
         </select>
       </div>

@@ -11,7 +11,12 @@ class edicionmascotaModel extends Model{
     public function getMascota($usuario){
         $respuesta = array();
         $documento = $usuario;
-        $sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
+        $sql = "select M.id_mascot, M.nombre, TM.descripcion, R.descripcion, S.descripcion
+                    from mascota M, tipo_mascota TM, sexo S, raza R
+                    where M.tipo_mascota=TM.id_tmasc
+                    and M.sexo=S.id_sex
+                    and M.raza=R.id_raza
+                    and id_propietario = '".$usuario."' and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';
@@ -55,7 +60,6 @@ class edicionmascotaModel extends Model{
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
                 $respuesta = $row;
-                
             }
             //var_dump($respuesta);
             return $respuesta;

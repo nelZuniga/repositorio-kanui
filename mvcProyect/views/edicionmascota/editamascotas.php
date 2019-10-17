@@ -233,8 +233,8 @@
               <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>
                 <select class="form-control" name="sexoM" id="sexoM">
                   <option value="">Seleccione sexo de mascota</option>
-                  <option value="47">Hembra</option>
-                  <option value="46">Macho</option>
+                  <option value="2">Hembra</option>
+                  <option value="1">Macho</option>
                 </select>
               </div>
             </div>
@@ -247,7 +247,7 @@
             <div class="row">
               <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
                 <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px">Editar Mascota</button>
-                <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalCancelar">Cancelar</button>
+                <a href='<?php echo constant('URL') ?>edicionmascota' class="btn btn-verde">Cancelar</a>
               </div>
             </div>
           </div>
