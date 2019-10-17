@@ -16,10 +16,11 @@ class RegistroMascotas extends Controller{
         $chipM = $_POST['chipId'];
         $rutDueno = $_POST['rutDueno'];
         $nombreM = $_POST['nombreM'];
-        $fechaNacM = $_POST['fechaNacM'] ;
-       // $Raza = $_POST['Raza'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
+        $raza_id = $_POST['raza_id'];        
+        $fechaNacM = $_POST['fechaNacM'] ;
+        $observacionM = $_POST['observacionM'];
         if(isset($_POST['baseimg'])){
             $img = $_POST['baseimg'];
         }else{
@@ -31,17 +32,24 @@ class RegistroMascotas extends Controller{
             $obs = '';
         }
         
-        $mascota = ['n_chip'=>$chipM, 'id_propietario'=>$rutDueno, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'obs'=>$obs,'img'=>$img];
-        
+        $mascota = ['n_chip'=>$chipM, 
+                    'id_propietario'=>$rutDueno, 
+                    'nombre'=>$nombreM, 
+                    'tipo_mascota'=>$mascota, 
+                    'sexo'=>$sexoM, 
+                    'raza'=>$raza_id, 
+                    'fecha_nac'=>$fechaNacM, 
+                    'observaciones'=>$observacionM, 
+                    'img'=>$img];
         
         $retorno = $this->model->insert($mascota);
-        //echo $retorno;
-        if($retorno){
-            echo '<script>alert("Mascota Registrada");</script>';
-            $this->render();
-        }else{
-            $this->render();
-        }
+        //   echo $retorno;
+        //if($retorno){
+        //    echo '<script>alert("Mascota Registrada");</script>';
+        //    $this->render();
+        //}else{
+        //    $this->render();
+        //}
         
         
     }
