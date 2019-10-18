@@ -6,10 +6,12 @@ class registromascotasModel extends Model{
     {
         parent::__construct();
     }
-     public function insert($data){
+    public function insert($data){
         $conn = $this->db->connect();
         $query = $conn->prepare("insert into mascota(n_chip, id_propietario, nombre, tipo_mascota, sexo, raza, fecha_nac, observaciones, estado, imgMascota)
-                    values(?,?,?,?,?,?,?,?,?,?,?)");
+                    values(?,?,?,?,?,?,?,?,?,?)");
+                    $ss = 'sssiiissis';
+                    $estado= 1;
         $query->bind_param($ss, $data['n_chip'], $data['id_propietario'], $data['nombre'], $data['tipo_mascota'],  $data['sexo'], $data['raza'], $data['fecha_nac'], $data['observaciones'], $estado, $data['img']);        
         $retorno = false;
         if($query->execute()){

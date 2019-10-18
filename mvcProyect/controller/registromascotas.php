@@ -43,13 +43,13 @@ class RegistroMascotas extends Controller{
                     'img'=>$img];
         
         $retorno = $this->model->insert($mascota);
-        //   echo $retorno;
-        //if($retorno){
-        //    echo '<script>alert("Mascota Registrada");</script>';
-        //    $this->render();
-        //}else{
-        //    $this->render();
-        //}
+           echo $retorno;
+        if($retorno){
+            echo '<script>alert("Mascota Registrada");</script>';
+            $this->render();
+        }else{
+            $this->render();
+        }
         
         
     }
