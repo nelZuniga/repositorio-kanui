@@ -20,7 +20,7 @@ class registromascotasModel extends Model{
         return $retorno;
     }
     public function getRaza($tipo){
-        $sql = 'SELECT * from raza where tipoRaza = '.$tipo;
+        $sql = 'SELECT * from raza where tipoRaza = '.$tipo.' order by 2';
         $conn = $this->db->connect();
         try{
             $resp = '';

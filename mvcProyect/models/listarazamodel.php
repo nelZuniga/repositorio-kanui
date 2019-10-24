@@ -10,7 +10,7 @@ public function cargaraza($id_tmasc){
     $respuesta = array();//para obtener todos los datos defines un vector o un arreglo
     $raza = $id_tmasc;
     $conn = $this->db->connect();
-    $query = $conn->prepare("select * from raza where tipoRaza = '".$raza."'");
+    $query = $conn->prepare("select * from raza where tipoRaza = '".$raza."' order by 2");
     //$dtype = "ss";
     //$query->bind_param($dtype,$data['usr'], $data['pss']);
     $query->execute();

@@ -73,8 +73,8 @@
                   <div class="row">
                     <div class="col-md-8">
                       <select class="form-control" name="sexoM">
-                        <option value="47">Hembra</option>
-                        <option value="46">Macho</option>
+                        <option value="2">Hembra</option>
+                        <option value="1">Macho</option>
                       </select>
                     </div>
                   </div>

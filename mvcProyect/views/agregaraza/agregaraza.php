@@ -21,13 +21,13 @@ $mascota = $_GET['id_tmasc'];
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregaraza/guardaraza">
           <div class="container">
             <div class="row">
-              <div class="col-md-3 form-group"><label for="ID_RAZA">ID Raza</label><br><input id="id_raza" readonly name="id_raza" type="text" placeholder="ID Raza Automático" class="form-control">
+              <div class="col-md-4 form-group"><label for="ID_RAZA">ID Raza</label><br><input id="id_raza" readonly name="id_raza" type="text" placeholder="ID Raza Automático" class="form-control">
               </div>
-              <div class="col-md-3 form-group"><label for="NOMBRE_RAZA">Descripcion</label><br>
+              <div class="col-md-8 form-group"><label for="NOMBRE_RAZA">Descripcion</label><br>
                 <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Raza" class="form-control">
               </div>
-              <div class="col-md-3 form-group"><label for="ID_ANIMAL">Descripcion</label><br>
-                <input required id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID tipo animal" class="form-control" value="<?php echo $mascota; ?>">
+              <div class="col-md-3 form-group"><label for="ID_ANIMAL"></label><br>
+                <input required id="id_tmasc" readonly name="id_tmasc" type="hidden" placeholder="ID tipo animal" class="form-control" value="<?php echo $mascota; ?>">
               </div>             
             </div>
             <div class="row">

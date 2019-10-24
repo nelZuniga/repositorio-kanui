@@ -188,15 +188,15 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 form-group"><label for="nomusu">Nombre</label><br>
-                      <input type="text" name="nomusu" id="nomusu" class="form-control">
+                      <input type="text" name="nomusu" id="nomusu" class="form-control" readonly>
                     </div>
                     <div class="col-md-6 form-group"><label for="apepat">Apellido Paterno</label><br>
-                    <input type="text" name="apepat" id="apepat" class="form-control"></div>
+                    <input type="text" name="apepat" id="apepat" class="form-control" readonly></div>
                     
                   </div>
                   <div class="row">
-                    <div class="col-md-6  form-group"><label for="apemat">Apellido Materno</label><br><input type="text" name="apemat" id="apemat" class="form-control"></div>
-                    <div class="col-md-6  form-group"><label for="rutDueno">Documento</label><br><input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control" pattern="\d{3,8}-[\d|kK]{1}">
+                    <div class="col-md-6  form-group"><label for="apemat">Apellido Materno</label><br><input type="text" name="apemat" id="apemat" class="form-control" readonly></div>
+                    <div class="col-md-6  form-group"><label for="rutDueno">Documento</label><br><input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control" readonly pattern="\d{3,8}-[\d|kK]{1}">
                             </div>
                   </div>
                   <div class="row">
@@ -228,8 +228,8 @@
                   <div class="row">
                     <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>
                     <select class="form-control" name="sexoM">
-                                <option value="47">Hembra</option>
-                                <option value="46">Macho</option>
+                                <option value="2">Hembra</option>
+                                <option value="1">Macho</option>
                               </select>
                     </div>
                   </div>
