@@ -763,7 +763,9 @@ select{
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">Historial</a>
+                                    <a href="<?php echo constant('URL') ?>historialmascota">Historial de Atención
+                                        <span class="badge badge-pill badge-success">VET</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="#">Certificados</a>
