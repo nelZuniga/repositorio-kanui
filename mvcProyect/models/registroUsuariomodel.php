@@ -11,7 +11,7 @@ class RegistroUsuarioModel extends Model{
     public function insert($data){
         //insertar data
         $conn = $this->db->connect();
-        $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel, tipo_usr,direccion,correo)
+        $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel,tipo_usr,direccion,correo)
                     values(?,?,?,?,?,?,?,?,?,?)");
                     $ss = 'ssssiisi';
                     $estado = 1;
