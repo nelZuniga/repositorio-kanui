@@ -69,6 +69,23 @@
             });
         }
 
+            function getRol() {
+                var url = "<?php echo constant('URL') ?>registroUsuario/getRol";
+                $.ajax({
+                    url: url,
+                    success: function(data) {
+                        console.log(data);
+                        $("#rol_id").empty();
+                        $("#rol_id").append("<option value=''>Seleccione un Rol de Usuario</option>");
+                        $("#rol_id").append(data);
+                    },
+                    error: function() {
+                        alert("error");
+                    }
+                });
+            }
+            getRol();       
+
         var numeros = "0123456789";
 
         function tiene_numeros(texto) {
@@ -192,9 +209,15 @@
                             <!-- rut -->
                             <div class="row col-md-12">
                                 <label for="txtrut" class="control-label col-md-4">Rut</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de Usuario</label>
                             </div>
                             <div class="row col-md-12">
                                 <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <select class="form-control col-md-4" id="rol_id" name="rol_id" required>
+                                <option value=''>Seleccione un Rol de Usuario</option>
+                                </select> 
                             </div>
                             <BR>
                             <!-- Correo --><!-- telefono -->

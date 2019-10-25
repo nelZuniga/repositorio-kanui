@@ -13,9 +13,9 @@ class RegistroUsuarioModel extends Model{
         $conn = $this->db->connect();
         $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel,tipo_usr,direccion,correo)
                     values(?,?,?,?,?,?,?,?,?,?)");
-                    $ss = 'ssssiisi';
+                    $ss = 'ssssiisiss';
                     $estado = 1;
-        $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono'], $data['tusr'], $data['direccion'], $data['correo']);
+        $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono'], $data['rol'], $data['direccion'], $data['correo']);
         $retorno = false;
         if($query->execute()){
             $id_usr = $conn->insert_id;
@@ -77,5 +77,25 @@ class RegistroUsuarioModel extends Model{
 
         }
     }
+
+    public function getrol(){
+        $sql = 'SELECT * from tipo_usuario order by 2';
+        //echo $sql;
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $resp = "<option value='".$row['id_tusr']."'> ".utf8_encode($row['descripcion'])."</option>";
+                echo $resp;
+            }
+            return $resp;
+            
+
+        }catch(PDOException $e){
+
+        }
+    }
+
 }
 ?>

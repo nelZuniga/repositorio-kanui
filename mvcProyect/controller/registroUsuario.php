@@ -25,7 +25,8 @@ class registroUsuario extends Controller{
         $contraseña = $_POST['pass'];
         $correo = $_POST['correo'];
         $tipousr = $_POST['tusr'];
-        $usuario = ['nombre'=>$nombre, 'apellidop'=>$apellidoP, 'apellidom'=>$apellidoM, 'rut'=>$rut, 'tusr'=> $tipousr, 'direccion'=>$direccion, 'comuna'=>$comuna, 'correo' =>$correo, 'telefono'=>$telefono,'ciudad'=>$ciudad, 'region'=>$region, 'contraseña'=>$contraseña];
+        $rol = $_POST['rol_id'];
+        $usuario = ['nombre'=>$nombre, 'apellidop'=>$apellidoP, 'apellidom'=>$apellidoM, 'rut'=>$rut, 'tusr'=> $tipousr, 'direccion'=>$direccion, 'comuna'=>$comuna, 'correo' =>$correo, 'telefono'=>$telefono,'ciudad'=>$ciudad, 'region'=>$region, 'contraseña'=>$contraseña,'rol'=>$rol];
         
         
         $retorno = $this->model->insert($usuario);
@@ -52,6 +53,10 @@ class registroUsuario extends Controller{
         return $respuesta;
     }
 
+    function getRol(){
+        $respuesta = $this->model->getrol();
+        return $respuesta;
+    }
     
 
     //OJO AQUI como crear insercion de datos
