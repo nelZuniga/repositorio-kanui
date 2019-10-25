@@ -25,7 +25,7 @@ class registroUsuario extends Controller{
         $contraseña = $_POST['pass'];
         $correo = $_POST['correo'];
         $tipousr = $_POST['tusr'];
-        $usuario = ['nombre'=>$nombre, 'apellidop'=> $apellidoP, 'apellidom' =>$apellidoM, 'rut'=>$rut, 'telefono'=>$telefono, 'direccion'=>$direccion,'ciudad'=>$ciudad,'region'=>$region,'comuna'=>$comuna,'correo' =>$correo,'contraseña'=>$contraseña,'tusr'=> $tipousr];
+        $usuario = ['nombre'=>$nombre, 'apellidop'=>$apellidoP, 'apellidom'=>$apellidoM, 'rut'=>$rut, 'tusr'=> $tipousr, 'direccion'=>$direccion, 'comuna'=>$comuna, 'correo' =>$correo, 'telefono'=>$telefono,'ciudad'=>$ciudad, 'region'=>$region, 'contraseña'=>$contraseña];
         
         
         $retorno = $this->model->insert($usuario);

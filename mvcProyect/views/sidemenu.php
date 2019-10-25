@@ -803,7 +803,7 @@ select{
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>registromascotas">Registrar de Mascota</a>
+                                    <a href="<?php echo constant('URL') ?>registromascotas">Registrar Mascota</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo constant('URL') ?>edicionmascota">Editar Mascota</a>

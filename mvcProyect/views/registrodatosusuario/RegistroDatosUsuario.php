@@ -164,115 +164,116 @@
 
 
 <body>
-
-
-
     <body>
-
         <div class="container">
-            <div class="row" style="margin-top:5%">
-                <div class="col-md-12" align="center">
-                    <h3><img src="../views/imagenes/registro_usuario.png" alt="rdu" style="width:300px;"></h3>
-                </div>
-            </div>
+            <h2>Registro de Usuarios</h2>
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-md-12"></div>
+                <div class="col-md-12">
                     <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario">
                     <input type="hidden" name="tusr" value="2">
-
-                        <div class="form-group">
-                            <!-- nombres -->
-                            <label for="nombres_id" class="control-label">Nombres</label>
-                            <input type="text" class="form-control letras" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- apellido paterno -->
-                            <label for="ApellidoP_id" class="control-label">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- apellido materno -->
-                            <label for="apellidoM_id" class="control-label">Apellido Materno</label>
-                            <input type="text" class="form-control" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required>
-                        </div>
-
-                        <div class="form-group">
+                        <div class="form-group col-md-12">
+                            <!-- nombres --><!-- apellido paterno --><!-- apellido materno -->
+                            <div class="row col-md-12">
+                                <label for="nombres_id" class="control-label col-md-3">Nombres</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="ApellidoP_id" class="control-label col-md-3">Apellido Paterno</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="apellidoM_id" class="control-label col-md-3">Apellido Materno</label>
+                            </div>
+                            <div class="row col-md-12">
+                                <input type="text" class="form-control letras col-md-3" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <input type="text" class="form-control col-md-3" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <input type="text" class="form-control col-md-3" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required>
+                            </div>
+                            <BR>
                             <!-- rut -->
-                            <label for="txtrut" class="control-label">Rut</label>
-                            <input type="text" class="form-control rut" id="txtrut" name="Drut" placeholder="Ingrese Rut" pattern="\d{3,8}-[\d|kK]{1}" required>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Correo -->
-                            <label for="correo" class="control-label">Correo</label>
-                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingese su E-mail" required>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- telefono -->
-                            <label for="telefono_id" class="control-label">Telefono</label>
-                            <input type="text" class="form-control numeros" id="txttelefono" name="Dtelefono" placeholder="988888888" required>
-                        </div>
-
-
-                        <div class="form-group">
-                            <!-- direccion-->
-                            <label for="street2_id" class="control-label">Direccion</label>
-                            <input type="text" class="form-control" id="txtdireccion" name="Ddireccion" placeholder="Ingrse su direccion" required>
-                        </div>
-
-
-                        <div class="form-group">
-                            <!-- cuidad-->
-                            <label for="ciudad_id" class="control-label">Ciudad</label>
-                            <input type="text" class="form-control" id="txtciudad" name="Vciudad" placeholder="Ingrese su ciudad" required>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- combo region -->
-                            <label for="region_id" class="control-label" id="region" name="region">Region</label>
-
-                            <select class="form-control" id="region_id" name="region_id" onchange='getComuna()' required>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- combo comuna -->
-                            <label for="comuna_id" class="control-label" id="Comuna" name="comuna">Comuna</label>
-                            <select class="form-control" id="comuna_id" name="comuna_id" required>
+                            <div class="row col-md-12">
+                                <label for="txtrut" class="control-label col-md-4">Rut</label>
+                            </div>
+                            <div class="row col-md-12">
+                                <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
+                            </div>
+                            <BR>
+                            <!-- Correo --><!-- telefono -->
+                            <div class="row col-md-12">
+                                <label for="correo" class="control-label col-md-4">Correo</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="telefono_id" class="control-label col-md-4">Telefono</label>
+                            </div>
+                            <div class="row col-md-12">
+                                <input type="email" class="form-control col-md-4" id="correo" name="correo" placeholder="Ingese su E-mail" required>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <input type="text" class="form-control numeros col-md-4" id="txttelefono" name="Dtelefono" placeholder="988888888" required>
+                            </div>
+                            <BR>
+                            <!-- direccion--><!-- cuidad-->
+                            <div class="row col-md-12">
+                                <label for="street2_id" class="control-label col-md-5">Direccion</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="ciudad_id" class="control-label col-md-5">Ciudad</label>
+                            </div>
+                            <div class="row col-md-12">
+                                <input type="text" class="form-control col-md-5" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su direccion" required>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <input type="text" class="form-control col-md-5" id="txtciudad" name="Vciudad" placeholder="Ingrese su ciudad" required>
+                            </div>
+                            <BR>
+                            <!-- combo region --><!-- combo comuna -->
+                            <div class="row col-md-12">
+                                <label for="region_id" class="control-label col-md-5" id="region" name="region">Región</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="comuna_id" class="control-label col-md-5" id="Comuna" name="comuna">Comuna</label>
+                            </div>
+                            <div class="row col-md-12">
+                                <select class="form-control col-md-5" id="region_id" name="region_id" onchange='getComuna()' required>
+                                </select>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
                                 <option value=''>Seleccione Una Comuna</option>
-                            </select>
+                                </select>                            
+                            </div>
+                            <BR>
+                            <!-- contraseña--><!-- repetir contraseña-->
+                            <div class="row col-md-12">
+                                <label for="pass2" class="control-label col-md-5">Contraseña</label>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <label for="pass2" class="control-label col-md-5">Repita su Contraseña</label>
+                            </div>
+                            <div class="row col-md-12">
+                                <input type="password" class="form-control col-md-5" id="pass" name="pass" placeholder="Cree su contraseña" onkeyup="seguridad_clave(this)" required>
+                                <label for="espaciados" class="control-label col-md-1"></label>
+                                <input type="password" class="form-control col-md-5" id="pass2" name="pass2" placeholder="Repita contraseña" readonly required>
+                            </div>
+                            <BR>
+                            <div class="row col-md-12">
+                                <h4>
+                                Nivel de seguridad de contraseña: <span id="seguridad"></span>
+                                </h4>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <!-- contraseña-->
-                            <label for="pass2" class="control-label">Contraseña</label>
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="Cree su contraseña" onkeyup="seguridad_clave(this)" required>
-                            seguridad de contraseña: <span id="seguridad"></span>
-                        </div>
-                        <div class="form-group">
-                            <!-- repetir contraseña-->
-                            <label for="pass2" class="control-label">Repita su Contraseña</label>
-                            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Repita contraseña" readonly required>
-                        </div>
-
 
                         <table>
                             <tr>
                                 <th>
-                                    <div class="col-md-12" align="center"><button class="btn btn-verde">Cancelar</button></div>
-                </div>
-                </th>
-                <th></th>
-                <th>
-                    <div class="col-md-12" align="center"><button class="btn btn-verde" id="aceptar" name="aceptar">Aceptar</button></div>
-                </th>
-                </tr>
-                </table>
-
-                </form>
+                                    <div class="col-md-12" align="center">
+                                        <button class="btn btn-verde" id="aceptar" name="aceptar">Aceptar</button>
+                                        
+                                    </div>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                    <div class="col-md-12" align="center">
+                                        <button class="btn btn-verde">Cancelar</button>   
+                                    </div>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                    </form>
             </div>
 
 
