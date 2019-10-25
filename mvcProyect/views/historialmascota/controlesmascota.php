@@ -16,8 +16,14 @@
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px">Nombre</th>
-                        <th>Descripción tipo de mascota</th>
-                        <th>Acción</th>
+                        <th>Fecha de Atención</th>
+                        <th>Fecha de Control</th>
+                        <th>Vacuna</th>
+                        <th>Dosis</th>
+                        <th>Tipo Control</th>
+                        <th>Peso Kgs.</th>
+                        <th>Obs.Atención</th>
+                        <th></th>
                     </tr>
                     <?php foreach($this->historial as $r=> $valor): ?>
                         <!---aqui ibas como avion, como creamos la variable en la vista, y esta es un arreglo, recorremos el arreglo e imprimimos la vista --->
@@ -30,6 +36,7 @@
                             <td><?php echo $valor[5]; ?></td>
                             <td><?php echo $valor[6]; ?></td>
                             <td><?php echo $valor[7]; ?></td>
+                            <td>Imprimir</td>
                         </tr>
                     <?php endforeach; ?>                    
                 </table>
