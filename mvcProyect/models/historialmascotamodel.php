@@ -121,12 +121,14 @@ and M.tipo_mascota = TM.id_tmasc";
         $id = $id;
         $conn = $this->db->connect();        
         $query = $conn->prepare("SELECT M.nombre, P.fecha_atencion, P.fecha_prox, V.descripcion, P.dosis, 
-        C.descripcion, P.peso, P.observaciones
-        FROM procedimiento P, mascota M, vacunas V, controles C
+        C.descripcion, P.peso, P.observaciones, id_proc, R.descripcion raza, M.fecha_nac, tm.descripcion tipo
+        FROM procedimiento P, mascota M, vacunas V, controles C, raza R, tipo_mascota tm
 WHERE P.id_mascot = '".$id."' 
 AND P.id_mascot = M.id_mascot
 AND P.id_vac = V.id_vac
-AND P.id_control = C.id_control");
+AND P.id_control = C.id_control
+AND R.id_raza = M.raza
+AND tm.id_tmasc = M.tipo_mascota");
         $query->execute();
         $rs = $query->get_result();
         

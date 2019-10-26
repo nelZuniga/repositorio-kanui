@@ -49,6 +49,12 @@ class atencionmascota extends Controller{
         return $respuesta;
     }
 
+    function getmascota2(){
+        $tipo = $_POST['id']; 
+        $respuesta = $this->model->getMascota2($tipo);
+        return $respuesta;
+    }
+
     function getDatosduenio(){
         $funcion =$_POST['funcion'];
         switch($funcion){

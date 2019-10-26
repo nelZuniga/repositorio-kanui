@@ -1,7 +1,7 @@
 <?php require 'views/sidemenu.php' ?>
 <script>
-  function printConsulta() {
-    var pagina = '<?php echo constant('URL') ?>Impresiones/consulta';
+  function printConsulta(valor) {
+    var pagina = '<?php echo constant('URL') ?>Impresiones/consulta/'+valor;
     /*window.open(pagina,'',"height=600, width=400")
             }*/
 
@@ -11,46 +11,80 @@
       width:600,
       padding:0,
       height:400,
-      showConfirmButton: false,
+      showConfirmButton: false
     })
   }
-</script>
-<button type="button" onclick="printConsulta()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+  function cerrarmodal(){
+    Swal.close();
+  }
+
+  function prinlist(){
+    window.print();
+  }
+</script>
 
 <style>
   .tablaBusqueda tr th {
     color: white;
     background-color: #059485;
   }
+  .encabezatext{
+    display:none;
+  }
+  .encabezado{
+    text-align: right; margin: 15px;
+  }
+  .btn-verde{
+    display:inline-flex;
+  }
+  @media print
+{ 
+  .sidebar-wrapper{
+    display: none !important;
+  }
+  main{
+    width: 50%;
+  }
+  .listado{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  .encabezado{
+    text-align: left;
+  }
+  .encabezatext{
+    display: block !important;
+  }
+  .no-print{
+    display:none !important;
+  }
+}
 </style>
 <div style="padding: 0;padding-right: 21px;">
   <h1>Historial de Atención de Mascotas</h1>
-  <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalImprimir">Imprimir</button>
+  <div class="Encabezado">
+  <?php foreach ($this->historial as $r => $valor) :  
+    
+    endforeach ?>
+  <?php 
+    if(isset($valor[0])){
+      echo "<div class='encabezatext'><div><h5>Nombre de mascota: '".$valor[0]."'</h5></div>";
+    }
+    if(isset($valor[10])){
+      echo "<div><h5>Fecha de nacimiento: ".date("d/m/Y", strtotime($valor[10]))."</h5></div>";
+    }
+    if(isset($valor[11])){
+      echo "<div><h5>Tipo de Mascota: ".$valor[11]."</h5></div>";
+    }
+    if(isset($valor[9])){
+      echo "<div><h5>Raza: ".$valor[9]."</div></h5></div>";
+    }
+  ?>
+  <button type="button" class="btn btn-verde no-print" data-toggle="modal" data-target="#ModalImprimir" onclick="prinlist()"><div>Imprimir<br>Listado</div><img style="filter: invert(1);margin-left:10px" src="https://img.icons8.com/ios/50/000000/print.png" title="Imprimir consulta"></button>
+</div>
   <div>
-    <div class="row">
+    <div class="row listado">
       <div class="col-md-12" id="resBusqueda" style="height:400px; overflow: auto; border: 1px solid black; padding-left:0;">
         <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
           <tr>
@@ -62,7 +96,7 @@
             <th>Tipo Control</th>
             <th>Peso Kgs.</th>
             <th>Obs.Atención</th>
-            <th></th>
+            <th class="no-print"></th>
           </tr>
           <?php foreach ($this->historial as $r => $valor) : ?>
             <!---aqui ibas como avion, como creamos la variable en la vista, y esta es un arreglo, recorremos el arreglo e imprimimos la vista --->
@@ -75,7 +109,7 @@
               <td><?php echo $valor[5]; ?></td>
               <td><?php echo $valor[6]; ?></td>
               <td><?php echo $valor[7]; ?></td>
-              <td><button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalImprimir<?php echo $valor[0]; ?>">Imprimir</button></td>
+              <td class="no-print"><img onclick="printConsulta(<?php echo $valor[8]; ?>)" src="https://img.icons8.com/ios/50/000000/print.png" title="Imprimir consulta"></td>
             </tr>
           <?php endforeach; ?>
         </table>

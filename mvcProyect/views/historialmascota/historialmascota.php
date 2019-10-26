@@ -125,8 +125,10 @@
 
 
             }
+
+          
             function enviar(id,nombre,apellidoP, apellidoM, documento){
-              var url = "<?php echo constant('URL') ?>atencionmascota/getmascota";
+              var url = "<?php echo constant('URL') ?>atencionmascota/getmascota2";
               var parametrosajax = {
                   id: documento
                 }
@@ -135,7 +137,12 @@
                     type:"post",
                     data: parametrosajax,
                     success: function(response) {
-                      cargaMascotas(response);
+                      if (response == '[]') {
+                        noresult();
+                      }else{
+                        cargaMascotas(response);
+                      }
+                      
                     },
                     error(){
                       console.log("error")
@@ -152,23 +159,36 @@
         }
 
             function cargaMascotas(json){
+              $("#mascotas").empty();
               var html = "";
               var respuesta = JSON.parse(json);
               var j = 0;
-              html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
+              html += "<table width='100%' style='margin:5px' class='table table-striped'><tr><th style='text-align:center'>Acción</th><th style='text-align:center'>Nombre Mascota</th><th style='text-align:center'>Tipo</th><th style='text-align:center'>Raza</th><th style='text-align:center'>Sexo</th></tr>";
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
                 html += "<tr>";
-                html += "<td>";
-                html += "<p class='card-text'><a href='<?php echo constant('URL') ?>historialmascota/controlesmascota/"+value[0]+"'>Ver Historial</a></p>";
+                html += "<td style='text-align:center'>";
+                html += "<p class='card-text'><a title='Ver Historial' href='<?php echo constant('URL') ?>historialmascota/controlesmascota/"+value[0]+"'><img src='https://img.icons8.com/metro/26/000000/fine-print.png'></a></p>";
                 html += "</div></a>";
                 html += "</td>";
-                html += "<td>"+value[1]+"</td>";
-                html += "<td>"+value[2]+"</td>";
-                html += "<td>"+value[3]+"</td>";
-                html += "<td>"+value[4]+"</td>";
+                html += "<td style='text-align:center'>"+value[1]+"</td>";
+                html += "<td style='text-align:center'>"+value[2]+"</td>";
+                html += "<td style='text-align:center'>"+value[3]+"</td>";
+                html += "<td style='text-align:center'>"+value[4]+"</td>";
                 html += "</tr>"; 
               });
+              html+="</table>">
+              $("#mascotas").append(html);
+            }
+
+
+            function noresult(){
+              $("#mascotas").empty();
+              var html = "";
+              html += "<table width='100%' style='margin:5px' class='table table-striped'><tr><th style='text-align:center'>Acción</th><th style='text-align:center'>Nombre Mascota</th><th style='text-align:center'>Tipo</th><th style='text-align:center'>Raza</th><th style='text-align:center'>Sexo</th></tr>";
+                html += "<tr>";
+                html += "<td style='text-align:center' colspan='5'>No se han encontrado Resultados</td>";
+                html += "</tr>"; 
               html+="</table>">
               $("#mascotas").append(html);
             }
