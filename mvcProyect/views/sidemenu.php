@@ -777,12 +777,10 @@ select{
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>registroUsuario">Registrar Usuario
-
-                                    </a>
+                                    <a href="<?php echo constant('URL') ?>registroUsuario">Registrar Usuario</a>
                                 </li>
                                 <li>
-                                    <a href="#">Editar Usuario</a>
+                                    <a href="<?php echo constant('URL') ?>edicionusuario">Editar Usuario</a>
                                 </li>
                                 <li>
                                     <a href="#">Configuracion de usuarios</a>
