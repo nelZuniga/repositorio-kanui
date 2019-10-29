@@ -758,11 +758,6 @@ select{
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>sanitario">Nueva atención
-                                        <span class="badge badge-pill badge-success">Pro</span>
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="<?php echo constant('URL') ?>historialmascota">Historial de Atención
                                         <span class="badge badge-pill badge-success">VET</span>
                                     </a>
