@@ -68,6 +68,75 @@ class api extends Controller{
         }
     }
 
+    function getmascotafull(){
+        $masc = $_GET['id_masc'];
+        $rest = $this->model->getmascotafull($masc);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
+    function updmascota(){
+        $id_masc = $_GET['id_masc'];
+        $nombre =$_GET['nombre'];
+        $sexo =$_GET['sexo'];
+        $observaciones = $_GET['observaciones'];
+        //no se va a actualizar img aun
+        //$img =$_GET['img'];
+        $masc = ["id_masc"=>$id_masc,"nombre"=>$nombre,"sexo"=>$sexo, "obs"=>$observaciones];
+        $rest = $this->model->updmascota($masc);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
+    function getcarnet(){
+        $id_masc = $_GET['id_masc'];
+        $rest = $this->model->getcarnet($id_masc);
+    }
+
+    function updusuario(){
+        $id_usr = $_GET['id_usr'];
+        $nombres = $_GET['nombres'];
+        $apellidoP = $_GET['apellidop'];
+        $apellidoM = $_GET['apellidom'];
+        $tipodoc = $_GET['tdoc'];
+        $doc = $_GET['doc'];
+        $usuario = ["id_usr"=>$id_usr,"nombres"=>$nombres,"apellidop"=>$apellidoP,"apellidom"=>$apellidoM,"tdoc"=>$tipodoc,"doc"=>$doc];
+        $rest = $this->model->updusuario($usuario);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
+    function scan(){
+        $id_usr = $_GET['id_usr'];
+        $lat = $_GET['lat'];
+        $long = $_GET['long'];
+        $nchip = $_GET['nchip'];
+        $scan = ["id_usr"=>$id_usr,"lat"=>$lat,"long"=>$long,"nchip"=>$nchip]; 
+        $rest = $this->model->setScan($scan);
+
+    }
+
+    function getScans(){
+        $id_usr = $_GET['id_usr'];
+        $scans = ["id_usr"=>$id_usr];
+        $rest = $this->model->getScans($scans);
+    }
+
+    function getScanmascota(){
+        $id_mascot = $_GET['id_mascot'];
+        $scans = ["id_mascot"=>$id_mascot];
+        $rest = $this->model->getScanmascota($scans);
+    }
+
 }
 
 
