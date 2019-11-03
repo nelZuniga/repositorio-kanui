@@ -36,7 +36,8 @@ class api extends Controller{
     }
 
     function getdata(){
-        $usr = $_GET['id_usr'];
+        var_dump($_GET);
+        $usr = $_GET['idusr'];
         $log = ['usr'=>$usr];
         $rest = $this->model->getdata($log);
         if($rest !== ''){
@@ -135,6 +136,17 @@ class api extends Controller{
         $id_mascot = $_GET['id_mascot'];
         $scans = ["id_mascot"=>$id_mascot];
         $rest = $this->model->getScanmascota($scans);
+    }
+
+    function getAtencionesMascota(){
+        $id_mascot = $_GET['id_mascot'];
+        $rest = $this->model->getAtenciones($id_mascot);
+    }
+
+    function getAtencionesDetalle(){
+        $id_atenc = $_GET['id_atenc'];
+        $scans = ["id_atenc"=>$id_atenc];
+        $rest = $this->model->getAtencionesDetalle($scans);
     }
 
 }

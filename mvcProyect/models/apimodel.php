@@ -94,13 +94,13 @@ public function getdata($data){
     public function getMascotas($data){
         $respuesta = array();
         $usuario = $data;
-        $sql = "select id_mascot,nombre,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
+        $sql = "select id_mascot,nombre,n_chip,id_propietario, sexo,tipo_mascota from mascota where id_propietario = '".$usuario."' and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                $respuesta['data']['mascotas'][] = $row;
+                $respuesta[] = $row;
                 
             }
             header('Content-Type: application/json');
@@ -272,6 +272,29 @@ public function getdata($data){
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
                 $respuesta['data']['mascotas'][] = $row;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function getAtenciones($data){
+        $respuesta = array();
+        $mascota = $data;
+        $sql = "SELECT id_proc as id, DATE_FORMAT(fecha_Atencion,'%d/%m/%Y') as atencion, DATE_FORMAT(fecha_prox,'%d/%m/%Y') as proxima, nombres, apellido_paterno
+        FROM `procedimiento` proc
+        inner join vacunas vac on vac.id_vac = proc.id_vac
+        inner join usuario u on u.id_usr = proc.id_vet
+        WHERE 1 and id_mascot = ".$mascota;
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $respuesta[] = $row;
+                
             }
             header('Content-Type: application/json');
             echo json_encode($respuesta);
