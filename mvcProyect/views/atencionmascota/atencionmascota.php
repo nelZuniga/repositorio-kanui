@@ -129,7 +129,7 @@
             function enviar(id,nombre,apellidoP, apellidoM, documento){
               var url = "<?php echo constant('URL') ?>atencionmascota/getmascota";
               var parametrosajax = {
-                  id: documento
+                  id: id
                 }
                 $.ajax({
                     url: url,
@@ -153,10 +153,11 @@
         }
 
             function cargaMascotas(json){
+              $("#mascotas").empty();
               var html = "";
               var respuesta = JSON.parse(json);
               var j = 0;
-              html += "<table width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
+              html += "<table width='100%' class='table table-striped' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
                 html += "<tr>";
