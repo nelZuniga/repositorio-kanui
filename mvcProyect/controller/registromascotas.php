@@ -14,7 +14,7 @@ class RegistroMascotas extends Controller{
     function registraMascota(){
         //echo "usuario creado exitosamente";
         $chipM = $_POST['chipId'];
-        $rutDueno = $_POST['rutDueno'];
+        $rutDueno = $_POST['id_usr'];
         $nombreM = $_POST['nombreM'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];

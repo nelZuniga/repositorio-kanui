@@ -124,6 +124,7 @@
               $("#nomusu").val(nombre);
               $("#apepat").val(apellidoP);
               $("#apemat").val(apellidoM);
+              $("#id_usr").val(id);
               $("#registrar").slideDown();;
 
             }
@@ -182,6 +183,7 @@
             <div class="well well-sm">
                 <form class="form-horizontal" method="post" action="<?php echo constant('URL')?>registromascotas/registraMascota">
                 <input type="hidden" id="baseimg" name="baseimg">
+                <input type="hidden" id="id_usr" name="id_usr">
                 <div class="container">
                 <div class="row">
                     <div class="col-md-12"><h3>Datos del dueño<h3></div>
