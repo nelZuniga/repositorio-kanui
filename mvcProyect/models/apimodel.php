@@ -303,6 +303,29 @@ public function getdata($data){
         }
     }
 
+    public function getAtencionDetalle($data){
+        $respuesta = array();
+        $atenc = $data;
+        $sql = "SELECT DATE_FORMAT(fecha_Atencion,'%d/%m/%Y') as atencion, proc.peso, proc.observaciones, DATE_FORMAT(fecha_Atencion,'%d/%m/%Y') as proxima, vac.descripcion, u.nombres, u.apellido_paterno
+        FROM `procedimiento` proc
+        inner join vacunas vac on vac.id_vac = proc.id_vac
+        inner join usuario u on u.id_usr = proc.id_vet
+        WHERE 1 and id_proc = ".$atenc;
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $respuesta[] = $row;
+                
+            }
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
+        }catch(PDOException $e){
+
+        }
+    }
+
     
 }
 

@@ -145,8 +145,7 @@ class api extends Controller{
 
     function getAtencionesDetalle(){
         $id_atenc = $_GET['id_atenc'];
-        $scans = ["id_atenc"=>$id_atenc];
-        $rest = $this->model->getAtencionesDetalle($scans);
+        $rest = $this->model->getAtencionDetalle($id_atenc);
     }
 
 }
