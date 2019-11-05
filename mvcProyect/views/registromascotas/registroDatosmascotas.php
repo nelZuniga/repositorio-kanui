@@ -305,8 +305,7 @@
                     <div class="col-md-12 form-group">
                       <label for="observacionM">Observaciones</label>
                       <br>
-                      <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="7">
-                      </textarea>
+                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones de Mascota" rows="5"></textarea>
                     </div>
                     </div>
                     <div class="row">
