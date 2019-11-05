@@ -222,40 +222,59 @@
                     <div class="col-md-12 form-group"><h3>Datos de la mascota<h3></div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 form-group"><label for="chipID">Chip Identificador</label><br><input id="chipId" name="chipId" type="text" placeholder="Chip identificador" class="form-control">
-                            </div>
-                    <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
-                                <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
-                                <option value="">Seleccione un tipo de mascota</option>
-                                <option value="1">Perro</option>
-                                <option value="2">Gato</option>
-                              </select></div>
-                    <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
-                    <select class="form-control" id="raza_id" name="raza_id" >
-                                <option value=''>Seleccione Una Raza</option>
-                            </select>
-                          </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6  form-group"><label for="fechaNacM">Fecha de nacimiento</label><br><input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
-                            </div>
-                    <div class="col-md-6  form-group" align="center">Agregar Imagen<br><label for="file-input" title="Presione para Agregar imagen"><img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control"/></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>
-                    <select class="form-control" name="sexoM">
-                                <option value="2">Hembra</option>
-                                <option value="1">Macho</option>
-                              </select>
+                    <div class="col-md-6 form-group">
+                      <label for="chipID">Chip Identificador</label>
+                      <br>
+                      <input id="chipId" name="chipId" type="text" placeholder="Chip identificador" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="nombreM">Nombre de mascota</label>
+                      <br>
+                      <input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" required>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>
-                    <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="7"></textarea>
-                            
+                    <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
+                      <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
+                        <option value="">Seleccione un tipo de mascota</option>
+                        <option value="1">Perro</option>
+                        <option value="2">Gato</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
+                      <select class="form-control" id="raza_id" name="raza_id" >
+                          <option value=''>Seleccione Una Raza</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6  form-group">
+                      <label for="fechaNacM">Fecha de nacimiento</label>
+                      <br>
+                      <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control" required>
+                    </div>
+                    <div class="col-md-6  form-group" align="center">Agregar Imagen<br>
+                      <label for="file-input" title="Presione para Agregar imagen">
+                        <img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png">
+                      </label>
+                      <br>
+                      <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>
+                    <select class="form-control" name="sexoM" required>
+                      <option value="2">Hembra</option>
+                      <option value="1">Macho</option>
+                    </select>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="observacionM">Observaciones</label>
+                      <br>
+                      <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="7">
+                      </textarea>
                     </div>
                     </div>
                     <div class="row">
