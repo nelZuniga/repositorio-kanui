@@ -59,6 +59,16 @@ class RegistroMascotas extends Controller{
         return $respuesta;
     }
 
+    function getSexo(){
+        $respuesta = $this->model->getSexo();
+        return $respuesta;
+    }
+
+    function getTipo(){
+        $respuesta = $this->model->getTipo();
+        return $respuesta;
+    }    
+
     function getDatosduenio(){
         $funcion =$_POST['funcion'];
         switch($funcion){

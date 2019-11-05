@@ -37,6 +37,42 @@ class registromascotasModel extends Model{
         }
     }
 
+    public function getSexo(){
+        $sql = 'SELECT * from sexo';
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $resp = "<option value='".$row['id_sex']."'> ".utf8_encode($row['descripcion'])."</option>";
+                echo $resp;
+            }
+            return $resp;
+            
+
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function getTipo(){
+        $sql = 'SELECT * from tipo_mascota';
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $resp = "<option value='".$row['id_tmasc']."'> ".utf8_encode($row['descripcion'])."</option>";
+                echo $resp;
+            }
+            return $resp;
+            
+
+        }catch(PDOException $e){
+
+        }
+    }
+
     public function getuserDoc($usuario){
         $respuesta = array();
         $documento = $usuario['documento'];

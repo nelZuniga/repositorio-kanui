@@ -20,6 +20,8 @@
           $("#file-input").change(function() {
           readURL(this);
         });
+          getSexo();
+          getTipo();
         }); //fin document ready
 
         function getRaza() {
@@ -42,6 +44,39 @@
                     }
                 });
             }
+
+
+        function getSexo() {
+            var url = "<?php echo constant('URL') ?>registromascotas/getSexo";
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    //console.log(data);
+                    $("#sexoM").empty();
+                    $("#sexoM").append("<option value=''>Seleccione Sexo Mascota</option>");
+                    $("#sexoM").append(data);
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+        }
+
+        function getTipo() {
+            var url = "<?php echo constant('URL') ?>registromascotas/getTipo";
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    //console.log(data);
+                    $("#mascota").empty();
+                    $("#mascota").append("<option value=''>Seleccione un tipo de mascota</option>");
+                    $("#mascota").append(data);
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+        }        
 
             function busqueda(valor){
               $("#busqueda").empty();
@@ -237,8 +272,6 @@
                     <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
                       <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
                         <option value="">Seleccione un tipo de mascota</option>
-                        <option value="1">Perro</option>
-                        <option value="2">Gato</option>
                       </select>
                     </div>
                     <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
@@ -263,9 +296,8 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6  form-group"><label for="sexoM">Sexo</label><br>
-                    <select class="form-control" name="sexoM" required>
-                      <option value="2">Hembra</option>
-                      <option value="1">Macho</option>
+                    <select class="form-control" id="sexoM" name="sexoM" >
+                      <option value=''>Seleccione Sexo Mascotas</option>
                     </select>
                   </div>
                   </div>
