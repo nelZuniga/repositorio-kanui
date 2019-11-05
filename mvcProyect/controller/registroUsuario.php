@@ -59,6 +59,12 @@ class registroUsuario extends Controller{
     }
     
 
+    function checkCorreo(){
+        $correo = $_POST['mail'];
+        $respuesta = $this->model->checkCorreo($correo);
+        return $respuesta;
+    }
+
     //OJO AQUI como crear insercion de datos
 
     function getdata(){
