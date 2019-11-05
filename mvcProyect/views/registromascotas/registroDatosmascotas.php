@@ -61,7 +61,9 @@
 
             function buscar(valor){
               switch(valor){
-                case 1:
+               case 1:
+                console.log($("#bnombre").val())
+                console.log($("#bapellido").val())
                 var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
                 var parametrosajax = {
                     nombre: $("#bnombre").val(),
@@ -72,8 +74,23 @@
                     url: url,
                     type:"post",
                     data: parametrosajax,
-                    success: function(data) {
-                        //console.log(data);
+                    success: function(response) {
+                      //console.log(response);
+                     $("#resBusqueda").empty();
+                      response = JSON.parse(response);
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                        
+                      $.each(response.data.users,function(key, value){
+                        //console.log(value);
+                        tabla += "<tr>";
+                        var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
+                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += "<td>"+value[1]+"</td>";
+                        tabla += "<td>"+value[2]+"</td>";
+                        tabla += "<td>"+value[3]+"</td>";
+                      })
+                        tabla += '</table>';
+                        $("#resBusqueda").append(tabla);
                     },
                     error: function() {
                         alert("error");
@@ -158,7 +175,7 @@
       <div class="col-md-3" align="left">
         <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y apellido peterno</option>
+          <option value="1">Nombre y Apellido Paterno</option>
           <option value="2">Documento</option>
         </select>
       </div>
