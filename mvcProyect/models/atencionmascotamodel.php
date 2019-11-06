@@ -125,7 +125,7 @@ U.apellido_paterno, U.apellido_materno, U.nombres
 from mascota M, usuario U, raza R, tipo_mascota TM
 where M.id_mascot = '".$id."'
 and M.estado = 1
-and M.id_propietario = U.documento
+and M.id_propietario = U.id_usr
 and M.raza = R.id_raza
 and M.tipo_mascota = TM.id_tmasc";
         $conn = $this->db->connect();
