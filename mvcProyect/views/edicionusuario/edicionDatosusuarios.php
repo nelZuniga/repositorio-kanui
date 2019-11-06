@@ -1,183 +1,229 @@
-
-<?php require 'views/sidemenu.php'?>
+<?php require 'views/sidemenu.php' ?>
 <style>
-
-.tablaBusqueda tr th{
-  color:white;
-  background-color: #059485;
-}
+  .tablaBusqueda tr th {
+    color: white;
+    background-color: #059485;
+  }
+  #mascotas{
+    display:none
+  }
 </style>
-   <script>
-        $(document).ready(function() {
-            
-        }); //fin document ready
+<script>
+  $(document).ready(function() {
 
-            function busqueda(valor){
-              $("#busqueda").empty();
-              switch(valor){
-                case '1':
-                var input = "<input type='text' placeholder='Ingrese nombre' id='bnombre'> <input type='text' id='bapellido' placeholder='Ingrese apellido'>"
-                input +="<button type='button' onclick='buscar(1)'>Buscar</button>";
-                $("#busqueda").append(input);
-                ;break;
-                case '2':
-                var input = "<input type='text' id='bdocumento' placeholder='ingrese documento'>";
-                input +="<button type='button' onclick='buscar(2)'>Buscar</button>";
-                $("#busqueda").append(input);
-                ;break;
-              }
-            }
+  }); //fin document ready
 
-            function buscar(valor){ 
-              switch(valor){
-               case 1:
-                console.log($("#bnombre").val())
-                console.log($("#bapellido").val())
-                var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
-                var parametrosajax = {
-                    nombre: $("#bnombre").val(),
-                    apellido: $("#bapellido").val(),
-                    funcion: valor
+  function busqueda(valor) {
+    $("#busqueda").empty();
+    switch (valor) {
+      case '1':
+        var input = "<input type='text' placeholder='Ingrese nombre' id='bnombre'> <input type='text' id='bapellido' placeholder='Ingrese apellido'>"
+        input += "<button type='button' onclick='buscar(1)'>Buscar</button>";
+        $("#busqueda").append(input);;
+        break;
+      case '2':
+        var input = "<input type='text' id='bdocumento' placeholder='ingrese documento'>";
+        input += "<button type='button' onclick='buscar(2)'>Buscar</button>";
+        $("#busqueda").append(input);;
+        break;
+    }
+  }
+
+  function buscar(valor) {
+    switch (valor) {
+      case 1:
+        console.log($("#bnombre").val())
+        console.log($("#bapellido").val())
+        var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
+        var parametrosajax = {
+          nombre: $("#bnombre").val(),
+          apellido: $("#bapellido").val(),
+          funcion: valor
+        }
+        $.ajax({
+          url: url,
+          type: "post",
+          data: parametrosajax,
+          success: function(response) {
+            //console.log(response);
+            $("#resBusqueda").empty();
+            response = JSON.parse(response);
+            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+
+            $.each(response.data.users, function(key, value) {
+              //console.log(value);
+              tabla += "<tr>";
+              var funcion = "enviar('" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "')"
+              tabla += '<td><button onclick="' + funcion + '"></button></td>';
+              tabla += "<td>" + value[1] + "</td>";
+              tabla += "<td>" + value[2] + "</td>";
+              tabla += "<td>" + value[3] + "</td>";
+            })
+            tabla += '</table>';
+            $("#resBusqueda").append(tabla);
+          },
+          error: function() {
+            alert("error");
+          }
+        });;
+        break;
+
+      case 2:
+        console.log($("#bdocumento").val())
+        var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
+        var parametrosajax = {
+          documento: $("#bdocumento").val(),
+          funcion: valor
+        }
+        $.ajax({
+          url: url,
+          type: "post",
+          data: parametrosajax,
+          success: function(response) {
+            $("#resBusqueda").empty();
+            response = JSON.parse(response);
+            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+
+            $.each(response.data.users, function(key, value) {
+              //console.log(value);
+              tabla += "<tr>";
+              var funcion = "enviar('" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "')"
+              tabla += '<td><button onclick="' + funcion + '"></button></td>';
+              tabla += "<td>" + value[1] + "</td>";
+              tabla += "<td>" + value[2] + "</td>";
+              tabla += "<td>" + value[3] + "</td>";
+            })
+            tabla += '</table>';
+            $("#resBusqueda").append(tabla);
+          },
+          error: function() {
+            alert("error");
+          }
+        });;
+        break;
+
+    }
+
+
+  }
+
+
+  function enviar(id, nombre, apellidoP, apellidoM, documento) {
+    var url = "<?php echo constant('URL') ?>registroUsuario/getDetalleUsuario";
+    var parametrosajax = {
+      id: id
+    }
+    console.log(parametrosajax);
+    $.ajax({
+      url: url,
+      type: "post",
+      data: parametrosajax,
+      success: function(response) {
+          cargaUser(response);
+      },
+      error() {
+        console.log("error")
+      }
+    });
+  }
+
+  function multiple(valor, multiple) {
+    resto = valor % multiple;
+    if (resto == 0)
+      return true;
+    else
+      return false;
+  }
+  function cargaUser(json) {
+    var respuesta = JSON.parse(json);
+    console.log(json);
+    $("#txtnombre").val(respuesta[0].nombres);
+    $("#txtapellidoP").val(respuesta[0].apellido_paterno);
+    $("#txtapellidoM").val(respuesta[0].apellido_materno);
+    $("#txtrut").val(respuesta[0].documento);
+    $("#rol_id").val(respuesta[0].tipo_usr);
+    $("#correo").val(respuesta[0].correo);
+    $("#txttelefono").val(respuesta[0].cel);
+    $("#Ddireccion").val(respuesta[0].direccion);
+    //$("#txtciudad").val(respuesta[0].);
+    $("#region_id").val(respuesta[0].id_reg_region);
+    getComuna(respuesta[0].id_reg_region)
+    setTimeout(function(){
+      $("#comuna_id").val(respuesta[0].comuna);
+    },1000);
+    $("#id_usr").val(respuesta[0].id_usr);
+    $("#mascotas").show("slow");
+    
+  }
+
+  function getRol() {
+            var url = "<?php echo constant('URL') ?>registroUsuario/getRol";
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    console.log(data);
+                    $("#rol_id").empty();
+                    $("#rol_id").append("<option value=''>Seleccione un Rol de Usuario</option>");
+                    $("#rol_id").append(data);
+                },
+                error: function() {
+                    alert("error");
                 }
-                $.ajax({
-                    url: url,
-                    type:"post",
-                    data: parametrosajax,
-                    success: function(response) {
-                      //console.log(response);
-                     $("#resBusqueda").empty();
-                      response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
-                        
-                      $.each(response.data.users,function(key, value){
-                        //console.log(value);
-                        tabla += "<tr>";
-                        var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
-                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
-                        tabla += "<td>"+value[1]+"</td>";
-                        tabla += "<td>"+value[2]+"</td>";
-                        tabla += "<td>"+value[3]+"</td>";
-                      })
-                        tabla += '</table>';
-                        $("#resBusqueda").append(tabla);
-                    },
-                    error: function() {
-                        alert("error");
-                    }
-                });
-                ;break;
-
-                case 2:
-                console.log($("#bdocumento").val())
-                var url = "<?php echo constant('URL') ?>registromascotas/getDatosduenio";
-                var parametrosajax = {
-                  documento: $("#bdocumento").val(),
-                  funcion: valor
-                }
-                $.ajax({
-                    url: url,
-                    type:"post",
-                    data: parametrosajax,
-                    success: function(response) {
-                      $("#resBusqueda").empty();
-                      response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
-                        
-                      $.each(response.data.users,function(key, value){
-                        //console.log(value);
-                        tabla += "<tr>";
-                        var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
-                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
-                        tabla += "<td>"+value[1]+"</td>";
-                        tabla += "<td>"+value[2]+"</td>";
-                        tabla += "<td>"+value[3]+"</td>";
-                      })
-                        tabla += '</table>';
-                        $("#resBusqueda").append(tabla);
-                    },
-                    error: function() {
-                        alert("error");
-                    }
-                });
-                ;break;
-
-              }
-
-
-            }
-
-
-            function enviar(id,nombre,apellidoP, apellidoM, documento){
-              var url = "<?php echo constant('URL') ?>edicionmascota/getmascota";
-              var parametrosajax = {
-                  id: documento
-                }
-                $.ajax({
-                    url: url,
-                    type:"post",
-                    data: parametrosajax,
-                    success: function(response) {
-                      if (response == '[]') {
-                        noresult();
-                      }else{
-                        cargaMascotas(response);
-                      }
-                    },
-                    error(){
-                      console.log("error")
-                    }
-                  });
-            }
-            function multiple(valor, multiple)
-        {
-            resto = valor % multiple;
-            if(resto==0)
-                return true;
-            else
-                return false;
+            });
         }
 
-            function cargaMascotas(json){
-              $("#mascotas").empty();
-              var html = "";
-              var respuesta = JSON.parse(json);
-              var j = 0;
-              html += "<table class='table table-striped' width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
-              $.each(respuesta.data.mascotas , function(key, value){
-                j++;
-                html += "<tr>";
-                html += "<td>";
-                html += "<p class='card-text'><a href='<?php echo constant('URL') ?>edicionmascota/editarmascota/"+value[0]+"'>Editar</a></p>";
-                html += "</div></a>";
-                html += "</td>";
-                html += "<td>"+value[1]+"</td>";
-                html += "<td>"+value[2]+"</td>";
-                html += "<td>"+value[3]+"</td>";
-                html += "<td>"+value[4]+"</td>";
-                html += "</tr>"; 
-              });
-              html+="</table>">
-              $("#mascotas").append(html);
+        function getRegiones() {
+                var url = "<?php echo constant('URL') ?>registroUsuario/getRegion";
+                $.ajax({
+                    url: url,
+                    success: function(data) {
+                        //console.log(data);
+                        $("#region_id").empty();
+                        $("#region_id").append("<option value=''>Seleccione Una Region</option>");
+                        $("#region_id").append(data);
+                    },
+                    error: function() {
+                        alert("error");
+                    }
+                });
             }
 
-            function noresult(){
-              $("#mascotas").empty();
-              var html = "";
-              html += "<table width='100%' style='margin:5px' class='table table-striped'><tr><th style='text-align:center'>Acción</th><th style='text-align:center'>Nombre Mascota</th><th style='text-align:center'>Tipo</th><th style='text-align:center'>Raza</th><th style='text-align:center'>Sexo</th></tr>";
-                html += "<tr>";
-                html += "<td style='text-align:center' colspan='5'>No se han encontrado Resultados</td>";
-                html += "</tr>"; 
-              html+="</table>">
-              $("#mascotas").append(html);
+            function getComuna(valor) {
+            //console.log("asdadsd");
+            var url = "<?php echo constant('URL') ?>registroUsuario/getComuna";
+            //var reg = $("#region_id").val();
+            var parametrosajax = {
+                region: valor
             }
-      </script>
+            $.ajax({
+                url: url,
+                data: parametrosajax,
+                type: 'post',
+                success: function(data) {
+                    //$("#comuna_id").append(data);
+                    $("#comuna_id").empty();
+                    $("#comuna_id").append("<option value=''>Seleccione Una Comuna</option>");
+                    $("#comuna_id").append(data);
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+        }
+            getRegiones();
+            getRol();
+</script>
+
+
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
   <h1>Edicion de Usuarios</h1>
   <div class="container">
-    <div class="row" >
-      <div class="col-md-6"><h5>Busqueda de Usuario</h5></div>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Busqueda de Usuario</h5>
+      </div>
       <div class="col-md-3"></div>
     </div>
     <div class="row" style="margin-bottom:10px">
@@ -190,31 +236,142 @@
         </select>
       </div>
       <div class="col-md-7" id="busqueda">
-      
+
       </div>
     </div>
     <div class="row">
       <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto; border: 1px solid black; padding-left:0;">
-      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
+        <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
+          <tr>
+            <th style="width:47px"></th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+          </tr>
+        </table>
 
-    </div>
+      </div>
     </div>
   </div>
- <div id="respuesta"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                </div>
-            </div>
+  <div id="respuesta"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mascotas" id="mascotas" style="margin-top:20px">
+    <div class="col-md-12">
+      <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>registroUsuario/actualizaUsuario">
+        <input type="hidden" name="tusr" value="2">
+        <input type="hidden" name="id_usr" id="id_usr">
+        <div class="form-group col-md-12">
+          <!-- nombres -->
+          <!-- apellido paterno -->
+          <!-- apellido materno -->
+          <div class="row col-md-12">
+            <label for="nombres_id" class="control-label col-md-3">Nombres</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="ApellidoP_id" class="control-label col-md-3">Apellido Paterno</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="apellidoM_id" class="control-label col-md-3">Apellido Materno</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="text" class="form-control letras col-md-3" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="text" class="form-control col-md-3" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="text" class="form-control col-md-3" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required>
+          </div>
+          <BR>
+          <!-- rut -->
+          <div class="row col-md-12">
+            <label for="txtrut" class="control-label col-md-4">Rut</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de Usuario</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <select class="form-control col-md-4" id="rol_id" name="rol_id" required>
+              <option value=''>Seleccione un Rol de Usuario</option>
+            </select>
+          </div>
+          <BR>
+          <!-- Correo -->
+          <!-- telefono -->
+          <div class="row col-md-12">
+            <label for="correo" class="control-label col-md-4">Correo</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="telefono_id" class="control-label col-md-4">Telefono</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="email" class="form-control col-md-4" id="correo" name="correo" placeholder="Ingese su E-mail" onblur="checkCorreo(this)" required>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="text" class="form-control numeros col-md-4" id="txttelefono" name="Dtelefono" placeholder="988888888" required>
+          </div>
+          <BR>
+          <!-- direccion-->
+          <!-- cuidad-->
+          <div class="row col-md-12">
+            <label for="street2_id" class="control-label col-md-5">Direccion</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="ciudad_id" class="control-label col-md-5">Ciudad</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="text" class="form-control col-md-5" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su direccion" required>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="text" class="form-control col-md-5" id="txtciudad" name="Vciudad" placeholder="Ingrese su ciudad" required>
+          </div>
+          <BR>
+          <!-- combo region -->
+          <!-- combo comuna -->
+          <div class="row col-md-12">
+            <label for="region_id" class="control-label col-md-5" id="region" name="region">Región</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="comuna_id" class="control-label col-md-5" id="Comuna" name="comuna">Comuna</label>
+          </div>
+          <div class="row col-md-12">
+            <select class="form-control col-md-5" id="region_id" name="region_id" onchange='getComuna(this.value)' required>
+            </select>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
+              <option value=''>Seleccione Una Comuna</option>
+            </select>
+          </div>
+          <BR>
+
+
         </div>
+        <center>
+          <table>
+            <tr>
+              <th>
+                <div class="col-md-12" align="center">
+                  <button class="btn btn-verde" id="aceptar" name="aceptar">Aceptar</button>
 
-  <div class="container-fluid mascotas" id="mascotas">
-
+                </div>
+              </th>
+              <th>
+              </th>
+              <th>
+                <div class="col-md-12" align="center">
+                  <button class="btn btn-verde">Cancelar</button>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </center>
+    </div>
+    </form>
   </div>
+
 </div>
-  <!-- ModalRecupera -->  
-  <?php require 'views/footer.php'?>
+</div>
+<!-- ModalRecupera -->
+<?php require 'views/footer.php' ?>
 
 </body>
 
-</html>    
+</html>

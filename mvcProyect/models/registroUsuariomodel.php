@@ -116,5 +116,64 @@ class RegistroUsuarioModel extends Model{
         }
     }
 
+
+    public function getDataUser($id){
+        $respuesta = array();
+        $sql = "SELECT `id_usr`,
+        `nombres`,
+        `apellido_paterno`,
+        `apellido_materno`,
+        `documento`,
+        `tipo_usr`,
+        `direccion`,
+        `comuna`,
+        `estado`,
+        `correo`,
+        `cel` ,
+        `id_reg_region`
+        from usuario u
+        inner join comuna com on com.id_com = u.comuna
+        where id_usr = '".$id."'";
+        //echo $sql;
+        $conn = $this->db->connect();
+        try{
+            $resp = 0;
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $respuesta[] = $row;
+            }
+            //header('Content-Type: application/json');
+            echo json_encode($respuesta);
+            return $resp;
+            
+
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function updateUsr($data){
+        $conn = $this->db->connect();
+        $query = $conn->prepare("update usuario
+        set nombres = ? ,
+        apellido_paterno = ? ,
+        apellido_materno = ? ,
+        documento = ? ,
+        comuna = ? ,
+        cel = ? ,
+        tipo_usr = ? ,
+        direccion = ? ,
+        correo = ?
+        where id_usr = ?");
+                    $ss = 'ssssisissi';
+                    $estado = 1;
+        $query->bind_param($ss, $data['nombres'], $data['apellidoP'],$data['apellidoM'], $data['rut'], $data['comuna'], $data['telefono'], $data['tipo_usr'], $data['direccion'], $data['correo'], $data['id_usr']);
+        $retorno = false;
+        if($query->execute()){
+                $retorno = true;
+        };
+        return $retorno;
+    }
+
 }
 ?>

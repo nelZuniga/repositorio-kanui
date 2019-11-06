@@ -350,9 +350,6 @@
                 </form>
             </div>
 
-
-            </form>
-
             <hr>
         </div>
 
