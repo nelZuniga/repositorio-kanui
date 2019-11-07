@@ -85,6 +85,13 @@
 
               </div>              
             </div>
+            <!-- Historial de Atenciones -->
+            <div class="row">
+              <div class="col-md-12 form-group"><label for="observacionM">Historial de Atenciones</label><br>
+                <a href='<?php echo constant('URL') ?>historialmascota/controlesmascota/<?php echo $this->mascota[0] ?>' class="btn btn-verde" target="_blank">VER HISTORIAL DE ATENCIONES</a>
+
+              </div>              
+            </div>
 
             </div>            
             <div class="row">
