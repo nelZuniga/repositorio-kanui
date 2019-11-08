@@ -247,7 +247,10 @@ public function getdata($data){
     public function getScans($data){
         $respuesta = array();
         $usuario = $data['id_usr'];
-        $sql = "select id_scan, id_usr, id_mascot, n_chip, lat, longitud from scans where id_usr = '".$usuario."'";
+        $sql = "select s.id_scan, s.id_usr, s.id_mascot, s.n_chip, s.lat, s.longitud, m.id_propietario, m.nombre
+        from scans s
+        inner join mascota m on m.id_mascot = s.id_mascot
+        where m.id_propietario = '".$usuario."'";
         $conn = $this->db->connect();
         try{
             $resp = '';

@@ -21,9 +21,12 @@ class api extends Controller{
         }
     }
     function log(){
+        header("Content-type: text/html; charset=UTF-8");
+        //urldecode($_GET);
         $usr = $_GET['usr'];
         $pss = $_GET['pss'];
         $log = ['usr'=>$usr,'pss'=>$pss];
+        var_dump($log);
         
         $rest = $this->model->login($log);
         if($rest !== ''){
