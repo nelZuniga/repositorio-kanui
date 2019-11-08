@@ -29,11 +29,10 @@
             var comprobado = false;
             var compass = false;
             var valorpass = $("#pass").val();
-            var valorpass2 = $("#pass").val();
+            var valorpass2 = $("#pass2").val();
             if (valorpass == valorpass2) {
-                compass = true
+                comprobado = true
             }
-            console.log(compass);
             if(!comprobado){
                 Swal.fire(
                             'Atencion',
@@ -47,7 +46,6 @@
                 $("#pass2").removeClass('is-invalid');
                 $("#pass2").addClass('is-valid');
             }
-            console.log(comprobado);
             return comprobado;
         }
 
