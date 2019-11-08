@@ -77,7 +77,7 @@
             $.ajax({
                 url: url,
                 success: function(data) {
-                    console.log(data);
+                    //console.log(data);
                     $("#rol_id").empty();
                     $("#rol_id").append("<option value=''>Seleccione un Rol de Usuario</option>");
                     $("#rol_id").append(data);
@@ -326,7 +326,14 @@
                                 </h4>
                             </div>
                         </div>
-
+<HR />                        
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="TerminosCondiciones">
+    <label class="form-check-label" for="TerminosCondiciones">
+        He leido y aceptado los términos y condiciones. (ver aquí).
+    </label>
+  </div>
+<HR />  
                         <table>
                             <tr>
                                 <th>
