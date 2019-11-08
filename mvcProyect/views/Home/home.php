@@ -65,9 +65,16 @@
     
   }
   </script>
+<div style="padding: 0;padding-right: 21px;" align="center">
+  <BR>
+  <img src="<?php echo constant('URL') ?>public/img/logo-2kanui.png" width="150" align="middle">
+  <HR />
+  <h1>BIENVENIDO A KANUI.</h1>
+  <h2>Sistema integrado de gestión de mascotas de compañía.</h2>
+
+</div>
 
 
-<?php var_dump($_SESSION)?>
 
 <?php require 'views/footer.php'?>
     
