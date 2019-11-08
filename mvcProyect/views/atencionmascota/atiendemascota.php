@@ -102,7 +102,7 @@
                   <option value=''>Seleccione Una Vacuna</option>
                 </select>
               </div>
-              <div class="col-md-4 form-group"><label for="dosis">Dosis</label><br><input id="dosis" name="dosis" type="text" placeholder="Ingrese Dosis" class="form-control" required="">
+              <div class="col-md-4 form-group"><label for="dosis">Dosis</label><br><input id="dosis" name="dosis" type="text" placeholder="Ingrese Dosis" class="form-control" optional="">
               </div>  
                 <div class="col-md-6 form-group"><label for="FechaPA">Próxima Atención</label><br>
                   <div>
@@ -110,12 +110,12 @@
                   </div>
                 </div>  
               <div class="col-md-4 form-group"><label for="id_control">Tipo de Control</label><br>
-                <select class="form-control" id="id_control" name="id_control">
+                <select class="form-control" id="id_control" name="id_control" required="">
                   <option value=''>Seleccione Tipo de Control</option>
                 </select>
               </div>
               <div class="col-md-12 form-group"><label for="observacionA">Observaciones</label><br>
-                <textarea class="form-control" id="observacionA" name="observacionA" placeholder="Ingrese Observaciones de Atención" rows="5"></textarea>
+                <textarea class="form-control" id="observacionA" name="observacionA" placeholder="Ingrese Observaciones de Atención" rows="5" required="Debe ingresar"></textarea>
               </div>
 
             </div>
