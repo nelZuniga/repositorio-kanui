@@ -85,15 +85,23 @@
 
               </div>              
             </div>
+            <hr/>            
             <!-- Historial de Atenciones -->
-            <div class="row">
-              <div class="col-md-12 form-group"><label for="observacionM">Historial de Atenciones</label><br>
-                <a href='<?php echo constant('URL') ?>historialmascota/controlesmascota/<?php echo $this->mascota[0] ?>' class="btn btn-verde" target="_blank">VER HISTORIAL DE ATENCIONES</a>
 
-              </div>              
+              <div class="col-md-12 form-group">
+                <a href='<?php echo constant('URL') ?>historialmascota/controlesmascota/<?php echo $this->mascota[0] ?>' class="btn btn-info" target="_blank">Ver Historial de Atenciones</a>
+
+            <!-- Fin Historial de Atenciones -->
+            <hr />
+            
+            </div>  
+             <div class="row">
+              <div class="col-md-12 form-group">
+                <h3>Registro de atención mascota<h3>
+              </div>
+              <div class="col-md-6 form-group" align="center">
+              </div>
             </div>
-
-            </div>            
             <div class="row">
               <div class="col-md-4 form-group"><label for="pesoM">Peso Mascota</label><br><input id="pesoM" name="pesoM" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="">
               </div>              
