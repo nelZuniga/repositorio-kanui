@@ -203,7 +203,7 @@
                             'error'
                         ).then(function(){
                             $("#correo").focus();
-                            //$("#correo").val('');
+                            $("#correo").val('');
                             $("#correo").removeClass('is-valid');
                         $("#correo").addClass('is-invalid');
                         })
