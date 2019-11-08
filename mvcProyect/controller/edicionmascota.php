@@ -36,7 +36,7 @@ class EdicionMascota extends Controller{
         $retorno = $this->model->edit($mascota);
         //echo $retorno;
         if($retorno){
-            echo '<script>alert("Mascota Registrada");</script>';
+            echo '<script>alert("Datos de Mascota Editados Correctamente");</script>';
             $this->render();
         }else{
             $this->render();
