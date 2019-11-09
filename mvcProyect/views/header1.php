@@ -64,7 +64,7 @@
   </div> 
 <nav class="navbar navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
     <a class="navbar-brand" href="<?php echo constant('URL') ?>main">
-    <img src="views/imagenes/pg.jpg" alt="Kanui" style="width:40px;"> Kanui
+    <img src="<?php echo constant('URL') ?>/public/img/logo-2kanui.png" alt="Kanui" style="width:150px;">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
