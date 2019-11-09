@@ -39,7 +39,6 @@ class api extends Controller{
     }
 
     function getdata(){
-        var_dump($_GET);
         $usr = $_GET['id_usr'];
         $log = ['usr'=>$usr];
         $rest = $this->model->getdata($log);

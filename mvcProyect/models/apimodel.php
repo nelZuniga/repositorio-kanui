@@ -256,7 +256,7 @@ public function getdata($data){
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                $respuesta['data']['mascotas'][] = $row;
+                $respuesta[] = $row;
             }
             header('Content-Type: application/json');
             echo json_encode($respuesta);
