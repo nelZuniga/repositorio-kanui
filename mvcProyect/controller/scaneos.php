@@ -13,11 +13,11 @@ class Scaneos extends Controller{
     }
 
     function historial($param = null){
-        $this->view->render('scaneos/scaneoDetalle');
         $idmascot = $param[0];
-        $mascota = [];
         $mascota = $this->model->getScansMascota($idmascot);
         $this->view->mascota = $mascota;
+        $this->view->render('scaneos/scaneoDetalle');
+        
     }
 
     function saludo(){

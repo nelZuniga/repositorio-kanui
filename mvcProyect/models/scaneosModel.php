@@ -23,7 +23,7 @@ class scaneosModel extends Model{
                 while($row = mysqli_fetch_array($rs)){
                     $respuesta[] = $row;
                 }
-                header('Content-Type: application/json');
+                
                 echo json_encode($respuesta);
     }
 
