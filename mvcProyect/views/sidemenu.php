@@ -805,7 +805,7 @@ select{
                                     <a href="#">Configuracion mascotas</a>
                                 </li>
                                 <li>
-                                    <a href="#">Historial de scaneo</a>
+                                    <a href="<?php echo constant('URL') ?>scaneos">Historial de scaneo</a>
                                 </li>
                             </ul>
                         </div>
