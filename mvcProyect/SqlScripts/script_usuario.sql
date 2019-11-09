@@ -1,0 +1,1 @@
+alter table usuario add column chkTC tinyint(1) after cel;

@@ -11,11 +11,11 @@ class RegistroUsuarioModel extends Model{
     public function insert($data){
         //insertar data
         $conn = $this->db->connect();
-        $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel,tipo_usr,direccion,correo)
-                    values(?,?,?,?,?,?,?,?,?,?)");
-                    $ss = 'ssssiisiss';
+        $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel,tipo_usr,direccion,correo,chkTC)
+                    values(?,?,?,?,?,?,?,?,?,?,?)");
+                    $ss = 'ssssiisissi';
                     $estado = 1;
-        $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono'], $data['rol'], $data['direccion'], $data['correo']);
+        $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono'], $data['rol'], $data['direccion'], $data['correo'], $data['chkTC']);
         $retorno = false;
         if($query->execute()){
             $id_usr = $conn->insert_id;
