@@ -1,5 +1,7 @@
 <?php require 'views/sidemenu.php' ?>
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <style>
     .tablaBusqueda tr th {
         color: white;
@@ -8,7 +10,7 @@
 </style>
 <script>
     $(document).ready(function() {
-
+        $('#tabla').DataTable();
     }); //fin document ready
 
     function abrirmap(long, lat) {
@@ -29,13 +31,16 @@
 
 
         <div class="container-fluid mascotas" id="mascotas">
-            <table class="table table-striped">
+            <table class="table table-striped" id="tabla">
+                <thead>
                 <tr>
                     <th>Fecha</th>
                     <th>Tipo de usuario</th>
                     <th>Nombre Usuario</th>
                     <th>ver mapa</th>
                 </tr>
+                </thead>
+                <tbody>
                 <?php foreach ($this->mascota as $r => $valor) : ?>
                     <tr>
                         <td><?php echo $valor['fecha']; ?></td>
@@ -49,6 +54,7 @@
                     </tr>
 
                 <?php endforeach; ?>
+                </tbody>
             </table>
         </div>
     </div>
