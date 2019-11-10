@@ -20,6 +20,12 @@ class Scaneos extends Controller{
         
     }
 
+    function getmascota(){
+        $tipo = $_POST['id']; 
+        $respuesta = $this->model->getMascota($tipo);
+        return $respuesta;
+    }
+
     function saludo(){
 
         //echo "ahora si saludo";
