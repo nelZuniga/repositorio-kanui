@@ -1,7 +1,8 @@
 <?php require 'views/sidemenu.php' ?>
-
+<!---INCLUIR ESTAS DOS LINEAS PARA PAGINACION --->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<!--- --->
 <style>
     .tablaBusqueda tr th {
         color: white;
@@ -9,6 +10,7 @@
     }
 </style>
 <script>
+    // SE INICIALIZA EL MANEJO DE DATATABLES EN LA TABLA (OJO TIENE Q TENER LA ETIQUETA TBODY Y THEAD VER MAS ABAJO)
     $(document).ready(function() {
         $('#tabla').DataTable();
     }); //fin document ready
@@ -32,6 +34,7 @@
 
         <div class="container-fluid mascotas" id="mascotas">
             <table class="table table-striped" id="tabla">
+                <!---AQUI --->
                 <thead>
                 <tr>
                     <th>Fecha</th>
@@ -40,6 +43,7 @@
                     <th>ver mapa</th>
                 </tr>
                 </thead>
+                <!--- Y AQUI --->
                 <tbody>
                 <?php foreach ($this->mascota as $r => $valor) : ?>
                     <tr>
