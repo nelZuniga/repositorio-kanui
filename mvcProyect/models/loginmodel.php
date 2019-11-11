@@ -24,7 +24,10 @@ class loginModel extends Model{
 
     public function startsesion($id){
         $conn = $this->db->connect();
-        $query = $conn->prepare("select id_usr, nombres, apellido_paterno,apellido_materno,documento, estado from usuario where id_usr = ?");
+        //Sentencia Original 11-Nov-2019
+        //$query = $conn->prepare("select id_usr, nombres, apellido_paterno,apellido_materno,documento, estado from usuario where id_usr = ?");
+        // Nueva Sentencia 11-Nov-2019
+        $query = $conn->prepare("select U.id_usr, U.nombres, U.apellido_paterno, U.apellido_materno, U.documento, U.direccion, C.descripcion, U.correo, U.cel, U.estado from usuario U, comuna C where U.comuna = C.id_com and id_usr = ?");
         $dtype = "i";
         $query->bind_param($dtype,$id);
         $query->execute();
@@ -36,6 +39,10 @@ class loginModel extends Model{
             $_SESSION['apellido_paterno'] = $row['apellido_paterno'];
             $_SESSION['apellido_materno'] = $row['apellido_materno'];
             $_SESSION['documento'] = $row['documento'];
+            $_SESSION['direccion'] = $row['direccion'];
+            $_SESSION['comuna'] = $row['descripcion'];
+            $_SESSION['correo'] = $row['correo'];
+            $_SESSION['cel'] = $row['cel'];
             $_SESSION['estado'] = $row['estado'];
         }
         //return $rs;

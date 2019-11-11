@@ -713,7 +713,7 @@ select{
                                 <div id="notificationTitle">Opciones</div>
                                 <div id="notificationsBody" class="notifications">
                                     <ul>
-                                        <li><a class="nav-link" style="text-align: right" onclick="window.location ='<?php echo constant('URL') ?>Perfil'" href="<?php echo constant('URL') ?>Perfil">Perfil</a></li>
+                                        <li><a class="nav-link" style="text-align: right" onclick="window.location ='<?php echo constant('URL') ?>usuario'" href="<?php echo constant('URL') ?>usuario">Perfil</a></li>
                                         <li><a class="nav-link" style="text-align: right" href="#" onclick="off_session()">Cerrar Sesión</a></li>
                                     </ul>
                                     
