@@ -1,67 +1,121 @@
-<?php require 'views/sidemenu.php'?>
-<style>
-    body{
-        background:
-    radial-gradient(#059485 3px, transparent 4px),
-    radial-gradient(black 3px, transparent 4px),
-    linear-gradient(#fff 4px, transparent 0),
-    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-    #fff;
-    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-    }
-    .blanco{
-        background-color: #fff;
-        height: 85vh;
-        border-radius:15px;
-    }
-    p{
-        font-style:oblique;
-        background-color: #effbf0;
-        border-radius: 5px;
-    }
+<?php require 'views/sidemenu.php' ?>
 
-</style>
+<div style="padding: 0;padding-right: 21px;">
+  <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
+  <h1>Edicion de Usuarios</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Datos de usuario.</h5>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
 
-<div class="container-fluid fondo" style="margin-top:5%">
-    <div class="row">
-        <div class="col-md-6 offset-3 blanco">
-            <div class="container">
-            <div class="row">
-        <div class="col-md-12 text-center"><img src="<?php echo constant('URL') ?>views/imagenes/User_Circle.png" style="margin-top:2%" ></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-left">
-            <label>Nombres</label>
-            <p><?php echo $_SESSION['nombres'] ?></p>
+  <div class="container-fluid mascotas" id="mascotas" style="margin-top:20px">
+    <div class="col-md-12">
+      <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>registroUsuario/actualizaUsuario">
+        <input type="hidden" name="tusr" value="2">
+        <input type="hidden" name="id_usr" id="id_usr">
+        <div class="form-group col-md-12">
+          <!-- nombres -->
+          <!-- apellido paterno -->
+          <!-- apellido materno -->
+          <div class="row col-md-12">
+            <label for="nombres_id" class="control-label col-md-3">Nombres</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="ApellidoP_id" class="control-label col-md-3">Apellido Paterno</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="apellidoM_id" class="control-label col-md-3">Apellido Materno</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="text" class="form-control letras col-md-3" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required value="<?php echo $_SESSION['nombres'] ?>">
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="text" class="form-control col-md-3" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required value="<?php echo $_SESSION['apellido_paterno'] ?>">
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="text" class="form-control col-md-3" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required value="<?php echo $_SESSION['apellido_materno'] ?>">
+          </div>
+          <BR>
+          <!-- rut -->
+          <div class="row col-md-12">
+            <label for="txtrut" class="control-label col-md-3">Rut</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="rol" class="control-label col-md-6" id="rol" name="rol">Correo electrónico</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="text" class="form-control col-md-3 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required value="<?php echo $_SESSION['documento'] ?>">
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="email" class="form-control col-md-6" id="correo" name="correo" placeholder="Ingese su E-mail" onblur="checkCorreo(this)" required value="<?php echo $_SESSION['correo'] ?>">
+          </div>
+          <BR>
+          <!-- Correo -->
+          <!-- telefono -->
+          <div class="row col-md-12">
+            <label for="correo" class="control-label col-md-4">Teléfono</label>
+          </div>
+          <div class="row col-md-12">
+            <input type="email" class="form-control col-md-4" id="correo" name="correo" placeholder="Ingese su teléfono" placeholder="988888888" required value="<?php echo $_SESSION['cel'] ?>">
+            <label for="espaciados" class="control-label col-md-1"></label>
+          </div>
+          <BR>
+          <!-- direccion-->
+          <!-- cuidad-->
+          <div class="row col-md-12">
+            <label for="street2_id" class="control-label col-md-5">Direccion</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+          </div>
+          <div class="row col-md-12">
+            <input type="text" class="form-control col-md-8" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su direccion" required value="<?php echo $_SESSION['direccion'] ?>">
+            <label for="espaciados" class="control-label col-md-1"></label>
+          </div>
+          <BR>
+          <!-- combo region -->
+          <!-- combo comuna -->
+          <div class="row col-md-12">
+            <label for="region_id" class="control-label col-md-5" id="region" name="region">Región</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="comuna_id" class="control-label col-md-5" id="Comuna" name="comuna">Comuna</label>
+          </div>
+          <div class="row col-md-12">
+            <select class="form-control col-md-5" id="region_id" name="region_id" onchange='getComuna(this.value)' required>
+            </select>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
+              <option value=''>Seleccione Una Comuna</option>
+            </select>
+          </div>
+          <BR>
+
+
         </div>
+        <center>
+          <table>
+            <tr>
+              <th>
+                <div class="col-md-12" align="center">
+                  <button class="btn btn-verde" id="aceptar" name="aceptar">Aceptar</button>
+
+                </div>
+              </th>
+              <th>
+              </th>
+              <th>
+                <div class="col-md-12" align="center">
+                  <button class="btn btn-verde">Cancelar</button>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </center>
     </div>
-    <div class="row">
-        <div class="col-md-12 text-left"><label>Apellidos</label>
-        <p><?php echo $_SESSION['apellido_paterno'] .' '.$_SESSION['apellido_materno'] ?></p></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-left"><label>Documento</label>
-        <p><?php echo $_SESSION['documento'] ?></p></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-left "><label>Direccion</label>
-        <p><?php echo $_SESSION['direccion'] .' - '.$_SESSION['comuna'] ?></p></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-left "><label>Correo electrónico</label>
-        <p><?php echo $_SESSION['correo'] ?></p></div>
-    </div>    
-    <div class="row">
-        <div class="col-md-12 text-left "><label>Teléfono</label>
-        <p><?php echo $_SESSION['cel'] ?></p></div>
-    </div>     
-            </div>
-        </div>
-    </div>
-<BR>
-<BR>
+    </form>
+  </div>
+
 </div>
+</div>
+<!-- ModalRecupera -->
+<?php require 'views/footer.php' ?>
 
-<?php require 'views/footer.php';?>
+</body>
+
+</html>
