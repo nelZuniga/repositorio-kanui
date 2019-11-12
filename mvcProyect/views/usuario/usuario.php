@@ -40,7 +40,7 @@
           <div class="row col-md-12">
             <label for="txtrut" class="control-label col-md-3">Rut</label>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <label for="rol" class="control-label col-md-6" id="rol" name="rol">Correo electrónico</label>
+            <label for="correo" class="control-label col-md-6" id="correo" name="correo">Correo electrónico</label>
           </div>
           <div class="row col-md-12">
             <input type="text" class="form-control col-md-3 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required value="<?php echo $_SESSION['documento'] ?>">
@@ -51,10 +51,10 @@
           <!-- Correo -->
           <!-- telefono -->
           <div class="row col-md-12">
-            <label for="correo" class="control-label col-md-4">Teléfono</label>
+            <label for="telefono" class="control-label col-md-4">Teléfono</label>
           </div>
           <div class="row col-md-12">
-            <input type="email" class="form-control col-md-4" id="correo" name="correo" placeholder="Ingese su teléfono" placeholder="988888888" required value="<?php echo $_SESSION['cel'] ?>">
+            <input type="text" class="form-control numeros col-md-4" id="txttelefono" name="Dtelefono" placeholder="988888888" required value="<?php echo $_SESSION['cel'] ?>">
             <label for="espaciados" class="control-label col-md-1"></label>
           </div>
           <BR>
