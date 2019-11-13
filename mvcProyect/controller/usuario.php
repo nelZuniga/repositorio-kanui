@@ -10,5 +10,17 @@ class usuario extends Controller{
     {
         $this->view->render('usuario/usuario');
     }
+
+    function getRegion(){
+        $respuesta = $this->model->getregion();
+        return $respuesta;
+    }    
+
+    function getComuna(){
+        $reg = $_POST['region'];
+        //echo $reg;
+        $respuesta = $this->model->getcomuna($reg);
+        return $respuesta;
+    }    
 }
 ?>

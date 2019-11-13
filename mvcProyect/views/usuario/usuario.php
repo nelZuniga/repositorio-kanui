@@ -1,5 +1,236 @@
 <?php require 'views/sidemenu.php' ?>
+<script type="text/javascript">
+        function comprobar() {
+            var comprobado = false;
+            var compass = false;
+            var valorpass = $("#pass").val();
+            var valorpass2 = $("#pass2").val();
+            if (valorpass == valorpass2) {
+                comprobado = true
+            }
+            if(!comprobado){
+                Swal.fire(
+                            'Atencion',
+                            'Las contraseñas no coinciden',
+                            'error'
+                        ).then(function(){
+                            $("#pass2").val('')
+                            $("#pass2").addClass('is-invalid');
+                        })
+            }else{
+                $("#pass2").removeClass('is-invalid');
+                $("#pass2").addClass('is-valid');
+            }
+            return comprobado;
+        }
 
+        var numeros = "0123456789";
+
+        function tiene_numeros(texto) {
+            for (i = 0; i < texto.length; i++) {
+                if (numeros.indexOf(texto.charAt(i), 0) != -1) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        var letras = "abcdefghyjklmnñopqrstuvwxyz";
+
+        function tiene_letras(texto) {
+            texto = texto.toLowerCase();
+            for (i = 0; i < texto.length; i++) {
+                if (letras.indexOf(texto.charAt(i), 0) != -1) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        function tiene_minusculas(texto) {
+            for (i = 0; i < texto.length; i++) {
+                if (letras.indexOf(texto.charAt(i), 0) != -1) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        var letras_mayusculas = "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
+
+        function tiene_mayusculas(texto) {
+            for (i = 0; i < texto.length; i++) {
+                if (letras_mayusculas.indexOf(texto.charAt(i), 0) != -1) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+
+
+        function seguridad_clave(caja) {
+            var clave = caja.value;
+            var seguridad = 0;
+            if (clave.length != 0) {
+                if (tiene_numeros(clave) && tiene_letras(clave)) {
+                    seguridad += 30;
+                }
+                if (tiene_minusculas(clave) && tiene_mayusculas(clave)) {
+                    seguridad += 30;
+                }
+                if (clave.length >= 4 && clave.length <= 5) {
+                    seguridad += 10;
+                } else {
+                    if (clave.length >= 6 && clave.length <= 8) {
+                        seguridad += 20;
+                    } else {
+                        if (clave.length > 8) {
+                            seguridad += 30;
+                        }
+                    }
+                }
+            }
+            if (seguridad <= 10) {
+                $("#seguridad").empty();
+                $("#seguridad").append("muy leve");
+                $("#pass2").attr("readonly", true)
+            } else if (seguridad <= 30) {
+                $("#seguridad").empty();
+                $("#seguridad").append("leve");
+                $("#pass2").attr("readonly", true)
+            } else if (seguridad <= 39) {
+                $("#seguridad").empty();
+                $("#seguridad").append("moderada");
+                $("#pass2").attr("readonly", false)
+            } else if (seguridad <= 59) {
+                $("#seguridad").empty();
+                $("#seguridad").append("Buena");
+                $("#pass2").attr("readonly", false)
+            } else if (seguridad >= 60) {
+                $("#seguridad").empty();
+                $("#seguridad").append("Muy Buena");
+                $("#pass2").attr("readonly", false)
+            }
+            return seguridad
+        }
+                
+
+//-----------------------------------------
+// Inicio de función que carga regiones 
+  function getRegiones() {
+    var url = "<?php echo constant('URL') ?>usuario/getRegion";
+      $.ajax({
+        url: url,
+        success: function(data) {
+          //console.log(data);
+          $("#region_id").empty();
+          $("#region_id").append("<option value=''>Seleccione Una Region</option>");
+          $("#region_id").append(data);
+        },
+        error: function() {
+          alert("error");
+        }
+      });
+  }
+// Fin de función que carga regiones 
+//-----------------------------------------
+// Llamado para cargar regiones.
+
+            function getComuna(valor) {
+            //console.log("asdadsd");
+            var url = "<?php echo constant('URL') ?>usuario/getcomuna";
+            //var reg = $("#region_id").val();
+            var parametrosajax = {
+                region: valor
+            }
+            $.ajax({
+                url: url,
+                data: parametrosajax,
+                type: 'post',
+                success: function(data) {
+                    //$("#comuna_id").append(data);
+                    $("#comuna_id").empty();
+                    $("#comuna_id").append("<option value=''>Seleccione Una Comuna</option>");
+                    $("#comuna_id").append(data);
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+        }
+
+        function checkCorreo(caja) {
+            if(caja.value.length == 0 || caja.value== ''){
+
+            }else{
+            var url = "<?php echo constant('URL') ?>registroUsuario/checkCorreo";
+            var mail = caja.value;
+            var parametrosajax = {
+                mail: mail
+            }
+            $.ajax({
+                url: url,
+                data: parametrosajax,
+                type: 'post',
+                success: function(data) {
+                    if (data != 0) {
+                        Swal.fire(
+                            'Atencion',
+                            'El correo ya se encuentra registrado el en sistema',
+                            'error'
+                        ).then(function(){
+                            $("#correo").focus();
+                            $("#correo").val('');
+                            $("#correo").removeClass('is-valid');
+                        $("#correo").addClass('is-invalid');
+                        })
+                            
+
+                    }else{
+                        $("#correo").removeClass('is-invalid');
+                        $("#correo").addClass('is-valid');
+                    }
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+            }
+        }
+
+
+        function comprobar() {
+            var comprobado = false;
+            var compass = false;
+            var valorpass = $("#pass").val();
+            var valorpass2 = $("#pass2").val();
+            if (valorpass == valorpass2) {
+                comprobado = true
+            }
+            if(!comprobado){
+                Swal.fire(
+                            'Atencion',
+                            'Las contraseñas no coinciden',
+                            'error'
+                        ).then(function(){
+                            $("#pass2").val('')
+                            $("#pass2").addClass('is-invalid');
+                        })
+            }else{
+                $("#pass2").removeClass('is-invalid');
+                $("#pass2").addClass('is-valid');
+            }
+            return comprobado;
+        }        
+
+
+
+getRegiones();  
+getComuna();  
+// Fin de llamado para cargar regiones.
+
+</script>
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
   <h1>Edicion de Usuarios</h1>
@@ -81,11 +312,29 @@
             </select>
             <label for="espaciados" class="control-label col-md-1"></label>
             <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
-              <option value=''>Seleccione Una Comuna</option>
+              <option value selected="<?php echo $_SESSION['id_com'] ?>">Seleccione Una Comuna</option>
             </select>
           </div>
           <BR>
-
+        <!-- contraseña-->
+        <!-- repetir contraseña-->
+        <div class="row col-md-12">
+            <label for="pass2" class="control-label col-md-5">Contraseña</label>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <label for="pass2" class="control-label col-md-5">Repita su Contraseña</label>
+        </div>
+        <div class="row col-md-12">
+            <input type="password" class="form-control col-md-5" id="pass" name="pass" placeholder="Cree su contraseña" onkeyup="seguridad_clave(this)" required>
+            <label for="espaciados" class="control-label col-md-1"></label>
+            <input type="password" class="form-control col-md-5" id="pass2" name="pass2" placeholder="Repita contraseña" onblur=comprobar() readonly required>
+        </div>
+        <BR>
+        <div class="row col-md-12">
+            <h4>
+                Nivel de seguridad de contraseña: <span id="seguridad"></span>
+            </h4>
+        </div>
+    
 
         </div>
         <center>

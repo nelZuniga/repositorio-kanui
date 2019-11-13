@@ -886,6 +886,9 @@ select{
                                 </li>                                 
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listatipovacuna">Vacunas</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listacolor">Colores de especies</a>
                                 </li>                                 
                             </ul>
                         </div>
