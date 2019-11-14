@@ -1,5 +1,5 @@
 <?php
-class agregacoloroModel extends Model{
+class agregacolorModel extends Model{
 
     public function __construct()
     {

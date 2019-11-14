@@ -26,7 +26,7 @@
                         <th>Descripción color.</th>
                         <th>Acción</th>
                     </tr>
-                    <?php foreach($this->color as $r=> $valor): ?>
+                    <?php foreach($this->tipocolor as $r=> $valor): ?>
                         <!---aqui ibas como avion, como creamos la variable en la vista, y esta es un arreglo, recorremos el arreglo e imprimimos la vista --->
                         <tr>
                             <td><?php echo $valor['id_color']; ?></td>
