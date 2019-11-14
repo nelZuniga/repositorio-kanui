@@ -890,6 +890,9 @@ select{
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listacolor">Colores de especies</a>
                                 </li>                                 
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>listapatron">Patrón del pelaje</a>
+                                </li>                                 
                             </ul>
                         </div>
                     </li>
