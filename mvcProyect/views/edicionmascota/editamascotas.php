@@ -52,8 +52,6 @@
     });
   }
 
-
-
   function busqueda(valor) {
     $("#busqueda").empty();
     switch (valor) {
@@ -237,6 +235,20 @@
                   <option value="1">Macho</option>
                 </select>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6  form-group">
+                <label for="color_id">Color de mascota</label>  
+                <select class="form-control" id="color_id" name="color_id">
+                  <option value=''>Seleccione color de la mascota</option>
+                </select>                
+              </div>  
+              <div class="col-md-6  form-group">
+                <label for="color_id">Patrón de color</label>  
+                <select class="form-control" id="patron_id" name="patron_id">
+                  <option value=''>Seleccione patrón de color</option>
+                </select>                
+              </div>              
             </div>
             <div class="row">
               <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>

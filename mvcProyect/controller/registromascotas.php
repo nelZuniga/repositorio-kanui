@@ -18,7 +18,9 @@ class RegistroMascotas extends Controller{
         $nombreM = $_POST['nombreM'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
-        $raza_id = $_POST['raza_id'];        
+        $raza_id = $_POST['raza_id'];
+        $patron_id = $_POST['patron_id'];
+        $color_id = $_POST['color_id'];
         $fechaNacM = $_POST['fechaNacM'] ;
         $observacionM = $_POST['observacionM'];
         if(isset($_POST['baseimg'])){
@@ -38,6 +40,8 @@ class RegistroMascotas extends Controller{
                     'tipo_mascota'=>$mascota, 
                     'sexo'=>$sexoM, 
                     'raza'=>$raza_id, 
+                    'patron'=>$patron_id, 
+                    'color'=>$color_id, 
                     'fecha_nac'=>$fechaNacM, 
                     'observaciones'=>$observacionM, 
                     'img'=>$img];
@@ -104,6 +108,17 @@ class RegistroMascotas extends Controller{
         
         $this->model-> (Nombre de la funcion del modelo) y se entregan los datos por el parametro*/
     }
+
+    function getColor(){
+        $respuesta = $this->model->getColor();
+        return $respuesta;
+    }
+
+    function getPatron(){
+        $respuesta = $this->model->getPatron();
+        return $respuesta;
+    }    
+
 }
 
 

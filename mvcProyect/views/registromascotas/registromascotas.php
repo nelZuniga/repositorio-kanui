@@ -5,6 +5,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    getColor();
+  }); //fin document ready  
+
+  function getColor() {
+            var url = "<?php echo constant('URL') ?>registromascotas/getColor";
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    console.log(data);
+                    $("#color_id").empty();
+                    $("#color_id").append("<option value=''>Seleccione color de la mascota</option>");
+                    $("#color_id").append(data);
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+        }  
+</script>>
+
+
 <br><br>
 <div align="center">
   <h2>Registro Mascotas</h2>
@@ -78,6 +101,18 @@
                       </select>
                     </div>
                   </div>
+                  <br />
+                </div>
+
+                <div class="col-md-8">
+                  <h5 class="page-header" style="text-align: left;">Sexo</h5>                
+                    <div class="row">
+                    <div class="col-md-8">                  
+                      <select class="form-control col-md-4" id="color_id" name="color_id" required>
+                        <option value=''>Seleccione color de la mascota</option>
+                      </select>
+                    </div>
+                    </div>
                   <br />
                 </div>
 

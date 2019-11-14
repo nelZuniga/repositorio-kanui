@@ -26,11 +26,13 @@ class EdicionMascota extends Controller{
         $nombreM = $_POST['nombreM'];
         $fechaNacM = $_POST['fechaNacM'] ;
         $raza = $_POST['raza_id'];
+        $color = $_POST['color_id'];
+        $patron = $_POST['patron_id'];
         $mascota = $_POST['mascota'];
         $sexoM = $_POST['sexoM'];
         $observaciones = $_POST['observacionM'];
         $img = $_POST['baseimg'];
-        $mascota = [ 'idmascot'=>$idmascot, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'raza'=>$raza, 'obs'=>$observaciones, 'img'=>$img];
+        $mascota = [ 'idmascot'=>$idmascot, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'raza'=>$raza,'patron'=>$patron, 'color'=>$color, 'obs'=>$observaciones, 'img'=>$img];
         
         
         $retorno = $this->model->edit($mascota);

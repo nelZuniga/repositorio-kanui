@@ -8,11 +8,11 @@ class registromascotasModel extends Model{
     }
     public function insert($data){
         $conn = $this->db->connect();
-        $query = $conn->prepare("insert into mascota(n_chip, id_propietario, nombre, tipo_mascota, sexo, raza, fecha_nac, observaciones, estado, imgMascota)
-                    values(?,?,?,?,?,?,?,?,?,?)");
-                    $ss = 'sssiiissis';
+        $query = $conn->prepare("insert into mascota(n_chip, id_propietario, nombre, tipo_mascota, sexo, raza, patron, color, fecha_nac, observaciones, estado, imgMascota)
+                    values(?,?,?,?,?,?,?,?,?,?,?,?)");
+                    $ss = 'sssiiiiissis';
                     $estado= 1;
-        $query->bind_param($ss, $data['n_chip'], $data['id_propietario'], $data['nombre'], $data['tipo_mascota'],  $data['sexo'], $data['raza'], $data['fecha_nac'], $data['observaciones'], $estado, $data['img']);        
+        $query->bind_param($ss, $data['n_chip'], $data['id_propietario'], $data['nombre'], $data['tipo_mascota'],  $data['sexo'], $data['raza'], $data['patron'], $data['color'], $data['fecha_nac'], $data['observaciones'], $estado, $data['img']);        
         $retorno = false;
         if($query->execute()){
                 $retorno = true;
@@ -115,6 +115,41 @@ class registromascotasModel extends Model{
         }
     }
 
-}
+    public function getColor(){
+        $sql = 'SELECT * from colores';
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $resp = "<option value='".$row['id_color']."'> ".utf8_encode($row['descripcion'])."</option>";
+                echo $resp;
+            }
+            return $resp;
+            
 
+        }catch(PDOException $e){
+
+        }
+    }    
+
+    public function getPatron(){
+        $sql = 'SELECT * from patrones';
+        $conn = $this->db->connect();
+        try{
+            $resp = '';
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                $resp = "<option value='".$row['id_patron']."'> ".utf8_encode($row['descripcion'])."</option>";
+                echo $resp;
+            }
+            return $resp;
+            
+
+        }catch(PDOException $e){
+
+        }
+    }   
+
+}
     ?>
