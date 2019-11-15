@@ -76,12 +76,13 @@ class registroUsuario extends Controller{
         $apellidoP = $_POST['DapellidoP'];
         $apellidoM = $_POST['DapellidoM'];
         $rut = $_POST['Drut'];
+        $tipo_usr = $_POST['tipo_usr'];
         $correo = $_POST['correo'];
         $telefono = $_POST['Dtelefono'];
         $direccion = $_POST['Ddireccion'];
         $ciudad = $_POST['Vciudad'];
         $comuna = $_POST['comuna_id'];
-        $usuario = ['tipo_usr' => $tipousr,'id_usr'=> $id_usr,'nombres'=>$nombres,'apellidoP'=>$apellidoP,'apellidoM'=>$apellidoM,'rut'=>$rut,'correo'=>$correo,'telefono'=>$telefono,'direccion'=>$direccion,'comuna'=>$comuna];
+        $usuario = ['tipo_usr' => $tipousr,'id_usr'=> $id_usr,'nombres'=>$nombres,'apellidoP'=>$apellidoP,'apellidoM'=>$apellidoM,'rut'=>$rut,'tipo_usr'=>$tipo_usr,'correo'=>$correo,'telefono'=>$telefono,'direccion'=>$direccion,'comuna'=>$comuna];
         $retorno = $this->model->updateUsr($usuario);
         if($retorno){
             echo '<script>alert("Usuario Actualizado con Éxito");</script>';

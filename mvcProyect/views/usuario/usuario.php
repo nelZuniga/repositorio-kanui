@@ -293,6 +293,7 @@ getUser(<?php echo $_SESSION['id_usr']?>);
       <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>registroUsuario/actualizaUsuario">
         <input type="hidden" name="tusr" value="2">
         <input type="hidden" name="id_usr" id="id_usr">
+        <input type="text" name="tipo_usr" id="tipo_usr" value="<?php echo $_SESSION['tipo_usr'] ?>">
         <div class="form-group col-md-12">
           <!-- nombres -->
           <!-- apellido paterno -->
@@ -362,8 +363,42 @@ getUser(<?php echo $_SESSION['id_usr']?>);
             
           </div>
           <BR>
+
+
+        <center>
+          <table>
+            <tr>
+              <th>
+                <div class="col-md-12" align="center">
+                  <button class="btn btn-verde" id="aceptar" name="aceptar">Aceptar</button>
+
+                </div>
+              </th>
+              <th>
+              </th>
+              <th>
+                <div class="col-md-12" align="center">
+                  <button class="btn btn-verde">Cancelar</button>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </center>
+
         <!-- contraseña-->
         <!-- repetir contraseña-->
+
+<HR />
+<BR>        
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Actualización de contraseña.</h5>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>        
         <div class="row col-md-12">
             <label for="pass2" class="control-label col-md-5">Contraseña</label>
             <label for="espaciados" class="control-label col-md-1"></label>
