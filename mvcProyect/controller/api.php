@@ -26,7 +26,6 @@ class api extends Controller{
         $usr = $_GET['usr'];
         $pss = $_GET['pss'];
         $log = ['usr'=>$usr,'pss'=>$pss];
-        var_dump($log);
         
         $rest = $this->model->login($log);
         if($rest !== ''){

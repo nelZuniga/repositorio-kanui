@@ -115,6 +115,50 @@
             return seguridad
         }
                 
+/*funcion para cargar todos los datos del usuario */
+getRegiones();
+function getUser(id) {
+    var url = "<?php echo constant('URL') ?>registroUsuario/getDetalleUsuario";
+    var parametrosajax = {
+      id: id
+    }
+    $.ajax({
+      url: url,
+      type: "post",
+      data: parametrosajax,
+      success: function(response) {
+          cargaUser(response);
+      },
+      error() {
+        console.log("error")
+      }
+    });
+  }
+
+
+  function cargaUser(json) {
+    var respuesta = JSON.parse(json);
+    $("#txtnombre").val(respuesta[0].nombres);
+    $("#txtapellidoP").val(respuesta[0].apellido_paterno);
+    $("#txtapellidoM").val(respuesta[0].apellido_materno);
+    $("#txtrut").val(respuesta[0].documento);
+    $("#rol_id").val(respuesta[0].tipo_usr);
+    $("#correo").val(respuesta[0].correo);
+    $("#txttelefono").val(respuesta[0].cel);
+    $("#Ddireccion").val(respuesta[0].direccion);
+    //$("#txtciudad").val(respuesta[0].);
+    $("#region_id").val(respuesta[0].id_reg_region);
+    getComuna(respuesta[0].id_reg_region)
+    setTimeout(function(){
+      $("#comuna_id").val(respuesta[0].comuna);
+    },1000);
+    $("#id_usr").val(respuesta[0].id_usr);
+    $("#mascotas").show("slow");
+    
+  }
+
+ 
+
 
 //-----------------------------------------
 // Inicio de función que carga regiones 
@@ -127,6 +171,7 @@
           $("#region_id").empty();
           $("#region_id").append("<option value=''>Seleccione Una Region</option>");
           $("#region_id").append(data);
+          
         },
         error: function() {
           alert("error");
@@ -138,7 +183,6 @@
 // Llamado para cargar regiones.
 
             function getComuna(valor) {
-            //console.log("asdadsd");
             var url = "<?php echo constant('URL') ?>usuario/getcomuna";
             //var reg = $("#region_id").val();
             var parametrosajax = {
@@ -225,12 +269,13 @@
         }        
 
 
+  
+getUser(<?php echo $_SESSION['id_usr']?>);
 
-getRegiones();  
-getComuna();  
 // Fin de llamado para cargar regiones.
 
 </script>
+
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
   <h1>Edicion de Usuarios</h1>
@@ -308,12 +353,13 @@ getComuna();
             <label for="comuna_id" class="control-label col-md-5" id="Comuna" name="comuna">Comuna</label>
           </div>
           <div class="row col-md-12">
-            <select class="form-control col-md-5" id="region_id" name="region_id" onchange='getComuna(this.value)' required>
+            <select class="form-control col-md-5" id="region_id" name="region_id" value="<?php echo $_SESSION['id_com']  ?>" onchange='getComuna(this.value)' required>
             </select>
             <label for="espaciados" class="control-label col-md-1"></label>
             <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
-              <option value selected="<?php echo $_SESSION['id_com'] ?>">Seleccione Una Comuna</option>
+              
             </select>
+            
           </div>
           <BR>
         <!-- contraseña-->
