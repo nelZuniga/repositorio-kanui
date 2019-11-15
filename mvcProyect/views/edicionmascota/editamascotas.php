@@ -16,6 +16,9 @@
     <?php } else { ?>
       getRaza(0);
     <?php } ?>
+
+    getColores()
+  ELPatron();
   }); //fin document ready
 
   function getRaza(tipos) {
@@ -51,6 +54,55 @@
       }
     });
   }
+
+/******************************************/
+function getColores() {
+    var url = "<?php echo constant('URL') ?>edicionmascota/getcolores";
+    $.ajax({
+      url: url,
+      type: "POST",
+      success: function(data) {
+        //console.log(data);
+        $("#color_id").empty()
+        var opciones = '<option value="">Seleccione color de la mascota</option>'
+        $.each(data, function(key, value){
+          opciones += "<option value='"+value[0]+"'>"+value[1]+"</option>"
+        })
+        $("#color_id").append(opciones)
+        $("#color_id").val(<?php echo $this->mascota['color'] ?>);
+        
+      },
+      error: function() {
+        alert("error");
+      }
+    });
+  }
+
+  function ELPatron() {
+    var url = "<?php echo constant('URL') ?>edicionmascota/getPatrones";
+    $.ajax({
+      url: url,
+      type: "POST",
+      success: function(data) {
+        //console.log(data);
+        $("#patron_id").empty()
+        var opciones = '<option value="">Seleccione color de la mascota</option>'
+        $.each(data, function(key, value){
+          opciones += "<option value='"+value[0]+"'>"+value[1]+"</option>"
+        })
+        $("#patron_id").append(opciones)
+        $("#patron_id").val(<?php echo $this->mascota['patron'] ?>);
+        
+      },
+      error: function() {
+        alert("error");
+      }
+    });
+  }
+
+
+/******************************************/
+
 
   function busqueda(valor) {
     $("#busqueda").empty();
@@ -238,9 +290,10 @@
             </div>
             <div class="row">
               <div class="col-md-6  form-group">
-                <label for="color_id">Color de mascota</label>  
+                <label for="color_id">Color de mascota</label>
                 <select class="form-control" id="color_id" name="color_id">
                   <option value=''>Seleccione color de la mascota</option>
+                    
                 </select>                
               </div>  
               <div class="col-md-6  form-group">

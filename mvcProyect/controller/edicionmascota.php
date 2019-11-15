@@ -32,7 +32,9 @@ class EdicionMascota extends Controller{
         $sexoM = $_POST['sexoM'];
         $observaciones = $_POST['observacionM'];
         $img = $_POST['baseimg'];
-        $mascota = [ 'idmascot'=>$idmascot, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'raza'=>$raza,'patron'=>$patron, 'color'=>$color, 'obs'=>$observaciones, 'img'=>$img];
+        $color = $_POST['color_id'];
+        $patron = $_POST['patron_id'];
+        $mascota = [ 'idmascot'=>$idmascot, 'nombre'=>$nombreM,'fecha_nac' =>$fechaNacM,  'tipo_mascota'=>$mascota, 'sexo'=>$sexoM,'raza'=>$raza,'patron'=>$patron, 'color'=>$color, 'obs'=>$observaciones, 'img'=>$img, 'patron'=>$patron, 'color'=>$color];
         
         
         $retorno = $this->model->edit($mascota);
@@ -49,6 +51,16 @@ class EdicionMascota extends Controller{
     function getmascota(){
         $tipo = $_POST['id']; 
         $respuesta = $this->model->getMascota($tipo);
+        return $respuesta;
+    }
+
+    function getcolores(){
+        $respuesta = $this->model->getcolores();
+        return $respuesta;
+    }
+
+    function getPatrones(){
+        $respuesta = $this->model->getPatrones();
         return $respuesta;
     }
 
