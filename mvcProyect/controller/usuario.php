@@ -8,6 +8,11 @@ class usuario extends Controller{
 
     function render()
     {
+        $this->view->render('usuario/user_prof');
+    }
+
+    function editar()
+    {
         $this->view->render('usuario/usuario');
     }
 
