@@ -266,7 +266,31 @@ function getUser(id) {
                 $("#pass2").addClass('is-valid');
             }
             return comprobado;
-        }        
+        }    
+
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+              $('#muestra').attr('src', e.target.result);
+            }
+            reader.onloadend = function() {
+              $("#baseimg").val(reader.result)
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        
+
+
+
+        $(document).ready(function(){
+            $("#file-input").change(function() {
+              readURL(this);
+            });
+        });   
 
 
   
@@ -275,6 +299,16 @@ getUser(<?php echo $_SESSION['id_usr']?>);
 // Fin de llamado para cargar regiones.
 
 </script>
+
+<style>
+#muestra{
+  height: auto;
+  max-width: 150px;
+}
+#muestra:hover{
+  filter: contrast(250%);
+}
+</style>
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
@@ -292,8 +326,19 @@ getUser(<?php echo $_SESSION['id_usr']?>);
     <div class="col-md-12">
       <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>registroUsuario/actualizaUsuario">
         <input type="hidden" name="tusr" value="2">
+        <input type="hidden" id="baseimg" name="baseimg">
         <input type="hidden" name="id_usr" id="id_usr">
         <input type="text" name="tipo_usr" id="tipo_usr" value="<?php echo $_SESSION['tipo_usr'] ?>">
+
+        <div class="row">
+                    <div class="col-md-6  form-group" align="center">Agregar Imagen<br>
+                      <label for="file-input" title="Presione para Agregar imagen">
+                        <img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png">
+                      </label>
+                      <br>
+                      <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control"/>
+                    </div>
+                  </div>
         <div class="form-group col-md-12">
           <!-- nombres -->
           <!-- apellido paterno -->
@@ -391,7 +436,7 @@ getUser(<?php echo $_SESSION['id_usr']?>);
 <HR />
 <BR>        
 
-  <div class="container">
+  <!--<div class="container">
     <div class="row">
       <div class="col-md-6">
         <h5>Actualización de contraseña.</h5>
@@ -439,7 +484,7 @@ getUser(<?php echo $_SESSION['id_usr']?>);
         </center>
     </div>
     </form>
-  </div>
+  </div>--->
 
 </div>
 </div>

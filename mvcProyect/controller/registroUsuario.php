@@ -82,7 +82,12 @@ class registroUsuario extends Controller{
         $direccion = $_POST['Ddireccion'];
         $ciudad = $_POST['Vciudad'];
         $comuna = $_POST['comuna_id'];
-        $usuario = ['tipo_usr' => $tipousr,'id_usr'=> $id_usr,'nombres'=>$nombres,'apellidoP'=>$apellidoP,'apellidoM'=>$apellidoM,'rut'=>$rut,'tipo_usr'=>$tipo_usr,'correo'=>$correo,'telefono'=>$telefono,'direccion'=>$direccion,'comuna'=>$comuna];
+        if(isset($_POST['baseimg'])){
+            $img = $_POST['baseimg'];
+        }else{
+            $img = '';
+        }
+        $usuario = ['tipo_usr' => $tipousr,'id_usr'=> $id_usr,'nombres'=>$nombres,'apellidoP'=>$apellidoP,'apellidoM'=>$apellidoM,'rut'=>$rut,'tipo_usr'=>$tipo_usr,'correo'=>$correo,'telefono'=>$telefono,'direccion'=>$direccion,'comuna'=>$comuna,'img'=>$img];
         $retorno = $this->model->updateUsr($usuario);
         if($retorno){
             echo '<script>alert("Usuario Actualizado con Éxito");</script>';

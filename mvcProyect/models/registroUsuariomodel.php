@@ -164,11 +164,12 @@ class RegistroUsuarioModel extends Model{
         cel = ? ,
         tipo_usr = ? ,
         direccion = ? ,
-        correo = ?
+        correo = ?,
+        img_usr = ?
         where id_usr = ?");
-                    $ss = 'ssssiisissi';
+                    $ss = 'ssssiisisssi';
                     $estado = 1;
-        $query->bind_param($ss, $data['nombres'], $data['apellidoP'],$data['apellidoM'], $data['rut'], $data['tipo_usr'],$data['comuna'], $data['telefono'], $data['tipo_usr'], $data['direccion'], $data['correo'], $data['id_usr']);
+        $query->bind_param($ss, $data['nombres'], $data['apellidoP'],$data['apellidoM'], $data['rut'], $data['tipo_usr'],$data['comuna'], $data['telefono'], $data['tipo_usr'], $data['direccion'], $data['correo'], $data['img'], $data['id_usr']);
         $retorno = false;
         if($query->execute()){
                 $retorno = true;
