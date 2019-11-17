@@ -71,6 +71,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
             });
 
             $("#close-sidebar").click(function() {
+                console.log("asdasd");
                 $(".page-wrapper").removeClass("toggled");
             });
             $("#show-sidebar").click(function() {
@@ -100,6 +101,9 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
 </head>
 
 <style>
+    #close-sidebar{
+        display: none;
+    }
     main{
         font-family: 'Roboto', sans-serif;
     }
@@ -182,6 +186,8 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
         transition: all 0.3s ease;
     }
 
+    
+
     /*----------------page-wrapper----------------*/
 
     .page-wrapper {
@@ -210,6 +216,13 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
         .page-wrapper.toggled .page-content {
             padding-left: 300px;
         }
+    }
+
+
+    @media screen and (max-width: 768px) {
+        #close-sidebar{
+        display: block;
+    }
     }
 
     /*----------------show sidebar button----------------*/
@@ -684,16 +697,16 @@ select{
 </style>
 
 <div class="page-wrapper chiller-theme toggled">
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-        <i class="fas fa-bars"></i>
+    <a id="show-sidebar" class="btn btn-sm" href="#" style="background-color: #059485;" >
+        <img src="https://img.icons8.com/material-outlined/24/000000/right.png">
     </a>
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <img src="<?php echo constant('URL') ?>public/img/logo-2kanui.png" width="150" >
+                <img src="<?php echo constant('URL') ?>public/img/logo-2kanui.png" width="200" >
                 <!--<a href="#">KANUI</a>-->
                 <div id="close-sidebar">
-                    <i class="fas fa-times"></i>
+                    <img src="https://img.icons8.com/material-outlined/24/000000/double-left.png">
                 </div>
             </div>
             <div class="sidebar-header">
@@ -931,25 +944,7 @@ select{
                 </ul>
             </div>
             <!-- sidebar-menu  -->
-        </div>
-        <!-- sidebar-content  -->
-        <div class="sidebar-footer">
-            <a href="#">
-                <i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification">3</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-envelope"></i>
-                <span class="badge badge-pill badge-success notification">7</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-cog"></i>
-                <span class="badge-sonar"></span>
-            </a>
-            <a href="#">
-                <i class="fa fa-power-off"></i>
-            </a>
-        </div>
     </nav>
+    <nav></nav>
     <!-- sidebar-wrapper  -->
     <main class="page-content">
