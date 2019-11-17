@@ -27,7 +27,7 @@ class loginModel extends Model{
         //Sentencia Original 11-Nov-2019
         //$query = $conn->prepare("select id_usr, nombres, apellido_paterno,apellido_materno,documento, estado from usuario where id_usr = ?");
         // Nueva Sentencia 11-Nov-2019
-        $query = $conn->prepare("select U.id_usr, U.nombres, U.apellido_paterno, U.apellido_materno, U.documento, U.direccion, U.tipo_usr, C.id_com, C.descripcion, U.correo, U.cel, U.estado from usuario U, comuna C where U.comuna = C.id_com and id_usr = ?");
+        $query = $conn->prepare("select U.id_usr, U.nombres, U.apellido_paterno, U.apellido_materno, U.documento, U.direccion, U.tipo_usr, C.id_com, C.descripcion, U.correo, U.cel, U.estado ,U.img_usr from usuario U, comuna C where U.comuna = C.id_com and id_usr = ?");
         $dtype = "i";
         $query->bind_param($dtype,$id);
         $query->execute();
@@ -46,6 +46,7 @@ class loginModel extends Model{
             $_SESSION['correo'] = $row['correo'];
             $_SESSION['cel'] = $row['cel'];
             $_SESSION['estado'] = $row['estado'];
+            $_SESSION['perfil'] = $row['img_usr'];
         }
         //return $rs;
 

@@ -698,8 +698,15 @@ select{
             </div>
             <div class="sidebar-header">
                 <div class="user-pic">
-                    <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
-                </div>
+                <?php
+                if($_SESSION['perfil'] !== ''){
+                    echo '<img class="img-responsive img-rounded" src='.$_SESSION['perfil'].' alt="User picture">';
+                }else{
+                    echo '<img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">';
+                } 
+                
+                ?>
+                    </div>
                 <div class="user-info">
                     <span class="user-name"><?php echo $_SESSION['nombres'] ?>
                         <strong><?php echo $_SESSION['apellido_paterno'] ?></strong>

@@ -328,12 +328,20 @@ getUser(<?php echo $_SESSION['id_usr']?>);
         <input type="hidden" name="tusr" value="2">
         <input type="hidden" id="baseimg" name="baseimg">
         <input type="hidden" name="id_usr" id="id_usr">
-        <input type="text" name="tipo_usr" id="tipo_usr" value="<?php echo $_SESSION['tipo_usr'] ?>">
+        <input type="hidden" name="tipo_usr" id="tipo_usr" value="<?php echo $_SESSION['tipo_usr'] ?>">
 
         <div class="row">
-                    <div class="col-md-6  form-group" align="center">Agregar Imagen<br>
+                    <div class="col-md-6  form-group offset-6" align="center">Agregar Imagen<br>
                       <label for="file-input" title="Presione para Agregar imagen">
-                        <img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png">
+                      <?php 
+                      if($_SESSION['perfil'] !== ''){
+                        echo '<img id="muestra" src="'.$_SESSION['perfil'].'">';
+                      }else{
+                        echo '<img id="muestra" src="'.constant('URL').'public/img/Add Image_96px.png">';
+                      }
+
+                      ?>
+                        
                       </label>
                       <br>
                       <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control"/>
