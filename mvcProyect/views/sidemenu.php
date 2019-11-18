@@ -384,7 +384,7 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
         animation: swing ease-in-out 0.5s 1 alternate;
     }
 
-    .sidebar-wrapper .sidebar-menu .sidebar-dropdown>a:after {
+    /*.sidebar-wrapper .sidebar-menu .sidebar-dropdown>a:after {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         content: "\f105";
@@ -400,7 +400,7 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
         position: absolute;
         right: 15px;
         top: 14px;
-    }
+    }*/
 
     .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
         padding: 5px 0;
@@ -410,7 +410,7 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
         padding-left: 25px;
         font-size: 13px;
     }
-
+/*
     .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
         content: "\f111";
         font-family: "Font Awesome 5 Free";
@@ -423,7 +423,7 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
         -moz-osx-font-smoothing: grayscale;
         margin-right: 10px;
         font-size: 8px;
-    }
+    }*/
 
     .sidebar-wrapper .sidebar-menu ul li a span.label,
     .sidebar-wrapper .sidebar-menu ul li a span.badge {
@@ -733,8 +733,16 @@ select{
                                 <div id="notificationTitle">Opciones</div>
                                 <div id="notificationsBody" class="notifications">
                                     <ul>
-                                        <li><a class="nav-link" style="text-align: right" onclick="window.location ='<?php echo constant('URL') ?>usuario'" href="<?php echo constant('URL') ?>usuario">Perfil</a></li>
-                                        <li><a class="nav-link" style="text-align: right" href="#" onclick="off_session()">Cerrar Sesión</a></li>
+                                        <li>
+                                            <a class="nav-link" style="text-align: left" onclick="window.location ='<?php echo constant('URL') ?>usuario'" href="<?php echo constant('URL') ?>usuario">
+                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/prof_32px.png' ?>" width="24" > Perfil
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-link" style="text-align: left" href="#" onclick="off_session()">
+                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/Exit_32px.png' ?>" width="24"  > Cerrar Sesión
+                                            </a>
+                                        </li>
                                     </ul>
                                     
 
@@ -766,51 +774,66 @@ select{
                     </li>
                     <li class="sidebar-dropdown">
                         <a href="#">
-                            <i class="fa fa-tachometer-alt"></i>
+                        <img src="<?php echo constant('URL').'views/imagenes/iconos/Doctors Bag_32px.png' ?>" >
                             <span>Atenciones</span>
                             <span class="badge badge-pill badge-warning">New</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>atencionmascota">Ingreso de Atención
-                                        <span class="badge badge-pill badge-success">VET</span>
+                                    
+                                    <a href="<?php echo constant('URL') ?>atencionmascota"> 
+                                    <img src="<?php echo constant('URL').'views/imagenes/iconos/Stethoscope_32px.png' ?>" > 
+                                    Ingreso de Atención
+                                        
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>historialmascota">Historial de Atención
-                                        <span class="badge badge-pill badge-success">VET</span>
+                                    <a href="<?php echo constant('URL') ?>historialmascota">
+                                    <img src="<?php echo constant('URL').'views/imagenes/iconos/Details_32px.png' ?>" > 
+                                    Historial de Atención
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">Certificados</a>
+                                    
+                                    <a href="#">
+                                    <img src="<?php echo constant('URL').'views/imagenes/iconos/Activity History_32px.png' ?>" > 
+                                    Certificados
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="sidebar-dropdown">
                         <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
+                            <img src="<?php echo constant('URL').'views/imagenes/iconos/User_32px.png' ?>" >
                             <span>Usuarios</span>
                             <span class="badge badge-pill badge-danger">3</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>registroUsuario">Registrar Usuario</a>
+                                    <a href="<?php echo constant('URL') ?>registroUsuario">
+                                    <img src="<?php echo constant('URL').'views/imagenes/iconos/Add User Male_32px.png' ?>" > 
+                                    Registrar Usuario
+                                </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>edicionusuario">Editar Usuario</a>
+                                    <a href="<?php echo constant('URL') ?>edicionusuario">
+                                    <img src="<?php echo constant('URL').'views/imagenes/iconos/Registration_32px.png' ?>" >
+                                    Editar Usuario</a>
                                 </li>
                                 <li>
-                                    <a href="#">Configuracion de usuarios</a>
+                                    <a href="#">
+                                    <img src="<?php echo constant('URL').'views/imagenes/iconos/Admin Settings Male_32px.png' ?>" >
+                                    Configuracion de usuarios</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="sidebar-dropdown">
                         <a href="#">
-                            <i class="far fa-gem"></i>
+                            <img src="<?php echo constant('URL').'views/imagenes/iconos/paw.png' ?>" >
                             <span>Mascotas</span>
                         </a>
                         <div class="sidebar-submenu">
@@ -874,7 +897,7 @@ select{
 ---------->
                     <li class="sidebar-dropdown">
                         <a href="#">
-                            <i class="far fa-gem"></i>
+                            <img src="<?php echo constant('URL').'views/imagenes/iconos/Settings_32px.png' ?>" >
                             <span>Mantenedores</span>
                             <span class="badge badge-pill badge-danger">></span>
                         </a>
