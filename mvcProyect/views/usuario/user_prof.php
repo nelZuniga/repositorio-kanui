@@ -34,7 +34,7 @@
             </div>
         <div class="col-md-12 text-center">
         <?php 
-            if($_SESSION['perfil'] !== ''){
+            if($_SESSION['perfil'] !== null && $_SESSION['perfil'] !== ''){
                 echo '<img src="'.$_SESSION['perfil'].'" style="margin-top:2%;border-radius: 25rem!important;" >';
             }else{
                 echo '<img src="'.constant('URL').'views/imagenes/User_Circle.png" style="margin-top:2%;border-radius: 25rem!important;" >';

@@ -357,7 +357,7 @@
           <div class="col-md-3  form-group" align="center">Agregar Imagen<br>
             <label for="file-input" title="Presione para Agregar imagen">
               <?php
-              if ($_SESSION['perfil'] !== '') {
+              if ($_SESSION['perfil'] !== null && $_SESSION['perfil'] !== '') {
                 echo '<img id="muestra" src="' . $_SESSION['perfil'] . '">';
               } else {
                 echo '<img id="muestra" src="' . constant('URL') . 'public/img/Add Image_96px.png">';

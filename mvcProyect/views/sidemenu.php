@@ -712,7 +712,7 @@ select{
             <div class="sidebar-header">
                 <div class="user-pic">
                 <?php
-                if($_SESSION['perfil'] !== ''){
+                if($_SESSION['perfil'] !== null && $_SESSION['perfil'] !== ''){
                     echo '<img class="img-responsive img-rounded" src='.$_SESSION['perfil'].' alt="User picture">';
                 }else{
                     echo '<img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">';
