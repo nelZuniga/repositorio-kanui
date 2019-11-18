@@ -23,6 +23,7 @@ class registroUsuario extends Controller{
         $region = $_POST['region_id'];
         $comuna = $_POST['comuna_id'];
         $contraseña = $_POST['pass'];
+        $contraseña = base64_encode($contraseña);
         $correo = $_POST['correo'];
         $tipousr = $_POST['tusr'];
         $rol = $_POST['rol_id'];
