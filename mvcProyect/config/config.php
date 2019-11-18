@@ -1,6 +1,6 @@
 <?php 
 //constante para urls
-define('URL', 'http://localhost/repositorio-kanui/mvcProyect/');
+define('URL', 'http://localhost:8080/proyecto-kanui/mvcProyect/');
 
 //constantes para cadena de conexion
 define('HOST','zerodev.cl');

@@ -59,7 +59,7 @@
   <div class="container  topbar">
     <div class="row">
       <div class="col-sm-1 offset-sm-10"><a href="<?php echo constant('URL') ?>register">Registrarse</a></div>
-      <div class="col-sm-1"><a href="<?php echo constant('URL') ?>login">Inicio de Sesión</a></div>
+      <div class="col-sm-1"><a href="<?php echo constant('URL') ?>login">Inicio de sesión</a></div>
     </div>
   </div> 
 <nav class="navbar navbar-expand-sm bg-caliso navbar-dark" style="background-color:#059485">
@@ -86,13 +86,13 @@
     </ul>--->
   <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Kanui Mobile</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Kanui mobile</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Sobre Nosotros</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Sobre nosotros</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Nuestros Socios</a>
+      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Nuestros socios</a>
     </li>
   <li class="nav-item">
       <span style="width:150px"></span>

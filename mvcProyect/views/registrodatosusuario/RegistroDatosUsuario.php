@@ -14,7 +14,7 @@
                     success: function(data) {
                         //console.log(data);
                         $("#region_id").empty();
-                        $("#region_id").append("<option value=''>Seleccione Una Region</option>");
+                        $("#region_id").append("<option value=''>Seleccione una region</option>");
                         $("#region_id").append(data);
                     },
                     error: function() {
@@ -65,7 +65,7 @@
                 success: function(data) {
                     //$("#comuna_id").append(data);
                     $("#comuna_id").empty();
-                    $("#comuna_id").append("<option value=''>Seleccione Una Comuna</option>");
+                    $("#comuna_id").append("<option value=''>Seleccione una comuna</option>");
                     $("#comuna_id").append(data);
                 },
                 error: function() {
@@ -81,7 +81,7 @@
                 success: function(data) {
                     //console.log(data);
                     $("#rol_id").empty();
-                    $("#rol_id").append("<option value=''>Seleccione un Rol de Usuario</option>");
+                    $("#rol_id").append("<option value=''>Seleccione un rol de usuario</option>");
                     $("#rol_id").append(data);
                 },
                 error: function() {
@@ -198,7 +198,7 @@
                 success: function(data) {
                     if (data != 0) {
                         Swal.fire(
-                            'Atencion',
+                            'Atención',
                             'El correo ya se encuentra registrado el en sistema',
                             'error'
                         ).then(function(){
@@ -241,9 +241,9 @@
                             <div class="row col-md-12">
                                 <label for="nombres_id" class="control-label col-md-3">Nombres</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
-                                <label for="ApellidoP_id" class="control-label col-md-3">Apellido Paterno</label>
+                                <label for="ApellidoP_id" class="control-label col-md-3">Apellido paterno</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
-                                <label for="apellidoM_id" class="control-label col-md-3">Apellido Materno</label>
+                                <label for="apellidoM_id" class="control-label col-md-3">Apellido materno</label>
                             </div>
                             <div class="row col-md-12">
                                 <input type="text" class="form-control letras col-md-3" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required>
@@ -257,13 +257,13 @@
                             <div class="row col-md-12">
                                 <label for="txtrut" class="control-label col-md-4">Rut</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
-                                <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de Usuario</label>
+                                <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de usuario</label>
                             </div>
                             <div class="row col-md-12">
-                                <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
+                                <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
                                 <label for="espaciados" class="control-label col-md-1"></label>
                                 <select class="form-control col-md-4" id="rol_id" name="rol_id" required>
-                                    <option value=''>Seleccione un Rol de Usuario</option>
+                                    <option value=''>Seleccione un rol de usuario</option>
                                 </select>
                             </div>
                             <BR>
@@ -272,7 +272,7 @@
                             <div class="row col-md-12">
                                 <label for="correo" class="control-label col-md-4">Correo</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
-                                <label for="telefono_id" class="control-label col-md-4">Telefono</label>
+                                <label for="telefono_id" class="control-label col-md-4">Teléfono</label>
                             </div>
                             <div class="row col-md-12">
                                 <input type="email" class="form-control col-md-4" id="correo" name="correo" placeholder="Ingese su E-mail" onblur="checkCorreo(this)" required>
@@ -305,7 +305,7 @@
                                 </select>
                                 <label for="espaciados" class="control-label col-md-1"></label>
                                 <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
-                                    <option value=''>Seleccione Una Comuna</option>
+                                    <option value=''>Seleccione una comuna</option>
                                 </select>
                             </div>
                             <BR>
@@ -314,7 +314,7 @@
                             <div class="row col-md-12">
                                 <label for="pass2" class="control-label col-md-5">Contraseña</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
-                                <label for="pass2" class="control-label col-md-5">Repita su Contraseña</label>
+                                <label for="pass2" class="control-label col-md-5">Repita su contraseña</label>
                             </div>
                             <div class="row col-md-12">
                                 <input type="password" class="form-control col-md-5" id="pass" name="pass" placeholder="Cree su contraseña" onkeyup="seguridad_clave(this)" required>
@@ -385,7 +385,7 @@
       
         <!-- Cabecera de formulario -->
         <div class="modal-header">
-          <h4 class="modal-title">Información de Importancia</h4>
+          <h4 class="modal-title">Información de importancia</h4>
         </div>
         <!-- Formulario de registro de usuario -->
         <div class="modal-body">

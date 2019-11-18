@@ -42,7 +42,7 @@
       success: function(data) {
         //console.log(data);
         $("#raza_id").empty();
-        $("#raza_id").append("<option value=''>Seleccione Una Raza</option>");
+        $("#raza_id").append("<option value=''>Seleccione una raza</option>");
         $("#raza_id").append(data);
         if (tipos != 0 || tipos != '') {
           $("#raza_id").val('<?php echo $this->mascota['raza'] ?>');
@@ -113,7 +113,7 @@ function getColores() {
         $("#busqueda").append(input);;
         break;
       case '2':
-        var input = "<input type='text' id='bdocumento' placeholder='ingrese documento'>";
+        var input = "<input type='text' id='bdocumento' placeholder='Ingrese documento'>";
         input += "<button type='button' onclick='buscar(2)'>Buscar</button>";
         $("#busqueda").append(input);;
         break;
@@ -156,13 +156,13 @@ function getColores() {
           success: function(response) {
             $("#resBusqueda").empty();
             response = JSON.parse(response);
-            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
 
             $.each(response.data.users, function(key, value) {
               //console.log(value);
               tabla += "<tr>";
               var funcion = "enviar('" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "')"
-              tabla += '<td><button onclick="' + funcion + '"></button></td>';
+              tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24"  onclick="' + funcion + '"></></td>';
               tabla += "<td>" + value[1] + "</td>";
               tabla += "<td>" + value[2] + "</td>";
               tabla += "<td>" + value[3] + "</td>";
@@ -237,7 +237,7 @@ function getColores() {
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Mascotas</h1>
+  <h1>Edición de mascotas</h1>
   
   <div id="registrar" class="row">
     <div class="col-md-12">
@@ -253,19 +253,19 @@ function getColores() {
               </div>
               <div class="col-md-6 form-group" align="center">
               <?php if ($this->mascota['imgMascota'] == '') { ?>
-                <div class="col-md-6  form-group" align="center">Agregar Imagen<br><label for="file-input" title="Presione para Agregar imagen"><img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
+                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
               <?php } else { ?>
-                <div class="col-md-6  form-group" align="center">Agregar Imagen<br><label for="file-input" title="Presione para Agregar imagen"><img id="muestra" style="max-width:96px;" src="<?php echo $this->mascota['imgMascota'] ?>"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
+                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra" style="max-width:96px;" src="<?php echo $this->mascota['imgMascota'] ?>"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
               <?php } ?>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 form-group"><label for="chipID">Chip Identificador</label><br><input id="chipId" readonly name="chipId" type="text" placeholder="Chip identificador" class="form-control" value="<?php echo $this->mascota['n_chip'] ?>">
+              <div class="col-md-6 form-group"><label for="chipID">Chip identificador</label><br><input id="chipId" readonly name="chipId" type="text" placeholder="Chip identificador" class="form-control" value="<?php echo $this->mascota['n_chip'] ?>">
               </div>
-              <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" value="<?php echo $this->mascota['nombre'] ?>"></div>
+              <div class="col-md-6 form-group"><label for="nombreM">Nombre de mascota</label><br><input id="nombreM" name="nombreM" type="text" placeholder="Ingrese nombre" class="form-control" value="<?php echo $this->mascota['nombre'] ?>"></div>
             </div>
             <div class="row">
-              <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
+              <div class="col-md-6  form-group"><label for="mascota">Tipo de mascota</label><br>
                 <select class="form-control" name="mascota" id="mascota" onchange="getRaza(0)">
                   <option value="x">Seleccione un tipo de mascota</option>
                   <option value="1">Perro</option>
@@ -273,7 +273,7 @@ function getColores() {
                 </select></div>
               <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
                 <select class="form-control" id="raza_id" name="raza_id">
-                  <option value=''>Seleccione Una Raza</option>
+                  <option value=''>Seleccione una raza</option>
                 </select>
               </div>
             </div>
@@ -305,13 +305,13 @@ function getColores() {
             </div>
             <div class="row">
               <div class="col-md-12 form-group"><label for="observacionM">Observaciones</label><br>
-                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones" rows="7"><?php echo $this->mascota['observaciones'] ?></textarea>
+                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese observaciones" rows="7"><?php echo $this->mascota['observaciones'] ?></textarea>
 
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
-                <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px">Editar Mascota</button>
+                <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px">Editar mascota</button>
                 <a href='<?php echo constant('URL') ?>edicionmascota' class="btn btn-verde">Cancelar</a>
               </div>
             </div>

@@ -740,7 +740,7 @@ select{
                                         </li>
                                         <li>
                                             <a class="nav-link" style="text-align: left" href="#" onclick="off_session()">
-                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/Exit_32px.png' ?>" width="24"  > Cerrar Sesión
+                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/Exit_32px.png' ?>" width="24"  > Cerrar sesión
                                             </a>
                                         </li>
                                     </ul>
@@ -784,14 +784,14 @@ select{
                                     
                                     <a href="<?php echo constant('URL') ?>atencionmascota"> 
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Stethoscope_32px.png' ?>" > 
-                                    Ingreso de Atención
+                                    Ingreso de atención
                                         
                                     </a>
                                 </li>                                
                                 <li>
                                     <a href="<?php echo constant('URL') ?>historialmascota">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Details_32px.png' ?>" > 
-                                    Historial de Atención
+                                    Historial de atención
                                     </a>
                                 </li>
                                 <li>
@@ -815,18 +815,18 @@ select{
                                 <li>
                                     <a href="<?php echo constant('URL') ?>registroUsuario">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Add User Male_32px.png' ?>" > 
-                                    Registrar Usuario
+                                    Registrar usuario
                                 </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo constant('URL') ?>edicionusuario">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Registration_32px.png' ?>" >
-                                    Editar Usuario</a>
+                                    Editar usuario</a>
                                 </li>
                                 <li>
                                     <a href="#">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Admin Settings Male_32px.png' ?>" >
-                                    Configuracion de usuarios</a>
+                                    Configuración de usuarios</a>
                                 </li>
                             </ul>
                         </div>
@@ -839,16 +839,16 @@ select{
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>registromascotas">Registrar Mascota</a>
+                                    <a href="<?php echo constant('URL') ?>registromascotas">Registrar mascota</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>edicionmascota">Editar Mascota</a>
+                                    <a href="<?php echo constant('URL') ?>edicionmascota">Editar mascota</a>
                                 </li>
                                 <li>
-                                    <a href="#">Configuracion mascotas</a>
+                                    <a href="#">Configuración mascotas</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>scaneos">Historial de scaneo</a>
+                                    <a href="<?php echo constant('URL') ?>scaneos">Historial de escaneo</a>
                                 </li>
                             </ul>
                         </div>
@@ -904,28 +904,28 @@ select{
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listatipomascota">Tipos de Mascotas</a>
+                                    <a href="<?php echo constant('URL') ?>listatipomascota">Tipos de especies</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listatipodocumento">Tipos de Documentos</a>
+                                    <a href="<?php echo constant('URL') ?>listatipodocumento">Tipos de documentos</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listatipousuario">Tipos de Usuarios</a>
+                                    <a href="<?php echo constant('URL') ?>listatipousuario">Tipos de usuarios</a>
                                 </li>    
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listaregion">Regiones del País</a>
+                                    <a href="<?php echo constant('URL') ?>listaregion">Regiones del país</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listacomuna">Comunas del País</a>
+                                    <a href="<?php echo constant('URL') ?>listacomuna">Comunas del país</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listasexo">Sexos de Mascotas</a>
+                                    <a href="<?php echo constant('URL') ?>listasexo">Sexos de mascotas</a>
                                 </li>  
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listatipoanimal">Razas de Animales</a>
+                                    <a href="<?php echo constant('URL') ?>listatipoanimal">Razas de animales</a>
                                 </li> 
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listacontroles">Tipos de Controles</a>
+                                    <a href="<?php echo constant('URL') ?>listacontroles">Tipos de controles</a>
                                 </li>                                 
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listatipovacuna">Vacunas</a>

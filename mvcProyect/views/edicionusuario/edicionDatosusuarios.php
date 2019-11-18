@@ -22,7 +22,7 @@
         $("#busqueda").append(input);;
         break;
       case '2':
-        var input = "<input type='text' id='bdocumento' placeholder='ingrese documento'>";
+        var input = "<input type='text' id='bdocumento' placeholder='Ingrese documento'>";
         input += "<button type='button' onclick='buscar(2)'>Buscar</button>";
         $("#busqueda").append(input);;
         break;
@@ -48,13 +48,13 @@
             //console.log(response);
             $("#resBusqueda").empty();
             response = JSON.parse(response);
-            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
 
             $.each(response.data.users, function(key, value) {
               //console.log(value);
               tabla += "<tr>";
               var funcion = "enviar('" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "')"
-              tabla += '<td><button onclick="' + funcion + '"></button></td>';
+              tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24"  onclick="' + funcion + '"></></td>';
               tabla += "<td>" + value[1] + "</td>";
               tabla += "<td>" + value[2] + "</td>";
               tabla += "<td>" + value[3] + "</td>";
@@ -82,13 +82,13 @@
           success: function(response) {
             $("#resBusqueda").empty();
             response = JSON.parse(response);
-            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+            var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
 
             $.each(response.data.users, function(key, value) {
               //console.log(value);
               tabla += "<tr>";
               var funcion = "enviar('" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "')"
-              tabla += '<td><button onclick="' + funcion + '"></button></td>';
+              tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24"  onclick="' + funcion + '"></></td>';
               tabla += "<td>" + value[1] + "</td>";
               tabla += "<td>" + value[2] + "</td>";
               tabla += "<td>" + value[3] + "</td>";
@@ -163,7 +163,7 @@
                 success: function(data) {
                     console.log(data);
                     $("#rol_id").empty();
-                    $("#rol_id").append("<option value=''>Seleccione un Rol de Usuario</option>");
+                    $("#rol_id").append("<option value=''>Seleccione un Rol de usuario</option>");
                     $("#rol_id").append(data);
                 },
                 error: function() {
@@ -179,7 +179,7 @@
                     success: function(data) {
                         //console.log(data);
                         $("#region_id").empty();
-                        $("#region_id").append("<option value=''>Seleccione Una Region</option>");
+                        $("#region_id").append("<option value=''>Seleccione una región</option>");
                         $("#region_id").append(data);
                     },
                     error: function() {
@@ -202,7 +202,7 @@
                 success: function(data) {
                     //$("#comuna_id").append(data);
                     $("#comuna_id").empty();
-                    $("#comuna_id").append("<option value=''>Seleccione Una Comuna</option>");
+                    $("#comuna_id").append("<option value=''>Seleccione una comuna</option>");
                     $("#comuna_id").append(data);
                 },
                 error: function() {
@@ -218,11 +218,11 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Usuarios</h1>
+  <h1>Edición de usuarios.</h1>
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h5>Busqueda de Usuario</h5>
+        <h5>Búsqueda de usuario</h5>
       </div>
       <div class="col-md-3"></div>
     </div>
@@ -231,7 +231,7 @@
       <div class="col-md-3" align="left">
         <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y Apellido Paterno</option>
+          <option value="1">Nombre y apellido paterno</option>
           <option value="2">Documento</option>
         </select>
       </div>
@@ -245,8 +245,8 @@
           <tr>
             <th style="width:47px"></th>
             <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
+            <th>Apellido paterno</th>
+            <th>Apellido materno</th>
           </tr>
         </table>
 
@@ -273,9 +273,9 @@
           <div class="row col-md-12">
             <label for="nombres_id" class="control-label col-md-3">Nombres</label>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <label for="ApellidoP_id" class="control-label col-md-3">Apellido Paterno</label>
+            <label for="ApellidoP_id" class="control-label col-md-3">Apellido paterno</label>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <label for="apellidoM_id" class="control-label col-md-3">Apellido Materno</label>
+            <label for="apellidoM_id" class="control-label col-md-3">Apellido materno</label>
           </div>
           <div class="row col-md-12">
             <input type="text" class="form-control letras col-md-3" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required>
@@ -289,13 +289,13 @@
           <div class="row col-md-12">
             <label for="txtrut" class="control-label col-md-4">Rut</label>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de Usuario</label>
+            <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de usuario</label>
           </div>
           <div class="row col-md-12">
-            <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
+            <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
             <label for="espaciados" class="control-label col-md-1"></label>
             <select class="form-control col-md-4" id="rol_id" name="rol_id" required>
-              <option value=''>Seleccione un Rol de Usuario</option>
+              <option value=''>Seleccione un rol de usuario</option>
             </select>
           </div>
           <BR>
@@ -304,7 +304,7 @@
           <div class="row col-md-12">
             <label for="correo" class="control-label col-md-4">Correo</label>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <label for="telefono_id" class="control-label col-md-4">Telefono</label>
+            <label for="telefono_id" class="control-label col-md-4">Teléfono</label>
           </div>
           <div class="row col-md-12">
             <input type="email" class="form-control col-md-4" id="correo" name="correo" placeholder="Ingese su E-mail" onblur="checkCorreo(this)" required>
@@ -315,12 +315,12 @@
           <!-- direccion-->
           <!-- cuidad-->
           <div class="row col-md-12">
-            <label for="street2_id" class="control-label col-md-5">Direccion</label>
+            <label for="street2_id" class="control-label col-md-5">Dirección</label>
             <label for="espaciados" class="control-label col-md-1"></label>
             <label for="ciudad_id" class="control-label col-md-5">Ciudad</label>
           </div>
           <div class="row col-md-12">
-            <input type="text" class="form-control col-md-5" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su direccion" required>
+            <input type="text" class="form-control col-md-5" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su dirección" required>
             <label for="espaciados" class="control-label col-md-1"></label>
             <input type="text" class="form-control col-md-5" id="txtciudad" name="Vciudad" placeholder="Ingrese su ciudad" required>
           </div>
@@ -337,7 +337,7 @@
             </select>
             <label for="espaciados" class="control-label col-md-1"></label>
             <select class="form-control col-md-5" id="comuna_id" name="comuna_id" required>
-              <option value=''>Seleccione Una Comuna</option>
+              <option value=''>Seleccione una comuna</option>
             </select>
           </div>
           <BR>
