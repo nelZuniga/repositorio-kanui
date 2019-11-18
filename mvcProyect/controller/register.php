@@ -27,7 +27,7 @@ class Register extends Controller{
         
         $this->model-> (Nombre de la funcion del modelo) y se entregan los datos por el parametro*/
     }
-
+ 
     function nuevoUsuario(){
         //echo "usuario creado exitosamente";
         $nombre = $_POST['Dnombres'];
@@ -40,6 +40,7 @@ class Register extends Controller{
         $region = $_POST['region_id'];
         $comuna = $_POST['comuna_id'];
         $contraseña = $_POST['pass'];
+        $contraseña = base64_encode($contraseña);
         $correo = $_POST['correo'];
         $tipousr = $_POST['tusr'];
         $chkTC = $_POST['chkTC'];
