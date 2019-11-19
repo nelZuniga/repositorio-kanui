@@ -38,7 +38,7 @@
                     success: function(data) {
                         //console.log(data);
                         $("#raza_id").empty();
-                        $("#raza_id").append("<option value=''>Seleccione Una Raza</option>");
+                        $("#raza_id").append("<option value=''>Seleccione una raza</option>");
                         $("#raza_id").append(data);
                     },
                     error: function() {
@@ -55,7 +55,7 @@
                 success: function(data) {
                     //console.log(data);
                     $("#sexoM").empty();
-                    $("#sexoM").append("<option value=''>Seleccione Sexo Mascota</option>");
+                    $("#sexoM").append("<option value=''>Seleccione sexo mascota</option>");
                     $("#sexoM").append(data);
                 },
                 error: function() {
@@ -115,13 +115,13 @@
                       //console.log(response);
                      $("#resBusqueda").empty();
                       response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
                         
                       $.each(response.data.users,function(key, value){
                         //console.log(value);
                         tabla += "<tr>";
                         var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
-                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24" onclick="'+funcion+'"></></td>';
                         tabla += "<td>"+value[1]+"</td>";
                         tabla += "<td>"+value[2]+"</td>";
                         tabla += "<td>"+value[3]+"</td>";
@@ -149,13 +149,13 @@
                     success: function(response) {
                       $("#resBusqueda").empty();
                       response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
                         
                       $.each(response.data.users,function(key, value){
                         //console.log(value);
                         tabla += "<tr>";
                         var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
-                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24" onclick="'+funcion+'"></></td>';
                         tabla += "<td>"+value[1]+"</td>";
                         tabla += "<td>"+value[2]+"</td>";
                         tabla += "<td>"+value[3]+"</td>";
@@ -233,10 +233,10 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Registro de Mascotas</h1>
+  <h1>Registro de mascotas</h1>
   <div class="container">
     <div class="row" >
-      <div class="col-md-6"><h5>Busqueda Usuario</h5></div>
+      <div class="col-md-6"><h5>Búsqueda usuario</h5></div>
       <div class="col-md-3"></div>
     </div>
     <div class="row" style="margin-bottom:10px">
@@ -244,7 +244,7 @@
       <div class="col-md-3" align="left">
         <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y Apellido Paterno</option>
+          <option value="1">Nombre y apellido paterno</option>
           <option value="2">Documento</option>
         </select>
       </div>
@@ -259,7 +259,7 @@
     </div>-->
     <div class="row">
       <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto; border: 1px solid black; padding-left:0;">
-      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
+      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr></table>
 
     </div>
     </div>
@@ -278,12 +278,12 @@
                     <div class="col-md-6 form-group"><label for="nomusu">Nombre</label><br>
                       <input type="text" name="nomusu" id="nomusu" class="form-control" readonly>
                     </div>
-                    <div class="col-md-6 form-group"><label for="apepat">Apellido Paterno</label><br>
+                    <div class="col-md-6 form-group"><label for="apepat">Apellido paterno</label><br>
                     <input type="text" name="apepat" id="apepat" class="form-control" readonly></div>
                     
                   </div>
                   <div class="row">
-                    <div class="col-md-6  form-group"><label for="apemat">Apellido Materno</label><br><input type="text" name="apemat" id="apemat" class="form-control" readonly></div>
+                    <div class="col-md-6  form-group"><label for="apemat">Apellido materno</label><br><input type="text" name="apemat" id="apemat" class="form-control" readonly></div>
                     <div class="col-md-6  form-group"><label for="rutDueno">Documento</label><br><input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control" readonly pattern="\d{3,8}-[\d|kK]{1}">
                             </div>
                   </div>
@@ -291,8 +291,8 @@
                     <div class="col-md-12 form-group"><h3>Datos de la mascota<h3></div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6  form-group" align="center">Agregar Imagen<br>
-                      <label for="file-input" title="Presione para Agregar imagen">
+                    <div class="col-md-6  form-group" align="center">Agregar imagen<br>
+                      <label for="file-input" title="Presione para agregar imagen">
                         <img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png">
                       </label>
                       <br>
@@ -301,25 +301,25 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <label for="chipID">Chip Identificador</label>
+                      <label for="chipID">Chip identificador</label>
                       <br>
                       <input id="chipId" name="chipId" type="text" placeholder="Chip identificador" class="form-control" required>
                     </div>
                     <div class="col-md-6 form-group">
                       <label for="nombreM">Nombre de mascota</label>
                       <br>
-                      <input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control" required>
+                      <input id="nombreM" name="nombreM" type="text" placeholder="Ingrese nombre" class="form-control" required>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6  form-group"><label for="mascota">Tipo de Mascota</label><br>
+                    <div class="col-md-6  form-group"><label for="mascota">Tipo de mascota</label><br>
                       <select class="form-control" name="mascota" id="mascota" onchange="getRaza()">
                         <option value="">Seleccione un tipo de mascota</option>
                       </select>
                     </div>
                     <div class="col-md-6 form-group"><label for="raza_id">Raza</label><br>
                       <select class="form-control" id="raza_id" name="raza_id" >
-                          <option value=''>Seleccione Una Raza</option>
+                          <option value=''>Seleccione una raza</option>
                       </select>
                     </div>
                   </div>
@@ -332,7 +332,7 @@
                     <div class="col-md-6  form-group">
                       <label for="sexoM">Sexo de mascota</label><br>
                       <select class="form-control" id="sexoM" name="sexoM" >
-                        <option value=''>Seleccione Sexo Mascotas</option>
+                        <option value=''>Seleccione sexo mascotas</option>
                       </select>
                     </div>
                   </div>
@@ -354,12 +354,12 @@
                     <div class="col-md-12 form-group">
                       <label for="observacionM">Observaciones</label>
                       <br>
-                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese Observaciones de Mascota" rows="5"></textarea>
+                <textarea class="form-control" id="observacionM" name="observacionM" placeholder="Ingrese observaciones de la mascota" rows="5"></textarea>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
-                        <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px" >Ingresar Mascota</button>
+                        <button type="submit" class="btn btn-verde" name="aceptar" style="margin-right:20px" >Ingresar mascota</button>
                         <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalCancelar" style="height:62px;margin-left:20px" >Cancelar</button>
                         </div>
                     </div>
@@ -376,7 +376,7 @@
         <div class="modal-body">
           <div class="col-lg-12">
             <div class="alert alert-primary alert-dismissible">
-              <strong>Registro Mascota Satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
+              <strong>Registro mascota satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
             </div>
           </div>
         </div>
@@ -389,7 +389,7 @@
         <div class="modal-body">
           <div class="col-lg-12">
             <div class="alert alert-primary alert-dismissible">
-              <strong>Esta seguro de salir?</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para Salir.
+              <strong>Esta seguro de salir?</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para salir.
               <br></br>
               <strong></strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect/registromascotas" class="alert-link">aquí</a> para Volver.
             </div>

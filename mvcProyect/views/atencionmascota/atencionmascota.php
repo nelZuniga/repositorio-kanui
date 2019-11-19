@@ -24,7 +24,7 @@
                     success: function(data) {
                         //console.log(data);
                         $("#raza_id").empty();
-                        $("#raza_id").append("<option value=''>Seleccione Una Raza</option>");
+                        $("#raza_id").append("<option value=''>Seleccione una raza</option>");
                         $("#raza_id").append(data);
                     },
                     error: function() {
@@ -42,7 +42,7 @@
                 $("#busqueda").append(input);
                 ;break;
                 case '2':
-                var input = "<input type='text' id='bdocumento' placeholder='ingrese documento'>";
+                var input = "<input type='text' id='bdocumento' placeholder='Ingrese documento'>";
                 input +="<button type='button' onclick='buscar(2)'>Buscar</button>";
                 $("#busqueda").append(input);
                 ;break;
@@ -68,13 +68,13 @@
                       //console.log(response);
                      $("#resBusqueda").empty();
                       response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
                         
                       $.each(response.data.users,function(key, value){
                         //console.log(value);
                         tabla += "<tr>";
                         var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
-                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24" onclick="'+funcion+'"></></td>';
                         tabla += "<td>"+value[1]+"</td>";
                         tabla += "<td>"+value[2]+"</td>";
                         tabla += "<td>"+value[3]+"</td>";
@@ -102,13 +102,13 @@
                     success: function(response) {
                       $("#resBusqueda").empty();
                       response = JSON.parse(response);
-                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr>';
+                      var tabla = '<table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr>';
                         
                       $.each(response.data.users,function(key, value){
                         //console.log(value);
                         tabla += "<tr>";
                         var funcion = "enviar('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"','"+value[4]+"')"
-                        tabla += '<td><button onclick="'+funcion+'"></button></td>';
+                        tabla += '<td><img src="views/imagenes/iconos/check.jpg" width="24" onclick="'+funcion+'"></></td>';
                         tabla += "<td>"+value[1]+"</td>";
                         tabla += "<td>"+value[2]+"</td>";
                         tabla += "<td>"+value[3]+"</td>";
@@ -157,7 +157,7 @@
               var html = "";
               var respuesta = JSON.parse(json);
               var j = 0;
-              html += "<table width='100%' class='table table-striped' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
+              html += "<table width='100%' class='table table-striped' style='margin:5px'><tr><th>Acción</th><th>Nombre mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
                 html += "<tr>";
@@ -178,10 +178,10 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Ingreso de Atención de Mascotas</h1>
+  <h1>Ingreso de atención de mascotas</h1>
   <div class="container">
     <div class="row" >
-      <div class="col-md-6"><h5>Busqueda por Dueño</h5></div>
+      <div class="col-md-6"><h5>Búsqueda por dueño</h5></div>
       <div class="col-md-3"></div>
     </div>
     <div class="row" style="margin-bottom:10px">
@@ -189,7 +189,7 @@
       <div class="col-md-3" align="left">
         <select name="busqueda form-control" onchange="busqueda(this.value)">
           <option value=""> Seleccione una opción</option>
-          <option value="1">Nombre y Apellido Paterno</option>
+          <option value="1">Nombre y apellido paterno</option>
           <option value="2">Documento</option>
         </select>
       </div>
@@ -204,7 +204,7 @@
     </div>-->
     <div class="row">
       <div class="col-md-12" id="resBusqueda" style="height:200px; overflow: auto; border: 1px solid black; padding-left:0;">
-      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th></tr></table>
+      <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped"><tr><th style="width:47px"></th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th></tr></table>
 
     </div>
     </div>

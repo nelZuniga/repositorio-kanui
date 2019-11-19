@@ -57,7 +57,7 @@
   <p>Sistema integrado de gestión de mascotas de compañía</p>
   <!-- Button to Open the Modal -->
   <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalLogin">
-    Iniciar Sesión
+    Iniciar sesión
   </button>
   <a class="btn btn-gris" href="<?php echo constant('URL') ?>register" role="button">
     Registrarse
@@ -98,7 +98,7 @@
         
         <!-- Pie del Formulario -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-gris-largo" data-toggle="modal" data-target="#ModalRecupera">Recuperar Contraseña</button>
+          <button type="button" class="btn btn-gris-largo" data-toggle="modal" data-target="#ModalRecupera">Recuperar contraseña</button>
 
         </div>
         

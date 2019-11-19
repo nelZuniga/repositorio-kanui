@@ -231,7 +231,7 @@
   <p>Sistema integrado de gestión de mascotas de compañía</p>
   <!-- Button to Open the Modal -->
   <a class="btn btn-gris" href="<?php echo constant('URL') ?>login" role="button">
-    Iniciar Sesión
+    Iniciar sesión
   </a>
   <button type="button" class="btn btn-verde" data-toggle="modal" data-target="#ModalRegistro">
     Registrarse
@@ -272,7 +272,7 @@
                 </select>
                 <label for="espaciados" class="control-label col-md-1"></label>
                 <select class="form-control col-md-12" id="comuna_id" name="comuna_id" required>
-                  <option value=''>Seleccione Una Comuna</option>
+                  <option value=''>Seleccione una comuna</option>
                 </select>
                 <label for="espaciados" class="control-label col-md-1"></label>
                 <input type="password" class="form-control col-md-12" id="pass" name="pass" placeholder="Cree su contraseña" onkeyup="seguridad_clave(this)" required>
@@ -321,7 +321,7 @@
         <div class="modal-body">
           <div class="col-lg-12">
             <div class="alert alert-info alert-dismissible">
-              <strong>Registro Satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
+              <strong>Registro satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
             </div>
           </div>
         </div>
@@ -346,7 +346,7 @@
       
         <!-- Cabecera de formulario -->
         <div class="modal-header">
-          <h4 class="modal-title">Información de Importancia</h4>
+          <h4 class="modal-title">Información de importancia</h4>
         </div>
         <!-- Formulario de registro de usuario -->
         <div class="modal-body">

@@ -62,7 +62,7 @@
 }
 </style>
 <div style="padding: 0;padding-right: 21px;">
-  <h1>Historial de Atención de Mascotas</h1>
+  <h1>Historial de atención de mascotas.</h1>
   <div class="Encabezado">
   <?php foreach ($this->historial as $r => $valor) :  
     
@@ -89,13 +89,13 @@
         <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
           <tr>
             <th style="width:47px">Nombre</th>
-            <th>Fecha de Atención</th>
-            <th>Fecha de Control</th>
+            <th>Fecha de atención</th>
+            <th>Fecha de control</th>
             <th>Vacuna</th>
             <th>Dosis</th>
-            <th>Tipo Control</th>
-            <th>Peso Kgs.</th>
-            <th>Obs.Atención</th>
+            <th>Tipo control</th>
+            <th>Peso Kg.</th>
+            <th>Observación atención</th>
             <th class="no-print"></th>
           </tr>
           <?php foreach ($this->historial as $r => $valor) : ?>

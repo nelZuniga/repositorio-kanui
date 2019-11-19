@@ -30,7 +30,7 @@
 
 <br><br>
 <div align="center">
-  <h2>Registro Mascotas</h2>
+  <h2>Registro mascotas</h2>
   <div class="row">
     <div class="col-md-12">
       <div class="well well-sm">
@@ -49,33 +49,33 @@
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                   <div class="col-md-8">
-                    <input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT Dueño" class="form-control" pattern="\d{3,8}-[\d|kK]{1}">
+                    <input type="text" id="rutDueno" name="rutDueno" required oninput="checkRut(this)" placeholder="Ingrese RUT dueño" class="form-control" pattern="\d{3,8}-[\d|kK]{1}">
                   </div>
                 </div>
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                   <div class="col-md-8">
-                    <input id="nombreM" name="nombreM" type="text" placeholder="Ingrese Nombre" class="form-control">
+                    <input id="nombreM" name="nombreM" type="text" placeholder="Ingrese nombre" class="form-control">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                   <div class="col-md-8">
-                    <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
+                    <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha nacimiento" class="form-control">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon">RAza</i></span>
+                  <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon">Raza</i></span>
                   <div class="col-md-8">
-                    <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha Nacimiento" class="form-control">
+                    <input id="fechaNacM" name="fechaNacM" type="date" placeholder="Fecha nacimiento" class="form-control">
                   </div>
                 </div>
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                   <div class="col-md-8">
-                    <input id="Raza" name="Raza" type="text" placeholder="Ingrese Raza" class="form-control">
+                    <input id="Raza" name="Raza" type="text" placeholder="Ingrese raza" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -118,7 +118,7 @@
 
                 <div class="form-group">
                   <div class="col-md-8">
-                    <h5 class="page-header" style="text-align: left;">Agregar Imagen</h5>
+                    <h5 class="page-header" style="text-align: left;">Agregar imagen</h5>
                     <input name="file-input" id="file-input" type="file" class="form-control" />
                   </div>
                 </div>
@@ -131,7 +131,7 @@
 
                 <div class="form-group">
                   <div class="col-md-8">
-                    <button type="submit" class="btn btn-primary btn-lg">Ingresar Mascota</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Ingresar mascota</button>
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ModalCancelar">Cancelar</button>
                   </div>
                 </div>
@@ -146,7 +146,7 @@
           <div class="modal-body">
             <div class="col-lg-12">
               <div class="alert alert-primary alert-dismissible">
-                <strong>Registro Mascota Satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
+                <strong>Registro mascota satisfactorio!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
               </div>
             </div>
           </div>
@@ -159,9 +159,9 @@
           <div class="modal-body">
             <div class="col-lg-12">
               <div class="alert alert-primary alert-dismissible">
-                <strong>Esta seguro de salir?</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para Salir.
+                <strong>Esta seguro de salir?</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para salir.
                 <br></br>
-                <strong></strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect/registromascotas" class="alert-link">aquí</a> para Volver.
+                <strong></strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect/registromascotas" class="alert-link">aquí</a> para volver.
               </div>
             </div>
           </div>

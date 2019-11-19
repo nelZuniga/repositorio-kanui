@@ -50,7 +50,7 @@
         <p><?php echo $_SESSION['documento'] ?></p></div>
     </div>
     <div class="row">
-        <div class="col-md-12 text-left "><label>Direccion</label>
+        <div class="col-md-12 text-left "><label>Dirección</label>
         <p>--</p></div>
     </div>
             </div>

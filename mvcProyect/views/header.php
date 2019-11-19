@@ -55,13 +55,13 @@ if(!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apelli
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>registroUsuario" target="_self">Registro Usuarios</a>
+        <a class="nav-link" href="<?php echo constant('URL') ?>registroUsuario" target="_self">Registro usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro Mascotass</a>
+        <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro mascotass</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>sanitario">Registro Sanitario</a>
+        <a class="nav-link" href="<?php echo constant('URL') ?>sanitario">Registro sanitario</a>
       </li> 
     </ul>
   <ul class="navbar-nav ml-auto">
@@ -69,7 +69,7 @@ if(!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apelli
       <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>Perfil">Perfil</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" onclick="off_session()">Cerrar Sesión</a>
+      <a class="nav-link" style="text-align: right" onclick="off_session()">Cerrar sesión</a>
     </li>    
   </ul>    
   </div>  
