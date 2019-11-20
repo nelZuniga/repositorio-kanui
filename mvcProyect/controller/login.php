@@ -21,12 +21,8 @@ class Login extends Controller{
         $pss = base64_encode($pss);
         $seg = ['usuario'=> $usr, 'pass'=>$pss];
         $respuesta = $this->model->verf($seg);
-        if(is_null($respuesta)){
-            $respuesta = 0;
-        }else{
-            $this->iniciarsession($respuesta);
-        }
-        echo $respuesta;
+        
+        return $respuesta ;
     }
 
     

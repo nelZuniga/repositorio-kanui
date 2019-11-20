@@ -25,7 +25,43 @@
               data: parametrosajax,
               type: 'post',
               success: function(data){
-              if(data!= 0){
+                console.log(data);
+                if( data.toString() == "false"){
+                  Swal.fire(
+                    'Inicio de sesion',
+                    'Usuario y/o Contraseña incorrecta',
+                    'error'
+                  )
+                }else{
+                  data = JSON.parse(data);
+                      if(data[1] == 0){
+                      Swal.fire(
+                      'Inicio de sesion',
+                      'Debes confirmar tu correo electronico para continuar',
+                      'error'
+                    )
+                  }else{
+                    start(data[0]);
+                  }
+                }
+                    },
+              error: function(){
+                  alert("error");
+                    }
+                });
+
+  }
+  function start(id){
+    var url = "<?php echo constant('URL')?>login/iniciarsession";
+      var parametrosajax = {
+        int: id
+      };
+      
+      $.ajax({
+              url:url,
+              data: parametrosajax,
+              type: 'post',
+              success: function(data){
                 Swal.fire({
                   title: "inicio de sesión",
                   text:'Bienvenido',
@@ -35,14 +71,7 @@
                     window.location.href = "<?php echo constant('URL')?>home";
                   }
                 })
-              
-              }else{
-                Swal.fire(
-                'Inicio de sesion',
-                'Usuario y/o Contraseña incorrecta',
-                'error'
-              )
-              }
+
                     },
               error: function(){
                   alert("error");

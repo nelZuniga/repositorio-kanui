@@ -8,16 +8,21 @@ class loginModel extends Model{
     }
 
     public function verf($data){
+        $respuesta = array();
         $conn = $this->db->connect();
-        $query = $conn->prepare("select id_usr from sys_log where sys_usr = ? and sys_pwd = ?");
+        $query = $conn->prepare("select s.id_usr, u.estado from sys_log s inner join usuario u on u.id_usr = s.id_usr where sys_usr = ? and sys_pwd = ?");
         $dtype = "ss";
         $query->bind_param($dtype,$data['usuario'], $data['pass']);
         $query->execute();
-
-        $query->bind_result($rs);
-        $query->fetch();
-        $retorno = 'false';
-        return $rs;
+        $rs = $query->get_result();
+        $resp = 0;
+        if($row = mysqli_fetch_array($rs)){
+            $respuesta= $row;
+        }else{
+            $respuesta = false;
+        }
+        echo json_encode($respuesta);
+            return $respuesta;
         //echo $retorno;
         
     }
