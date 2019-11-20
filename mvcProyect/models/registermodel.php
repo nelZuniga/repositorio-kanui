@@ -14,7 +14,7 @@ class RegisterModel extends Model{
         $query = $conn->prepare("insert into usuario(nombres, apellido_paterno, apellido_materno,documento,comuna,estado,cel,tipo_usr,direccion,correo,chkTC)
                     values(?,?,?,?,?,?,?,?,?,?,?)");
                     $ss = 'ssssiisissi';
-                    $estado = 1;
+                    $estado = 0;
                     $rol = 2;
         $query->bind_param($ss, $data['nombre'], $data['apellidop'],$data['apellidom'], $data['rut'], $data['comuna'], $estado, $data['telefono'], $rol, $data['direccion'], $data['correo'], $data['chkTC']);
         $retorno = false;

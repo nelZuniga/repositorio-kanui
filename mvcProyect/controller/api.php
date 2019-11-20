@@ -20,6 +20,24 @@ class api extends Controller{
             return false;
         }
     }
+
+    function regCorreo(){
+        header("Content-type: text/html; charset=UTF-8");
+        //urldecode($_GET);
+        $correo = $_GET['referer'];
+        $log = ['correo'=>$correo,];
+        $rest = $this->model->regCorreo($log);
+        if($rest !== ''){
+            http_response_code(200);
+            echo "<script>window.location.href = '../main'; </script> ";
+           // header("location:".constant('URL').main."");
+        }else{
+            http_response_code(500);
+        }
+        return $rest;
+        
+    }
+
     function log(){
         header("Content-type: text/html; charset=UTF-8");
         //urldecode($_GET);

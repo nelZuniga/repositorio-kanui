@@ -25,6 +25,21 @@ public function login($data){
         echo json_encode($data);
         
 }
+
+public function regCorreo($data){
+    //var_dump($data);
+    $conn = $this->db->connect();
+    $query = $conn->prepare("
+    UPDATE usuario SET estado = 1 where correo = ?");
+                $ss = 's';
+                $query->bind_param($ss ,$data['correo']);
+    $retorno = false;
+    
+    if($query->execute()){
+            $retorno = true;
+    };
+    return $retorno;;
+}
 public function getdata($data){
         
     $conn = $this->db->connect();
