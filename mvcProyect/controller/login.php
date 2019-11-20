@@ -11,7 +11,8 @@ class Login extends Controller{
         $this->view->render('login/login');
     }
 
-    function iniciarsession($int){
+    function iniciarsession(){
+        $int = $_POST['int'];
         $this->model->startsesion($int);
     }
 
@@ -21,7 +22,6 @@ class Login extends Controller{
         $pss = base64_encode($pss);
         $seg = ['usuario'=> $usr, 'pass'=>$pss];
         $respuesta = $this->model->verf($seg);
-        
         return $respuesta ;
     }
 

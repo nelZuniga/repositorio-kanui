@@ -12,7 +12,7 @@
     });
 
   });
-
+var usuarioid = '';
   function log(){
     var url = "<?php echo constant('URL')?>login/Login";
       var parametrosajax = {
@@ -41,7 +41,8 @@
                       'error'
                     )
                   }else{
-                    start(data[0]);
+                    usuarioid = data[0]
+                    start();
                   }
                 }
                     },
@@ -51,12 +52,12 @@
                 });
 
   }
-  function start(id){
+  function start(){
     var url = "<?php echo constant('URL')?>login/iniciarsession";
       var parametrosajax = {
-        int: id
+        int: usuarioid
       };
-      
+      console.log(parametrosajax);
       $.ajax({
               url:url,
               data: parametrosajax,

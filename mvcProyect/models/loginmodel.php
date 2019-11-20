@@ -22,7 +22,6 @@ class loginModel extends Model{
             $respuesta = false;
         }
         echo json_encode($respuesta);
-            return $respuesta;
         //echo $retorno;
         
     }
