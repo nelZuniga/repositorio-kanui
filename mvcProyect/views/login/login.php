@@ -25,7 +25,6 @@ var usuarioid = '';
               data: parametrosajax,
               type: 'post',
               success: function(data){
-                console.log(data);
                 if( data.toString() == "false"){
                   Swal.fire(
                     'Inicio de sesion',
@@ -57,7 +56,7 @@ var usuarioid = '';
       var parametrosajax = {
         int: usuarioid
       };
-      console.log(parametrosajax);
+      if(usuarioid !== ''){
       $.ajax({
               url:url,
               data: parametrosajax,
@@ -78,7 +77,7 @@ var usuarioid = '';
                   alert("error");
                     }
                 });
-
+              }
   }
   </script>
 <br><br>
