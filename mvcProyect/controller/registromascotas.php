@@ -11,6 +11,9 @@ class RegistroMascotas extends Controller{
     function render(){
         $this->view->render('registromascotas/registroDatosmascotas');
     }
+    function rendeUser(){
+        $this->view->render('registromascotas/registroDatosmascotasUser');
+    }
     function registraMascota(){
         //echo "usuario creado exitosamente";
         $chipM = $_POST['chipId'];

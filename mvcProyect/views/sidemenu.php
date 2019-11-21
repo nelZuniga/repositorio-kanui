@@ -855,6 +855,25 @@ select{
                     </li>
                     <li class="sidebar-dropdown">
                         <a href="#">
+                            <img src="<?php echo constant('URL').'views/imagenes/iconos/paw.png' ?>" >
+                            <span>Mascotas_U</span>
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>registromascotas/rendeUser">Registrar mascota</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>edicionmascota">Editar mascota</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo constant('URL') ?>scaneos">Historial de escaneo</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#">
                             <i class="fa fa-chart-line"></i>
                             <span>Charts</span>
                         </a>
