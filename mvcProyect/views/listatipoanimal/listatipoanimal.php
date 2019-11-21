@@ -6,15 +6,15 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Tipos de Razas de Animales</h1>
+    <h1>Razas de especies</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-12" id="resBusqueda" style="height:400px; overflow: auto; border: 1px solid black; padding-left:0;">
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Descripción tipo de mascota</th>
-                        <th>Buscar Razas</th>
+                        <th>Descripción</th>
+                        <th>Acción</th>
                     </tr>
                     <?php foreach($this->tipoanimal as $r=> $valor): ?>
                         <!---aqui ibas como avion, como creamos la variable en la vista, y esta es un arreglo, recorremos el arreglo e imprimimos la vista --->

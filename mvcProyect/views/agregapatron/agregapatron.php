@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-md-6 form-group"><label for="ID_COLOR">ID patrón de pelaje</label><br><input id="id_patron" readonly name="id_patron" type="text" placeholder="ID Patrón automático" class="form-control">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion del patrón del pelaje</label><br>
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipción del patrón del pelaje</label><br>
                 <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre del patrón" class="form-control">
               </div>
             </div>

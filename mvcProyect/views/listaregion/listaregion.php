@@ -6,7 +6,7 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Regiones del País</h1>
+    <h1>Regiones del país</h1>
     <div class="container">
         <table>
             <tr>
@@ -23,7 +23,7 @@
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Nombre de Región</th>
+                        <th>Nombre de región</th>
                         <th>Simbología</th>
                         <th>Orden</th>
                         <th>Acción</th>

@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Agregar Tipos de Controles de Mascotas</h1>
+  <h1>Agregar tipos de controles </h1>
 
   <div id="registrar" class="row">
     <div class="col-md-12">
@@ -19,10 +19,10 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregacontroles/guardacontrol">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_CONTROL">ID Tipo de Control</label><br><input id="id_control" readonly name="id_control" type="text" placeholder="ID Tipo de Control Automático" class="form-control">
+              <div class="col-md-6 form-group"><label for="ID_CONTROL">ID tipo de control</label><br><input id="id_control" readonly name="id_control" type="text" placeholder="ID tipo de control Automático" class="form-control">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo de Control" class="form-control">
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipción</label><br>
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre tipo de control" class="form-control">
               </div>
             </div>
             <div class="row">

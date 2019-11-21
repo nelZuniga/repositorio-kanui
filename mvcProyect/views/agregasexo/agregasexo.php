@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Agregar Sexos de Mascotas</h1>
+  <h1>Agregar sexos de especies</h1>
 
   <div id="registrar" class="row">
     <div class="col-md-12">
@@ -19,10 +19,10 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregasexo/guardasexo">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_SEXO_MASCOTA">ID Sexo Mascota</label><br><input id="id_sex" readonly name="id_sex" type="text" placeholder="ID Sexo Mascota Automático" class="form-control">
+              <div class="col-md-6 form-group"><label for="ID_SEXO_MASCOTA">ID sexo especie</label><br><input id="id_sex" readonly name="id_sex" type="text" placeholder="ID sexo especie automático" class="form-control">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Sexo Mascota" class="form-control">
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipción</label><br>
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre sexo especie" class="form-control">
               </div>
             </div>
             <div class="row">

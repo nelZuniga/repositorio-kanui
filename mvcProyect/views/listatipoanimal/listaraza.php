@@ -6,7 +6,7 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Tipos de Mascotas</h1>
+    <h1>Tipos de mascotas</h1>
     <div class="container">
         <table>
             <tr>

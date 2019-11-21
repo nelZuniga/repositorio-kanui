@@ -6,7 +6,7 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Sexos de Mascotas</h1>
+    <h1>Sexos de especies</h1>
     <div class="container">
         <table>
             <tr>
@@ -23,7 +23,7 @@
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Descripción sexo de mascota</th>
+                        <th>Descripción sexo de especie</th>
                         <th>Acción</th>
                     </tr>
                     <?php foreach($this->sexo as $r=> $valor): ?>

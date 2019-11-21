@@ -15,7 +15,7 @@ $region = $_GET['id_reg_region']; ?>
                 success: function(data) {
                     //console.log(data);
                     $("#id_reg").empty();
-                    $("#id_reg").append("<option value=''>Seleccione Una Region</option>");
+                    $("#id_reg").append("<option value=''>Seleccione una region</option>");
                     $("#id_reg").append(data);
                 },
                 error: function() {
@@ -29,7 +29,7 @@ $region = $_GET['id_reg_region']; ?>
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Comunas</h1>
+  <h1>Edición de Comunas</h1>
 
                     <?php foreach($this->comunaregion as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -40,14 +40,14 @@ $region = $_GET['id_reg_region']; ?>
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>edicioncomunaregion/guardacomunaregion">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 form-group"><label for="ID_COMUNA">ID Comuna</label><br><input id="id_com" readonly name="id_com" type="text" placeholder="ID Comuna" class="form-control" value="<?php echo $valor['id_com'];?>">
+              <div class="col-md-4 form-group"><label for="ID_COMUNA">ID Comuna</label><br><input id="id_com" readonly name="id_com" type="text" placeholder="ID comuna" class="form-control" value="<?php echo $valor['id_com'];?>">
               </div>
               <div class="col-md-4 form-group"><label for="NOMBRE_DESCRIPCION">Nombre Comuna</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Comuna" class="form-control" value="<?php echo $valor['descripcion'];?>">
+                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de comuna" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
                   <div class="col-md-4 form-group">
                       <!-- combo region -->
-                      <label for="id_region" class="control-label" id="id_region" name="id_region">Region</label>
+                      <label for="id_region" class="control-label" id="id_region" name="id_region">Región</label>
 
                       <select class="form-control" id="id_reg" name="id_reg" onchange='getComuna()' required>
                       </select>

@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Tipos de Mascotas</h1>
+  <h1>Edición de tipos de especies</h1>
 
                     <?php foreach($this->tipomascota as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -22,10 +22,10 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>ediciontipomascota/guardatipomascota">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_TIPO_MASCOTA">ID Tipo Mascota</label><br><input id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID Tipo Mascota" class="form-control" value="<?php echo $valor['id_tmasc'];?>">
+              <div class="col-md-6 form-group"><label for="ID_TIPO_MASCOTA">ID tipo especie</label><br><input id="id_tmasc" readonly name="id_tmasc" type="text" placeholder="ID tipo especie" class="form-control" value="<?php echo $valor['id_tmasc'];?>">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo Mascota" class="form-control" value="<?php echo $valor['descripcion'];?>">
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipción</label><br>
+                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre tipo especie" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
             </div>
             <div class="row">

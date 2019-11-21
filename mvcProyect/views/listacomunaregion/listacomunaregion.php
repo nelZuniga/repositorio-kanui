@@ -9,7 +9,7 @@ $region = $_GET['id_reg_region'];
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Lista de Comunas por Región</h1>
+    <h1>Lista de comunas por región</h1>
     <div class="container">
         <table>
             <tr>

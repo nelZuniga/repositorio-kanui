@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Agregar Regiones del País</h1>
+  <h1>Agregar regiones del país</h1>
 
   <div id="registrar" class="row">
     <div class="col-md-12">
@@ -19,16 +19,16 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregaregion/guardaregion">
           <div class="container">
             <div class="row">
-              <div class="col-md-3 form-group"><label for="ID_REGION">ID Región</label><br><input id="id_reg" readonly name="id_reg" type="text" placeholder="ID Región Automático" class="form-control">
+              <div class="col-md-3 form-group"><label for="ID_REGION">ID región</label><br><input id="id_reg" readonly name="id_reg" type="text" placeholder="ID región automático" class="form-control">
               </div>
-              <div class="col-md-3 form-group"><label for="NOMBRE_DESCRIPCION">Descripcion</label><br>
-                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Región" class="form-control">
+              <div class="col-md-3 form-group"><label for="NOMBRE_DESCRIPCION">Descripción</label><br>
+                <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de región" class="form-control">
               </div>
-              <div class="col-md-3 form-group"><label for="SIMBOLOGÍA_REGIÓN">Simbología Región</label><br>
-                <input required id="txt_simbolo" name="txt_simbolo" type="text" placeholder="Smibología Región" class="form-control">
+              <div class="col-md-3 form-group"><label for="SIMBOLOGÍA_REGIÓN">Simbología región</label><br>
+                <input required id="txt_simbolo" name="txt_simbolo" type="text" placeholder="Smibología región" class="form-control">
               </div>
               <div class="col-md-3 form-group"><label for="ORDEN_REGION">Orden de la región</label><br>
-                <input required id="txt_orden" name="txt_orden" type="text" placeholder="Orden de Región" class="form-control">
+                <input required id="txt_orden" name="txt_orden" type="text" placeholder="Orden de región" class="form-control">
               </div>              
             </div>
             <div class="row">

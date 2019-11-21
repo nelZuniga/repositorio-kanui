@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Tipos de Documentos</h1>
+  <h1>Edición de tipos de documentos</h1>
 
                     <?php foreach($this->tipodocumento as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -22,9 +22,9 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>ediciontipodocumento/guardatipodocumento">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 form-group"><label for="ID_TIPO_DOCUMENTO">ID Tipo Documento</label><br><input id="id_tdoc" readonly name="id_tdoc" type="text" placeholder="ID Tipo Documento" class="form-control" value="<?php echo $valor['id_tdoc'];?>">
+              <div class="col-md-4 form-group"><label for="ID_TIPO_DOCUMENTO">ID tipo documento</label><br><input id="id_tdoc" readonly name="id_tdoc" type="text" placeholder="ID Tipo Documento" class="form-control" value="<?php echo $valor['id_tdoc'];?>">
               </div>
-              <div class="col-md-4 form-group"><label for="NOMBRE_TIPO DOCUMENTO">Descipcion tipo de documento</label><br>
+              <div class="col-md-4 form-group"><label for="NOMBRE_TIPO DOCUMENTO">Descipción tipo de documento</label><br>
                 <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo de Documento" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
               <div class="col-md-4 form-group"><label for="ABREVIATURA_TIPO DOCUMENTO">Abreviatura tipo de documento</label><br>

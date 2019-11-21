@@ -6,7 +6,7 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Patrón pelaje de especies.</h1>
+    <h1>Patrón pelaje de especies</h1>
     <div class="container">
         <table>
             <tr>

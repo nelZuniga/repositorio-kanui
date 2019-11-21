@@ -20,7 +20,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <label for="ID_TIPO_MASCOTA">Nombre de Vacuna</label><br>
+                                <label for="ID_TIPO_MASCOTA">Nombre de vacuna</label><br>
                                 <input required id="nom_vac" name="nom_vac" type="text" class="form-control">
                             </div>
                         </div>

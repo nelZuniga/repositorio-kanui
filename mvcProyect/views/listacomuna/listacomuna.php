@@ -6,14 +6,14 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Lista de Regiones</h1>
+    <h1>Lista de regiones</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-12" id="resBusqueda" style="height:400px; overflow: auto; border: 1px solid black; padding-left:0;">
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Region</th>
+                        <th>Región</th>
                         <th>Comunas</th>
                     </tr>
                     <?php foreach($this->comuna as $r=> $valor): ?>

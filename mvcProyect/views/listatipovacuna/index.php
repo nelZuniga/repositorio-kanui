@@ -23,7 +23,7 @@
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Nombre Vacuna</th>
+                        <th>Nombre vacuna</th>
                         <th>Acción</th>
                     </tr>
                     <?php if(isset($this->vacunas)){

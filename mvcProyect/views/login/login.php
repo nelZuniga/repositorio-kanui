@@ -63,7 +63,7 @@ var usuarioid = '';
               type: 'post',
               success: function(data){
                 Swal.fire({
-                  title: "inicio de sesión",
+                  title: "Inicio de sesión",
                   text:'Bienvenido',
                   type: 'success'
                 }).then((result) => {

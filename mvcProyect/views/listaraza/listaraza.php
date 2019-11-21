@@ -8,7 +8,7 @@ $mascota = $_GET['id_tmasc'];?>
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Lista de Razas por Animales</h1>
+    <h1>Lista de razas</h1>
     <div class="container">
         <table>
             <tr>
@@ -26,7 +26,7 @@ $mascota = $_GET['id_tmasc'];?>
                     <tr>
                        
                         <th>ID</th>
-                        <th>Nombre Raza</th>
+                        <th>Nombre raza</th>
                         <th>Acción</th>
                     </tr>
                     <?php foreach($this->tiporaza as $r=> $valor): ?>

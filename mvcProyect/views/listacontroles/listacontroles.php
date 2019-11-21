@@ -6,7 +6,7 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Tipos de Control de Mascotas</h1>
+    <h1>Tipos de control </h1>
     <div class="container">
         <table>
             <tr>
@@ -23,7 +23,7 @@
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Descripción control de mascota</th>
+                        <th>Descripción control</th>
                         <th>Acción</th>
                     </tr>
                     <?php foreach($this->control as $r=> $valor): ?>

@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Agregar Tipos de Documentos</h1>
+  <h1>Agregar tipos de documentos</h1>
 
   <div id="registrar" class="row">
     <div class="col-md-12">
@@ -19,13 +19,13 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregatipodocumento/guardatipodocumento">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 form-group"><label for="ID_TIPO_MASCOTA">ID Tipo Documento</label><br><input id="id_tdoc" readonly name="id_tdoc type="text" placeholder="ID Tipo Documento Automático" class="form-control">
+              <div class="col-md-4 form-group"><label for="ID_TIPO_MASCOTA">ID tipo documento</label><br><input id="id_tdoc" readonly name="id_tdoc type="text" placeholder="ID tipo documento automático" class="form-control">
               </div>
-              <div class="col-md-4 form-group"><label for="NOMBRE_DOCUMENTO">Tipo de Documento</label><br>
-                <input required="" id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo de Documento" class="form-control">
+              <div class="col-md-4 form-group"><label for="NOMBRE_DOCUMENTO">Tipo de documento</label><br>
+                <input required="" id="txt_desc" name="txt_desc" type="text" placeholder="Nombre tipo de documento" class="form-control">
               </div>
               <div class="col-md-4 form-group"><label for="ABREVIATURA">Abreviatura</label><br>
-                <input required id="txt_abre" name="txt_abre" type="text" placeholder="Abreviatura Tipo de Documento" class="form-control">
+                <input required id="txt_abre" name="txt_abre" type="text" placeholder="Abreviatura tipo de documento" class="form-control">
               </div>              
             </div>
             <div class="row">

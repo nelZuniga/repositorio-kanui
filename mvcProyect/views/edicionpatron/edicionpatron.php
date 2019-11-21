@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de patrones de pelajes de especies</h1>
+  <h1>Edición de patrones de pelajes de especies</h1>
 
                     <?php foreach($this->tipopatron as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -22,9 +22,9 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>edicionpatron/guardapatron">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_PATRON">ID Patrón de pelade</label><br><input id="id_patron" readonly name="id_patron" type="text" placeholder="ID Patrón de ṕelaje de especies" class="form-control" value="<?php echo $valor['id_patron'];?>">
+              <div class="col-md-6 form-group"><label for="ID_PATRON">ID patrón de pelaje</label><br><input id="id_patron" readonly name="id_patron" type="text" placeholder="ID patrón de pelaje de especies" class="form-control" value="<?php echo $valor['id_patron'];?>">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descripcion</label><br>
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descripción</label><br>
                 <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre patrón de pelaje de especies" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
             </div>

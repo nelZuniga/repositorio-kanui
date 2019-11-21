@@ -6,7 +6,7 @@
 }    
 </style>
 <div style="padding: 0;padding-right: 21px;">
-    <h1>Colores de especies.</h1>
+    <h1>Colores de especies</h1>
     <div class="container">
         <table>
             <tr>
@@ -23,7 +23,7 @@
                 <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
                     <tr>
                         <th style="width:47px"></th>
-                        <th>Descripción color.</th>
+                        <th>Descripción color</th>
                         <th>Acción</th>
                     </tr>
                     <?php foreach($this->tipocolor as $r=> $valor): ?>

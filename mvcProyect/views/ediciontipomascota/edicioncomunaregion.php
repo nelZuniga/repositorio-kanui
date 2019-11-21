@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Comunas</h1>
+  <h1>Edición de Comunas</h1>
 
                     <?php foreach($this->comunaregion as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -24,10 +24,10 @@
             <div class="row">
               <div class="col-md-6 form-group"><label for="ID_TIPO_MASCOTA">ID Comuna</label><br><input id="id_com" readonly name="id_com" type="text" placeholder="ID Tipo Mascota" class="form-control" value="<?php echo $valor['id_com'];?>">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Nombre Comuna</label><br>
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Nombre comuna</label><br>
                 <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre de Comuna" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Nombre Región</label><br>
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Nombre región</label><br>
                 <input id="txt_region" name="txt_region type="text" placeholder="Nombre de Region" class="form-control" value="<?php echo $valor['id_reg_Region'];?>">
               </div>              
             </div>

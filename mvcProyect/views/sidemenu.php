@@ -30,8 +30,8 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
                 type: 'post',
                 success: function() {
                     Swal.fire({
-                        title: "inicio de sesión",
-                        text: 'Sesión Cerrada con Éxito',
+                        title: "Sesión cerrada con éxito",
+                        text: 'Vuelve pronto',
                         type: 'info'
                     }).then((result) => {
                         if (result.value) {
@@ -724,7 +724,7 @@ select{
                     <span class="user-name"><?php echo $_SESSION['nombres'] ?>
                         <strong><?php echo $_SESSION['apellido_paterno'] ?></strong>
                     </span>
-                    <span class="user-role">Administrator</span>
+                    <span class="user-role">Administrador</span>
                     <span class="user-status">
                         <i class="fa fa-circle"></i>
                         <span id="notificationLink">Opciones
@@ -919,10 +919,10 @@ select{
                                     <a href="<?php echo constant('URL') ?>listacomuna">Comunas del país</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listasexo">Sexos de mascotas</a>
+                                    <a href="<?php echo constant('URL') ?>listasexo">Sexos de especies</a>
                                 </li>  
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>listatipoanimal">Razas de animales</a>
+                                    <a href="<?php echo constant('URL') ?>listatipoanimal">Razas</a>
                                 </li> 
                                 <li>
                                     <a href="<?php echo constant('URL') ?>listacontroles">Tipos de controles</a>

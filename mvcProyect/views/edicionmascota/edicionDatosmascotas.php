@@ -24,7 +24,7 @@
                     success: function(data) {
                         //console.log(data);
                         $("#raza_id").empty();
-                        $("#raza_id").append("<option value=''>Seleccione Una Raza</option>");
+                        $("#raza_id").append("<option value=''>Seleccione una raza</option>");
                         $("#raza_id").append(data);
                     },
                     error: function() {
@@ -163,7 +163,7 @@
               var html = "";
               var respuesta = JSON.parse(json);
               var j = 0;
-              html += "<table class='table table-striped' width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre Mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
+              html += "<table class='table table-striped' width='100%' style='margin:5px'><tr><th>Acción</th><th>Nombre mascota</th><th>Tipo</th><th>Raza</th><th>Sexo</th></tr>";
               $.each(respuesta.data.mascotas , function(key, value){
                 j++;
                 html += "<tr>";

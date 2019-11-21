@@ -19,7 +19,7 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>agregacolor/guardacolor">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_COLOR">ID Color de especie</label><br><input id="id_color" readonly name="id_color" type="text" placeholder="ID Color Automático" class="form-control">
+              <div class="col-md-6 form-group"><label for="ID_COLOR">ID color de especie</label><br><input id="id_color" readonly name="id_color" type="text" placeholder="ID color automático" class="form-control">
               </div>
               <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
                 <input required id="txt_desc" name="txt_desc" type="text" placeholder="Nombre del color" class="form-control">

@@ -228,7 +228,7 @@
 
     <body>
         <div class="container">
-            <h2>Registro de Usuarios</h2>
+            <h2>Registro de usuarios</h2>
             <div class="row">
                 <div class="col-md-12"></div>
                 <div class="col-md-12">
@@ -283,7 +283,7 @@
                             <!-- direccion-->
                             <!-- cuidad-->
                             <div class="row col-md-12">
-                                <label for="street2_id" class="control-label col-md-5">Direccion</label>
+                                <label for="street2_id" class="control-label col-md-5">Dirección</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
                                 <label for="ciudad_id" class="control-label col-md-5">Ciudad</label>
                             </div>

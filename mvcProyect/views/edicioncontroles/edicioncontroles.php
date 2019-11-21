@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Tipos de Control de Mascotas</h1>
+  <h1>Edición de tipos de control</h1>
 
                     <?php foreach($this->control as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -22,10 +22,10 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>edicioncontroles/guardacontrol">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_SEXO">ID Tipo de Control</label><br><input id="id_control" readonly name="id_control" type="text" placeholder="ID Tipo de Control" class="form-control" value="<?php echo $valor['id_control'];?>">
+              <div class="col-md-6 form-group"><label for="ID_SEXO">ID tipo de control</label><br><input id="id_control" readonly name="id_control" type="text" placeholder="ID tipo de control" class="form-control" value="<?php echo $valor['id_control'];?>">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_CONTROL">Descipcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre Tipo de Control" class="form-control" value="<?php echo $valor['descripcion'];?>">
+              <div class="col-md-6 form-group"><label for="NOMBRE_CONTROL">Descipción</label><br>
+                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre tipo de control" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
             </div>
             <div class="row">

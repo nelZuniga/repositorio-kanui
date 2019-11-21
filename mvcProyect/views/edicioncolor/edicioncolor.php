@@ -11,7 +11,7 @@
 
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de colores de especies</h1>
+  <h1>Edición de color de especies</h1>
 
                     <?php foreach($this->tipocolor as $r=> $valor): ?>
                     <?php endforeach; ?>     
@@ -22,10 +22,10 @@
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>edicioncolor/guardacolor">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 form-group"><label for="ID_COLOR">ID Color de especia</label><br><input id="id_color" readonly name="id_color" type="text" placeholder="ID Color de especies" class="form-control" value="<?php echo $valor['id_color'];?>">
+              <div class="col-md-6 form-group"><label for="ID_COLOR">ID color de especie</label><br><input id="id_color" readonly name="id_color" type="text" placeholder="ID color de especie" class="form-control" value="<?php echo $valor['id_color'];?>">
               </div>
-              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipcion</label><br>
-                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre color de especies" class="form-control" value="<?php echo $valor['descripcion'];?>">
+              <div class="col-md-6 form-group"><label for="NOMBRE_DESCRIPCION">Descipción</label><br>
+                <input id="txt_desc" name="txt_desc" type="text" placeholder="Nombre color de especie" class="form-control" value="<?php echo $valor['descripcion'];?>">
               </div>
             </div>
             <div class="row">
