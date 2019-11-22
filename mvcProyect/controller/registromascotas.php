@@ -11,8 +11,11 @@ class RegistroMascotas extends Controller{
     function render(){
         $this->view->render('registromascotas/registroDatosmascotas');
     }
-    function rendeUser(){
+    function mismascotas(){
         $this->view->render('registromascotas/registroDatosmascotasUser');
+    }
+    function rendeUser(){
+        $this->view->render('registromascotas/mismasCotas');
     }
     function registraMascota(){
         //echo "usuario creado exitosamente";
@@ -94,24 +97,6 @@ class RegistroMascotas extends Controller{
         }
         
     }
-
-   // function registrar(){
-     //   echo "Registra mascotas";
-       // $this->model->selec();
-    //}
-
-    //OJO AQUI como crear insercion de datos
-
-    function getdata(){
-        //nombre tentativo
-
-        /* en un formulario se agrega e la url de la action (url+/nombre de la funcion)
-        en este caso seria "url/getdata"  en get data obtenemos todos los datos de $_POST
-        y los ordenamos en un array, luego para invocar la funcion del modelo es 
-        
-        $this->model-> (Nombre de la funcion del modelo) y se entregan los datos por el parametro*/
-    }
-
     function getColor(){
         $respuesta = $this->model->getColor();
         return $respuesta;
@@ -120,7 +105,14 @@ class RegistroMascotas extends Controller{
     function getPatron(){
         $respuesta = $this->model->getPatron();
         return $respuesta;
-    }    
+    }   
+    
+    function getmascotas(){
+        $tipo = $_POST['id']; 
+        $respuesta = $this->model->getMascota($tipo);
+        return $respuesta;
+    }
+
 
 }
 
