@@ -19,6 +19,10 @@
 
     getColores()
   ELPatron();
+
+  $("#file-input").change(function() {
+          readURL(this);
+        });
   }); //fin document ready
 
   function getRaza(tipos) {
@@ -233,6 +237,24 @@ function getColores() {
     });
     $("#mascotas").append(html);
   }
+
+
+  function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+              $('#muestra').attr('src', e.target.result);
+            }
+            reader.onloadend = function() {
+              $("#baseimg").val(reader.result)
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+          }
+
+          $('#muestra').css("width", "150px");
+        }
 </script>
 
 <div style="padding: 0;padding-right: 21px;">
@@ -253,9 +275,9 @@ function getColores() {
               </div>
               <div class="col-md-6 form-group" align="center">
               <?php if ($this->mascota['imgMascota'] == '') { ?>
-                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra" src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
+                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra"  src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
               <?php } else { ?>
-                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra" style="max-width:96px;" src="<?php echo $this->mascota['imgMascota'] ?>"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
+                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra" style="height:150px;width:auto" src="<?php echo $this->mascota['imgMascota'] ?>"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
               <?php } ?>
               </div>
             </div>

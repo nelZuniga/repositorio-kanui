@@ -21,7 +21,6 @@ class EdicionMascota extends Controller{
     }
     function editaMascota(){
         //echo "usuario creado exitosamente";
-        $chipM = $_POST['chipId'];
         $idmascot = $_POST['idmascot'];
         $nombreM = $_POST['nombreM'];
         $fechaNacM = $_POST['fechaNacM'] ;

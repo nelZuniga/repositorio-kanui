@@ -12,6 +12,11 @@ class Scaneos extends Controller{
         $this->view->render('scaneos/scaneos');
     }
 
+    function render_U(){
+        $this->view->render('scaneos/scaneos_U');
+    }
+
+
     function historial($param = null){
         $idmascot = $param[0];
         $mascota = $this->model->getScansMascota($idmascot);

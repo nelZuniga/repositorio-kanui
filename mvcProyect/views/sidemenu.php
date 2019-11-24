@@ -861,13 +861,10 @@ select{
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>registromascotas/rendeUser">Registrar mascota</a>
+                                    <a href="<?php echo constant('URL') ?>registromascotas/rendeUser">Mis Mascotas</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo constant('URL') ?>edicionmascota">Editar mascota</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo constant('URL') ?>scaneos">Historial de escaneo</a>
+                                    <a href="<?php echo constant('URL') ?>scaneos/render_U">Historial de escaneo</a>
                                 </li>
                             </ul>
                         </div>
