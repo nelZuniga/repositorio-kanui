@@ -32,7 +32,7 @@
       if(existeImg !== ''){
         cargaImg(existeImg);
       }else{
-        cargaImg("<?php echo constant('URL') ?>public/img/logo-2kanui.png");
+        cargaImg("<?php echo constant('URL') ?>public/img/Add Image_96px.png");
       }
 
   }); 
