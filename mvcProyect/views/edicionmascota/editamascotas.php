@@ -8,22 +8,38 @@
 <script>
   $(document).ready(function() {
     <?php if ($this->mascota['sexo']  !== '') { ?>
-      $("#sexoM").val('<?php echo $this->mascota['sexo'] ?>');
+      $("#sexoM").val('<?php echo $this->mascota['sexo']; ?>');
     <?php } ?>
 
     <?php if ($this->mascota['tipo_mascota'] !== '') { ?>
-      getRaza('<?php echo $this->mascota['tipo_mascota'] ?>');
+      getRaza('<?php echo $this->mascota['tipo_mascota']; ?>');
     <?php } else { ?>
       getRaza(0);
     <?php } ?>
 
     getColores()
   ELPatron();
+      
 
   $("#file-input").change(function() {
           readURL(this);
+          
         });
-  }); //fin document ready
+
+
+        
+      var existeImg = '<?php echo $this->mascota['imgMascota'] ?>';
+      if(existeImg !== ''){
+        cargaImg(existeImg);
+      }else{
+        cargaImg("<?php echo constant('URL') ?>public/img/logo-2kanui.png");
+      }
+
+  }); 
+  //fin document  ready
+  function cargaImg(src) {
+    $("#pre").attr('src',src);
+      }
 
   function getRaza(tipos) {
     console.log(tipos);
@@ -214,7 +230,6 @@ function getColores() {
   function cargaMascotas(json) {
     var html = "";
     var respuesta = JSON.parse(json);
-    console.log(respuesta);
     var j = 0;
     $.each(respuesta.data.mascotas, function(key, value) {
       j++;
@@ -245,15 +260,58 @@ function getColores() {
             
             reader.onload = function(e) {
               $('#muestra').attr('src', e.target.result);
+              $('#recorta').attr('src', e.target.result);
             }
             reader.onloadend = function() {
               $("#baseimg").val(reader.result)
+              $("#modalFoto").css("display",'flex');
+              $("#pre").hide();
+              $("#muestra").show();
+              $('#recorta').Jcrop({
+                onChange: updatePreview,
+              onSelect: updatePreview,
+              allowSelect: true,
+              allowMove: true,
+              allowResize: true,
+              aspectRatio: 1,
+              boxWidth: 750,   //Maximum width you want for your bigger images
+              boxHeight: 600, 
+              });
             }
             
             reader.readAsDataURL(input.files[0]);
           }
 
           $('#muestra').css("width", "150px");
+        }
+
+
+        function make_base() {
+        var base_image = new Image();
+        base_image.src = 'https://picsum.photos/id/870/700/467';
+        base_image.onload = function() {
+          context.drawImage(base_image, 150, 150, 150, 150);
+        }
+      }
+
+      function updatePreview(c) {
+        if (parseInt(c.w) > 0) {
+          // Show image preview
+          var imageObj = $("#recorta")[0];
+          var canvas = $("#muestra")[0];
+          var context = canvas.getContext("2d");
+
+          if (imageObj != null && c.x != 0 && c.y != 0 && c.w != 0 && c.h != 0) {
+            context.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
+                }
+                  }
+          }
+
+        function ocultaModal(){
+          $('#modalFoto').hide()
+          var canvas = document.getElementById('muestra');
+          var dataURL = canvas.toDataURL();
+          $('#baseimg').val(dataURL);
         }
 </script>
 
@@ -274,11 +332,14 @@ function getColores() {
                 <h3 style="bottom: 0;position: absolute;">Datos de la mascota<h3>
               </div>
               <div class="col-md-6 form-group" align="center">
-              <?php if ($this->mascota['imgMascota'] == '') { ?>
-                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra"  src="<?php echo constant('URL') ?>public/img/Add Image_96px.png"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
-              <?php } else { ?>
-                <div class="col-md-6  form-group" align="center">Agregar imagen<br><label for="file-input" title="Presione para agregar imagen"><img id="muestra" style="height:150px;width:auto" src="<?php echo $this->mascota['imgMascota'] ?>"></label><br><input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
-              <?php } ?>
+                        <div class="col-md-6  form-group" align="center">Agregar imagen<br>
+                        <label for="file-input" title="Presione para agregar imagen">
+                          <img id="pre" style="width:150px; height;150px">
+                          <canvas id="muestra" width="150" height="150" style="display:none">
+                        </canvas>
+                      </label>
+                      <br>
+              <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
               </div>
             </div>
             <div class="row">
@@ -345,6 +406,37 @@ function getColores() {
     </div>
   </div>
 
+<style>
+#modalFoto{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+}
+.modal-content{
+  display: inline-table
+}
+</style>
+  <div class="modal fade" id="modalFoto">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Imagen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="ocultaModal();">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!---Cuerpo --->
+        <img id="recorta" style="height:650px;width:auto" src="">
+        <!---Cuerpo --->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-verde" onclick="ocultaModal();">aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <!-- ModalRecupera -->

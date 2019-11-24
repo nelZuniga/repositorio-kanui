@@ -5,8 +5,9 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     echo "<script>window.location.href='" . $url . "'</script>";
 } ?>
 
-
-<head>
+<!DOCTYPE html/>
+<html>
+    <head>
     <title>- KANUI -</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,9 +17,17 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="public/js/kanuilib.js"></script>
-    <script src="public/js/jquery.Jcrop.js"></script>
-    <script src="public/css/css.css"></script>
+    <!--<script src="<?php echo constant('URL') ?>public/js/Jcrop.js"></script>
+    <link href="<?php echo constant('URL') ?>public/css/Jcrop.css" rel="stylesheet"/>-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/2.0.4/css/Jcrop.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/2.0.4/js/Jcrop.js"></script>
+    
+
+
+    <script src="<?php echo constant('URL') ?>public/js/kanuilib.js"></script>
+
+    <script src="<?php echo constant('URL') ?>public/css/css.css"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     
@@ -46,7 +55,7 @@ if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apell
 
         }
 
-        jQuery(function($) {
+        $(document).ready(function($) {
 
             $(".sidebar-dropdown > a").click(function() {
                 $(".sidebar-submenu").slideUp(200);
@@ -271,7 +280,6 @@ box-shadow: 18px 0px 11px -13px rgba(0,0,0,0.41);
         height: calc(100% - 30px);
         overflow-y: auto;
         position: relative;
-        -
     }
 
     .sidebar-content.desktop {
