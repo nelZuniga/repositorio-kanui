@@ -275,9 +275,23 @@
 
       reader.onload = function(e) {
         $('#muestra').attr('src', e.target.result);
+        $('#recorta').attr('src', e.target.result);
       }
       reader.onloadend = function() {
-        $("#baseimg").val(reader.result)
+              $("#baseimg").val(reader.result)
+              $("#modalFoto").css("display",'flex');
+              $("#pre").hide();
+              $("#muestra").show();
+              $('#recorta').Jcrop({
+                onChange: updatePreview,
+              onSelect: updatePreview,
+              allowSelect: true,
+              allowMove: true,
+              allowResize: true,
+              aspectRatio: 1,
+              boxWidth: 750,   //Maximum width you want for your bigger images
+              boxHeight: 600, 
+              });
       }
 
       reader.readAsDataURL(input.files[0]);
@@ -291,11 +305,52 @@
     $("#file-input").change(function() {
       readURL(this);
     });
+
+    var existeImg = '<?php echo $_SESSION['perfil'] ?>';
+    console.log(existeImg);
+      if(existeImg !== ''){
+        cargaImg(existeImg);
+      }else{
+        cargaImg("<?php echo constant('URL') ?>public/img/Add Image_96px.png");
+      }
+
   });
 
-
+  function cargaImg(src) {
+    console.log(src);
+    $("#pre").attr('src',src);
+      }
 
   getUser(<?php echo $_SESSION['id_usr'] ?>);
+
+
+  function make_base() {
+        var base_image = new Image();
+        base_image.src = 'https://picsum.photos/id/870/700/467';
+        base_image.onload = function() {
+          context.drawImage(base_image, 150, 150, 150, 150);
+        }
+      }
+
+      function updatePreview(c) {
+        if (parseInt(c.w) > 0) {
+          // Show image preview
+          var imageObj = $("#recorta")[0];
+          var canvas = $("#muestra")[0];
+          var context = canvas.getContext("2d");
+
+          if (imageObj != null && c.x != 0 && c.y != 0 && c.w != 0 && c.h != 0) {
+            context.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
+                }
+                  }
+          }
+
+        function ocultaModal(){
+          $('#modalFoto').hide()
+          var canvas = document.getElementById('muestra');
+          var dataURL = canvas.toDataURL();
+          $('#baseimg').val(dataURL);
+        }
 
   // Fin de llamado para cargar regiones.
 </script>
@@ -310,7 +365,6 @@
     filter: contrast(250%);
   }
 </style>
-
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
   <h1>Edicion de Usuarios</h1>
@@ -330,6 +384,8 @@
         <input type="hidden" id="baseimg" name="baseimg">
         <input type="hidden" name="id_usr" id="id_usr">
         <input type="hidden" name="tipo_usr" id="tipo_usr" value="<?php echo $_SESSION['tipo_usr'] ?>">
+
+
 
         <div class="row">
           <div class="col-md-9">
@@ -354,20 +410,15 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3  form-group" align="center">Agregar Imagen<br>
-            <label for="file-input" title="Presione para Agregar imagen">
-              <?php
-              if ($_SESSION['perfil'] !== null && $_SESSION['perfil'] !== '') {
-                echo '<img id="muestra" src="' . $_SESSION['perfil'] . '">';
-              } else {
-                echo '<img id="muestra" src="' . constant('URL') . 'public/img/Add Image_96px.png">';
-              }
-
-              ?>
-
-            </label>
-            <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" />
-          </div>
+          <div class="col-md-3  form-group" align="center">Agregar imagen<br>
+                        <label for="file-input" title="Presione para agregar imagen">
+                          <img id="pre" style="width:150px; height;150px">
+                          <canvas id="muestra" width="150" height="150" style="display:none">
+                        </canvas>
+                      </label>
+                      <br>
+              <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
+              </div>
         </div>
         <div class="form-group col-md-8">
           <!-- rut -->
@@ -494,7 +545,42 @@
     </form>
   </div>--->
 
+
+
         </div>
+
+        <style>
+#modalFoto{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+}
+.modal-content{
+  display: inline-table
+}
+</style>
+  <div class="modal fade" id="modalFoto">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Imagen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="ocultaModal();">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!---Cuerpo --->
+        <img id="recorta" style="height:650px;width:auto" src="">
+        <!---Cuerpo --->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-verde" onclick="ocultaModal();">aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
     <!-- ModalRecupera -->
     <?php require 'views/footer.php' ?>

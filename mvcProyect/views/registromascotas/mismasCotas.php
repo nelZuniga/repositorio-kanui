@@ -215,11 +215,14 @@
             }
         });
     }
+    function newMascota(){
+        window.location.href ="<?php echo constant('URL') ?>registromascotas/mismascotas";
+    }
 </script>
 
 <div style="padding: 0;padding-right: 21px;">
     <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-    <h1>Mis mascotas</h1>
+    <h1>Mis mascotas</h1> <button class="btn btn-verde" onclick="newMascota();">Agregar mascota </button>
     <hr>
     <div id="Mascotas"></div>
     <?php require 'views/footer.php' ?>

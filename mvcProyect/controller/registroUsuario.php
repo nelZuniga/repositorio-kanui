@@ -73,7 +73,7 @@ class registroUsuario extends Controller{
     }
 
     function actualizaUsuario(){
-        $tipousr = $_POST['rol_id'];
+        //$tipousr = $_POST['rol_id'];
         $id_usr = $_POST['id_usr'];
         $nombres = $_POST['Dnombres'];
         $apellidoP = $_POST['DapellidoP'];
@@ -83,18 +83,25 @@ class registroUsuario extends Controller{
         $correo = $_POST['correo'];
         $telefono = $_POST['Dtelefono'];
         $direccion = $_POST['Ddireccion'];
-        $ciudad = $_POST['Vciudad'];
+        //$ciudad = $_POST['Vciudad'];
         $comuna = $_POST['comuna_id'];
         if(isset($_POST['baseimg'])){
             $img = $_POST['baseimg'];
         }else{
             $img = '';
         }
-        $usuario = ['tipo_usr' => $tipousr,'id_usr'=> $id_usr,'nombres'=>$nombres,'apellidoP'=>$apellidoP,'apellidoM'=>$apellidoM,'rut'=>$rut,'tipo_usr'=>$tipo_usr,'correo'=>$correo,'telefono'=>$telefono,'direccion'=>$direccion,'comuna'=>$comuna,'img'=>$img];
+        $usuario = ['tipo_usr' => $tipo_usr,'id_usr'=> $id_usr,'nombres'=>$nombres,'apellidoP'=>$apellidoP,'apellidoM'=>$apellidoM,'rut'=>$rut,'tipo_usr'=>$tipo_usr,'correo'=>$correo,'telefono'=>$telefono,'direccion'=>$direccion,'comuna'=>$comuna,'img'=>$img];
         $retorno = $this->model->updateUsr($usuario);
         if($retorno){
             echo '<script>alert("Usuario Actualizado con Éxito");</script>';
-            header("location:".constant('URL').edicionusuario."");
+            session_start();
+            if($_SESSION['tipo_usr'] == 2){
+                $this->view->render('usuario/user_prof');
+            }else{
+                header("location:".constant('URL').edicionusuario."");
+            }
+            
+            
         }else{
             $this->render();
         }

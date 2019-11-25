@@ -1,9 +1,14 @@
-<?php session_start();
-if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apellido_paterno'])) {
-    session_destroy();
-    $url = constant('URL') . "main";
-    echo "<script>window.location.href='" . $url . "'</script>";
-} ?>
+<?php 
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+    if (!isset($_SESSION) || !isset($_SESSION['nombres']) || !isset($_SESSION['apellido_paterno'])) {
+        session_destroy();
+        $url = constant('URL') . "main";
+        echo "<script>window.location.href='" . $url . "'</script>";
+    } 
+}
+?>
 
 <!DOCTYPE html/>
 <html>
