@@ -59,6 +59,7 @@ endforeach; ?>
                         </div>
 
                     </div>
+                    <div class="container">
                     <div class="row">
                         <div class="col-md-4 form-group"><label for="pesoM">Peso Mascota</label><br><input id="pesoM" name="pesoM" type="text" placeholder="Ingrese Peso Actual" class="form-control" required="" value="<?php echo $valor[8] ?>">
                         </div>
@@ -84,6 +85,7 @@ endforeach; ?>
                         <div class="col-md-8 offset-md-2 form-group" style="text-align:center">
                             <button type="button" class="btn btn-verde" onclick="cerrarmodal()">Cancelar</button>
                         </div>
+                    </div>
                     </div>
             </div>
 
