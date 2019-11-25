@@ -11,7 +11,7 @@
   </style>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-<body>
+<body  data-spy="scroll">
 <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -48,6 +48,14 @@
     <span class="carousel-control-next-icon"></span>
   </a>
 </div>
+
+
+<div class="mobile" id="mobile" data-scroll-index="1" style="height:450px; background-color: rgb(	5, 148, 133, 0.5)">
+
+
+</div>
+<div class="acerca" id="acerca" data-scroll-index="2" style="height:450px; background-color: rgb(	5, 148, 133, 0.7)"></div>
+<div class="socios" id="socios"  data-scroll-index="3" style="height:450px; background-color: rgb(	5, 148, 133, 0.5)"></div>
 </body>
 </html>
 

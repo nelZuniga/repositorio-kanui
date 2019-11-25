@@ -13,13 +13,23 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="public/js/kanuilib.js"></script>
   <link rel="stylesheet" href="CSS/css.css"> 
+  <script>
+  $(document).ready(function(){
+    $('.test, .nav-link, .navbar-brand, .new-button').click(function() {
+    var sectionTo = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $(sectionTo).offset().top
+    }, 1000);
+});
+  });
+  </script>
   <style>
   .topbar{
     background-color:#1b1b1b;
     max-width: 100%;
     color:#54FFEE;
     font-size: 13px;
-    height: 30px
+    height: 30px,
     }
     .topbar a{
     color:#54FFEE;
@@ -56,7 +66,7 @@
 </head>
 <body style="margin-top:4em">
 <div class="fixed-top bar">
-  <div class="container  topbar">
+  <div class="container topbar">
     <div class="row">
       <div class="col-sm-1 offset-sm-10"><a href="<?php echo constant('URL') ?>register">Registrarse</a></div>
       <div class="col-sm-1"><a href="<?php echo constant('URL') ?>login">Inicio de sesión</a></div>
@@ -70,29 +80,16 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <!---<ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>registroUsuario" target="_self">Registro Usuarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>registromascotas">Registro Mascotas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo constant('URL') ?>Sanitario">Registro Sanitario</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Mantenedores</a>
-      </li>
-    </ul>--->
-  <ul class="navbar-nav ml-auto">
+   
+  <ul class="navbar-nav ml-auto smooth-scroll list-unstyled">
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Kanui mobile</a>
+      <a data-scroll class="nav-link" role="navigation" style="text-align: right" href="#mobile" data-scroll-nav="1">Kanui mobile</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Sobre nosotros</a>
+      <a class="nav-link" role="navigation" style="text-align: right" href="#acerca" data-scroll-nav="2">Sobre nosotros</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" style="text-align: right" href="<?php echo constant('URL') ?>login">Nuestros socios</a>
+      <a class="nav-link" role="navigation" style="text-align: right" href="#socios" data-scroll-nav="3">Nuestros socios</a>
     </li>
   <li class="nav-item">
       <span style="width:150px"></span>
