@@ -769,14 +769,7 @@ select{
             <!-- sidebar-header  -->
             <div class="sidebar-search">
                 <div>
-                    <div class="input-group">
-                        <input type="text" class="form-control search-menu" placeholder="Search...">
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- sidebar-search  -->
@@ -789,7 +782,6 @@ select{
                         <a href="#">
                         <img src="<?php echo constant('URL').'views/imagenes/iconos/Doctors Bag_32px.png' ?>" >
                             <span>Atenciones</span>
-                            <span class="badge badge-pill badge-warning">New</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -821,7 +813,6 @@ select{
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/User_32px.png' ?>" >
                             <span>Usuarios</span>
-                            <span class="badge badge-pill badge-danger">3</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -882,44 +873,7 @@ select{
                             </ul>
                         </div>
                     </li>
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="fa fa-chart-line"></i>
-                            <span>Charts</span>
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a href="#">Pie chart</a>
-                                </li>
-                                <li>
-                                    <a href="#">Line chart</a>
-                                </li>
-                                <li>
-                                    <a href="#">Bar chart</a>
-                                </li>
-                                <li>
-                                    <a href="#">Histogram</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="fa fa-globe"></i>
-                            <span>Maps</span>
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a href="#">Google maps</a>
-                                </li>
-                                <li>
-                                    <a href="#">Open street map</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    
 <!-------------
     Inicio Menú de Mantenedores
     12-Septiembre : Falta parametrizar por perfil de usuario
@@ -928,7 +882,6 @@ select{
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/Settings_32px.png' ?>" >
                             <span>Mantenedores</span>
-                            <span class="badge badge-pill badge-danger">></span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -971,28 +924,7 @@ select{
 <!-------------
     Fin Menú de Mantenedores
 ---------->
-                    <li class="header-menu">
-                        <span>Extra</span>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-book"></i>
-                            <span>Documentation</span>
-                            <span class="badge badge-pill badge-primary">Beta</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-calendar"></i>
-                            <span>Calendar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-folder"></i>
-                            <span>Examples</span>
-                        </a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- sidebar-menu  -->
