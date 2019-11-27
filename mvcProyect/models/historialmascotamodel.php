@@ -43,6 +43,38 @@ class historialmascotaModel extends Model{
         }
     }
 
+    public function getCertificado($id,$proc){
+        $respuesta = array();
+        $id = $id;
+        $proc = $proc;
+        $conn = $this->db->connect();        
+        $query = $conn->prepare("SELECT CONCAT(U.nombres,' ', U.apellido_paterno,' ',U.apellido_materno ),U.documento,
+            CONCAT(U.direccion,', ', CM.descripcion,', Región ', RG.descripcion), M.n_chip,nombre, P.fecha_atencion, P.fecha_prox, V.descripcion, 
+            P.dosis, C.descripcion, M.fecha_nac,
+YEAR(CURDATE())-YEAR(M.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(M.fecha_nac,'%m-%d'), 0 , -1 ) AS EDAD
+,P.peso, P.observaciones, id_proc, R.descripcion raza, M.fecha_nac, tm.descripcion tipo
+        FROM procedimiento P, mascota M, vacunas V, controles C, raza R, tipo_mascota tm, usuario U, comuna CM, region RG
+WHERE P.id_mascot = '".$id."'
+AND P.id_proc = '".$proc."'
+AND P.id_mascot = M.id_mascot
+AND P.id_vac = V.id_vac
+AND P.id_control = C.id_control
+AND R.id_raza = M.raza
+AND tm.id_tmasc = M.tipo_mascota
+AND M.id_propietario = U.id_usr
+AND U.comuna = CM.id_com
+AND RG.id_reg = CM.id_reg_region");
+        $query->execute();
+        $rs = $query->get_result();
+        
+    while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se hace un array push, esto para concatenar
+        //los resultados
+        array_push($respuesta, $row);
+    }
+    return $respuesta;//devuelves el arreglo
+    
+    }
+
     public function getMascota($usuario){
         $respuesta = array();
         $documento = $usuario;

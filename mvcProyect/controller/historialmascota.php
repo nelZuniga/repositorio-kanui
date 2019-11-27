@@ -20,6 +20,15 @@ class historialmascota extends Controller{
         $this->view->render('historialmascota/controlesmascota');
     }
 
+    function certificadomascota($param = null){
+        $idmascot = $param[0];
+        $idproc = $_GET['proc'];
+        $historial = [];
+        $historial = $this->model->getCertificado($idmascot,$idproc);
+        $this->view->historial = $historial;
+        $this->view->render('historialmascota/certificadomascota');
+    }
+
     function editaMascota(){
         //echo "usuario creado exitosamente";
         $chipM = $_POST['chipId'];
@@ -79,6 +88,14 @@ class historialmascota extends Controller{
         $respuesta = $this->model->getControles();
         return $respuesta;
     }    
+
+    function getCertificado($param = null){
+        $idmascot = $param[0];
+        $historial = [];
+        $historial = $this->model->getCertificado($idmascot);
+        $this->view->historial = $historial;
+        $this->view->render('historialmascota/certificadomascota');
+    }  
 
 }
 
