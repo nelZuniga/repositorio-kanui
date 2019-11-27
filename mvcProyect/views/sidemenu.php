@@ -860,7 +860,7 @@ select{
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/paw.png' ?>" >
-                            <span>Mascotas_U</span>
+                            <span>Mascotas</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>

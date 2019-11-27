@@ -367,11 +367,11 @@
 </style>
 <div style="padding: 0;padding-right: 21px;">
   <!--<img src="views/imagenes/registro_mascota.png" alt="rdu" style="width:300px;">-->
-  <h1>Edicion de Usuarios</h1>
+  <h1>Mis Datos</h1>
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h5>Datos de usuario.</h5>
+        <h5>Datos Personales</h5>
       </div>
       <div class="col-md-3"></div>
     </div>
