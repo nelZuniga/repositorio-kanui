@@ -43,27 +43,45 @@ class historialmascotaModel extends Model{
         }
     }
 
-    public function getCertificado($id,$proc){
+    public function getCertificado($id){
         $respuesta = array();
         $id = $id;
-        $proc = $proc;
         $conn = $this->db->connect();        
-        $query = $conn->prepare("SELECT CONCAT(U.nombres,' ', U.apellido_paterno,' ',U.apellido_materno ),U.documento,
-            CONCAT(U.direccion,', ', CM.descripcion,', Región ', RG.descripcion), M.n_chip,nombre, P.fecha_atencion, P.fecha_prox, V.descripcion, 
-            P.dosis, C.descripcion, M.fecha_nac,
-YEAR(CURDATE())-YEAR(M.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(M.fecha_nac,'%m-%d'), 0 , -1 ) AS EDAD
-,P.peso, P.observaciones, id_proc, R.descripcion raza, M.fecha_nac, tm.descripcion tipo
-        FROM procedimiento P, mascota M, vacunas V, controles C, raza R, tipo_mascota tm, usuario U, comuna CM, region RG
-WHERE P.id_mascot = '".$id."'
-AND P.id_proc = '".$proc."'
-AND P.id_mascot = M.id_mascot
-AND P.id_vac = V.id_vac
-AND P.id_control = C.id_control
-AND R.id_raza = M.raza
-AND tm.id_tmasc = M.tipo_mascota
-AND M.id_propietario = U.id_usr
-AND U.comuna = CM.id_com
-AND RG.id_reg = CM.id_reg_region");
+        $query = $conn->prepare( "select 
+        CONCAT(U.nombres,' ',U.apellido_paterno,' ',U.apellido_materno) duenio,
+        U.documento,
+        CONCAT(U.direccion,', ',CM.descripcion,', Región ',RG.descripcion) direccion,
+        M.n_chip,
+        M.nombre,
+        P.fecha_atencion,
+        P.fecha_prox,
+        V.descripcion,
+        P.dosis,
+        C.descripcion,
+        M.fecha_nac,
+        YEAR(CURDATE()) - YEAR(M.fecha_nac) + IF(
+                DATE_FORMAT(CURDATE(), '%m-%d') > DATE_FORMAT(M.fecha_nac, '%m-%d'),
+                0,
+                -1) AS EDAD,
+        P.peso,
+        P.observaciones,
+        P.id_proc,
+        R.descripcion raza,
+        M.fecha_nac,
+        tm.descripcion tipo,
+        CONCAT(vet.nombres,' ',vet.apellido_paterno,' ',vet.apellido_materno) vet
+        FROM procedimiento P
+        inner join mascota M on M.id_mascot = P.id_mascot 
+        left outer join vacunas V on V.id_vac = P.id_vac
+        inner join controles C on C.id_control = P.id_control
+        inner join raza R on R.id_raza = M.raza
+        inner join tipo_mascota tm on tm.id_tmasc = M.tipo_mascota
+        inner join usuario U on U.id_usr = M.id_propietario
+        inner join comuna CM on CM.id_com = U.comuna
+        inner join region RG on RG.id_reg = CM.id_reg_region
+        inner join usuario vet on vet.id_usr = P.id_vet
+        WHERE P.id_mascot = '".$id."'
+        AND P.id_proc = (select max(id_proc) from procedimiento where id_mascot = '".$id."')");
         $query->execute();
         $rs = $query->get_result();
         
@@ -192,7 +210,3 @@ public function cargatipomascota(){
 }    
 
 }
-
-
-
-    ?>

@@ -22,9 +22,8 @@ class historialmascota extends Controller{
 
     function certificadomascota($param = null){
         $idmascot = $param[0];
-        $idproc = $_GET['proc'];
         $historial = [];
-        $historial = $this->model->getCertificado($idmascot,$idproc);
+        $historial = $this->model->getCertificado($idmascot);
         $this->view->historial = $historial;
         $this->view->render('historialmascota/certificadomascota');
     }

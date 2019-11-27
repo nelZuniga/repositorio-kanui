@@ -54,6 +54,7 @@
       <div class="well well-sm">
         <form class="form-horizontal" method="post" action="<?php echo constant('URL') ?>atiendemascota/atiendeMascota">
           <input type="hidden" id="idmascot" name="idmascot" value="<?php echo  $this->mascota['id_mascot'] ?>">
+          <input type="hidden" id="idvet" name="idvet" value="<?php echo  $_SESSION['id_usr'] ?>">
           <div class="container">
 
             <div class="row">
