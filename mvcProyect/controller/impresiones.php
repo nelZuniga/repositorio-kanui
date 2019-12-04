@@ -24,7 +24,7 @@ class Impresiones extends Controller{
     function inscripcion($param = 0){
         $id_proc= $param[0];
         $atencion = [];
-        $atencion = $this->model->getHistorialMascota($id_proc);
+        $atencion = $this->model->getInsMascota($id_proc);
         $this->view->atencion = $atencion;
         $this->view->render('impresiones/inscripcion');
     }

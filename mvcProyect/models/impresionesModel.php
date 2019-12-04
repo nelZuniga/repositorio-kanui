@@ -25,5 +25,38 @@ while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se
 return $respuesta;//devuelves el arreglo
 
 }
+
+public function getInsMascota($id){
+    $respuesta = array();
+    $id = $id;
+    $conn = $this->db->connect(); 
+    $consulta = "select
+    id_mascot,
+    n_chip, 
+    nombre, 
+    ra.descripcion, 
+    u.nombres, 
+    u.apellido_paterno, 
+    u.apellido_materno,
+    DATE_FORMAT(ma.fecha_crea,'%d/%m/%Y') as creacion,
+    DATE_FORMAT(ma.fecha_nac,'%d/%m/%Y') as nacimiento
+    from mascota ma
+    inner join raza ra on ra.id_raza = ma.raza
+    inner join usuario u on u.id_usr = ma.id_propietario
+    WHERE ma.id_mascot = ?";       
+    $query = $conn->prepare($consulta);
+    $ss = 'i';
+    $query->bind_param($ss,$id);
+    $query->execute();
+    $rs = $query->get_result();
+while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se hace un array push, esto para concatenar
+    //los resultados
+    array_push($respuesta, $row);
+}
+return $respuesta;//devuelves el arreglo
+
+}
+
+
 }
 ?>

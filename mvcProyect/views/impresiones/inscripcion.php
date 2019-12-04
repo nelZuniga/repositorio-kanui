@@ -9,7 +9,6 @@ if(!isset($_SESSION))
     } 
 }
 ?>
-<?php var_dump($this->atencion);?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>CSS/css.css"> 
     
@@ -54,6 +53,17 @@ if(!isset($_SESSION))
         display: none !important;
     }
 
+    .bg{
+        background-image: url('<?php echo constant('URL') ?>public/img/logo-2kanui.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 380px;
+        position: absolute;
+        width: 900px;
+        opacity: 0.6;
+        -webkit-print-color-adjust: exact;
+    }
+
 }
     </style>
 
@@ -72,7 +82,8 @@ if(!isset($_SESSION))
     <div class="bg"></div>
     <div class="row" style="margin-top: 100px;">
         <div class="col-12">
-            Certifico la inscripci&oacute;n en la plataforma Kanui de la Mascota, , Nº de chip , Perteneciente al Usuario , el dia .
+            Certifico la inscripci&oacute;n en la plataforma Kanui de la Mascota <b><?php echo $this->atencion[0]['nombre']?></b>, Raza <b><?php echo $this->atencion[0]['descripcion']?> </b>, Nº de chip <b><?php echo $this->atencion[0]['n_chip']?></b>, 
+            Perteneciente al Usuario <b><?php echo $this->atencion[0]['nombres'] .' '.$this->atencion[0]['apellido_paterno'].' '.$this->atencion[0]['apellido_materno']?></b>, el dia <b><?php echo $this->atencion[0]['creacion']?></b>.
         </div>
     </div>
 
@@ -84,8 +95,10 @@ if(!isset($_SESSION))
 
         </div>
 
-        <div class="col-6">
-            
+        <div class="col-6" align="center">
+        _________________________________<br>
+            <?php echo $_SESSION['nombres'].' '.$_SESSION['apellido_paterno'];?><br>
+            Dueño
         </div>
     </div>
     

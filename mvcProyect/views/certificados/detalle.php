@@ -4,6 +4,7 @@
 ?>
 <script>
     function printInscripcion(valor) {
+        //console.log(valor);
     var pagina = '<?php echo constant('URL') ?>Impresiones/inscripcion/'+valor;
     /*window.open(pagina,'',"height=600, width=400")
             }*/
@@ -39,7 +40,7 @@
         <div class="col-md-8">
             <div class="container">
                 <div class="row" style="margin:20px">
-                    <div class="col-md-12"><button class="btn btn-verde" onclick="printInscripcion(<?php $this->mascota['id_mascot'] ?>)">Certificado de inscripcion</button></div>
+                    <div class="col-md-12"><button class="btn btn-verde" onclick="printInscripcion('<?php echo $this->mascota['id_mascot'] ?>')">Certificado de inscripcion</button></div>
                 </div>
 
                 <div class="row" style="margin:20px">
