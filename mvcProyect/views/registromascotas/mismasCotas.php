@@ -126,10 +126,10 @@
                         }else{
                         response = JSON.parse(response);
                         var tabla = '<div class="container">';
-
+                        tabla +='<div class="row">';
                         $.each(response.data.mascotas, function(key, value) {
                             //console.log(value);
-                            tabla +='<div class="col-md-2">';
+                            tabla +='<div class="col-md-4">';
                             tabla +='<div class="card" style="width: 13rem;" align="center">';
                             tabla += '<div align="center" class="btnedita"><a href="<?php echo constant('URL') ?>edicionmascota/editarmascota/'+value[0]+'"><img src="<?php echo constant('URL').'views/imagenes/iconos/Pencil_32px.png' ?>" ></a></div>';
                             if(value[8]== ""){
@@ -145,6 +145,7 @@
                             tabla +='</div>';
                             tabla +='</div>';
                         })
+                        tabla +='</div>';
                         tabla += '</div>';
                         $("#Mascotas").append(tabla);
                         }

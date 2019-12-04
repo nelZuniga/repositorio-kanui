@@ -20,10 +20,11 @@ class atiendeMascota extends Controller{
         $FechaPA = $_POST['FechaPA'];
         $id_control = $_POST['id_control'];
         $observacionA = $_POST['observacionA'];
-        $tipos = $this->model->atiendeMascota($idmascot,$pesoM,$id_vac,$dosis,$FechaPA,$id_control,$observacionA);
+        $id_vet = $_POST['idvet'];
+        $tipos = $this->model->atiendeMascota($idmascot,$pesoM,$id_vac,$dosis,$FechaPA,$id_control,$observacionA,$id_vet);
         //PARCHE CURITA
         $url = "";
-        echo "<script>window.location.href='".constant('URL')."atencionmascota';</script>";
+        echo "<script>window.location.href='".constant('URL')."historialmascota/certificadomascota/".$idmascot."';</script>";
 
         //PARCHE CURITA
 

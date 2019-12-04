@@ -86,10 +86,10 @@
       <a data-scroll class="nav-link" role="navigation" style="text-align: right" href="#mobile" data-scroll-nav="1">Kanui mobile</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" role="navigation" style="text-align: right" href="#acerca" data-scroll-nav="2">Sobre nosotros</a>
+      <a class="nav-link" role="navigation" style="text-align: right" href="#acerca" data-scroll-nav="2">Servicios</a>
     </li>
   <li class="nav-item">
-      <a class="nav-link" role="navigation" style="text-align: right" href="#socios" data-scroll-nav="3">Nuestros socios</a>
+      <a class="nav-link" role="navigation" style="text-align: right" href="#socios" data-scroll-nav="3">Sobre nosotros</a>
     </li>
   <li class="nav-item">
       <span style="width:150px"></span>

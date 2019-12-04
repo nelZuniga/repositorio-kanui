@@ -61,6 +61,9 @@ if(!isset($_SESSION))
         }
 
         $(document).ready(function($) {
+            $("#ayuda").click(function(){
+                window.open('<?php echo constant('URL') ?>ayudaKanui/ayuda Kanui.html',"Ayuda","width=1500,height=1500","_top")
+            });
 
             $(".sidebar-dropdown > a").click(function() {
                 $(".sidebar-submenu").slideUp(200);
@@ -801,7 +804,7 @@ select{
                                 </li>
                                 <li>
                                     
-                                    <a href="#">
+                                    <a href="<?php echo constant('URL') ?>Certificados">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Activity History_32px.png' ?>" > 
                                     Certificados
                                     </a>
@@ -860,7 +863,7 @@ select{
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/paw.png' ?>" >
-                            <span>Mascotas_U</span>
+                            <span>Mascotas</span>
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -924,7 +927,12 @@ select{
 <!-------------
     Fin Menú de Mantenedores
 ---------->
-                    
+                        <li class="sidebar-dropdown" style="position: absolute;bottom: 0;">
+                        <a href="#" id="ayuda">
+                            <img src="<?php echo constant('URL').'views/imagenes/iconos/help_32px.png' ?>" >
+                            <span>Ayuda</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- sidebar-menu  -->

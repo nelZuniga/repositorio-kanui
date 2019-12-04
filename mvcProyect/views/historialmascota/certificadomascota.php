@@ -19,9 +19,23 @@
     Swal.close();
   }
 
+
   function prinlist(){
     window.print();
   }
+  $(document).ready(function(){
+    prinlist();
+  });
+
+  window.onafterprint = function(){
+    Swal.fire(
+  'Atencion',
+  'la atencion ha sido finalizada con exito',
+  'success'
+  ).then((result) => {
+    window.location.href = '<?php echo constant('URL')?>atencionmascota';
+  })
+}
 </script>
 
 <style>
@@ -74,19 +88,7 @@
   <?php foreach ($this->historial as $r => $valor) :  
     
     endforeach ?>
-  <?php 
-    if(isset($valor[0])){
-      echo "<div class='encabezatext'><div><h5>Nombre del propietario: '".$valor[0]."'</h5></div>";
-    }
-    if(isset($valor[10])){
-      echo "<div><h5>Fecha de atención: ".date("d/m/Y", strtotime($valor[5]))."</h5></div>";
-    }
-    if(isset($valor[11])){
-      echo "<div><h5>Mascota: ".$valor[4]."</h5></div></div>";
-    }
-  ?>
-  <button type="button" class="btn btn-verde no-print" data-toggle="modal" data-target="#ModalImprimir" onclick="prinlist()"><div>Imprimir<br>Listado</div><img style="filter: invert(1);margin-left:10px" src="https://img.icons8.com/ios/50/000000/print.png" title="Imprimir consulta"></button>
-</div>
+  </div>
   <div class="col-md-12">
     <div class="col-md-12">
       <div class="row">
@@ -167,7 +169,8 @@
           Dosis aplciada:<input readonly type="text" class="form-control" value="<?php echo $valor[8]; ?>">
         </div>        
         <div class="col-md-6 form-group">
-          Adhiera sticker aquí:<input readonly type="text" class="form-control" value="">
+          Comprobante Vacuna:
+          <div style="border: dashed #c3c3c3 2px;height: 60px;"></div>
         </div>        
       </div>
     </div>
@@ -175,16 +178,16 @@
 
 
 
-      <div class="col-md-12" id="resBusqueda" style="height:400px; overflow: auto; border: 1px solid black; padding-left:0;">
+      <div class="col-md-12" id="resBusqueda" style="overflow: auto; padding-left:0;">
         <table width="100%" style="margin:5px" class="tablaBusqueda table table-striped">
           <tr colspan="2">
             <th style="width:100%">Datos médico veterinario</th>
           </tr>
           <tr>
-              <td>NOMBRE</td>
+              <td>Veterinario : <?php echo $valor[18]; ?></td>
           </tr>
           <tr>
-              <td>FIRMA</td>
+              <td>Firma :</td>
           </tr>     
         </table>
       </div>
