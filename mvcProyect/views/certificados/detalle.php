@@ -2,7 +2,22 @@
 <?php 
 //var_dump($this->mascota);
 ?>
+<script>
+    function printInscripcion(valor) {
+    var pagina = '<?php echo constant('URL') ?>Impresiones/inscripcion/'+valor;
+    /*window.open(pagina,'',"height=600, width=400")
+            }*/
 
+
+    Swal.fire({
+      html: '<iframe src="' + pagina + '" width="800" height="800"></iframe>',
+      width:800,
+      padding:0,
+      height:800,
+      showConfirmButton: false
+    })
+  }
+</script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -24,7 +39,7 @@
         <div class="col-md-8">
             <div class="container">
                 <div class="row" style="margin:20px">
-                    <div class="col-md-12"><button class="btn btn-verde">Certificado 1</button></div>
+                    <div class="col-md-12"><button class="btn btn-verde" onclick="printInscripcion(<?php $this->mascota['id_mascot'] ?>)">Certificado de inscripcion</button></div>
                 </div>
 
                 <div class="row" style="margin:20px">
