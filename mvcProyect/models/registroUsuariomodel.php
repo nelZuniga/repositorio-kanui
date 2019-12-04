@@ -176,5 +176,20 @@ class RegistroUsuarioModel extends Model{
         return $retorno;
     }
 
+    public function actualizaClave($data){
+        $conn = $this->db->connect();
+        $query = $conn->prepare("update sys_log
+        set sys_pwd = ?
+        where id_usr = ?");
+                    $ss = 'ss';
+        $query->bind_param($ss, $data['contraseña'], $data['id_usr']);
+        $retorno = false;
+        if($query->execute()){
+                $retorno = true;
+        };
+        return $retorno;
+    }
+
+
 }
 ?>

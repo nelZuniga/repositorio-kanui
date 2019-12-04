@@ -734,8 +734,8 @@ select{
                 ?>
                     </div>
                 <div class="user-info">
-                    <span class="user-name"><?php echo $_SESSION['nombres'] ?>
-                        <strong><?php echo $_SESSION['apellido_paterno'] ?></strong>
+                    <strong><span class="user-name"><?php echo $_SESSION['nombres'] ?>
+                        <?php echo $_SESSION['apellido_paterno'] ?></strong>
                     </span>
                     <span class="user-role">Administrador</span>
                     <span class="user-status">

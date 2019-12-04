@@ -107,6 +107,28 @@ class registroUsuario extends Controller{
         }
     }
 
+    function actualizaClave(){
+        //$tipousr = $_POST['rol_id'];
+        $id_usr = $_POST['id_usrclave'];
+        $contraseña = $_POST['pass'];
+        $contraseña = base64_encode($contraseña);
+        $usuario = ['id_usr'=> $id_usr,'contraseña' => $contraseña];
+        $retorno = $this->model->actualizaClave($usuario);
+        if($retorno){
+            //echo '<script>alert("Conrtaseña Actualizado con Éxito");</script>';
+            session_start();
+            if($_SESSION['tipo_usr'] == 2){
+                $this->view->render('usuario/user_prof');
+            }else{
+                header("location:".constant('URL').edicionusuario."");
+            }
+            
+            
+        }else{
+            $this->render();
+        }
+    }    
+
     function correo($mail){
         $correoHTML = '<!DOCTYPE html>
         <html lang="en">

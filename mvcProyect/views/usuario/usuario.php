@@ -373,10 +373,10 @@
       <div class="col-md-6">
         <h5>Datos de usuario.</h5>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-3">
+      </div>
     </div>
   </div>
-
   <div class="container-fluid mascotas" id="mascotas" style="margin-top:20px">
     <div class="col-md-12">
       <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>registroUsuario/actualizaUsuario">
@@ -384,46 +384,49 @@
         <input type="hidden" id="baseimg" name="baseimg">
         <input type="hidden" name="id_usr" id="id_usr">
         <input type="hidden" name="tipo_usr" id="tipo_usr" value="<?php echo $_SESSION['tipo_usr'] ?>">
-
-
-
         <div class="row">
           <div class="col-md-9">
             <div class="container">
               <div class="row">
-                <div class="col-md-6"><label for="nombres_id" class="control-label" style="margin-top: 13px;">Nombres</label><br>
-                <input type="text" class="form-control letras" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required value="<?php echo $_SESSION['nombres'] ?>">
+                <div class="col-md-6">
+                  <label for="nombres_id" class="control-label" style="margin-top: 13px;">Nombres</label>
+                  <br>
+                  <input type="text" class="form-control letras" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required value="<?php echo $_SESSION['nombres'] ?>">
                 </div>
-                <div class="col-md-6"><label for="ApellidoP_id" style="margin-top: 13px;" class="control-label">Apellido Paterno</label><br>
-                <input type="text" class="form-control" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required value="<?php echo $_SESSION['apellido_paterno'] ?>">
+                <div class="col-md-6">
+                  <label for="ApellidoP_id" style="margin-top: 13px;" class="control-label">Apellido Paterno</label>
+                  <br>
+                  <input type="text" class="form-control" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required value="<?php echo $_SESSION['apellido_paterno'] ?>">
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                <label for="apellidoM_id" class="control-label" style="margin-top: 13px;">Apellido Materno</label><br>
-                <input type="text" class="form-control" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required value="<?php echo $_SESSION['apellido_materno'] ?>">
+                  <label for="apellidoM_id" class="control-label" style="margin-top: 13px;">Apellido Materno</label>
+                  <br>
+                  <input type="text" class="form-control" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required value="<?php echo $_SESSION['apellido_materno'] ?>">
                 </div>
                 <div class="col-md-6">
-                  <label for="txtrut" class="control-label" style="margin-top: 13px;">Rut</label><br>
+                  <label for="txtrut" class="control-label" style="margin-top: 13px;">Rut</label>
+                  <br>
                   <input type="text" class="form-control rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required value="<?php echo $_SESSION['documento'] ?>">
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-3  form-group" align="center">Agregar imagen<br>
-                        <label for="file-input" title="Presione para agregar imagen">
-                          <img id="pre" style="width:150px; height;150px">
-                          <canvas id="muestra" width="150" height="150" style="display:none">
-                        </canvas>
-                      </label>
-                      <br>
-              <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" /></div>
-              </div>
+            <label for="file-input" title="Presione para agregar imagen">
+              <img id="pre" style="width:150px; height;150px">
+              <canvas id="muestra" width="150" height="150" style="display:none">
+              </canvas>
+            </label>
+            <br>
+            <input name="file-input" style="display:none" accept="image/x-png,image/gif,image/jpeg" id="file-input" type="file" class="form-control" />
+          </div>
         </div>
-        <div class="form-group col-md-8">
-          <!-- rut -->
-          <div class="row col-md-8">
-            <label for="correo" class="control-label" id="correo" name="correo">Correo electrónico</label>
+      <div class="form-group col-md-12">
+        <!-- rut -->
+        <div class="row col-md-6">
+          <label for="correo" class="control-label" id="correo" name="correo">Correo electrónico</label>
           </div>
           <div class="row col-md-8">
             <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingese su E-mail" onblur="checkCorreo(this)" required value="<?php echo $_SESSION['correo'] ?>">
@@ -488,14 +491,17 @@
               </tr>
             </table>
           </center>
-
+</form>
           <!-- contraseña-->
           <!-- repetir contraseña-->
 
           <HR />
           <BR>
-
-          <!--<div class="container">
+  <div class="container-fluid mascotas" id="mascotas" style="margin-top:20px">
+    <div class="col-md-12">
+      <form method="POST" onsubmit="comprobar()" name="nuevaclave" id="nuevaclave" action="<?php echo constant('URL') ?>registroUsuario/actualizaClave">
+        <input type="hidden" name="id_usrclave" id="id_usrclave" value="<?php echo $_SESSION['id_usr'] ?>">
+    <div class="container">
     <div class="row">
       <div class="col-md-6">
         <h5>Actualización de contraseña.</h5>
