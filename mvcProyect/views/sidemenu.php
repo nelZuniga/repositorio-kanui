@@ -804,7 +804,7 @@ select{
                                 </li>
                                 <li>
                                     
-                                    <a href="<?php echo constant('URL') ?>Certificados">
+                                    <a href="<?php echo constant('URL') ?>certificados">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Activity History_32px.png' ?>" > 
                                     Certificados
                                     </a>

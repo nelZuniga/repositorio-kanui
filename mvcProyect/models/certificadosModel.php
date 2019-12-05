@@ -1,5 +1,5 @@
 <?php
-class CertificadosModel extends Model{
+class certificadosModel extends Model{
 
     public function __construct()
     {

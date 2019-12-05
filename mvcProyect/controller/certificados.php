@@ -1,6 +1,5 @@
-
 <?php
-class Certificados extends Controller{
+class certificados extends Controller{
 
     function __construct()
     {
@@ -13,7 +12,7 @@ class Certificados extends Controller{
         $this->view->render('certificados/index');
     }
 
-    function certificadosDetalle($param = null){
+    function certificadosdetalle($param = null){
         $idmascot = $param[0];
         $mascota = [];
         $mascota = $this->model->getCardMascota($idmascot);
