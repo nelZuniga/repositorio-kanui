@@ -4,20 +4,26 @@
 ?>
 <script>
     function printInscripcion(valor) {
-        //console.log(valor);
     var pagina = '<?php echo constant('URL') ?>Impresiones/inscripcion/'+valor;
-    /*window.open(pagina,'',"height=600, width=400")
-            }*/
+        Swal.fire({
+            html: '<iframe src="' + pagina + '" width="800" height="800"></iframe>',
+            width:800,
+            padding:0,
+            height:800,
+            showConfirmButton: false
+        })
+    }
 
-
-    Swal.fire({
-      html: '<iframe src="' + pagina + '" width="800" height="800"></iframe>',
-      width:800,
-      padding:0,
-      height:800,
-      showConfirmButton: false
-    })
-  }
+    function printCarne(valor) {
+    var pagina = '<?php echo constant('URL') ?>Impresiones/vacunas/'+valor;
+        Swal.fire({
+            html: '<iframe src="' + pagina + '" width="800" height="800"></iframe>',
+            width:800,
+            padding:0,
+            height:800,
+            showConfirmButton: false
+        })
+    }
 </script>
 <div class="container-fluid">
     <div class="row">
@@ -44,7 +50,7 @@
                 </div>
 
                 <div class="row" style="margin:20px">
-                    <div class="col-md-12"><button class="btn btn-verde">Certificado 1</button></div>
+                    <div class="col-md-12"><button class="btn btn-verde" onclick="printCarne('<?php echo $this->mascota['id_mascot'] ?>')">Carnet de vacunas</button></div>
                 </div>
 
                 <div class="row" style="margin:20px">

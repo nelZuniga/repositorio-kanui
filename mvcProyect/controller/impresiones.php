@@ -31,8 +31,11 @@ class Impresiones extends Controller{
 
     function vacunas($param = 0){
         $id_proc= $param[0];
+        $mascota = [];
         $atencion = [];
-        $atencion = $this->model->getHistorialMascota($id_proc);
+        $mascota = $this->model->getInsMascota($id_proc);
+        $atencion = $this->model->getVacunas($id_proc);
+        $this->view->mascota = $mascota;
         $this->view->atencion = $atencion;
         $this->view->render('impresiones/vacunas');
     }

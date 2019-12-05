@@ -57,6 +57,30 @@ return $respuesta;//devuelves el arreglo
 
 }
 
+public function getVacunas($id){
+    $respuesta = array();
+    $id = $id;
+    $conn = $this->db->connect(); 
+    $consulta = "Select vac.descripcion, proc.fecha_atencion, fu.nombres, fu.apellido_paterno
+    from mascota ma
+    inner join usuario u on u.id_usr = ma.id_propietario
+    inner join procedimiento proc  on proc.id_mascot = ma.id_mascot
+    inner join usuario fu on fu.id_usr = proc.id_vet
+    inner join vacunas vac on vac.id_vac = proc.id_vac
+    where ma.id_mascot = ?";       
+    $query = $conn->prepare($consulta);
+    $ss = 'i';
+    $query->bind_param($ss,$id);
+    $query->execute();
+    $rs = $query->get_result();
+while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se hace un array push, esto para concatenar
+    //los resultados
+    array_push($respuesta, $row);
+}
+return $respuesta;//devuelves el arreglo
+
+}
+
 
 }
 ?>
