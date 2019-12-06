@@ -43,10 +43,11 @@ public function regCorreo($data){
 public function getdata($data){
         
     $conn = $this->db->connect();
-        $query = $conn->prepare("SELECT nombres, apellido_paterno, apellido_materno, documento, correo
-        from usuario
-        where id_usr = ?");
-
+        $query = $conn->prepare("SELECT u.nombres, u.apellido_paterno, u.apellido_materno, u.documento, u.correo, c.descripcion as comuna, r.descripcion as region
+        from usuario u
+        left outer join comuna c on c.id_com = u.comuna
+        inner join region r on r.id_reg = c.id_reg_region
+        where id_usr =  ?");
         $dtype = "i";
         $query->bind_param($dtype,$data['usr']);
         $query->execute();
@@ -58,7 +59,9 @@ public function getdata($data){
             "apellido_paterno"=> $row['apellido_paterno'],
             "apellido_materno"=>$row['apellido_materno'],
             "documento"=>$row['documento'], 
-            "correo"=>$row['correo']];
+            "correo"=>$row['correo'],
+            "comuna"=>$row['comuna'],
+            "region"=>$row['region']];
         }
         header('Content-Type: application/json');
         echo json_encode($rest);

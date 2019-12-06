@@ -43,6 +43,7 @@ class api extends Controller{
         //urldecode($_GET);
         $usr = $_GET['usr'];
         $pss = $_GET['pss'];
+        $pss = base64_encode($pss);
         $log = ['usr'=>$usr,'pss'=>$pss];
         
         $rest = $this->model->login($log);
