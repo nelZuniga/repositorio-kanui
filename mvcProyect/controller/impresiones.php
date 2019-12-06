@@ -1,6 +1,6 @@
 
 <?php
-class Impresiones extends Controller{
+class impresiones extends Controller{
 
     function __construct()
     {
@@ -39,6 +39,14 @@ class Impresiones extends Controller{
         $this->view->atencion = $atencion;
         $this->view->render('impresiones/vacunas');
     }
+
+    function declaracion($param = 0){
+        $id_proc= $param[0];
+        $declaracion = [];
+        $declaracion = $this->model->getDecMascota($id_proc);
+        $this->view->declaracion = $declaracion;
+        $this->view->render('impresiones/declaracion');
+    }    
 
 }
 ?>

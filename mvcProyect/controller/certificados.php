@@ -12,7 +12,7 @@ class certificados extends Controller{
         $this->view->render('certificados/index');
     }
 
-    function certificadosdetalle($param = null){
+    function certificadosDetalle($param = null){
         $idmascot = $param[0];
         $mascota = [];
         $mascota = $this->model->getCardMascota($idmascot);
