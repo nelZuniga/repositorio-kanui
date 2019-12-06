@@ -112,7 +112,10 @@ public function getdata($data){
     public function getMascotas($data){
         $respuesta = array();
         $usuario = $data;
-        $sql = "select id_mascot,nombre,n_chip,id_propietario, sexo,tipo_mascota from mascota where id_propietario = '".$usuario."' and estado = 1";
+        $sql = "SELECT id_mascot,nombre,n_chip,id_propietario, sexo,tipo_mascota , r.descripcion
+        from mascota m
+        inner join raza r on r.id_raza = m.raza
+        where id_propietario = '".$usuario."' and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';
@@ -131,7 +134,26 @@ public function getdata($data){
     public function getMascotafull($data){
         $respuesta = array();
         $mascota = $data;
-        $sql = "select id_mascot,nombre,n_chip,id_propietario, sexo,imgMascota, observaciones from mascota where id_mascot = '".$mascota."' and estado = 1";
+        $sql = "SELECT id_mascot,
+        nombre,
+        n_chip,
+        id_propietario, 
+        s.descripcion as sexo,
+        tp.descripcion as tipo , 
+        r.descripcion as raza,
+        c.descripcion as color,
+        p.descripcion as patron,
+        TIMESTAMPDIFF( YEAR, m.fecha_nac, now() ) as anios , 
+        TIMESTAMPDIFF( MONTH, m.fecha_nac, now() ) % 12 meses , 
+        FLOOR( TIMESTAMPDIFF( DAY, m.fecha_nac, now() ) % 30.4375 ) as dias
+        from mascota m
+        inner join raza r on r.id_raza = m.raza
+        inner join sexo s on s.id_sex = m.sexo
+        inner join colores c on c.id_color = m.color
+        inner join patrones p on p.id_patron = m.patron
+        inner join tipo_mascota tp on tp.id_tmasc = m.tipo_mascota
+        where m.id_mascot = '".$mascota."'
+        and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';
