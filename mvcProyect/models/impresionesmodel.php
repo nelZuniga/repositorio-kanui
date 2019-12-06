@@ -89,7 +89,7 @@ public function getDecMascota($id){
     $consulta = "SELECT U.nombres,U.apellido_paterno,U.apellido_materno,documento,
 U.direccion, CM.descripcion as COMUNA, RG.descripcion as REGION, U.cel, U.correo , M.nombre ,
 tm.descripcion as ESPECIE, S.descripcion as SEXO, R.descripcion as RAZA, CL.descripcion as COLOR, 
-PT.descripcion as PATRON, M.fecha_nac, M.n_chip
+PT.descripcion as PATRON, DATE_FORMAT(M.fecha_nac,'%d-%m-%Y') as fecha_nac, M.n_chip, DATE_FORMAT(CURDATE(),'%d-%m-%Y') AS fecha
 FROM mascota M, raza R, tipo_mascota tm, usuario U, comuna CM, region RG, sexo S, colores CL, patrones PT
 WHERE M.id_mascot = ?
 AND R.id_raza = M.raza

@@ -21,7 +21,7 @@ if(!isset($_SESSION))
         height: 380px;
         position: absolute;
         width: 700px;
-        opacity: 0.6;
+        opacity: 0.2;
     }
     
 .printContainer{
@@ -60,7 +60,7 @@ if(!isset($_SESSION))
         height: 380px;
         position: absolute;
         width: 900px;
-        opacity: 0.6;
+        opacity: 0.2;
         -webkit-print-color-adjust: exact;
     }
 
@@ -91,7 +91,7 @@ SIMPLE </b></font></font>
 <p lang="es-ES" class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%">
 <font face="Arial, sans-serif"><font size="4" style="font-size: 14pt"><span lang="es-CL">Yo
 <b><?php echo $this->declaracion[0]['nombres'] .' '.$this->declaracion[0]['apellido_paterno'].' '.$this->declaracion[0]['apellido_materno']?></b>,
-Célula Nacional de Identidad N°<?php echo $this->declaracion[0]['documento']?>,
+Cédula Nacional de Identidad N° <?php echo $this->declaracion[0]['documento']?>,
  domiciliado en <?php echo $this->declaracion[0]['direccion']?>,
 comuna de <?php echo $this->declaracion[0]['COMUNA']?>, Región de <?php echo $this->declaracion[0]['REGION']?>,
 Teléfono <?php echo $this->declaracion[0]['cel']?> , Correo
@@ -165,13 +165,19 @@ Por el presente instrumento vengo en declarar que soy poseedor de: </b></span></
 <br></br>
 </p>
 <p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%">
-<font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">              
-    (Firma)</font></font></p>
-<p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%">
 <font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">      __________________________________</font></font></p>
 <p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%">
 <font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">      
               <?php echo $this->declaracion[0]['nombres'] .' '.$this->declaracion[0]['apellido_paterno'].' '.$this->declaracion[0]['apellido_materno']?></font></font></p>
-<p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%">
-<font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">      
-              (Nombre Declarante)</font></font></p>
+<br>
+<p lang="es-ES" class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%">
+<font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">
+<span lang="es-CL">Fecha de emisión: <?php echo $this->declaracion[0]['fecha']?> 
+</p>
+</span>
+</font></font>
+</p>
+
+<div class="printContainer no-print" onclick="prin();">
+    <a class="prin"><img src="https://img.icons8.com/ios/50/000000/print.png"></a>
+</div>
