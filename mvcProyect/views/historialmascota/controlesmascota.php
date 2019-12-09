@@ -1,7 +1,7 @@
 <?php require 'views/sidemenu.php' ?>
 <script>
   function printConsulta(valor) {
-    var pagina = '<?php echo constant('URL') ?>Impresiones/consulta/'+valor;
+    var pagina = '<?php echo constant('URL') ?>impresiones/consulta/'+valor;
     /*window.open(pagina,'',"height=600, width=400")
             }*/
 

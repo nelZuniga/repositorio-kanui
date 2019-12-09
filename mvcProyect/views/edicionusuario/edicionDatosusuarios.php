@@ -317,12 +317,10 @@
           <div class="row col-md-12">
             <label for="street2_id" class="control-label col-md-5">Dirección</label>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <label for="ciudad_id" class="control-label col-md-5">Ciudad</label>
           </div>
           <div class="row col-md-12">
             <input type="text" class="form-control col-md-5" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su dirección" required>
             <label for="espaciados" class="control-label col-md-1"></label>
-            <input type="text" class="form-control col-md-5" id="txtciudad" name="Vciudad" placeholder="Ingrese su ciudad" required>
           </div>
           <BR>
           <!-- combo region -->
