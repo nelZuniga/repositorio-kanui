@@ -136,6 +136,18 @@ class api extends Controller{
         }
     }
 
+    function updhuella(){
+        $id_usr = $_GET['id_usr'];
+        $huella = $_GET['huella'];
+        $usuario = ["id_usr"=>$id_usr,"huella"=>$huella];
+        $rest = $this->model->updhuella($usuario);
+        if($rest !== ''){
+            http_response_code(200);
+        }else{
+            http_response_code(500);
+        }
+    }
+
     function scan(){
         $id_usr = $_GET['id_usr'];
         $lat = $_GET['lat'];

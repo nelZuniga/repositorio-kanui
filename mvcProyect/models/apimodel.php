@@ -38,8 +38,26 @@ public function regCorreo($data){
     if($query->execute()){
             $retorno = true;
     };
-    return $retorno;;
+    return $retorno;
 }
+
+public function updhuella($data){
+    $conn = $this->db->connect();
+    $query = $conn->prepare("
+    UPDATE usuario SET huella = ? where id_usr = ?");
+                $ss = 'ss';
+                $query->bind_param($ss ,$data['huella'],$data['id_usr'] );
+    $retorno = false;
+    
+    if($query->execute()){
+            $retorno = true;
+    };
+    echo $retorno;
+    return $retorno;
+    
+    
+}
+
 public function getdata($data){
         
     $conn = $this->db->connect();
