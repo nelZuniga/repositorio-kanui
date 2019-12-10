@@ -48,5 +48,13 @@ class impresiones extends Controller{
         $this->view->render('impresiones/declaracion');
     }    
 
+    function viajes($param = 0){
+        $id_proc= $param[0];
+        $viajes = [];
+        $viajes = $this->model->getViajesMascota($id_proc);
+        $this->view->viajes = $viajes;
+        $this->view->render('impresiones/viajes');
+    }      
+
 }
 ?>

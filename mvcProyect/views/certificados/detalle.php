@@ -35,6 +35,17 @@
             showConfirmButton: false
         })
     }    
+
+    function printViajes(valor) {
+    var pagina = '<?php echo constant('URL') ?>impresiones/viajes/'+valor;
+        Swal.fire({
+            html: '<iframe src="' + pagina + '" width="800" height="800"></iframe>',
+            width:800,
+            padding:0,
+            height:800,
+            showConfirmButton: false
+        })
+    }     
 </script>
 <div class="container-fluid">
     <div class="row">
@@ -69,7 +80,7 @@
                 </div>
 
                 <div class="row" style="margin:20px">
-                    <div class="col-md-12"><button class="btn btn-verde">Certificado 1</button></div>
+                    <div class="col-md-12"><button class="btn btn-verde"onclick="printViajes('<?php echo $this->mascota['id_mascot'] ?>')">Certificado de viajes</button></div>
                 </div>
 
             </div>

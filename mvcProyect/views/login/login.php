@@ -181,7 +181,7 @@ var usuarioid = '';
         <div class="modal-body">
           <div class="col-lg-12">
             <div class="alert alert-info alert-dismissible">
-              <strong>Se envió la recuperación a su correo indicado!</strong> Presione <a href="http://localhost/repositorio-kanui/mvcProyect" class="alert-link">aquí</a> para continuar.
+              <strong>Se envió la recuperación a su correo indicado!</strong> Presione <a href="<?php echo constant('URL')?>" class="alert-link">aquí</a> para continuar.
             </div>
           </div>
         </div>

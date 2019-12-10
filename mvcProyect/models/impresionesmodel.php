@@ -114,5 +114,37 @@ return $respuesta;//devuelves el arreglo
 
 }
 
+public function getViajesMascota($id){
+    $respuesta = array();
+    $id = $id;
+    $conn = $this->db->connect(); 
+    $consulta = "SELECT U.nombres,U.apellido_paterno,U.apellido_materno,documento,
+U.direccion, CM.descripcion as COMUNA, RG.descripcion as REGION, U.cel, U.correo , M.nombre ,
+tm.descripcion as ESPECIE, S.descripcion as SEXO, R.descripcion as RAZA, CL.descripcion as COLOR, 
+PT.descripcion as PATRON, DATE_FORMAT(M.fecha_nac,'%d-%m-%Y') as fecha_nac, M.n_chip, DATE_FORMAT(CURDATE(),'%d-%m-%Y') AS fecha
+FROM mascota M, raza R, tipo_mascota tm, usuario U, comuna CM, region RG, sexo S, colores CL, patrones PT
+WHERE M.id_mascot = ?
+AND R.id_raza = M.raza
+AND tm.id_tmasc = M.tipo_mascota
+AND M.id_propietario = U.id_usr
+AND U.comuna = CM.id_com
+AND RG.id_reg = CM.id_reg_region
+AND M.sexo = S.id_sex
+AND M.color = CL.id_color
+AND M.patron = PT.id_patron";
+
+    $query = $conn->prepare($consulta);
+    $ss = 'i';
+    $query->bind_param($ss,$id);
+    $query->execute();
+    $rs = $query->get_result();
+while($row = mysqli_fetch_array($rs)){//en el while por cada vuelta del ciclo se hace un array push, esto para concatenar
+    //los resultados
+    array_push($respuesta, $row);
+}
+return $respuesta;//devuelves el arreglo
+
+}
+
 }
 ?>
