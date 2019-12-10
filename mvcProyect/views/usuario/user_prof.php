@@ -54,21 +54,29 @@
         <p><?php echo $_SESSION['apellido_paterno'] .' '.$_SESSION['apellido_materno'] ?></p></div>
     </div>
     <div class="row">
-        <div class="col-md-12 text-left"><label>Tipo de documento</label>
-        <p>--</p></div>
+        <div class="col-md-12 text-left"><label>Telefono</label>
+        <p><?php echo $_SESSION['cel'] ?></p></div>
     </div>
+    <div class="row">
+        <div class="col-md-12 text-left"><label>Correo electrónico</label>
+        <p><?php echo $_SESSION['correo'] ?></p></div>
+    </div>    
     <div class="row">
         <div class="col-md-12 text-left"><label>Documento</label>
         <p><?php echo $_SESSION['documento'] ?></p></div>
     </div>
     <div class="row">
         <div class="col-md-12 text-left "><label>Direccion</label>
-        <p>--</p></div>
+        <p><?php echo $_SESSION['direccion'] ?>, <?php echo $_SESSION['comuna'] ?></p></div>
     </div>
+    <BR></BR>
+<p></p>
+<BR></BR>
+<p></p>
+<BR></BR>
             </div>
         </div>
     </div>
 
 </div>
-
 <?php require 'views/footer.php';?>
