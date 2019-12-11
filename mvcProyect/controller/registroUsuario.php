@@ -207,12 +207,13 @@ class registroUsuario extends Controller{
     $mail->AddEmbeddedImage('https://www.zerodev.cl/mvcProyect//public/img/logo-2kanui.png','logo.jpg' ,'logo');
     $mail->Body = $correoHTML;
     $mail->AltBody="This is text only alternative body.";
-    if($mail->send())
-        $response = "enviado";
-    else
+    if($mail->send()){
+        //$response = "enviados";
+        echo "<script>window.location.href='".constant('URL')."login';</script>";
+    }else{
         $response = "algo malo <br><br> ". $mail->ErrorInfo;
-    exit(json_encode(array("response"=>$response)));
-
+        exit(json_encode(array("response"=>$response)));
+    }
 
 
     }
