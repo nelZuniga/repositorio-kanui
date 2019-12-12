@@ -31,7 +31,7 @@ class loginModel extends Model{
         //Sentencia Original 11-Nov-2019
         //$query = $conn->prepare("select id_usr, nombres, apellido_paterno,apellido_materno,documento, estado from usuario where id_usr = ?");
         // Nueva Sentencia 11-Nov-2019
-        $query = $conn->prepare("select U.id_usr, U.nombres, U.apellido_paterno, U.apellido_materno, U.documento, U.direccion, U.tipo_usr, C.id_com, C.descripcion, U.correo, U.cel, U.estado ,U.img_usr from usuario U, comuna C where U.comuna = C.id_com and id_usr = ?");
+        $query = $conn->prepare("select U.id_usr, U.nombres, U.apellido_paterno, U.apellido_materno, U.documento, U.direccion, U.tipo_usr, T.descripcion as desctusr, C.id_com, C.descripcion, U.correo, U.cel, U.estado ,U.img_usr from usuario U, comuna C, tipo_usuario T where U.comuna = C.id_com and id_usr = ? and U.tipo_usr = T.id_tusr");
         $dtype = "i";
         $query->bind_param($dtype,$id);
         $query->execute();
@@ -44,6 +44,7 @@ class loginModel extends Model{
             $_SESSION['apellido_materno'] = $row['apellido_materno'];
             $_SESSION['documento'] = $row['documento'];
             $_SESSION['tipo_usr'] = $row['tipo_usr'];
+            $_SESSION['desctusr'] = $row['desctusr'];
             $_SESSION['direccion'] = $row['direccion'];
             $_SESSION['id_com'] = $row['id_com'];
             $_SESSION['comuna'] = $row['descripcion'];

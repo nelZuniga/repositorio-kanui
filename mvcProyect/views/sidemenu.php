@@ -740,7 +740,7 @@ select{
                     <strong><span class="user-name"><?php echo $_SESSION['nombres'] ?>
                         <?php echo $_SESSION['apellido_paterno'] ?></strong>
                     </span>
-                    <span class="user-role">Administrador</span>
+                    <span class="user-role"><?php echo $_SESSION['desctusr'] ?></span>
                     <span class="user-status">
                         <i class="fa fa-circle"></i>
                         <span id="notificationLink">Opciones
@@ -781,6 +781,9 @@ select{
                     <li class="header-menu">
                         <span>General</span>
                     </li>
+                <?php
+                if($_SESSION['tipo_usr'] == 1){
+                    ?>
                     <li class="sidebar-dropdown">
                         <a href="#">
                         <img src="<?php echo constant('URL').'views/imagenes/iconos/Doctors Bag_32px.png' ?>" >
@@ -812,6 +815,12 @@ select{
                             </ul>
                         </div>
                     </li>
+                    <?php
+                }
+                ?>                
+             <?php
+                if($_SESSION['tipo_usr'] == 1){
+                    ?>                
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/User_32px.png' ?>" >
@@ -838,6 +847,12 @@ select{
                             </ul>
                         </div>
                     </li>
+                   <?php
+                }
+                ?>                     
+             <?php
+                if($_SESSION['tipo_usr'] == 1){
+                    ?>                           
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/paw.png' ?>" >
@@ -860,6 +875,12 @@ select{
                             </ul>
                         </div>
                     </li>
+                   <?php
+                }
+                ?>         
+             <?php
+                if($_SESSION['tipo_usr'] == 2){
+                    ?>                                   
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/paw.png' ?>" >
@@ -876,11 +897,16 @@ select{
                             </ul>
                         </div>
                     </li>
-                    
+                   <?php
+                }
+                ?>                      
 <!-------------
     Inicio Menú de Mantenedores
     12-Septiembre : Falta parametrizar por perfil de usuario
 ---------->
+             <?php
+                if($_SESSION['tipo_usr'] == 3 ){
+                    ?>    
                     <li class="sidebar-dropdown">
                         <a href="#">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/Settings_32px.png' ?>" >
@@ -924,6 +950,9 @@ select{
                             </ul>
                         </div>
                     </li>
+                   <?php
+                }
+                ?>                      
 <!-------------
     Fin Menú de Mantenedores
 ---------->
