@@ -108,9 +108,10 @@ public function getdata($data){
 
     public function getdatadueño($data){
         $conn = $this->db->connect();
-        $query = $conn->prepare("SELECT  m.nombre as nombre, u.nombres as nombres, u.apellido_paterno as apellido ,u.cel as tel
-        FROM mascota m
-        inner join usuario u on u.id_usr = m.id_propietario
+        $query = $conn->prepare("SELECT m.nombre as nombre, u.nombres as nombres, u.apellido_paterno as apellido ,u.cel as tel, u.huella as huella, ss.sys_usr
+        FROM mascota m 
+        inner join usuario u on u.id_usr = m.id_propietario 
+        inner join sys_log ss on ss.id_usr = u.id_usr
         where m.n_chip = ?");
 
         $dtype = "i";
