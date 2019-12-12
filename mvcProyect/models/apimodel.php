@@ -108,7 +108,7 @@ public function getdata($data){
 
     public function getdatadueño($data){
         $conn = $this->db->connect();
-        $query = $conn->prepare("SELECT IFNULL(m.nombre, 'false') as nombre, IFNULL(u.nombres, 'false') as nombres, IFNULL(u.apellido_paterno, 'false') as apellido ,IFNULL(u.cel, 'false') as tel, IFNULL(u.huella, 'false') as huella, IFNULL(ss.sys_usr, 'false')
+        $query = $conn->prepare("SELECT IFNULL(m.nombre, 'false') as nombre, IFNULL(u.nombres, 'false') as nombres, IFNULL(u.apellido_paterno, 'false') as apellido ,IFNULL(u.cel, 'false') as tel, IFNULL(u.huella, 'false') as huella, IFNULL(ss.sys_usr, 'false') as correo
         FROM mascota m 
         inner join usuario u on u.id_usr = m.id_propietario 
         inner join sys_log ss on ss.id_usr = u.id_usr
@@ -124,7 +124,9 @@ public function getdata($data){
             $rest = ["nombreMascota"=>$row['nombre'],
             "nombre"=> $row['nombres'],
             "apellido"=> $row['apellido'],
-            "tel"=>$row['tel']];
+            "tel"=>$row['tel'],
+            "huella"=>$row['huella'],
+            "correo"=>$row['correo']];
         }
         return $rest;
     }
