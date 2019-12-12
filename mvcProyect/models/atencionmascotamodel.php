@@ -78,7 +78,6 @@ class atencionmascotaModel extends Model{
                     where M.tipo_mascota=TM.id_tmasc
                     and M.sexo=S.id_sex
                     and M.raza=R.id_raza
-                    and P.id_mascot = M.id_mascot
                     and id_propietario = '".$usuario."' and estado = 1";
         //$sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
         $conn = $this->db->connect();
