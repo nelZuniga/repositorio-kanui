@@ -108,7 +108,7 @@ public function getdata($data){
 
     public function getdatadueño($data){
         $conn = $this->db->connect();
-        $query = $conn->prepare("SELECT m.nombre as nombre, u.nombres as nombres, u.apellido_paterno as apellido ,u.cel as tel, u.huella as huella, ss.sys_usr
+        $query = $conn->prepare("SELECT IFNULL(m.nombre, 'false') as nombre, IFNULL(u.nombres, 'false') as nombres, IFNULL(u.apellido_paterno, 'false') as apellido ,IFNULL(u.cel, 'false') as tel, IFNULL(u.huella, 'false') as huella, IFNULL(ss.sys_usr, 'false')
         FROM mascota m 
         inner join usuario u on u.id_usr = m.id_propietario 
         inner join sys_log ss on ss.id_usr = u.id_usr
