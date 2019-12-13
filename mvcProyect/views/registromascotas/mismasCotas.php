@@ -26,6 +26,20 @@
     .btnedita:hover{
         filter: brightness(0.9);
     }
+
+    .btnhistoria{
+        height: 40px;
+        width: 40px;
+        background-color: #059485;
+        position: absolute;
+        left: 1;
+        margin: 5px;
+        border-radius: 20px;
+        padding:4px;
+    }
+    .btnhistoria:hover{
+        filter: brightness(0.9);
+    }    
 </style>
 <script>
     $(document).ready(function() {
@@ -130,7 +144,8 @@
                         $.each(response.data.mascotas, function(key, value) {
                             //console.log(value);
                             tabla +='<div class="col-md-4">';
-                            tabla +='<div class="card" style="width: 13rem;" align="center">';
+                            tabla += '<div class="card" style="width: 13rem;" align="center">';
+                            tabla += '<div align="left" class="btnhistoria"><a href="<?php echo constant('URL') ?>historialmascota/controlesmascota/'+value[0]+'"><img src="<?php echo constant('URL').'views/imagenes/iconos/Activity History_32px.png' ?>" ></a></div>';                            
                             tabla += '<div align="center" class="btnedita"><a href="<?php echo constant('URL') ?>edicionmascota/editarmascota/'+value[0]+'"><img src="<?php echo constant('URL').'views/imagenes/iconos/Pencil_32px.png' ?>" ></a></div>';
                             if(value[8]== ""){
                                 tabla +='<img class="card-img-top" src="<?php echo constant('URL') ?>public/img/pata.png" alt="Card image cap" width="150">';
