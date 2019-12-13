@@ -46,11 +46,12 @@ class atencionmascotaModel extends Model{
     public function getMascota($usuario){
         $respuesta = array();
         $documento = $usuario;
-        $sql = "select M.id_mascot, M.nombre, TM.descripcion, R.descripcion, S.descripcion
-                    from mascota M, tipo_mascota TM, sexo S, raza R
+        $sql = "select DISTINCT M.id_mascot, M.nombre, TM.descripcion, R.descripcion, S.descripcion
+                    from mascota M, tipo_mascota TM, sexo S, raza R, procedimiento P
                     where M.tipo_mascota=TM.id_tmasc
                     and M.sexo=S.id_sex
                     and M.raza=R.id_raza
+                    AND P.id_mascot = M.id_mascot
                     and id_propietario = '".$usuario."' and estado = 1";
         //$sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
         $conn = $this->db->connect();

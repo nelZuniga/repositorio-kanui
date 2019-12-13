@@ -128,7 +128,7 @@
 
           
             function enviar(id,nombre,apellidoP, apellidoM, documento){
-              var url = "<?php echo constant('URL') ?>atencionmascota/getmascota2";
+              var url = "<?php echo constant('URL') ?>atencionmascota/getmascota";
               var parametrosajax = {
                   id: id
                 }
