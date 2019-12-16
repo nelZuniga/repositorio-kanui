@@ -88,6 +88,7 @@ public function getdata($data){
 
 
     public function getpet($data){
+        var_dump($data);
         $conn = $this->db->connect();
             $query = $conn->prepare("SELECT n_chip 
             FROM `mascota` WHERE n_chip = ?");
@@ -108,7 +109,7 @@ public function getdata($data){
 
     public function getdatadueño($data){
         $conn = $this->db->connect();
-        $query = $conn->prepare("SELECT IFNULL(m.nombre, 'false') as nombre, IFNULL(u.nombres, 'false') as nombres, IFNULL(u.apellido_paterno, 'false') as apellido ,IFNULL(u.cel, 'false') as tel, IFNULL(u.huella, 'false') as huella, IFNULL(ss.sys_usr, 'false') as correo
+        $query = $conn->prepare("SELECT IFNULL(u.id_usr, 'false') as idusr, IFNULL(m.nombre, 'false') as nombre, IFNULL(u.nombres, 'false') as nombres, IFNULL(u.apellido_paterno, 'false') as apellido ,IFNULL(u.cel, 'false') as tel, IFNULL(u.huella, 'false') as huella, IFNULL(ss.sys_usr, 'false') as correo
         FROM mascota m 
         inner join usuario u on u.id_usr = m.id_propietario 
         inner join sys_log ss on ss.id_usr = u.id_usr
@@ -126,7 +127,8 @@ public function getdata($data){
             "apellido"=> $row['apellido'],
             "tel"=>$row['tel'],
             "huella"=>$row['huella'],
-            "correo"=>$row['correo']];
+            "correo"=>$row['correo'],
+            "id_usr"=>$row['idusr']];
         }
         return $rest;
     }
@@ -231,6 +233,9 @@ public function getdata($data){
         if($id_mascota !== 0){
             if($resp){
                 //es el dueño ver como redirigir a carnet
+                $response = ["id_usr"=>$data['id_usr']];
+                header('Content-Type: application/json');
+                echo json_encode($response);
             }else{
                 //no es el dueño guardar localizacion y revisar datos a mostrar
                 $respuesta = $this->guardarScan($data);
@@ -308,10 +313,10 @@ public function getdata($data){
     public function getScans($data){
         $respuesta = array();
         $usuario = $data['id_usr'];
-        $sql = "select s.id_scan, s.id_usr, s.id_mascot, s.n_chip, s.lat, s.longitud, m.id_propietario, m.nombre
+        $sql = "select DATE_FORMAT(s.fecha,'%d/%m/%Y') as fecha, DATE_FORMAT(s.fecha,'%H:%i:%s') as hora,s.id_scan, s.id_usr, s.id_mascot, s.n_chip, s.lat, s.longitud, m.id_propietario, m.nombre
         from scans s
         inner join mascota m on m.id_mascot = s.id_mascot
-        where m.id_propietario = '".$usuario."'";
+        where m.id_propietario ='".$usuario."'";
         $conn = $this->db->connect();
         try{
             $resp = '';
