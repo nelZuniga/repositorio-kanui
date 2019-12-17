@@ -88,7 +88,6 @@ public function getdata($data){
 
 
     public function getpet($data){
-        var_dump($data);
         $conn = $this->db->connect();
             $query = $conn->prepare("SELECT n_chip 
             FROM `mascota` WHERE n_chip = ?");
@@ -122,7 +121,22 @@ public function getdata($data){
         $query->fetch();
         $rest = [];
         while($row = mysqli_fetch_array($rs)){
-            $rest = ["nombreMascota"=>$row['nombre'],
+
+            if (!$this->asegurador(2, $row['idusr'])){
+                $row['nombre'] = "false" ;
+                }else{
+                    $row['nombre'] = $row['nombre'];
+                }
+
+            if (!$this->asegurador(3, $row['idusr'])){
+                    $row['tel'] = "false" ;
+                }else{
+                    $row['tel'] = $row['tel'];
+                }
+
+
+            $rest = [
+            "nombreMascota"=>$row['nombre'],
             "nombre"=> $row['nombres'],
             "apellido"=> $row['apellido'],
             "tel"=>$row['tel'],
@@ -132,6 +146,7 @@ public function getdata($data){
         }
         return $rest;
     }
+
     public function getMascotas($data){
         $respuesta = array();
         $usuario = $data;
@@ -268,6 +283,28 @@ public function getdata($data){
             while($row = mysqli_fetch_array($rs)){
                 if($row[0] === $data['id_usr']){
                     $respuesta = true;
+                    return $respuesta;
+                }
+            }
+            return $respuesta;
+        }catch(PDOException $e){
+
+        }
+    }
+
+    public function asegurador($id, $usuario){
+        //para verificar el dueño de mascota y el "escaneante"
+        $sql = "SELECT val FROM seg_data where id_usr =".$usuario." and id_attr = ".$id;
+        $conn = $this->db->connect();
+        $respuesta = false;
+        try{
+            $rs = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($rs)){
+                if($row[0] == '1'){
+                    $respuesta = true;
+                    return $respuesta;
+                }else{
+                    $respuesta = false;
                     return $respuesta;
                 }
             }

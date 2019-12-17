@@ -755,6 +755,11 @@ select{
                                             </a>
                                         </li>
                                         <li>
+                                            <a class="nav-link" style="text-align: left" href="#" onclick="window.location ='<?php echo constant('URL') ?>seguridad'" href="<?php echo constant('URL') ?>seguridad">
+                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/user Shield_32px.png' ?>" width="24"  > Seguridad
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="nav-link" style="text-align: left" href="#" onclick="off_session()">
                                             <img src="<?php echo constant('URL').'views/imagenes/iconos/Exit_32px.png' ?>" width="24"  > Cerrar sesión
                                             </a>
