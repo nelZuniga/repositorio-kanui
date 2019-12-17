@@ -54,7 +54,7 @@ public function guardacomunaregion($id_com,$descripcion,$id_reg){
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                $resp = "<option value='".$row['id_reg']."'> ".utf8_encode($row['descripcion'])."</option>";
+                $resp = "<option value='".$row['id_reg']."'> ".$row['descripcion']."</option>";
                 echo $resp;
             }
             return $resp;
