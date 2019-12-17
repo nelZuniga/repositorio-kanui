@@ -252,19 +252,19 @@
             <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>register/nuevoUsuario">
               <input type="hidden" name="tusr" value="2">
               <div class="form-group">
-                <input type="text" class="form-control letras col-md-12" id="txtnombre" name="Dnombres" placeholder="Ingese su nombre" required>
+                <input type="text" class="form-control letras col-md-12" id="txtnombre" name="Dnombres" placeholder="Ingrese su nombre" required>
                 <label for="espaciados" class="control-label col-md-1"></label>
-                <input type="text" class="form-control col-md-12" id="txtapellidoP" name="DapellidoP" placeholder="Ingese su apellido paterno" required>
+                <input type="text" class="form-control col-md-12" id="txtapellidoP" name="DapellidoP" placeholder="Ingrese su apellido paterno" required>
                 <label for="espaciados" class="control-label col-md-1"></label>
-                <input type="text" class="form-control col-md-12" id="txtapellidoM" name="DapellidoM" placeholder="Ingese su apellido materno" required>
+                <input type="text" class="form-control col-md-12" id="txtapellidoM" name="DapellidoM" placeholder="Ingrese su apellido materno" required>
                 <label for="espaciados" class="control-label col-md-1"></label>
                 <input type="text" class="form-control col-md-12 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut Ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
                 <label for="espaciados" class="control-label col-md-1"></label>              
-                <input type="email" class="form-control col-md-12" id="correo" name="correo" placeholder="Ingese su E-mail" onblur="checkCorreo(this)" required>
+                <input type="email" class="form-control col-md-12" id="correo" name="correo" placeholder="Ingrese su E-mail" onblur="checkCorreo(this)" required>
                 <label for="espaciados" class="control-label col-md-1"></label>
                 <input type="text" class="form-control numeros col-md-12" id="txttelefono" name="Dtelefono" placeholder="988888888" required>              
                 <label for="espaciados" class="control-label col-md-1"></label>
-                <input type="text" class="form-control col-md-12" id="Ddireccion" name="Ddireccion" placeholder="Ingrse su direccion" required>
+                <input type="text" class="form-control col-md-12" id="Ddireccion" name="Ddireccion" placeholder="Ingrese su direccion" required>
                 <label for="espaciados" class="control-label col-md-1"></label>
                 <input type="text" class="form-control col-md-12" id="txtciudad" name="Vciudad" placeholder="Ingrese su ciudad" required>
                 <label for="espaciados" class="control-label col-md-1"></label>
