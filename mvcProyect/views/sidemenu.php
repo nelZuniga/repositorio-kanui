@@ -964,7 +964,7 @@ select{
 <!-------------
     Fin Menú de Mantenedores
 ---------->
-                        <li class="sidebar-dropdown" style="position: absolute;bottom: 0;">
+                        <li class="sidebar-dropdown" style="position: inherit;bottom: 0;">
                         <a href="#" id="ayuda">
                             <img src="<?php echo constant('URL').'views/imagenes/iconos/Help_32px.png' ?>" >
                             <span>Ayuda</span>
