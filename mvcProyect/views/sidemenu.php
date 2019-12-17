@@ -62,7 +62,7 @@ if(!isset($_SESSION))
 
         $(document).ready(function($) {
             $("#ayuda").click(function(){
-                window.open('<?php echo constant('URL') ?>ayudaKanui/ayuda Kanui.html',"Ayuda","width=1500,height=1500","_top")
+                window.open('<?php echo constant('URL') ?>ayudaKanui/Ayuda Kanui.html',"Ayuda","width=1500,height=1500","_top")
             });
 
             $(".sidebar-dropdown > a").click(function() {
