@@ -136,10 +136,11 @@
                     type:"post",
                     data: parametrosajax,
                     success: function(response) {
+                      console.log(response);
                       cargaMascotas(response);
                     },
-                    error(){
-                      console.log("error")
+                    error(xhr, status, error){
+                      console.log(error)
                     }
                   });
             }

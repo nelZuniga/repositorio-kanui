@@ -42,57 +42,64 @@ class atencionmascotaModel extends Model{
 
         }
     }
-
+    
+   
     public function getMascota($usuario){
         $respuesta = array();
         $documento = $usuario;
-        $sql = "select DISTINCT M.id_mascot, M.nombre, TM.descripcion, R.descripcion, S.descripcion
-                    from mascota M, tipo_mascota TM, sexo S, raza R, procedimiento P
-                    where M.tipo_mascota=TM.id_tmasc
-                    and M.sexo=S.id_sex
-                    and M.raza=R.id_raza
-                    AND P.id_mascot = M.id_mascot
-                    and id_propietario = '".$usuario."' and estado = 1";
-        //$sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
+        $sql = "select  distinct M.id_mascot as id, M.nombre as nombre , TM.descripcion as tipo, R.descripcion as raza, S.descripcion as sexo
+        from mascota M 
+        left outer join tipo_mascota TM ON M.tipo_mascota=TM.id_tmasc 
+        left outer join sexo S ON S.id_sex =  M.sexo 
+        left outer join raza R ON R.id_raza = M.raza 
+        left outer join procedimiento P ON P.id_mascot = M.id_mascot
+        where id_propietario = '".$documento."' and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-                echo $resp;*/
                 $respuesta['data']['mascotas'][] = $row;
                 
             }
-            echo json_encode($respuesta);
-            return json_encode($respuesta);
+            echo json_encode($this->utf8ize( $respuesta));
+            return $respuesta;
         }catch(PDOException $e){
 
         }
     }
 
+    function utf8ize( $mixed ) {
+        if (is_array($mixed)) {
+            foreach ($mixed as $key => $value) {
+                $mixed[$key] = $this->utf8ize($value);
+            }
+        } elseif (is_string($mixed)) {
+            return mb_convert_encoding($mixed, "UTF-8", "UTF-8");
+        }
+        return $mixed;
+    }
+
     public function getMascota2($usuario){
         $respuesta = array();
         $documento = $usuario;
-        $sql = "select DISTINCT M.id_mascot, M.nombre, TM.descripcion, R.descripcion, S.descripcion
-                    from mascota M, tipo_mascota TM, sexo S, raza R, procedimiento P
-                    where M.tipo_mascota=TM.id_tmasc
-                    and M.sexo=S.id_sex
-                    and M.raza=R.id_raza
-                    and id_propietario = '".$usuario."' and estado = 1";
-        //$sql = "select id_mascot,n_chip,id_propietario, sexo,tipo_mascota,imgMascota from mascota where id_propietario = '".$usuario."' and estado = 1";
+        $sql = "select  distinct M.id_mascot as id, M.nombre as nombre , TM.descripcion as tipo, R.descripcion as raza, S.descripcion as sexo
+        from mascota M 
+        left outer join tipo_mascota TM ON M.tipo_mascota=TM.id_tmasc 
+        left outer join sexo S ON S.id_sex =  M.sexo 
+        left outer join raza R ON R.id_raza = M.raza 
+        left outer join procedimiento P ON P.id_mascot = M.id_mascot
+        where id_propietario = '".$documento."' and estado = 1";
         $conn = $this->db->connect();
         try{
             $resp = '';
             $rs = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($rs)){
-                /*$resp = "<tr><td>".$row['id_usr']."</td><td>".$row['nombres']."</td><td>".$row['apellido_paterno']."</td><td>".$row['apellido_materno']."</td></tr>";
-                echo $resp;*/
                 $respuesta['data']['mascotas'][] = $row;
                 
             }
-            echo json_encode($respuesta);
-            return json_encode($respuesta);
+            echo json_encode($this->utf8ize( $respuesta));
+            return $respuesta;
         }catch(PDOException $e){
 
         }
