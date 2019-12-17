@@ -756,7 +756,7 @@ select{
                                         </li>
                                         <li>
                                             <a class="nav-link" style="text-align: left" href="#" onclick="window.location ='<?php echo constant('URL') ?>seguridad'" href="<?php echo constant('URL') ?>seguridad">
-                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/user Shield_32px.png' ?>" width="24"  > Seguridad
+                                            <img src="<?php echo constant('URL').'views/imagenes/iconos/User Shield_32px.png' ?>" width="24"  > Seguridad
                                             </a>
                                         </li>
                                         <li>
@@ -966,7 +966,7 @@ select{
 ---------->
                         <li class="sidebar-dropdown" style="position: absolute;bottom: 0;">
                         <a href="#" id="ayuda">
-                            <img src="<?php echo constant('URL').'views/imagenes/iconos/help_32px.png' ?>" >
+                            <img src="<?php echo constant('URL').'views/imagenes/iconos/Help_32px.png' ?>" >
                             <span>Ayuda</span>
                         </a>
                     </li>
