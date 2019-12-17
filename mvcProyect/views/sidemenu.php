@@ -824,7 +824,7 @@ select{
                 }
                 ?>                
              <?php
-                if($_SESSION['tipo_usr'] == 1){
+                if($_SESSION['tipo_usr'] == 1 || $_SESSION['tipo_usr'] == 3 ){
                     ?>                
                     <li class="sidebar-dropdown">
                         <a href="#">
@@ -839,7 +839,9 @@ select{
                                     Registrar usuario
                                 </a>
                                 </li>
+                                <?php if($_SESSION['tipo_usr'] == 1) { ?>
                                 <li>
+
                                     <a href="<?php echo constant('URL') ?>edicionusuario">
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Registration_32px.png' ?>" >
                                     Editar usuario</a>
@@ -849,6 +851,7 @@ select{
                                     <img src="<?php echo constant('URL').'views/imagenes/iconos/Admin Settings Male_32px.png' ?>" >
                                     Configuración de usuarios</a>
                                 </li>
+                                <?php }?>
                             </ul>
                         </div>
                     </li>
