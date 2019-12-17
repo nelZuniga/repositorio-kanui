@@ -234,6 +234,9 @@
                 <div class="col-md-12">
                     <form method="POST" onsubmit="comprobar()" name="nuevousuario" id="nuevousuario" action="<?php echo constant('URL') ?>registroUsuario/nuevoUsuario">
                         <input type="hidden" name="tusr" value="2">
+                        <?php if($_SESSION['tipo_usr']== 1){ ?>
+                            <input type="hidden" name="rol_id" value="2"> 
+                        <?php }?>
                         <div class="form-group col-md-12">
                             <!-- nombres -->
                             <!-- apellido paterno -->
@@ -257,14 +260,18 @@
                             <div class="row col-md-12">
                                 <label for="txtrut" class="control-label col-md-4">Rut</label>
                                 <label for="espaciados" class="control-label col-md-1"></label>
+                                <?php if($_SESSION['tipo_usr']== 3){ ?>
                                 <label for="rol" class="control-label col-md-5" id="rol" name="rol">Rol de usuario</label>
+                                <?php }?>
                             </div>
                             <div class="row col-md-12">
                                 <input type="text" class="form-control col-md-4 rut" id="txtrut" name="Drut" placeholder="Ingrese Rut ej. 11222333k" pattern="\d{3,8}-[\d|kK]{1}" required>
+                                <?php if($_SESSION['tipo_usr']== 3){ ?>
                                 <label for="espaciados" class="control-label col-md-1"></label>
                                 <select class="form-control col-md-4" id="rol_id" name="rol_id" required>
                                     <option value=''>Seleccione un rol de usuario</option>
                                 </select>
+                                <?php }?>
                             </div>
                             <BR>
                             <!-- Correo -->
