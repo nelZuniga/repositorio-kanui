@@ -50,7 +50,7 @@ class historialmascotaModel extends Model{
         $query = $conn->prepare( "select 
         CONCAT(U.nombres,' ',U.apellido_paterno,' ',U.apellido_materno) duenio,
         U.documento,
-        CONCAT(U.direccion,', ',CM.descripcion,', Región ',RG.descripcion) direccion,
+        CONCAT_WS(CAST(U.direccion AS CHAR CHARACTER SET utf8),', ',CAST(CM.descripcion AS CHAR CHARACTER SET utf8),', Región ',CAST(RG.descripcion AS CHAR CHARACTER SET utf8)) direccion,
         M.n_chip,
         M.nombre,
         P.fecha_atencion,
